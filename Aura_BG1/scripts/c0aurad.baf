@@ -1,0 +1,29 @@
+// REST TALK 1
+
+IF
+    InParty(Myself)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C0AuraTalk","GLOBAL",12)
+	TimeOfDay(NIGHT)
+	!AreaType("DUNGEON")
+THEN
+  RESPONSE #100
+    SetGlobal("C0AuraRestTalk","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// REST TALK 2
+
+IF
+    InParty(Myself)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C0AuraTalk","GLOBAL",20)
+	TimeOfDay(NIGHT)
+	!AreaType("DUNGEON")
+THEN
+  RESPONSE #100
+    SetGlobal("C0AuraRestTalk","GLOBAL",2)
+	StartDialogueNoSet(Player1)
+END

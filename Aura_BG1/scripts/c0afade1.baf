@@ -1,0 +1,13 @@
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId("c0aura")
+		FadeToColor([30.0],0)
+		TakePartyItem("c0agem1")
+		DestroyItem("c0agem1")
+		GiveItemCreate("c0autt02",Player1,1,0,0)
+		Wait(2)
+		FadeFromColor([30.0],0)
+		StartDialogueNoSet(Player1)
+END 

@@ -1,0 +1,290 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("C0AutoCreated", "GLOBAL", 0)
+    ApplySpellRES("c0autos3",Myself)
+	DestroyAllEquipment()
+END
+
+IF
+	HappinessLT("C0Aura",-299)
+	!InParty("C0Aura")
+THEN
+  RESPONSE #100
+	EscapeArea()
+END
+
+IF
+  !InParty("C0Aura")
+  !Allegiance("C0Aura",ENEMY)
+  !Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+  ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  InParty("C0Aura")
+  !Dead("C0Aura")
+  !Allegiance(Myself,CONTROLLED)
+THEN
+  RESPONSE #100
+  ChangeEnemyAlly(Myself,CONTROLLED)
+END
+
+IF
+  Allegiance("C0Aura",ENEMY)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+  Enemy()
+END
+
+IF
+    StateCheck("C0Aura",STATE_REALLY_DEAD)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+	Global("Recharge","LOCALS",1)
+	!Global("Recharging","LOCALS",1)
+THEN
+	RESPONSE #25
+	SmallWait(5)
+	DisplayStringHead(Myself,~Recharging~)
+	CreateVisualEffectObject("spsmkjet",Myself)
+	SetGlobal("Recharging","LOCALS",1)
+	MakeUnselectable(6)
+	SetGlobalTimer("RechargeTimer","LOCALS",6)
+	RESPONSE #25
+	SmallWait(5)
+	DisplayStringHead(Myself,~Recharging~)
+	CreateVisualEffectObject("spsmkjet",Myself)
+	SetGlobal("Recharging","LOCALS",1)
+	MakeUnselectable(12)
+	SetGlobalTimer("RechargeTimer","LOCALS",12)
+	RESPONSE #25
+	SmallWait(5)
+	DisplayStringHead(Myself,~Recharging~)
+	CreateVisualEffectObject("spsmkjet",Myself)
+	SetGlobal("Recharging","LOCALS",1)
+	MakeUnselectable(18)
+	SetGlobalTimer("RechargeTimer","LOCALS",18)
+	RESPONSE #25
+	SmallWait(5)
+	DisplayStringHead(Myself,~Recharging~)
+	CreateVisualEffectObject("spsmkjet",Myself)
+	SetGlobal("Recharging","LOCALS",1)
+	MakeUnselectable(24)
+	SetGlobalTimer("RechargeTimer","LOCALS",24)
+END
+
+IF
+	Global("Recharge","LOCALS",1)
+	Global("Recharging","LOCALS",1)
+	GlobalTimerExpired("RechargeTimer","LOCALS")
+THEN
+	RESPONSE #100
+	SetGlobal("Recharge","LOCALS",0)
+	SetGlobal("Recharging","LOCALS",0)
+	DisplayStringHead(Myself,~Recharged~)
+	CreateVisualEffectObject("sprotect",Myself)
+END
+
+IF
+	OR(2)
+	Global("Upgrade","LOCALS",0)
+	Global("Upgrade","LOCALS",1)
+	Global("C0AUTOS4","LOCALS",1)
+	Global("Enlarge","LOCALS",0)
+THEN
+  RESPONSE #100
+	SetGlobal("Enlarge","LOCALS",1)
+	ApplySpellRES("c0autos5",Myself)
+END
+
+IF
+	Global("Upgrade","LOCALS",2)
+	Global("C0AUTOS4","LOCALS",1)
+	Global("Enlarge","LOCALS",0)
+THEN
+  RESPONSE #100
+	SetGlobal("Enlarge","LOCALS",1)
+	ApplySpellRES("c0autos6",Myself)
+END
+
+IF
+	Global("Upgrade","LOCALS",3)
+	Global("C0AUTOS4","LOCALS",1)
+	Global("Enlarge","LOCALS",0)
+THEN
+  RESPONSE #100
+	SetGlobal("Enlarge","LOCALS",1)
+	ApplySpellRES("c0autos7",Myself)
+END
+
+IF
+    StateCheck("C0Aura",STATE_IMMOBILE)
+	Global("Disabled","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Disabled","LOCALS",1)
+	DisplayStringHead(Myself,~Disabled~)
+	ReallyForceSpellRES("c0auto1",Myself)
+END
+
+IF
+    !StateCheck("C0Aura",STATE_IMMOBILE)
+	Global("Disabled","LOCALS",1)
+THEN
+RESPONSE #100
+	SetGlobal("Disabled","LOCALS",0)
+	DisplayStringHead(Myself,~Re-enabled~)
+	ReallyForceSpellRES("c0auto3",Myself)
+END
+
+IF
+	OR(4)
+    StateCheck("C0Aura",STATE_PANIC)
+    StateCheck("C0Aura",STATE_BERSERK)
+    StateCheck("C0Aura",STATE_CONFUSED)
+    StateCheck("C0Aura",STATE_CHARMED)
+	Global("Berserk","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Berserk","LOCALS",1)
+	DisplayStringHead(Myself,~Lost control~)
+	ReallyForceSpellRES("c0auto2",Myself)
+END
+
+IF
+    !StateCheck("C0Aura",STATE_PANIC)
+    !StateCheck("C0Aura",STATE_BERSERK)
+    !StateCheck("C0Aura",STATE_CONFUSED)
+    !StateCheck("C0Aura",STATE_CHARMED)
+	Global("Berserk","LOCALS",1)
+THEN
+RESPONSE #100
+	SetGlobal("Berserk","LOCALS",0)
+	DisplayStringHead(Myself,~Regained control~)
+	ReallyForceSpellRES("c0auto3",Myself)
+END
+
+IF
+	CombatCounter(0)
+	LevelGT("C0Aura",11)
+    Global("Upgrade","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	AddSpecialAbility("c0autos4")
+END
+
+IF
+	CombatCounter(0)
+	LevelGT("C0Aura",15)
+    Global("Upgrade","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",2)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0ajadel",Myself)
+	AddSpecialAbility("c0autos4")
+	AddSpecialAbility("c0autos8")
+	Polymorph(C0_AURA_AUTOMATON_JADE)
+	SetName(~Jade Automaton~)
+END
+
+IF
+	CombatCounter(0)
+	LevelGT("C0Aura",19)
+    Global("Upgrade","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",3)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0ablacl",Myself)
+	AddSpecialAbility("c0autos4")
+	AddSpecialAbility("c0autos8")
+	AddSpecialAbility("c0autosa")
+	Polymorph(C0_AURA_AUTOMATON_BLACK)
+	SetName(~Black Automaton~)
+END
+
+IF
+	CombatCounter(0)
+	LevelGT("C0Aura",15)
+    Global("Upgrade","LOCALS",1)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",2)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0ajadel",Myself)
+	Polymorph(C0_AURA_AUTOMATON_JADE)
+	AddSpecialAbility("c0autos8")
+	SetName(~Jade Automaton~)
+END
+
+IF
+	CombatCounter(0)
+	LevelGT("C0Aura",19)
+    Global("Upgrade","LOCALS",2)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",3)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ApplySpellRES("c0aupgd1",Myself)
+	ApplySpellRES("c0ablacl",Myself)
+	Polymorph(C0_AURA_AUTOMATON_BLACK)
+	AddSpecialAbility("c0autosa")
+	SetName(~Black Automaton~)
+END
+
+IF
+  !Global("C0MurasameAI","GLOBAL",1)
+  !Global("Disabled","LOCALS",1)
+  !Global("Recharge","LOCALS",1)
+  ActionListEmpty()
+  See(Nearestenemyof(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(Nearestenemyof(Myself),15)
+END
+
+IF
+  !Global("C0MurasameAI","GLOBAL",1)
+  !Global("Disabled","LOCALS",1)
+  !Global("Recharge","LOCALS",1)
+  ActionListEmpty()
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Lastattackerof(Myself),15)
+END
+
+IF
+  !Global("Recharge","LOCALS",1)
+  !Global("Disabled","LOCALS",1)
+	!Global("Berserk","LOCALS",1)
+	ActionListEmpty()
+	!See(Nearestenemyof(Myself))
+    !StateCheck("C0Aura",STATE_IMMOBILE)
+    !StateCheck("C0Aura",STATE_PANIC)
+    !StateCheck("C0Aura",STATE_BERSERK)
+    !StateCheck("C0Aura",STATE_CONFUSED)
+	!Range("C0Aura",20)
+THEN
+  RESPONSE #50
+	MoveToObjectOffset("C0Aura",[20.-20])
+END

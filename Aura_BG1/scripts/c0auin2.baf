@@ -1,0 +1,376 @@
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),1)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",1)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),2)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",2)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),3)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",3)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),4)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",4)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),5)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",5)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),6)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",6)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),7)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",7)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),8)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",8)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),9)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",9)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),10)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",10)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),11)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",11)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),12)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",12)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),13)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",13)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),14)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",14)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),15)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",15)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),16)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",16)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),17)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",17)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),18)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",18)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),19)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",19)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),20)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",20)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),21)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",21)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),22)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",22)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),23)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",23)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),24)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",24)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),25)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",25)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),26)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",26)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),27)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",27)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),28)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",28)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),29)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",29)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),30)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",30)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),31)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",31)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),32)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",32)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),33)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",33)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),34)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",34)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),35)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",35)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),36)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",36)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),37)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",37)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),38)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",38)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	Level(Lastsummonerof(Myself),39)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",39)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	LevelGT(Lastsummonerof(Myself),39)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",40)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+  Detect(Lastsummonerof(Myself))
+  !Global("C0ArtificerRuneCount","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(Lastsummonerof(Myself))
+    StartDialogueNoSet(Lastsummonerof(Myself))
+END
+
+IF
+  Detect(Lastsummonerof(Myself))
+  Global("C0ArtificerRuneCount","LOCALS",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END

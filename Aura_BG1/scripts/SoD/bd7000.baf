@@ -1,0 +1,8 @@
+IF
+	!Dead("C0Aura")
+	Global("C0AuraSpawn","BD7000",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraSpawn","BD7000",1)
+	CreateCreature("c02akoko",[2340.1801],NW)
+END

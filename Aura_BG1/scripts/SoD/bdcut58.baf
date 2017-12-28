@@ -1,0 +1,10 @@
+IF
+  Global("C02AuraKickedmdd1330","global",1)
+  !Dead("C0Aura")
+  !InParty("C0Aura")
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveGlobal("bd4400","C0Aura",[1340.1370])
+    ActionOverride("C0Aura",Face(N))
+END

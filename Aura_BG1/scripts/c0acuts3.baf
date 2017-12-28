@@ -1,0 +1,10 @@
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId("c0aura")
+		ForceSpellRES("spwi938",Myself)
+        Wait(5)
+		EndcutSceneMode()
+        ActionOverride("c0aura",StartDialogueNoSet(Player1))
+END 

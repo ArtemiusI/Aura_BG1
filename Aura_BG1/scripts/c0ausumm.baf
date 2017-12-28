@@ -1,0 +1,72 @@
+IF
+  Global("C0AutoCreated", "GLOBAL", 0)
+  !LevelGT("C0Aura",11)
+THEN RESPONSE #100
+  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
+  SetGlobal("C0AutoCreated", "GLOBAL", 1)
+  CreateCreatureObject("c0auin3a","c0aura",1,0,0)
+  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
+  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
+  ActionOverride("C0Auin3",MakeGlobalOverride())
+  SetInterrupt(FALSE)
+  Wait(1)
+  SetInterrupt(TRUE)
+  DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 0)
+  LevelGT("C0Aura",11)
+  !LevelGT("C0Aura",21)
+THEN RESPONSE #100
+  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
+  SetGlobal("C0AutoCreated", "GLOBAL", 1)
+  CreateCreatureObject("c0auin3b","c0aura",1,0,0)
+  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
+  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
+  ActionOverride("C0Auin3",MakeGlobalOverride())
+  SetInterrupt(FALSE)
+  Wait(1)
+  SetInterrupt(TRUE)
+  DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 0)
+  LevelGT("C0Aura",21)
+  !LevelGT("C0Aura",31)
+THEN RESPONSE #100
+  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
+  SetGlobal("C0AutoCreated", "GLOBAL", 1)
+  CreateCreatureObject("c0auin3c","c0aura",1,0,0)
+  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
+  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
+  ActionOverride("C0Auin3",MakeGlobalOverride())
+  SetInterrupt(FALSE)
+  Wait(1)
+  SetInterrupt(TRUE)
+  DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 0)
+  LevelGT("C0Aura",31)
+THEN RESPONSE #100
+  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
+  SetGlobal("C0AutoCreated", "GLOBAL", 1)
+  CreateCreatureObject("c0auin3d","c0aura",1,0,0)
+  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
+  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
+  ActionOverride("C0Auin3",MakeGlobalOverride())
+  SetInterrupt(FALSE)
+  Wait(1)
+  SetInterrupt(TRUE)
+  DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 1)
+THEN RESPONSE #100
+	DisplayString("c0aura",~An automaton is already currently active.~)
+	DestroySelf()
+END

@@ -1,0 +1,202 @@
+IF
+	OnCreation()
+	LevelLT(Lastsummonerof(Myself),6)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",2)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),6)
+	Level(Lastsummonerof(Myself),7)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",3)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),8)
+	Level(Lastsummonerof(Myself),9)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",4)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),10)
+	Level(Lastsummonerof(Myself),11)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",5)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),12)
+	Level(Lastsummonerof(Myself),13)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",6)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),14)
+	Level(Lastsummonerof(Myself),15)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",7)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),16)
+	Level(Lastsummonerof(Myself),17)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",8)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),18)
+	Level(Lastsummonerof(Myself),19)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",9)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),20)
+	Level(Lastsummonerof(Myself),21)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",10)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),22)
+	Level(Lastsummonerof(Myself),23)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",11)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),24)
+	Level(Lastsummonerof(Myself),25)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",12)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),26)
+	Level(Lastsummonerof(Myself),27)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",13)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),28)
+	Level(Lastsummonerof(Myself),29)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",14)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),30)
+	Level(Lastsummonerof(Myself),31)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",15)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),32)
+	Level(Lastsummonerof(Myself),33)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",16)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),34)
+	Level(Lastsummonerof(Myself),35)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",17)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),36)
+	Level(Lastsummonerof(Myself),37)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",18)
+END
+
+IF
+	OnCreation()
+	OR(2)
+	Level(Lastsummonerof(Myself),38)
+	Level(Lastsummonerof(Myself),39)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",19)
+END
+
+IF
+	OnCreation()
+	LevelGT(Lastsummonerof(Myself),39)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerAlchemy","LOCALS",20)
+END
+
+IF
+  Detect(Lastsummonerof(Myself))
+  !Global("C0ArtificerAlchemy","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(Lastsummonerof(Myself))
+    StartDialogueNoSet(Lastsummonerof(Myself))
+END
+
+IF
+  Detect(Lastsummonerof(Myself))
+  Global("C0ArtificerAlchemy","LOCALS",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END

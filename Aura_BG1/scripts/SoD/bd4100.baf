@@ -1,0 +1,29 @@
+IF
+  Global("bd_plot","global",591)
+  !GlobalTimerNotExpired("bd_mdd1352_ot_timer","bd4100")
+  Global("bd_C0Aura_ot","bd4100",0)
+  ReputationLT(Player1,10)
+  InParty("C0Aura")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_C0Aura_ot","bd4100",1)
+  RESPONSE #100
+    SetGlobal("bd_C0Aura_ot","bd4100",1)
+    SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",ONE_ROUND)
+    DisplayStringHead("C0Aura",~You... I can't believe you! I trusted you! I called you my friend!~)
+END
+
+IF
+  Global("bd_plot","global",591)
+  !GlobalTimerNotExpired("bd_mdd1352_ot_timer","bd4100")
+  Global("bd_C0Aura_ot","bd4100",0)
+  !ReputationLT(Player1,10)
+  InParty("C0Aura")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_C0Aura_ot","bd4100",1)
+  RESPONSE #100
+    SetGlobal("bd_C0Aura_ot","bd4100",1)
+    SetGlobalTimer("bd_mdd1352_ot_timer","bd4100",9)
+    DisplayStringHead("C0Aura",~No... *NO!* This is a mistake! <CHARNAME>... <CHARNAME> would never do this!~)
+END

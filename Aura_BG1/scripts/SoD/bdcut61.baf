@@ -1,0 +1,9 @@
+IF
+  InParty("C0Aura")
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    SetGlobal("C0Aura_party_epilogue","global",1)
+    ActionOverride("C0Aura",LeaveParty())
+    ActionOverride("C0Aura",DestroyAllDestructableEquipment())
+END

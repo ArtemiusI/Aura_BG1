@@ -1,0 +1,7 @@
+IF
+	OnCreation()
+  Detect(Lastsummonerof(Myself))
+THEN
+  RESPONSE #100
+    StartDialogueNoSet(Lastsummonerof(Myself))
+END

@@ -1,0 +1,25 @@
+IF
+    Range([PC],30)
+	!BeenInParty("C0Aura")
+	Global("Cutscene","LOCALS",0)
+THEN
+    RESPONSE #100
+	SetGlobal("Cutscene","LOCALS",1)
+	CreateCreatureObjectOffset("cutspy",Myself,[10.10])
+	ClearAllActions()
+	StartCutsceneMode()
+	StartCutscene("c02acut1")
+END
+
+IF
+    Range([PC],30)
+	BeenInParty("C0Aura")
+	Global("Cutscene","LOCALS",0)
+THEN
+    RESPONSE #100
+	SetGlobal("Cutscene","LOCALS",1)
+	CreateCreatureObjectOffset("cutspy",Myself,[10.10])
+	ClearAllActions()
+	StartCutsceneMode()
+	StartCutscene("c02acut2")
+END

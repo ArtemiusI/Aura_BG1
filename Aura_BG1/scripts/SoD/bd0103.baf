@@ -1,0 +1,13 @@
+IF
+  OR(2)
+    InMyArea("C0Aura")
+    InPartyAllowDead("C0Aura")
+  GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+  RESPONSE #100
+    ActionOverride("C0Aura",LeaveParty())
+	ActionOverride("PlayerChest00",TakeCreatureItems("C0Aura",BACKPACK))
+    SmallWait(1)
+    ActionOverride("C0Aura",DestroySelf())
+    Continue()
+END

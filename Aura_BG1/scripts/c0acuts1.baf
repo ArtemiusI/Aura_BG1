@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+	CutsceneId(Player1)
+	CreateCreature("cutspy",[2971.2451],N)
+	CreateCreature("c0saito",[3992.3209],S)
+	CreateCreature("c0aukagu",[3989.3258],S)
+	CreateCreature("c0auayak",[4056.3254],S)
+	CreateCreature("c0aumizu",[4021.3295],S)
+	CreateCreature("c0aukuon",[4106.3248],S)
+	SmallWait(5)
+	ActionOverride("c0saito",MoveToPoint([3321.2666]))
+	ActionOverride("c0aukagu",MoveToPoint([3375.2670]))
+	ActionOverride("c0auayak",MoveToPoint([3333.2779]))
+	ActionOverride("c0aumizu",MoveToPoint([3397.2736]))
+	ActionOverride("c0aukuon",MoveToPoint([3471.2691]))
+	Wait(6)
+	ActionOverride("C0Aura",FaceObject("c0saito")
+	Wait(2)
+	ActionOverride("C0Aura",MoveToPoint([3062.2467]))
+	ActionOverride("C0Aura",FaceObject("c0saito")
+	ActionOverride("c0saito",FaceObject("C0Aura")
+	Wait(4)
+	ActionOverride("C0Saito",StartDialogueNoSet(Player1))
+END

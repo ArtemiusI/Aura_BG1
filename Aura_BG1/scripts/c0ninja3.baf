@@ -1,0 +1,9 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+	IncrementGlobal("C0AuraEliteNinjaKilled","GLOBAL",1)
+	DisplayString(Myself,~*drops potion of explosion*~)
+	Wait(2)
+    ReallyForceSpellDead(Myself,TRAP_FIREBALL)
+END

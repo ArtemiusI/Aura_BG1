@@ -1,0 +1,288 @@
+// EXPERIENCE
+
+IF
+  Global("BD_JOINXP","LOCALS",1)
+  Global("BD_SAFEHOUSE_DONE","GLOBAL",1)
+  Global("BDSODXP","LOCALS",0)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BDSODXP","LOCALS",1)
+    SetGlobal("BD_JOINXP","LOCALS",0)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,249999)
+  XPLT(Myself,250000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,250000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,199999)
+  XPLT(Myself,200000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,200000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,160999)
+  XPLT(Myself,161000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,161000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,134999)
+  XPLT(Player1,161000)
+  XPLT(Myself,135000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,135000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,109999)
+  XPLT(Player1,135000)
+  XPLT(Myself,110000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,110000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,89999)
+  XPLT(Player1,110000)
+  XPLT(Myself,90000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,90000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPLT(Player1,90000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    SetInterrupt(TRUE)
+END
+
+// Armor Upgrade
+
+IF
+	HasItem("c0aule01",Myself)
+	Global("C02AuraArmorUpgrade","LOCALS",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraArmorUpgrade","LOCALS",1)
+	TakeItemReplace("c0aule02","c0aule01",Myself)
+END
+
+
+// "Koko-chan"
+
+IF
+	HasItem("c02aucat",Myself)
+    CombatCounter(0)
+	Global("C0AuraKittyTime","LOCALS",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C0AuraKittyTime","LOCALS",1)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+END
+	
+IF
+	ActionListEmpty()
+	HasItem("c02aucat",Myself)
+    CombatCounter(0)
+	Global("C0AuraStopKitty","LOCALS",0)
+	RealGlobalTimerExpired("KittyThirtyMinutes","LOCALS")
+THEN
+  RESPONSE #10
+	DisplayStringHead(Myself,~Who's a pretty kitty-witty...?~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Ow! I really need to trim your claws...~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Want a treat, Koko-chan? Aww, here you go!~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Hey! HEY! Muffy, Koko-chan, stop fighting right now!~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Eww, cat fur on the magnifying glass...~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Look at your wittle paws! Hee hee!~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~You want to get out for a bit, Koko-chan? Sorry, not while we're marching...~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Hey, stop scratching my yukata!~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~Are you bored, Koko-chan? Yeah, me too...~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+  RESPONSE #10
+	DisplayStringHead(Myself,~I think you'll like Lantan, Koko-chan, just wait...~ [CAT01])
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+END
+
+IF
+	InParty(Myself)
+	HasItem("c02aucat",Myself)
+    CombatCounter(0)
+	PartyRested()
+	Global("C0AuraStopKitty","LOCALS",0)
+THEN
+  RESPONSE #10
+	DisplayStringHead(Myself,~*yawn* Good <DAYNIGHTALL>, Koko-chan...~ [CAT01])
+  RESPONSE #10
+	DisplayStringHead(Myself,~Where's that darned cat...? Oh, there you are...~ [CAT01])
+  RESPONSE #10
+	DisplayStringHead(Myself,~Muffy, Koko-chan, it's time to go!~ [CAT01])
+  RESPONSE #10
+	DisplayStringHead(Myself,~I'm awake, I'm awake! Stop clawing on my chest!~ [CAT01])
+  RESPONSE #10
+	DisplayStringHead(Myself,~Oh, nuts and bolts! Were you playing with my threads again, Koko-chan?~ [CAT01])
+  RESPONSE #10
+	DisplayStringHead(Myself,~*meow*~ [CAT01])
+	Wait(1)
+	DisplayStringHead(Myself,~Yes, good <DAYNIGHTALL> to you too, Koko-chan.~)
+  RESPONSE #40
+	NoAction()
+END
+
+// TROLLBANE ARROWS
+
+IF
+    See(Player1)
+	GlobalGT("bd_plot","global",200)
+    Global("C02AuraTrollbaneArrow","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("C02AuraTrollbaneArrow","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// VOIDSTONE
+
+IF
+    See(Player1)
+	PartyHasItem("bdmisc16")
+	Global("C02AuraVoidstone","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("C02AuraVoidstone","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// SUNSHOOTER
+
+IF
+	LevelGT(Myself,5)
+	HasItemEquiped("c0aubow1",Myself)
+THEN
+RESPONSE #100
+	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter II.)~ [GAM_11])
+	TakeItemReplace("c0aubow2","c0aubow1",Myself)
+	EquipRanged()
+END
+
+IF
+	LevelGT(Myself,8)
+	HasItemEquiped("c0aubow2",Myself)
+THEN
+RESPONSE #100
+	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter III.)~ [GAM_11])
+	TakeItemReplace("c0aubow3","c0aubow2",Myself)
+	EquipRanged()
+END
+
+IF
+	LevelGT(Myself,11)
+	HasItemEquiped("c0aubow3",Myself)
+THEN
+RESPONSE #100
+	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter IV.)~ [GAM_11])
+	TakeItemReplace("c0aubow4","c0aubow3",Myself)
+	EquipRanged()
+END
+
+// AUTOMATON - MOVE
+
+IF
+	Exists("c0auin3")
+	!InMyArea("c0auin3")
+	!Dead("c0auin3")
+	ActionListEmpty()
+THEN
+RESPONSE #100
+	Wait(1)
+	MoveGlobalObject("c0auin3",Myself)
+END
+
+// AUTOMATON - HELP
+
+IF
+	See("c0auin3")
+    AttackedBy([ENEMY],DEFAULT)
+	HPPercentLT(Myself,50)
+	Global("Help","LOCALS",0)
+  THEN
+    RESPONSE #50
+      DisplayStringHead(Myself,~Help!~)
+      ActionOverride("c0auin3",AttackReevaluate(Lastattackerof("c0aura"),15))
+	  SetGlobal("Help","LOCALS",1)
+	SetGlobalTimer("HelpTimer","LOCALS",12)
+END
+
+IF
+	Global("Help","LOCALS",1)
+	GlobalTimerExpired("HelpTimer","LOCALS")
+THEN
+    RESPONSE #50
+	 SetGlobal("Help","LOCALS",0)
+END

@@ -1,0 +1,18 @@
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+		ActionOverride("C0Aura",LeaveParty())
+		Wait(2)
+		ActionOverride("C0Aura",DisplayStringHead(Myself,~*click*~))
+		SmallWait(5)
+		ActionOverride("C0Aura",ReallyForceSpellRES("spwi206","c0aura"))
+        CreateVisualEffectObject("c0auboom",Myself)
+		ApplyDamage(Myself,5,FIRE)
+		SmallWait(5)
+		ActionOverride("c0aura",DestroySelf())
+		DisplayStringHead(Player1,~(You realize that a significant amount of your gold has been destroyed.)~)
+		TakePartyGold(1500)
+		EndCutSceneMode()
+END
