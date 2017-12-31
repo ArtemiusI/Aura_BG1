@@ -9,5 +9,7 @@ THEN
     SetGlobal("bd_jail_visitors","bd0104",5)
     SetGlobalTimer("bd_jail_visitors2_timer","bd0104",TEN_ROUNDS)
     MoveGlobal("bd0104","C0Aura",[720.620])
+	GiveItemCreate("c0aule02","C0Aura",1,0,0)
+	XEquipItem("c0aule02","C0Aura",SLOT_ARMOR,EQUIP)
     ActionOverride("C0Aura",ChangeAIScript("bdvisit",OVERRIDE))
 END

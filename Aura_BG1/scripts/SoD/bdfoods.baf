@@ -1,0 +1,43 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("bd_food_supplies_ot","bd4300",0)
+  PartyHasItem("c02apotn")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_food_supplies_ot","bd4300",1)
+    DisplayString(Myself,~Sacks of wheat, potatoes, and onions are piled high. With this much food, the gods alone know how long the crusade might hold the castle. If you used the sleeping potion Aura gave you, then you could turn the crusaders' wealth of supplies against them.~)
+    AddJournalEntry(61944,INFO)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("bd_poisoned_food","global",0)
+  PartyHasItem("c02apotn")
+  Switch("bd_poisoned_water","global")
+THEN
+  RESPONSE #0
+    SetGlobal("bd_poisoned_food","global",1)
+    IncrementGlobal("C02AuraPoisonedSupplies","global",1)
+    DisplayString(Myself,~You apply a few drops of Aura's sleeping potion to the supplies. A faint aroma lingers in the air before dissipating quickly. Hopefully, any crusaders that eat this food will find themselves too sleepy to fight.~)
+    AddJournalEntry(61943,QUEST)
+    AddXPObject(Player1,4000)
+    AddXPObject(Player2,4000)
+    AddXPObject(Player3,4000)
+    AddXPObject(Player4,4000)
+    AddXPObject(Player5,4000)
+    AddXPObject(Player6,4000)
+    TriggerActivation("food_supplies",FALSE)
+  RESPONSE #1
+    SetGlobal("bd_poisoned_food","global",1)
+    IncrementGlobal("C02AuraPoisonedSupplies","global",1)
+    DisplayString(Myself,~You apply a few drops of Aura's sleeping potion to the supplies. A faint aroma lingers in the air before dissipating quickly. Hopefully, any crusaders that eat this food will find themselves too sleepy to fight.~)
+    AddXPObject(Player1,4000)
+    AddXPObject(Player2,4000)
+    AddXPObject(Player3,4000)
+    AddXPObject(Player4,4000)
+    AddXPObject(Player5,4000)
+    AddXPObject(Player6,4000)
+    TriggerActivation("food_supplies",FALSE)
+END

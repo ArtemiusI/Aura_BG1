@@ -1,0 +1,35 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("bd_water_supplies_ot","bd4300",0)
+  PartyHasItem("c02apotn")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_water_supplies_ot","bd4300",1)
+    DisplayString(Myself,~Barrels line the walls, filled with enough water to sustain Caelar's crusade in Dragonspear Castle for months. If you wished, you could add Aura's sleeping potion into them.~)
+    AddJournalEntry(67369,INFO)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("bd_poisoned_water","global",0)
+  PartyHasItem("c02apotn")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_poisoned_water","global",1)
+    DisplayString(Myself,~You pour a few drops of Aura's sleeping potion into each water barrel. A minty scent wafts from the water's surface.~)
+    AddJournalEntry(61943,QUEST)
+    AddXPObject(Player1,4000)
+    AddXPObject(Player2,4000)
+    AddXPObject(Player3,4000)
+    AddXPObject(Player4,4000)
+    AddXPObject(Player5,4000)
+    AddXPObject(Player6,4000)
+    CreateVisualEffect("spfleshs",[310.1320])
+    Wait(1)
+    IncrementGlobal("C02AuraPoisonedSupplies","global",1)
+    CreateCreature("bdmephiw",[310.1320],S)
+    ActionOverride("bdmephiw",StartDialogueNoSet(Player1))
+END
+

@@ -124,8 +124,8 @@ EXIT
 
 // Baeloth
 
-CHAIN IF ~InParty("Baeloth")
-See("Baeloth")
+CHAIN IF ~InParty("C0Aura")
+See("C0Aura")
 !StateCheck("Baeloth",CD_STATE_NOTVALID)
 !StateCheck("C0Aura",CD_STATE_NOTVALID)
 CombatCounter(0)
@@ -730,7 +730,7 @@ DO ~SetGlobal("C0AuraKhalid1","GLOBAL",1)~
 == BKHALI ~N-no, Aura. I was holding it for you. Along with your electrum plates and c-chamomile tea. H-here, take it back.~
 == BC0AURA ~Oh! I'm so sorry, Khalid, I forgot all about it. You've been carrying my load for ages!~
 == BKHALI ~It is no t-trouble. Leave such things t-to those most suited for it, I always s-say.~
-== BC0AURA ~Thank you, you're a lifesaver. I get so caught up in my work, I forger about everything else. Like this alchemy set here.~
+== BC0AURA ~Thank you, you're a lifesaver. I get so caught up in my work, I forget about everything else. Like this alchemy set here.~
 == BKHALI ~I see you also have l-limestone and lantern oil. Are you c-concocting a potion of illumination?~
 == BC0AURA ~Huh? Why, yes! I thought it would save the need for carrying torches. I didn't think you'd know about... er, I mean, given you're a warrior and all...~
 == BKHALI ~Harpers are required to k-know certain skills outside of their chosen p-profession. Though I learned that p-particular recipe from Jaheira.~
@@ -949,7 +949,7 @@ See("C0Aura")
 CombatCounter(0)
 !See([ENEMY])
 Global("C0AuraQuayle1","GLOBAL",1)~ THEN BQUAYL C0AuraQuayle2
-~Bah! You may have gotten this far, Aura, but my amazing brain won't be bested so easily! Tell me, what are the three law of physical motion? You've got ten seconds!~
+~Bah! You may have gotten this far, Aura, but my amazing brain won't be bested so easily! Tell me, what are the three laws of physical motion? You've got ten seconds!~
 DO ~SetGlobal("C0AuraQuayle1","GLOBAL",2)~
 == BC0AURA ~Oh, that's easy. An object remains in a resting state until changed by an outside force, the rate of change is proportional to the amount of force used, and every action has an equal and opposite reaction.~
 == BQUAYL ~Eh... yes, that is... correct...~

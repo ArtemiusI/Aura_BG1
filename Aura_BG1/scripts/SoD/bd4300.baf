@@ -1,0 +1,47 @@
+IF
+  Global("bd_plot","global",586)
+  !GlobalTimerNotExpired("bd_mdd1341a_ot_timer","bd4300")
+  Global("bd_ot2_C0Aura","bd4300",0)
+  IfValidForPartyDialog("C0Aura")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",3)
+    SetGlobal("bd_ot2_C0Aura","bd4300",1)
+    DisplayStringHead("C0Aura",~Phew, we did it. Let's hope we never have to do something like this again.~)
+END
+
+IF
+  Global("bd_mdd1290d_ot","bd4300",1)
+  Global("bd_mdd1290d_ot_C0Aura","bd4300",0)
+  IfValidForPartyDialog("C0Aura")
+THEN
+  RESPONSE #100
+    DisplayStringHead("C0Aura",~It's never going to end, <CHARNAME>! Not unless we shut it down somehow!~)
+    SetGlobal("bd_mdd1290d_ot","bd4300",2)
+    SetGlobal("bd_mdd1290d_ot_C0Aura","bd4300",1)
+END
+
+IF
+  Global("bd_plot","global",370)
+  !GlobalTimerNotExpired("bd_mdd905a_ot_timer","bd4300")
+  Global("bd_ot_C0Aura","bd4300",0)
+  IfValidForPartyDialog("C0Aura")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("bd_mdd905a_ot_timer","bd4300",THREE_MINUTES)
+    SetGlobal("bd_ot_C0Aura","bd4300",1)
+    DisplayStringHead("C0Aura",~If we don't run, <CHARNAME>, we're going to die in here!~)
+END
+
+IF
+  Global("bd_MDD892a_ot","bd4300",0)
+  Global("bd_poison_dsc_supplies","global",0)
+  Dead("bdbelben")
+  CombatCounter(0)
+  IfValidForPartyDialog("C0Aura")
+THEN
+  RESPONSE #100
+    SetGlobal("bd_MDD892a_ot","bd4300",1)
+    SetGlobalTimer("bd_MDD892a_ot_timer","bd4300",2)
+    DisplayStringHead("C0Aura",~Ugh, that was messy... can we try to avoid people like these from now on?~)
+END

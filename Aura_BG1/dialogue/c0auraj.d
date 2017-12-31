@@ -2184,6 +2184,8 @@ END
 
 // FLIRTS
 
+// Flirt
+
 IF ~~ flirt
  SAY ~Mm-hmm?~
 + ~RandomNum(3,1)~ + ~What're you working on today? Anything interesting?~ + f1.1 
@@ -2216,15 +2218,15 @@ IF ~~ flirt
 + ~RandomNum(3,1)~ + ~(Tickle her)~ + f10.1
 + ~RandomNum(3,2)~ + ~(Tickle her)~ + f10.2
 + ~RandomNum(3,3)~ + ~(Tickle her)~ + f10.3
-+ ~RandomNum(3,1)~ + ~(Pinch her cheek)~ + f11.1
-+ ~RandomNum(3,2)~ + ~(Pinch her cheek)~ + f11.2
-+ ~RandomNum(3,3)~ + ~(Pinch her cheek)~ + f11.3
-+ ~RandomNum(3,1) GlobalGT("C0AuraTalk","GLOBAL",10)~ + ~Fancy a spot of tea?~ + f12.1
-+ ~RandomNum(3,2) GlobalGT("C0AuraTalk","GLOBAL",10)~ + ~Fancy a spot of tea?~ + f12.2
-+ ~RandomNum(3,3) GlobalGT("C0AuraTalk","GLOBAL",10)~ + ~Fancy a spot of tea?~ + f12.3
-+ ~Gender(Player1,FEMALE) GlobalGT("C0AuraTalk","GLOBAL",18) RandomNum(3,1)~ + ~(Kiss her nose)~ + f13.1
-+ ~Gender(Player1,FEMALE) GlobalGT("C0AuraTalk","GLOBAL",18) RandomNum(3,2)~ + ~(Kiss her nose)~ + f13.2
-+ ~Gender(Player1,FEMALE) GlobalGT("C0AuraTalk","GLOBAL",18) RandomNum(3,3)~ + ~(Kiss her nose)~ + f13.3
++ ~RandomNum(3,1)~ + ~You've got such pretty eyes.~ + f11.1
++ ~RandomNum(3,2)~ + ~You've got such pretty eyes.~ + f11.2
++ ~RandomNum(3,3)~ + ~You've got such pretty eyes.~ + f11.3
++ ~RandomNum(3,1)~ + ~Fancy a spot of tea?~ + f12.1
++ ~RandomNum(3,2)~ + ~Fancy a spot of tea?~ + f12.2
++ ~RandomNum(3,3)~ + ~Fancy a spot of tea?~ + f12.3
++ ~RandomNum(3,1)~ + ~(Kiss her nose)~ + f13.1
++ ~RandomNum(3,2)~ + ~(Kiss her nose)~ + f13.2
++ ~RandomNum(3,3)~ + ~(Kiss her nose)~ + f13.3
 ++ ~It's nothing.~ EXIT
 END
 
@@ -2384,19 +2386,17 @@ IF ~~ EXIT
 END
 
 IF ~~ f11.1
-SAY ~(She pokes her tongue out while pulling down one of her eyelids.)~
-= ~Nyah!~
+SAY ~My parents did say gold-colored eyes are a lucky omen for the family...~
 IF ~~ EXIT
 END
 
 IF ~~ f11.2
-SAY ~(She seems oddly submissive at first, before suddenly raising her arms to let her pet squirrel loose on you. The creature leaps at your face and starts tugging at your cheeks.)~
-= ~Hee hee, gotcha!~
+SAY ~Oh--! That's very sweet of you to say, <CHARNAME>.~
 IF ~~ EXIT
 END
 
 IF ~~ f11.3
-SAY ~What are you, my grandmother? 'Oh, Granny <CHARNAME>, would you like a cup of tea?'~
+SAY ~Sometimes I'm afraid it clashes with my pink hair. I guess I don't have to worry.~
 IF ~~ EXIT
 END
 

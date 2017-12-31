@@ -1,4 +1,5 @@
 IF
+	AreaCheck("bd7000")
     Range([PC],30)
 	!BeenInParty("C0Aura")
 	Global("Cutscene","LOCALS",0)
@@ -12,6 +13,7 @@ THEN
 END
 
 IF
+	AreaCheck("bd7000")
     Range([PC],30)
 	BeenInParty("C0Aura")
 	Global("Cutscene","LOCALS",0)
@@ -22,4 +24,65 @@ THEN
 	ClearAllActions()
 	StartCutsceneMode()
 	StartCutscene("c02acut2")
+END
+
+IF
+	See(Player1)
+	AreaCheck("bd3000")
+	PartyHasItem("c02afish")
+THEN
+	RESPONSE #100
+	Dialogue(Player1)
+END
+
+IF
+	See(Player1)
+	AreaCheck("bd3000")
+	GlobalTimerExpired("C02_koko_gift_timer","GLOBAL")
+	Switch("C02_koko_give_gift","GLOBAL")
+THEN
+	RESPONSE #0
+	SetGlobal("C02_koko_give_gift","GLOBAL",1)
+	RESPONSE #1
+	Dialogue(Player1)
+END
+
+IF
+	See("bdfrat")
+	GlobalGT("bd_sdd302_rat_hunt","global",0)
+	GlobalLT("bd_sdd302_rat_hunt","global",4)
+THEN
+    RESPONSE #50
+	Attack("bdfrat")
+	RESPONSE #50
+	NoAction()
+END
+
+IF
+	AreaCheck("bd3000")
+	GlobalGT("C0_koko_coaliton_camp","bd3000",1)
+	!Range("ff_camp",80)
+THEN
+    RESPONSE #100
+	MoveToPoint([1306.1622])
+END
+
+IF
+	AreaCheck("bd3000")
+	GlobalGT("C0_koko_coaliton_camp","bd3000",1)
+	Range("ff_camp",80)
+THEN
+    RESPONSE #40
+	RandomWalk()
+	RESPONSE #40
+	NoAction()
+	RESPONSE #20
+	MoveToPoint([1306.1622])
+END
+
+IF
+	GlobalGT("bd_plot","global",390)
+THEN
+	RESPONSE #100
+	DestroySelf()
 END

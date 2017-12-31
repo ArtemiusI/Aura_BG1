@@ -1,0 +1,120 @@
+IF
+  General(Myself,HUMANOID)
+  AreaCheck("bd4000")
+  Global("C02SleepPotion","locals",0)
+  Global("C02AuraPoisonedSupplies","GLOBAL",1)
+THEN
+  RESPONSE #10
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",TWO_ROUNDS)
+  RESPONSE #10
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",FOUR_ROUNDS)
+  RESPONSE #10
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",SIX_ROUNDS)
+  RESPONSE #10
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",ONE_TURN)
+  RESPONSE #60
+    SetGlobal("C02SleepPotion","locals",2)
+END
+
+IF
+  General(Myself,HUMANOID)
+  AreaCheck("bd4000")
+  Global("C02SleepPotion","locals",0)
+  Global("C02AuraPoisonedSupplies","GLOBAL",2)
+THEN
+  RESPONSE #15
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",TWO_ROUNDS)
+  RESPONSE #15
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",FOUR_ROUNDS)
+  RESPONSE #15
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",SIX_ROUNDS)
+  RESPONSE #15
+    SetGlobal("C02SleepPotion","locals",1)
+	SetGlobalTimer("C02SleepPotionTimer","locals",ONE_TURN)
+  RESPONSE #40
+    SetGlobal("C02SleepPotion","locals",2)
+END
+
+IF
+	GlobalTimerExpired("C02SleepPotionTimer","locals")
+	Global("C02SleepPotion","locals",1)
+	!Dead("bdashati")
+THEN
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~What's going on? So... sleepy...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~I... must... fight... on... Zzz...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~I'll just... take a little nap...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~Foul trickery! My strength... fades...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~*yawn* Can't fight... too... tired...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~Zzzz... *snort*~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~Why... am I... so... tired...?~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~Can't move... my legs...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~Eyelids... can't keep them open...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+  RESPONSE #10
+	SetGlobal("bd_go_hostile","locals",-1)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	SetGlobal("C02SleepPotion","locals",2)
+	DisplayStringHead(Myself,~*yawn* Gotta... stay awake...~)
+	SmallWait(5)
+	ApplySpellRES("bdsleep",Myself)
+END

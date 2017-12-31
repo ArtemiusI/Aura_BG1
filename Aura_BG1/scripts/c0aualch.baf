@@ -1,202 +1,344 @@
 IF
 	OnCreation()
-	LevelLT(Lastsummonerof(Myself),6)
+	!LevelGT(Lastsummonerof(Myself),2)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",2)
+    AddStoreItem("c0aualc1","c0apot01",1,0)
+    AddStoreItem("c0aualc1","c0apot02",1,0)
+    AddStoreItem("c0aualc1","c0apot03",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",1,0)
+    AddStoreItem("c0aualc2","c0abomb2",1,0)
+    AddStoreItem("c0aualc2","c0abomb3",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),6)
-	Level(Lastsummonerof(Myself),7)
+	LevelGT(Lastsummonerof(Myself),2)
+	!LevelGT(Lastsummonerof(Myself),5)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",3)
+    AddStoreItem("c0aualc1","c0apot01",1,0)
+    AddStoreItem("c0aualc1","c0apot02",1,0)
+    AddStoreItem("c0aualc1","c0apot03",1,0)
+    AddStoreItem("c0aualc1","c0apot04",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",1,0)
+    AddStoreItem("c0aualc2","c0abomb2",1,0)
+    AddStoreItem("c0aualc2","c0abomb3",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),8)
-	Level(Lastsummonerof(Myself),9)
+	LevelGT(Lastsummonerof(Myself),5)
+	!LevelGT(Lastsummonerof(Myself),8)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",4)
+    AddStoreItem("c0aualc1","c0apot01",2,0)
+    AddStoreItem("c0aualc1","c0apot02",2,0)
+    AddStoreItem("c0aualc1","c0apot03",2,0)
+    AddStoreItem("c0aualc1","c0apot04",2,0)
+    AddStoreItem("c0aualc1","c0apot05",1,0)
+    AddStoreItem("c0aualc1","c0apot06",1,0)
+    AddStoreItem("c0aualc1","c0apot07",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",1,0)
+    AddStoreItem("c0aualc2","c0abomb2",1,0)
+    AddStoreItem("c0aualc2","c0abomb3",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),10)
-	Level(Lastsummonerof(Myself),11)
+	LevelGT(Lastsummonerof(Myself),8)
+	!LevelGT(Lastsummonerof(Myself),11)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",5)
+    AddStoreItem("c0aualc1","c0apot01",3,0)
+    AddStoreItem("c0aualc1","c0apot02",3,0)
+    AddStoreItem("c0aualc1","c0apot03",3,0)
+    AddStoreItem("c0aualc1","c0apot04",3,0)
+    AddStoreItem("c0aualc1","c0apot05",2,0)
+    AddStoreItem("c0aualc1","c0apot06",2,0)
+    AddStoreItem("c0aualc1","c0apot07",2,0)
+    AddStoreItem("c0aualc1","c0apot08",1,0)
+    AddStoreItem("c0aualc1","c0apot09",1,0)
+    AddStoreItem("c0aualc1","c0apot10",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",2,0)
+    AddStoreItem("c0aualc2","c0abomb2",1,0)
+    AddStoreItem("c0aualc2","c0abomb3",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),12)
-	Level(Lastsummonerof(Myself),13)
+	LevelGT(Lastsummonerof(Myself),11)
+	!LevelGT(Lastsummonerof(Myself),14)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",6)
+    AddStoreItem("c0aualc1","c0apot01",4,0)
+    AddStoreItem("c0aualc1","c0apot02",4,0)
+    AddStoreItem("c0aualc1","c0apot03",4,0)
+    AddStoreItem("c0aualc1","c0apot04",4,0)
+    AddStoreItem("c0aualc1","c0apot05",3,0)
+    AddStoreItem("c0aualc1","c0apot06",3,0)
+    AddStoreItem("c0aualc1","c0apot07",3,0)
+    AddStoreItem("c0aualc1","c0apot08",2,0)
+    AddStoreItem("c0aualc1","c0apot09",2,0)
+    AddStoreItem("c0aualc1","c0apot10",2,0)
+    AddStoreItem("c0aualc1","c0apot11",1,0)
+    AddStoreItem("c0aualc1","c0apot12",1,0)
+    AddStoreItem("c0aualc1","c0apot13",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",2,0)
+    AddStoreItem("c0aualc2","c0abomb2",2,0)
+    AddStoreItem("c0aualc2","c0abomb3",2,0)
+    AddStoreItem("c0aualc2","c0abomb4",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),14)
-	Level(Lastsummonerof(Myself),15)
+	LevelGT(Lastsummonerof(Myself),14)
+	!LevelGT(Lastsummonerof(Myself),17)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",7)
+    AddStoreItem("c0aualc1","c0apot01",5,0)
+    AddStoreItem("c0aualc1","c0apot02",5,0)
+    AddStoreItem("c0aualc1","c0apot03",5,0)
+    AddStoreItem("c0aualc1","c0apot04",5,0)
+    AddStoreItem("c0aualc1","c0apot05",4,0)
+    AddStoreItem("c0aualc1","c0apot06",4,0)
+    AddStoreItem("c0aualc1","c0apot07",4,0)
+    AddStoreItem("c0aualc1","c0apot08",3,0)
+    AddStoreItem("c0aualc1","c0apot09",3,0)
+    AddStoreItem("c0aualc1","c0apot10",3,0)
+    AddStoreItem("c0aualc1","c0apot11",2,0)
+    AddStoreItem("c0aualc1","c0apot12",2,0)
+    AddStoreItem("c0aualc1","c0apot13",2,0)
+    AddStoreItem("c0aualc1","c0apot14",1,0)
+    AddStoreItem("c0aualc1","c0apot15",1,0)
+    AddStoreItem("c0aualc1","c0apot16",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",2,0)
+    AddStoreItem("c0aualc2","c0abomb2",2,0)
+    AddStoreItem("c0aualc2","c0abomb3",2,0)
+    AddStoreItem("c0aualc2","c0abomb4",2,0)
+    AddStoreItem("c0aualc2","c0abomb5",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),16)
-	Level(Lastsummonerof(Myself),17)
+	LevelGT(Lastsummonerof(Myself),17)
+	!LevelGT(Lastsummonerof(Myself),20)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",8)
+    AddStoreItem("c0aualc1","c0apot01",5,0)
+    AddStoreItem("c0aualc1","c0apot02",5,0)
+    AddStoreItem("c0aualc1","c0apot03",5,0)
+    AddStoreItem("c0aualc1","c0apot04",5,0)
+    AddStoreItem("c0aualc1","c0apot05",5,0)
+    AddStoreItem("c0aualc1","c0apot06",5,0)
+    AddStoreItem("c0aualc1","c0apot07",5,0)
+    AddStoreItem("c0aualc1","c0apot08",4,0)
+    AddStoreItem("c0aualc1","c0apot09",4,0)
+    AddStoreItem("c0aualc1","c0apot10",4,0)
+    AddStoreItem("c0aualc1","c0apot11",3,0)
+    AddStoreItem("c0aualc1","c0apot12",3,0)
+    AddStoreItem("c0aualc1","c0apot13",3,0)
+    AddStoreItem("c0aualc1","c0apot14",2,0)
+    AddStoreItem("c0aualc1","c0apot15",2,0)
+    AddStoreItem("c0aualc1","c0apot16",2,0)
+    AddStoreItem("c0aualc1","c0apot17",1,0)
+    AddStoreItem("c0aualc1","c0apot18",1,0)
+    AddStoreItem("c0aualc1","c0apot19",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",3,0)
+    AddStoreItem("c0aualc2","c0abomb2",2,0)
+    AddStoreItem("c0aualc2","c0abomb3",2,0)
+    AddStoreItem("c0aualc2","c0abomb4",2,0)
+    AddStoreItem("c0aualc2","c0abomb5",2,0)
+    AddStoreItem("c0aualc2","c0abomb6",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),18)
-	Level(Lastsummonerof(Myself),19)
+	LevelGT(Lastsummonerof(Myself),20)
+	!LevelGT(Lastsummonerof(Myself),23)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",9)
+    AddStoreItem("c0aualc1","c0apot01",5,0)
+    AddStoreItem("c0aualc1","c0apot02",5,0)
+    AddStoreItem("c0aualc1","c0apot03",5,0)
+    AddStoreItem("c0aualc1","c0apot04",5,0)
+    AddStoreItem("c0aualc1","c0apot05",5,0)
+    AddStoreItem("c0aualc1","c0apot06",5,0)
+    AddStoreItem("c0aualc1","c0apot07",5,0)
+    AddStoreItem("c0aualc1","c0apot08",5,0)
+    AddStoreItem("c0aualc1","c0apot09",5,0)
+    AddStoreItem("c0aualc1","c0apot10",5,0)
+    AddStoreItem("c0aualc1","c0apot11",4,0)
+    AddStoreItem("c0aualc1","c0apot12",4,0)
+    AddStoreItem("c0aualc1","c0apot13",4,0)
+    AddStoreItem("c0aualc1","c0apot14",3,0)
+    AddStoreItem("c0aualc1","c0apot15",3,0)
+    AddStoreItem("c0aualc1","c0apot16",3,0)
+    AddStoreItem("c0aualc1","c0apot17",2,0)
+    AddStoreItem("c0aualc1","c0apot18",2,0)
+    AddStoreItem("c0aualc1","c0apot19",2,0)
+    AddStoreItem("c0aualc1","c0apot20",1,0)
+    AddStoreItem("c0aualc1","c0apot21",1,0)
+    AddStoreItem("c0aualc1","c0apot22",1,0)
+    AddStoreItem("c0aualc2","c0abomb1",3,0)
+    AddStoreItem("c0aualc2","c0abomb2",3,0)
+    AddStoreItem("c0aualc2","c0abomb3",2,0)
+    AddStoreItem("c0aualc2","c0abomb4",2,0)
+    AddStoreItem("c0aualc2","c0abomb5",2,0)
+    AddStoreItem("c0aualc2","c0abomb6",2,0)
+    AddStoreItem("c0aualc2","c0abomb7",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),20)
-	Level(Lastsummonerof(Myself),21)
+	LevelGT(Lastsummonerof(Myself),23)
+	!LevelGT(Lastsummonerof(Myself),26)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",10)
+    AddStoreItem("c0aualc1","c0apot01",5,0)
+    AddStoreItem("c0aualc1","c0apot02",5,0)
+    AddStoreItem("c0aualc1","c0apot03",5,0)
+    AddStoreItem("c0aualc1","c0apot04",5,0)
+    AddStoreItem("c0aualc1","c0apot05",5,0)
+    AddStoreItem("c0aualc1","c0apot06",5,0)
+    AddStoreItem("c0aualc1","c0apot07",5,0)
+    AddStoreItem("c0aualc1","c0apot08",5,0)
+    AddStoreItem("c0aualc1","c0apot09",5,0)
+    AddStoreItem("c0aualc1","c0apot10",5,0)
+    AddStoreItem("c0aualc1","c0apot11",5,0)
+    AddStoreItem("c0aualc1","c0apot12",5,0)
+    AddStoreItem("c0aualc1","c0apot13",5,0)
+    AddStoreItem("c0aualc1","c0apot14",4,0)
+    AddStoreItem("c0aualc1","c0apot15",4,0)
+    AddStoreItem("c0aualc1","c0apot16",4,0)
+    AddStoreItem("c0aualc1","c0apot17",3,0)
+    AddStoreItem("c0aualc1","c0apot18",3,0)
+    AddStoreItem("c0aualc1","c0apot19",3,0)
+    AddStoreItem("c0aualc1","c0apot20",2,0)
+    AddStoreItem("c0aualc1","c0apot21",2,0)
+    AddStoreItem("c0aualc1","c0apot22",2,0)
+    AddStoreItem("c0aualc2","c0abomb1",3,0)
+    AddStoreItem("c0aualc2","c0abomb2",3,0)
+    AddStoreItem("c0aualc2","c0abomb3",3,0)
+    AddStoreItem("c0aualc2","c0abomb4",2,0)
+    AddStoreItem("c0aualc2","c0abomb5",2,0)
+    AddStoreItem("c0aualc2","c0abomb6",2,0)
+    AddStoreItem("c0aualc2","c0abomb7",2,0)
+    AddStoreItem("c0aualc2","c0abomb8",1,0)
+	Continue()
 END
 
 IF
 	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),22)
-	Level(Lastsummonerof(Myself),23)
+	LevelGT(Lastsummonerof(Myself),26)
+	!LevelGT(Lastsummonerof(Myself),29)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",11)
+    AddStoreItem("c0aualc1","c0apot01",5,0)
+    AddStoreItem("c0aualc1","c0apot02",5,0)
+    AddStoreItem("c0aualc1","c0apot03",5,0)
+    AddStoreItem("c0aualc1","c0apot04",5,0)
+    AddStoreItem("c0aualc1","c0apot05",5,0)
+    AddStoreItem("c0aualc1","c0apot06",5,0)
+    AddStoreItem("c0aualc1","c0apot07",5,0)
+    AddStoreItem("c0aualc1","c0apot08",5,0)
+    AddStoreItem("c0aualc1","c0apot09",5,0)
+    AddStoreItem("c0aualc1","c0apot10",5,0)
+    AddStoreItem("c0aualc1","c0apot11",5,0)
+    AddStoreItem("c0aualc1","c0apot12",5,0)
+    AddStoreItem("c0aualc1","c0apot13",5,0)
+    AddStoreItem("c0aualc1","c0apot14",5,0)
+    AddStoreItem("c0aualc1","c0apot15",5,0)
+    AddStoreItem("c0aualc1","c0apot16",5,0)
+    AddStoreItem("c0aualc1","c0apot17",4,0)
+    AddStoreItem("c0aualc1","c0apot18",4,0)
+    AddStoreItem("c0aualc1","c0apot19",4,0)
+    AddStoreItem("c0aualc1","c0apot20",3,0)
+    AddStoreItem("c0aualc1","c0apot21",3,0)
+    AddStoreItem("c0aualc1","c0apot22",3,0)
+    AddStoreItem("c0aualc2","c0abomb1",3,0)
+    AddStoreItem("c0aualc2","c0abomb2",3,0)
+    AddStoreItem("c0aualc2","c0abomb3",3,0)
+    AddStoreItem("c0aualc2","c0abomb4",3,0)
+    AddStoreItem("c0aualc2","c0abomb5",2,0)
+    AddStoreItem("c0aualc2","c0abomb6",2,0)
+    AddStoreItem("c0aualc2","c0abomb7",2,0)
+    AddStoreItem("c0aualc2","c0abomb8",1,0)
+    AddStoreItem("c0aualc2","c0abomb9",1,0)
+	Continue()
 END
 
 IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),24)
-	Level(Lastsummonerof(Myself),25)
+	Global("C0AUIN5","GLOBAL",1)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",12)
+	AddStoreItem("c0aualc3","c0apoth1",1,0)
+	AddStoreItem("c0aualc3","c0apoth2",1,0)
+	AddStoreItem("c0aualc3","c0apoth3",1,0)
+	AddStoreItem("c0aualc3","c0apoth4",1,0)
+	Continue()
 END
 
 IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),26)
-	Level(Lastsummonerof(Myself),27)
+	Global("C0AUIN5","GLOBAL",1)
+	Global("C0UltimateMastery","GLOBAL",0)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",13)
+	SetGlobal("C0UltimateMastery","GLOBAL",1)
+	AddStoreItem("c0aualc3","c0apoth5",1,0)
+	Continue()
 END
 
 IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),28)
-	Level(Lastsummonerof(Myself),29)
+	Global("C02AuraVoidstone","GLOBAL",2)
 THEN
   RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",14)
+	AddStoreItem("c0aualc2","c0abomba",1,0)
+	Continue()
 END
 
 IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),30)
-	Level(Lastsummonerof(Myself),31)
-THEN
-  RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",15)
-END
-
-IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),32)
-	Level(Lastsummonerof(Myself),33)
-THEN
-  RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",16)
-END
-
-IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),34)
-	Level(Lastsummonerof(Myself),35)
-THEN
-  RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",17)
-END
-
-IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),36)
-	Level(Lastsummonerof(Myself),37)
-THEN
-  RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",18)
-END
-
-IF
-	OnCreation()
-	OR(2)
-	Level(Lastsummonerof(Myself),38)
-	Level(Lastsummonerof(Myself),39)
-THEN
-  RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",19)
-END
-
-IF
-	OnCreation()
-	LevelGT(Lastsummonerof(Myself),39)
-THEN
-  RESPONSE #100
-    SetGlobal("C0ArtificerAlchemy","LOCALS",20)
-END
-
-IF
+  !AreaType(CITY)
+  OR(2)
+  AreaType(DUNGEON)
+  AreaType(OUTDOOR)
   Detect(Lastsummonerof(Myself))
-  !Global("C0ArtificerAlchemy","LOCALS",0)
+  !Global("C0ArtificerAlchemy","LOCALS",1)
 THEN
   RESPONSE #100
     FaceObject(Lastsummonerof(Myself))
+	ApplySpellRES("c0aualc1",Lastsummonerof(Myself))
     StartDialogueNoSet(Lastsummonerof(Myself))
+	Continue()
 END
 
 IF
+  !AreaType(DUNGEON)
+  OR(2)
+  AreaType(CITY)
+  !AreaType(OUTDOOR)
   Detect(Lastsummonerof(Myself))
-  Global("C0ArtificerAlchemy","LOCALS",0)
+  !Global("C0ArtificerAlchemy","LOCALS",1)
 THEN
   RESPONSE #100
+    FaceObject(Lastsummonerof(Myself))
+	ApplySpellRES("c0aualc3",Lastsummonerof(Myself))
+    StartDialogueNoSet(Lastsummonerof(Myself))
+	Continue()
+END
+
+IF
+  Global("C0ArtificerAlchemy","LOCALS",1)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0aualc2",Lastsummonerof(Myself))
     DestroySelf()
 END

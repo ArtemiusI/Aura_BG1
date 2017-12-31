@@ -12,6 +12,7 @@ IF
 	!InParty("C0Aura")
 THEN
   RESPONSE #100
+	ChangeEnemyAlly(Myself,NEUTRAL)
 	EscapeArea()
 END
 

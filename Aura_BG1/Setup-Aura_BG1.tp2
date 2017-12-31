@@ -38,41 +38,13 @@ END
 
 // PVRZ-based bams
 
-ACTION_FOR_EACH bamFile IN ~c0amaskc.bam~ BEGIN
+ACTION_FOR_EACH bamFile IN ~c0amaskc.bam~ ~c0muffyc.bam~ ~c0amagac.bam~ ~c02asunc.bam~ ~c0spikec.bam~ BEGIN
     COPY ~%MOD_FOLDER%/bams/%bamFile%~ ~override~
       LPF UPDATE_PVRZ_INDICES RET original_base_index new_base_index END
     ACTION_IF (original_base_index >= 0 AND new_base_index >= 0) BEGIN
       LAF INSTALL_PVRZ
       INT_VAR
         original_base_index = original_base_index
-        new_base_index = new_base_index
-      STR_VAR
-        source_file = EVAL ~%MOD_FOLDER%/pvrz/mos%original_base_index%.pvrz~
-      END
-    END
-END
-
-ACTION_FOR_EACH bamFile IN ~c0muffyc.bam~ BEGIN
-    COPY ~%MOD_FOLDER%/bams/%bamFile%~ ~override~
-      LPF UPDATE_PVRZ_INDICES RET original_base_index new_base_index END
-    ACTION_IF (original_base_index >= 0 AND new_base_index >= 0) BEGIN
-      LAF INSTALL_PVRZ
-      INT_VAR
-        original_base_index = (original_base_index + 1)
-        new_base_index = new_base_index
-      STR_VAR
-        source_file = EVAL ~%MOD_FOLDER%/pvrz/mos%original_base_index%.pvrz~
-      END
-    END
-END
-
-ACTION_FOR_EACH bamFile IN ~c0amagac.bam~ BEGIN
-    COPY ~%MOD_FOLDER%/bams/%bamFile%~ ~override~
-      LPF UPDATE_PVRZ_INDICES RET original_base_index new_base_index END
-    ACTION_IF (original_base_index >= 0 AND new_base_index >= 0) BEGIN
-      LAF INSTALL_PVRZ
-      INT_VAR
-        original_base_index = (original_base_index + 2)
         new_base_index = new_base_index
       STR_VAR
         source_file = EVAL ~%MOD_FOLDER%/pvrz/mos%original_base_index%.pvrz~
@@ -383,7 +355,7 @@ CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used t
 
 – From level 4 onwards, may use the Advanced Alchemy ability once per day.
 
-ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons equal to half of the artificer's level. The types of potions available for crafting increase with the artificer's level.
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
 
 – From level 8 onwards, may use the Craft Automaton ability once per day.
 
@@ -492,6 +464,7 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0achain.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0athund.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aburst.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0asvoid.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aarea1.PRO~
 
 COPY ~%MOD_FOLDER%/spells/c0achain.pro~ ~override~
 WRITE_SHORT 0x21A ~c0auaro2~
@@ -1059,6 +1032,395 @@ SAY NAME2 ~Alchemy~
   WRITE_ASCII 0x2cc ~c0aualch~ #8   //pre-joining dialogue file
   WRITE_ASCII 0x268 ~c0aualch~ #8   //default
   
+COPY ~%MOD_FOLDER%/items/c0aualc1.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aualc2.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aualc3.spl~ ~override~
+  
+COPY ~%MOD_FOLDER%/items/c0aualc1.sto~ ~override/c0aualc1.sto~
+SAY 0xc ~Alchemy - Standard Potions~
+  
+COPY ~%MOD_FOLDER%/items/c0aualc1.sto~ ~override/c0aualc2.sto~
+SAY 0xc ~Alchemy - Advanced Potions~
+   
+COPY ~%MOD_FOLDER%/items/c0aualc1.sto~ ~override/c0aualc3.sto~
+SAY 0xc ~Alchemy - Explosives~
+  
+// POTIONS
+
+COPY ~%MOD_FOLDER%/items/c0apot01.spl~ ~override~
+SAY NAME1 ~Potion of Renewal~
+SAY NAME2 ~Potion of Renewal~
+COPY ~%MOD_FOLDER%/items/c0apot01.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Renewal~
+SAY NAME2 ~Lantanese Potion of Renewal~
+SAY DESC ~This potion is composed of several exotic medicinal herbs and alchemical ingredients, giving it significant healing properties.
+
+STATISTICS:
+
+Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
+
+Weight: 1~
+WRITE_LONG 0x34 500
+ 
+COPY ~%MOD_FOLDER%/items/c0apot02.spl~ ~override~
+SAY NAME1 ~Potion of Fire Resistance~
+SAY NAME2 ~Potion of Fire Resistance~
+COPY ~%MOD_FOLDER%/items/c0apot02.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Fire Resistance~
+SAY NAME2 ~Lantanese Potion of Fire Resistance~
+SAY DESC ~This exotic potion provides the imbiber with a significant resistance to heat. Those who drink this potion would be capable of leaping through a wall of flame without suffering the slightest injury.
+
+STATISTICS:
+
+Fire Resistance: +100%
+Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+WRITE_LONG 0x34 550
+
+COPY ~%MOD_FOLDER%/items/c0apot03.spl~ ~override~
+SAY NAME1 ~Potion of Cold Resistance~
+SAY NAME2 ~Potion of Cold Resistance~
+COPY ~%MOD_FOLDER%/items/c0apot03.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Cold Resistance~
+SAY NAME2 ~Lantanese Potion of Cold Resistance~
+SAY DESC ~This potion was designed for Lantanese researchers to allow them to survive at near-fatally low temperatures while experimenting with certain cold-dwelling creatures or plants. Those who drink this potion find themselves in a state of perpatual warmth.
+
+STATISTICS:
+
+Cold Resistance: +100%
+Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+WRITE_LONG 0x34 550
+
+COPY ~%MOD_FOLDER%/items/c0apot04.spl~ ~override~
+SAY NAME1 ~Philter of Health~
+SAY NAME2 ~Philter of Health~
+COPY ~%MOD_FOLDER%/items/c0apot04.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Health~
+SAY NAME2 ~Lantanese Philter of Health~
+SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
+
+STATISTICS:
+
+Maximum Hit Points: +10%
+Special: Removes fatigue
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 600
+
+COPY ~%MOD_FOLDER%/items/c0apot05.spl~ ~override~
+SAY NAME1 ~Potion of Invisibility~
+SAY NAME2 ~Potion of Invisibility~
+COPY ~%MOD_FOLDER%/items/c0apot05.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Invisibility~
+SAY NAME2 ~Lantanese Potion of Invisibility~
+SAY DESC ~The natives of Lantan are known for being relatively pacifistic and prefer to avoid conflict wherever possible. To this end, their potions of invisibility are among the most popular of their alchemical creations, as it allows them to escape nearly any situation completely unscathed.
+
+STATISTICS:
+
+Special: Invisibility and Non-Detection
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 750
+
+COPY ~%MOD_FOLDER%/items/c0apot06.spl~ ~override~
+SAY NAME1 ~Trollblood Extract~
+SAY NAME2 ~Trollblood Extract~
+COPY ~%MOD_FOLDER%/items/c0apot06.itm~ ~override~
+SAY NAME1 ~Lantanese Trollblood Extract~
+SAY NAME2 ~Lantanese Trollblood Extract~
+SAY DESC ~As foul-looking as this liquid appears to be, it has the undeniably effective property of bestowing its drinker with cellular regeneration of shocking rates. However, the concoction also temporarily bestows some of the weaknesses of trollkin as a result.
+
+STATISTICS:
+
+Fire Resistance: -50%
+Acid Resistance: -50%
+Special: Regenerate two hit points per second
+Duration: 5 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY ~%MOD_FOLDER%/items/c0apot07.spl~ ~override~
+SAY NAME1 ~Tonic of Alertness~
+SAY NAME2 ~Tonic of Alertness~
+COPY ~%MOD_FOLDER%/items/c0apot07.itm~ ~override~
+SAY NAME1 ~Lantanese Tonic of Alertness~
+SAY NAME2 ~Lantanese Tonic of Alertness~
+SAY DESC ~This strongly-scented potion puts its drinker into a state of constant and total awareness, to the point where they can hear the slightest movement and practically see out of the back of their heads.
+
+STATISTICS:
+
+Dexterity: +1
+Find Traps: +25%
+Detect Illusions: +25%
+Special: Immunity to backstab
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY ~%MOD_FOLDER%/items/c0apot08.spl~ ~override~
+SAY NAME1 ~Elixir of Harmony~
+SAY NAME2 ~Elixir of Harmony~
+COPY ~%MOD_FOLDER%/items/c0apot08.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Harmony~
+SAY NAME2 ~Lantanese Elixir of Harmony~
+SAY DESC ~This powerful potion subscribes to the principle of "the best offense is a good defense". The drinker becomes nearly invulnerable to physical harm, yet finds their own blows significantly weakened in return.
+
+STATISTICS:
+
+Armor Class: +6
+Physical Resistance: +50%
+Special: Damage output is reduced by 50%
+Duration: 5 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY ~%MOD_FOLDER%/items/c0apot09.spl~ ~override~
+SAY NAME1 ~Potion of Antimagic~
+SAY NAME2 ~Potion of Antimagic~
+COPY ~%MOD_FOLDER%/items/c0apot09.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Antimagic~
+SAY NAME2 ~Lantanese Potion of Antimagic~
+SAY DESC ~This powerful potion expunges all traces of magic from its imbiber and prevents them from being affected by all but the most powerful spells until its effects dissipate.
+
+STATISTICS:
+
+Magic Resistance: +50%
+Special: Immunity to spells of 5th level and below, all spell effects are removed from the imbiber and <PRO_HESHE> may not cast spells for the duration.
+Duration: 2 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1350
+
+COPY ~%MOD_FOLDER%/items/c0apot10.spl~ ~override~
+SAY NAME1 ~Potion of Equanimity~
+SAY NAME2 ~Potion of Equanimity~
+COPY ~%MOD_FOLDER%/items/c0apot10.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Equanimity~
+SAY NAME2 ~Lantanese Potion of Equanimity~
+SAY DESC ~This potion clears the drinker's mind of distracting and inhibiting thoughts, allowing them to think and act with greater efficiency. Their hand-eye coordination is also significantly improved as a result.
+
+STATISTICS:
+
+Special: Prevents feeblemind, confusion, fear, and charm
+Intelligence: +4
+Dexterity: +4
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY ~%MOD_FOLDER%/items/c0apot11.spl~ ~override~
+SAY NAME1 ~Oil of Speed~
+SAY NAME2 ~Oil of Speed~
+COPY ~%MOD_FOLDER%/items/c0apot11.itm~ ~override~
+SAY NAME1 ~Lantanese Oil of Speed~
+SAY NAME2 ~Lantanese Oil of Speed~
+SAY DESC ~This oil, when applied on the user, hastens their actions greatly, doubling their movement and combat capacities. However, this does not reduce spellcasting time.
+
+STATISTICS:
+
+Special: Doubles movement and attack rates
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 400
+
+COPY ~%MOD_FOLDER%/items/c0apot12.spl~ ~override~
+SAY NAME1 ~Potion of Invulnerability~
+SAY NAME2 ~Potion of Invulnerability~
+COPY ~%MOD_FOLDER%/items/c0apot12.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Invulnerability~
+SAY NAME2 ~Lantanese Potion of Invulnerability~
+SAY DESC ~This potion confers very high resistance to all attacks while giving bonuses to all Saving Throws. Unlike regular Potions of Invulnerability, this potion can be used by those of any profession.
+
+STATISTICS:
+
+Armor Class: +2
+Saving Throws: +5
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1400
+
+COPY ~%MOD_FOLDER%/items/c0apot13.spl~ ~override~
+SAY NAME1 ~Philter of Luck~
+SAY NAME2 ~Philter of Luck~
+COPY ~%MOD_FOLDER%/items/c0apot13.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Luck~
+SAY NAME2 ~Lantanese Philter of Luck~
+SAY DESC ~Also known informally as 'liquid luck', this gold-colored liquid provides the drinker with an sense of temporary luck and confidence, as though nothing could go wrong.
+
+STATISTICS:
+
+Saving Throws: +2
+Find Traps: +10%
+Pick Pockets: +10%
+Move Silently: +10%
+Hide In Shadows: +10%
+Detect Illusion: +10%
+Set Traps: +10%
+Luck: +2
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY ~%MOD_FOLDER%/items/c0apot14.spl~ ~override~
+SAY NAME1 ~Elixir of Restoration~
+SAY NAME2 ~Elixir of Restoration~
+COPY ~%MOD_FOLDER%/items/c0apot14.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Restoration~
+SAY NAME2 ~Lantanese Elixir of Restoration~
+SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. Concocted from several restorative ingredients and a dash of holy water, it is effective against the draining touch of vampires and wights.
+
+STATISTICS:
+
+Special: Restores lost levels
+Duration: Permanent
+
+Weight: 1~
+WRITE_LONG 0x34 250
+
+COPY ~%MOD_FOLDER%/items/c0apot15.spl~ ~override~
+SAY NAME1 ~Potion of Freedom~
+SAY NAME2 ~Potion of Freedom~
+COPY ~%MOD_FOLDER%/items/c0apot15.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Freedom~
+SAY NAME2 ~Lantanese Potion of Freedom~
+SAY DESC ~This potion acts like the spell Free Action when consumed. The drinker becomes completely immune to any effects that influence action or movement, whether it is magical in origin or not.
+
+STATISTICS:
+
+Special: Free Action
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 750
+
+COPY ~%MOD_FOLDER%/items/c0apot16.spl~ ~override~
+SAY NAME1 ~Elixir of Lifeshield~
+SAY NAME2 ~Elixir of Lifeshield~
+COPY ~%MOD_FOLDER%/items/c0apot16.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Lifeshield~
+SAY NAME2 ~Lantanese Elixir of Lifeshield~
+SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. The drinker's soul becomes protected by magical energies, preventing it from being separated from their body through unnatural means.
+
+STATISTICS:
+
+Special: Death Ward
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 900
+
+COPY ~%MOD_FOLDER%/items/c0apot17.spl~ ~override~
+SAY NAME1 ~Elixir of Might~
+SAY NAME2 ~Elixir of Might~
+COPY ~%MOD_FOLDER%/items/c0apot17.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Might~
+SAY NAME2 ~Lantanese Elixir of Might~
+SAY DESC ~This elixir was concocted from a combination of various ingredients including giants' blood. When imbibed, the drinker's strength increases dramatically.
+
+STATISTICS:
+
+Strength: +2
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY ~%MOD_FOLDER%/items/c0apot18.spl~ ~override~
+SAY NAME1 ~Thrym Extract~
+SAY NAME2 ~Thrym Extract~
+COPY ~%MOD_FOLDER%/items/c0apot18.itm~ ~override~
+SAY NAME1 ~Lantanese Thrym Extract~
+SAY NAME2 ~Lantanese Thrym Extract~
+SAY DESC ~This thick liquid is harvested and distilled from the glands of dead polar worms.  It is the substance that helps keep the huge creatures warm in the desolate north.  Drinking the liquid straight from the creature's body is almost always fatal, so alchemists attempt to distill the substance until it is relatively safe to consume.  Even in its current state, however, it can still be deadly.
+
+STATISTICS:
+
+Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in exchange for immunity to cold damage and +3 to Strength and Dexterity
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY ~%MOD_FOLDER%/items/c0apot19.spl~ ~override~
+SAY NAME1 ~Potion of Etherealness~
+SAY NAME2 ~Potion of Etherealness~
+COPY ~%MOD_FOLDER%/items/c0apot19.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Etherealness~
+SAY NAME2 ~Lantanese Potion of Etherealness~
+SAY DESC ~This potion is composed of ectoplasm and dust from will-o'-wisps. The drinker takes on some of their ghostly properties, temporarily becoming ethereal.
+
+STATISTICS:
+
+Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> is immune to normal weapons and gains 20% magic resistance. Spells and weapons may still be used.
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY ~%MOD_FOLDER%/items/c0apot20.spl~ ~override~
+SAY NAME1 ~Elixir of Focus~
+SAY NAME2 ~Elixir of Focus~
+COPY ~%MOD_FOLDER%/items/c0apot20.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Focus~
+SAY NAME2 ~Lantanese Elixir of Focus~
+SAY DESC ~This potion temporarily sharpens the drinker's senses to their absolute limit, making them feel as if time has stopped for a brief duration. However, they will find it nearly impossible to take action during this state.
+
+STATISTICS:
+
+Special: Imbiber may move freely for one round while others are frozen in time. The imbiber may not attack or use spells while in this state.
+Duration: 1 round
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY ~%MOD_FOLDER%/items/c0apot21.spl~ ~override~
+SAY NAME1 ~Potion of Life Transference~
+SAY NAME2 ~Potion of Life Transference~
+COPY ~%MOD_FOLDER%/items/c0apot21.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Life Transference~
+SAY NAME2 ~Lantanese Potion of Life Transference~
+SAY DESC ~This dangerous potion sacrifices vitality for power. The drinker finds <PRO_HISHER> strength dramatically increased at the cost of their health.
+
+STATISTICS:
+
+Strength: +6
+Maximum Hit Points: -50%
+Duration: 8 hours
+
+Weight: 1~
+WRITE_LONG 0x34 3000
+
+COPY ~%MOD_FOLDER%/items/c0apot22.spl~ ~override~
+SAY NAME1 ~Philter of Arcane Barrier~
+SAY NAME2 ~Philter of Arcane Barrier~
+COPY ~%MOD_FOLDER%/items/c0apot22.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Arcane Barrier~
+SAY NAME2 ~Lantanese Philter of Arcane Barrier~
+SAY DESC ~This potion causes the drinker's very skin itself to repel magical energies, making them all but immune to the majority of spells. However, they may still cast their own spells if they so choose.
+
+STATISTICS:
+
+Damage Resistance: +75% against all forms of magical non-physical damage
+Special: All Saving Throws are automatically successful
+Duration: 3 turns
+
+Weight: 1~
+WRITE_LONG 0x34 3000
+
 COPY ~%MOD_FOLDER%/spells/c0auto.itm~ ~override~
 COPY ~%MOD_FOLDER%/spells/c0auto2.itm~ ~override~
 COPY ~%MOD_FOLDER%/spells/c0auto1.spl~ ~override~
@@ -1134,27 +1496,31 @@ SAY NAME2 ~Master Alchemist~
 SAY UNIDENTIFIED_DESC ~Master Alchemist
 The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
 
-COPY ~%MOD_FOLDER%/items/c0potn01.itm~ ~override~
-SAY NAME1 ~Potion of Divine Might~
-SAY NAME2 ~Potion of Divine Might~
-SAY DESC ~Potions of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
+COPY ~%MOD_FOLDER%/items/c0apoth1.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Divine Might~
+SAY NAME2 ~Lantanese Elixir of Divine Might~
+SAY DESC ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
+WRITE_LONG 0x34 7500
 
-COPY ~%MOD_FOLDER%/items/c0potn02.itm~ ~override~
-SAY NAME1 ~Potion of Complete Healing~
-SAY NAME2 ~Potion of Complete Healing~
+COPY ~%MOD_FOLDER%/items/c0apoth2.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Complete Healing~
+SAY NAME2 ~Lantanese Potion of Complete Healing~
 SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
+WRITE_LONG 0x34 7500
 
-COPY ~%MOD_FOLDER%/items/c0potn03.itm~ ~override~
-SAY NAME1 ~Potion of True Sight~
-SAY NAME2 ~Potion of True Sight~
-SAY DESC ~Potions of True Sight allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
+COPY ~%MOD_FOLDER%/items/c0apoth3.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Truth~
+SAY NAME2 ~Lantanese Philter of Truth~
+SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
+WRITE_LONG 0x34 7500
 
-COPY ~%MOD_FOLDER%/items/c0potn04.itm~ ~override~
-SAY NAME1 ~Potion of Hardiness~
-SAY NAME2 ~Potion of Hardiness~
-SAY DESC ~Potions of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
+COPY ~%MOD_FOLDER%/items/c0apoth4.itm~ ~override~
+SAY NAME1 ~Lantanese Tonic of Hardiness~
+SAY NAME2 ~Lantanese Tonic of Hardiness~
+SAY DESC ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
+WRITE_LONG 0x34 7500
 
-COPY ~%MOD_FOLDER%/items/c0potn05.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/c0apoth5.spl~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
@@ -1163,9 +1529,9 @@ COPY ~%MOD_FOLDER%/items/c0potn05.spl~ ~override~
 	  parameter1 = RESOLVE_STR_REF (~Permanent Ability Increase~)
   END
 SAY NAME1 ~Ultimate Mastery~
-COPY ~%MOD_FOLDER%/items/c0potn05.itm~ ~override~
-SAY NAME1 ~Potion of Ultimate Mastery~
-SAY NAME2 ~Potion of Ultimate Mastery~
+COPY ~%MOD_FOLDER%/items/c0apoth5.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Ultimate Mastery~
+SAY NAME2 ~Lantanese Potion of Ultimate Mastery~
 SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
 
    – Mages and Bards gain +1 to Intelligence.
@@ -1175,6 +1541,7 @@ SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills
    – Sorcerers and Shamans gain +1 to Constitution.
    – Spellcasting classes take precedence over warrior classes.
    – Arcane classes take precedence over divine classes.~
+WRITE_LONG 0x34 15000
 
 // STORE
 
@@ -1212,10 +1579,10 @@ SAY NAME1 ~Activate: Enlarge~
 SAY NAME2 ~Activate: Enlarge~
 SAY UNIDENTIFIED_DESC ~Enlarge
 With this ability, the automaton activates an internal device which causes it to become magically enlarged for one turn, altering its stats:
-  - +5 to THAC0
-  - +30% to Damage
-  - -6 penalty to Armor Class
-  - +40% Physical Resistance~
+  – +5 to THAC0
+  – +30% to Damage
+  – -6 penalty to Armor Class
+  – +40% Physical Resistance~
 COPY ~%MOD_FOLDER%/spells/c0autos5.spl~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
@@ -1384,7 +1751,7 @@ COPY ~%MOD_FOLDER%/creatures/C0Aura.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary now in the Sword Coast, and has sought your aid in her quest.~
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
   SAY MORALE ~~
   SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
   SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
@@ -1592,6 +1959,13 @@ COPY ~%MOD_FOLDER%/spells/c0asaku.spl~ ~override~
 SAY NAME1 ~Amaterasu~
 SAY NAME2 ~Amaterasu~
 
+COPY ~%MOD_FOLDER%/items/c0auide2.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0aarea1%~
+END
 COPY ~%MOD_FOLDER%/items/c0auiden.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
@@ -1622,7 +1996,7 @@ STATISTICS:
 
 Charge abilities (three times per day):
 – Identify
-– Reveal Magic: Reveal all dispellable enchantments and gain +2 to attack rolls vs. arcane casters (bards, mages, sorcerers) for one turn
+– Reveal Magic: Reveal all dispellable enchantments within 50' and gain +2 to attack rolls vs. arcane casters (bards, mages, sorcerers) for one turn
 
 Equipped abilities:
 – Find Traps: +20%
@@ -1641,11 +2015,11 @@ STATISTICS:
 
 Capacity: 40 items
 Weight: 0~
+OUTER_SET strref = RESOLVE_STR_REF (~Muffy scurries away in fear of you, its contents clattering as it runs. "Hey, get back here!" Aura sighs. "Hope he hasn't broken anything this time..."~ [GAM_48])
+APPEND item_use.2da ~c0muffy Aura %strref% 3~
 
 COPY ~%MOD_FOLDER%/items/c0muffy.sto~ ~override~
 SAY 0xc ~Muffy~
-OUTER_SET strref = RESOLVE_STR_REF (~Muffy scurries away in fear of you, its contents clattering as it runs. "Hey, get back here!" Aura sighs. "Hope he hasn't broken anything this time..."~ [GAM_48])
-APPEND item_use.2da ~c0muffy Aura %strref% 3~
 
 COPY ~%MOD_FOLDER%/items/c0aubook.itm~ ~override~
 SAY NAME1 ~Aura's Rune Book~
@@ -2074,6 +2448,7 @@ When thrown, releases a cloud which deals 2d3 fire damage per round to all creat
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj2%~
+WRITE_LONG 0x34 250
 
 COPY ~%MOD_FOLDER%/items/c0abomb2.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -2096,6 +2471,7 @@ When thrown, deals 2d4 non-lethal damage and blinds all creatures within a 10' r
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj3%~
+WRITE_LONG 0x34 750
 
 COPY ~%MOD_FOLDER%/items/c0abomb3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -2118,6 +2494,7 @@ When thrown, deals 1d6+5 fire and 1d6+5 piercing damage within a 10' radius and 
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj4%~
+WRITE_LONG 0x34 750
 
 COPY ~%MOD_FOLDER%/items/c0abomb4.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -2140,6 +2517,7 @@ When thrown, releases a cloud for three rounds which deals 2d6 poison damage per
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj5%~
+WRITE_LONG 0x34 1000
 
 COPY ~%MOD_FOLDER%/items/c0abomb5.itm~ ~override~
   LPF ALTER_EFFECT
@@ -2169,6 +2547,7 @@ When thrown, releases a cloud for one turn which deals 4 poison damage per round
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj6%~
+WRITE_LONG 0x34 1200
 
 COPY ~%MOD_FOLDER%/items/c0abomb6.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -2191,6 +2570,7 @@ When thrown, deals 2d8 fire damage and slows all targets for three rounds on a f
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj7%~
+WRITE_LONG 0x34 1500
 
 COPY ~%MOD_FOLDER%/items/c0abomb7.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -2213,6 +2593,7 @@ When thrown, releases an acidic cloud which deals 2d10 acid damage each turn. En
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj8%~
+WRITE_LONG 0x34 2500
 
 COPY ~%MOD_FOLDER%/items/c0aburn.spl~ ~override~
       LPF ALTER_EFFECT
@@ -2251,6 +2632,7 @@ When thrown, unleashes a fireball that deals 8d8 fire damage. Victims have their
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj9%~
+WRITE_LONG 0x34 3500
 
 COPY ~%MOD_FOLDER%/items/c0abomb9.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -2278,6 +2660,7 @@ When thrown, unleashes a multicolored explosion which deals 2d6 magical damage a
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 4000
 
 COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl1.itm~
 SAY NAME1 ~Strange Letter~
@@ -2635,7 +3018,7 @@ COPY ~%MOD_FOLDER%/alt-portrait/AuraS.bmp~ ~override~
 
 ////////////////////////////////////// Siege of Dragonspear
 
-BEGIN ~Aura Glimmershine NPC for Baldur's Gate: Siege of Dragonspear (CURRENTLY UNFINISHED, TRANSITION ONLY)~
+BEGIN ~Aura Glimmershine NPC for Baldur's Gate: Siege of Dragonspear~
 REQUIRE_COMPONENT ~%MOD_FOLDER%/Aura_BG1.tp2~ ~0~ ~Main component must be installed~
 
 COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
@@ -2698,7 +3081,7 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
 // SCRIPTS
 
   EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~
-/*  EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~
+  EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~
   EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
   EXTEND_TOP ~bd0130.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
   EXTEND_TOP ~bd1000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd1000.baf~
@@ -2707,21 +3090,39 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   EXTEND_TOP ~bd7000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7000.baf~
   EXTEND_TOP ~bd7100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7100.baf~
   EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~
-  EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~ */
+  EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~
   EXTEND_TOP ~bdparty.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdparty.baf~
+  EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~
+
+COPY_EXISTING ~bdfoods.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+     REPLACE_TEXTUALLY ~!PartyHasItem("bdpotn01")~ ~!PartyHasItem("bdpotn01")
+	 !PartyHasItem("c02apotn")~
+	 END
+BUT_ONLY  
+
+COPY_EXISTING ~bdwaters.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+     REPLACE_TEXTUALLY ~!PartyHasItem("bdpotn01")~ ~!PartyHasItem("bdpotn01")
+	 !PartyHasItem("c02apotn")~
+	 END
+BUT_ONLY  
+
+  EXTEND_BOTTOM ~bdfoods.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdfoods.baf~
+  EXTEND_BOTTOM ~bdwaters.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdwaters.baf~
   
   COMPILE ~%MOD_FOLDER%/dialogue/SoD/c02aura.d~
-//		  ~%MOD_FOLDER%/dialogue/SoD/c02auraj.d~
+		  ~%MOD_FOLDER%/dialogue/SoD/c02auraj.d~
   
   COMPILE ~%MOD_FOLDER%/scripts/SoD/c02aura.baf~
-//		  ~%MOD_FOLDER%/scripts/SoD/c02akoko.baf~
-//		  ~%MOD_FOLDER%/scripts/SoD/c02acut1.baf~
-//		  ~%MOD_FOLDER%/scripts/SoD/c02acut2.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02akoko.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02acut1.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02acut2.baf~
   
 APPEND ~bddialog.2da~
-~C0Aura        C02AuraP	C02AuraJ	C02AuraD~
+~C0Aura        C02Aura	C02AuraJ	C02AuraD~
 UNLESS ~C0Aura~
-/*
+
 // CREATURES
 
 COPY ~%MOD_FOLDER%/creatures/SoD/c02akoko.cre~ ~override~
@@ -2786,6 +3187,7 @@ When thrown, unleashes a burst of negative energy which deals 6d8+6 magic damage
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0asvoid%~
+WRITE_LONG 0x34 2500
 
 COPY ~%MOD_FOLDER%/items/SoD/c02aucat.itm~ ~override~
 SAY NAME1 ~Cat~
@@ -2832,4 +3234,63 @@ Launcher: Bow
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro4%~
 
-*/
+COPY ~%MOD_FOLDER%/items/SoD/c02apotn.itm~ ~override~
+SAY NAME1 ~Potion~
+SAY NAME2 ~Sleeping Potion~
+SAY DESC ~This phial contains a milky-white liquid with strong sedative properties. Even the scent of it is enough to make you feel drowsy. A few drops would be capable of putting any living creature to sleep.
+
+STATISTICS:
+
+Weight: 0~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02afish.itm~ ~override~
+SAY NAME1 ~Sardine~
+SAY NAME2 ~Sardine~
+SAY DESC ~Sardines, also known as pilchards, are small, oily fish that travel in large schools and feed on sea plankton. They are commonly consumed by both larger fish and mammals alike. Cats are known for being especially fond of sardines.
+
+STATISTICS:
+
+Weight: 0~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02aring.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/SoD/c02aring.itm~ ~override~
+SAY NAME1 ~Ring of Moon's Eye~
+SAY NAME2 ~Ring of Moon's Eye~
+SAY DESC ~This roughly crafted ring appears unremarkable at first glance aside from a small crescent-shaped carving on the inner side. When worn, the bearer's skin becomes faintly illuminated, as though bathed in moonlight.
+
+STATISTICS:
+
+Equipped abilities:
+– When struck in combat, the wearer has a 25% chance to cast Reflected Image on <PRO_HIMHER>self
+– Immunity to fear and holding effects
+
+Weight: 0~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02asack.itm~ ~override~
+SAY NAME1 ~Bag~
+SAY NAME2 ~Bag of Seeds~
+SAY DESC ~This bag contains a small handful of fat, brown sunflower seeds.
+
+STATISTICS:
+
+Weight: 1~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02asunf.itm~ ~override~
+SAY NAME1 ~Sunflowers~
+SAY NAME2 ~Sunflowers~
+SAY DESC ~These dried sunflowers are full of large seeds. They give off a pleasant aroma.
+
+STATISTICS:
+
+Weight: 1~
+
+COPY_EXISTING ~scrl2j.itm~ ~override/c02apoem.itm~
+SAY NAME1 ~Strange Poem~
+SAY NAME2 ~Strange Poem~
+SAY DESC ~The writing on this scrap of paper appears to be some kind of poem.
+
+"I follow in her steps
+She turns, a smile parts her lips
+Warm flush, cross'd my cheeks..."
+
+The handwriting is somewhat familiar.~
