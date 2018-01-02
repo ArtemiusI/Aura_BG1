@@ -164,27 +164,27 @@ THEN
   RESPONSE #1
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #2
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	StartDialogueNoSet(Player1)
   RESPONSE #5
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #6
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	StartDialogueNoSet(Player1)
   RESPONSE #7
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #8
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	StartDialogueNoSet(Player1)
   RESPONSE #11
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #12
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	StartDialogueNoSet(Player1)
   RESPONSE #13
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #14
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	StartDialogueNoSet(Player1)
 END
 
@@ -204,7 +204,7 @@ THEN
   RESPONSE #3
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #4
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	StartDialogueNoSet(Player1)
 END
 
@@ -263,7 +263,7 @@ IF
 THEN
   RESPONSE #100
 	SetGlobal("C0AuraKittyTime","LOCALS",1)
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
 END
 	
 IF
@@ -275,34 +275,34 @@ IF
 THEN
   RESPONSE #10
 	DisplayStringHead(Myself,~Who's a pretty kitty-witty...?~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Ow! I really need to trim your claws...~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Want a treat, Koko-chan? Aww, here you go!~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Hey! HEY! Muffy, Koko-chan, stop fighting right now!~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Eww, cat fur on the magnifying glass...~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Look at your wittle paws! Hee hee!~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~You want to get out for a bit, Koko-chan? Sorry, not while we're marching...~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Hey, stop scratching my yukata!~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~Are you bored, Koko-chan? Yeah, me too...~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
   RESPONSE #10
 	DisplayStringHead(Myself,~I think you'll like Lantan, Koko-chan, just wait...~ [CAT01])
-	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",THIRTY_MINUTES)
+	RealSetGlobalTimer("KittyThirtyMinutes","LOCALS",ONE_HOUR)
 END
 
 IF
@@ -654,4 +654,517 @@ IF
 THEN
   RESPONSE #100
 	SetGlobal("C02Sireneromanceactive","global",3)
+END
+
+// BANTERS
+
+// Baeloth
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Baeloth")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraBaeloth","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraBaeloth","GLOBAL",1)
+RealSetGlobalTimer("C02AuraBaelothTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Baeloth")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraBaelothTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraBaeloth","GLOBAL",1)
+Global("C02AuraBaeloth","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Corwin
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Corwin")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraCorwin","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraCorwin","GLOBAL",1)
+RealSetGlobalTimer("C02AuraCorwinTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Corwin")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraCorwinTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraCorwin","GLOBAL",1)
+Global("C02AuraCorwin","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Dorn
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Dorn")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraDorn","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraDorn","GLOBAL",1)
+RealSetGlobalTimer("C02AuraDornTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Dorn")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraDornTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraDorn","GLOBAL",1)
+Global("C02AuraDorn","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Dynaheir
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Dynaheir")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraDynaheir","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraDynaheir","GLOBAL",1)
+RealSetGlobalTimer("C02AuraDynaheirTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Dynaheir")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraDynaheirTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraDynaheir","GLOBAL",1)
+Global("C02AuraDynaheir","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Edwin
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Edwin")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraEdwin","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraEdwin","GLOBAL",1)
+RealSetGlobalTimer("C02AuraEdwinTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Edwin")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraEdwinTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraEdwin","GLOBAL",1)
+Global("C02AuraEdwin","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Glint
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Glint")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraGlint","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraGlint","GLOBAL",1)
+RealSetGlobalTimer("C02AuraGlintTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Glint")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraGlintTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(4)
+Global("C02AuraGlint","GLOBAL",1)
+Global("C02AuraGlint","GLOBAL",2)
+Global("C02AuraGlint","GLOBAL",3)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Jaheira
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Jaheira")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraJaheira","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraJaheira","GLOBAL",1)
+RealSetGlobalTimer("C02AuraJaheiraTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Jaheira")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraJaheiraTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraJaheira","GLOBAL",1)
+Global("C02AuraJaheira","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Khalid
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Khalid")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraKhalid","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraKhalid","GLOBAL",1)
+RealSetGlobalTimer("C02AuraKhalidTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Khalid")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraKhalidTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraKhalid","GLOBAL",1)
+Global("C02AuraKhalid","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// M'khiin
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Mkhiin")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraMkhiin","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraMkhiin","GLOBAL",1)
+RealSetGlobalTimer("C02AuraMkhiinTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Mkhiin")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraMkhiinTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraMkhiin","GLOBAL",1)
+Global("C02AuraMkhiin","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Minsc
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Minsc")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraMinsc","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraMinsc","GLOBAL",1)
+RealSetGlobalTimer("C02AuraMinscTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Minsc")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraMinscTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraMinsc","GLOBAL",1)
+Global("C02AuraMinsc","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Neera
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Neera")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraNeera","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraNeera","GLOBAL",1)
+RealSetGlobalTimer("C02AuraNeeraTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Neera")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraNeeraTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraNeera","GLOBAL",1)
+Global("C02AuraNeera","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Rasaad
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Rasaad")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraRasaad","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraRasaad","GLOBAL",1)
+RealSetGlobalTimer("C02AuraRasaadTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Rasaad")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraRasaadTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraRasaad","GLOBAL",1)
+Global("C02AuraRasaad","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Safana
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Safana")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraSafana","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraSafana","GLOBAL",1)
+RealSetGlobalTimer("C02AuraSafanaTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Safana")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraSafanaTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraSafana","GLOBAL",1)
+Global("C02AuraSafana","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Viconia
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Viconia")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraViconia","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraViconia","GLOBAL",1)
+RealSetGlobalTimer("C02AuraViconiaTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Viconia")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraViconiaTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraViconia","GLOBAL",1)
+Global("C02AuraViconia","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
+END
+
+// Voghiln
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Voghiln")
+InParty(Myself)
+!ActuallyInCombat()
+Global("C02AuraVoghiln","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C02AuraVoghiln","GLOBAL",1)
+RealSetGlobalTimer("C02AuraVoghilnTalk","GLOBAL",ONE_HOUR)
+END
+
+IF
+!AreaCheck("bd0120")
+!AreaCheck("bd0130")
+InMyArea(Player1)
+InParty("Voghiln")
+InParty(Myself)
+!ActuallyInCombat()
+Global("bd_battle","global",0)
+RealGlobalTimerExpired("C02AuraVoghilnTalk","GLOBAL")
+!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+OR(2)
+Global("C02AuraVoghiln","GLOBAL",1)
+Global("C02AuraVoghiln","GLOBAL",2)
+THEN
+RESPONSE #100
+SetAreaScript("c02abant",GENERAL)
 END

@@ -1,0 +1,274 @@
+COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+
+During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+  
+// SCRIPTS
+
+  EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~
+  EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~
+  EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
+  EXTEND_TOP ~bd0130.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
+  EXTEND_TOP ~bd1000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd1000.baf~
+  EXTEND_TOP ~bd3000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd3000.baf~
+  EXTEND_TOP ~bd4100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4100.baf~
+  EXTEND_TOP ~bd7000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7000.baf~
+  EXTEND_TOP ~bd7100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7100.baf~
+  EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~
+  EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~
+  EXTEND_TOP ~bdparty.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdparty.baf~
+  EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~
+
+COPY_EXISTING ~bdfoods.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+     REPLACE_TEXTUALLY ~!PartyHasItem("bdpotn01")~ ~!PartyHasItem("bdpotn01")
+	 !PartyHasItem("c02apotn")~
+	 END
+BUT_ONLY  
+
+COPY_EXISTING ~bdwaters.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+     REPLACE_TEXTUALLY ~!PartyHasItem("bdpotn01")~ ~!PartyHasItem("bdpotn01")
+	 !PartyHasItem("c02apotn")~
+	 END
+BUT_ONLY  
+
+  EXTEND_BOTTOM ~bdfoods.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdfoods.baf~
+  EXTEND_BOTTOM ~bdwaters.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdwaters.baf~
+  
+  COMPILE ~%MOD_FOLDER%/dialogue/SoD/c02aura.d~
+		  ~%MOD_FOLDER%/dialogue/SoD/c02auraj.d~
+  
+  COMPILE ~%MOD_FOLDER%/scripts/SoD/c02aura.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02akoko.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02acut1.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02acut2.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c02abant.baf~
+  
+APPEND ~bddialog.2da~
+~C0Aura        C02Aura	C02AuraJ	C02AuraD~
+UNLESS ~C0Aura~
+
+// CREATURES
+
+COPY ~%MOD_FOLDER%/creatures/SoD/c02akoko.cre~ ~override~
+  SAY NAME1 ~Koko~
+  SAY NAME2 ~Koko~
+  WRITE_ASCII 0x248 ~c02akoko~ #8  //override script
+  WRITE_ASCII 0x280 ~c02akoko~ #32  //DV
+  WRITE_ASCII 0x2cc ~c02akoko~ #8   //pre-joining dialogue file
+  
+COPY_EXISTING ~orc01.cre~ ~override/c02aorc1.cre~
+  WRITE_ASCII 0x280 ~c02aorc1~ #32  //DV
+  
+COPY_EXISTING ~orc01.cre~ ~override/c02aorc2.cre~
+  WRITE_ASCII 0x280 ~c02aorc2~ #32  //DV
+  
+COPY_EXISTING ~%MOD_FOLDER%/creatures/SoD/c02auto.cre~ ~override~
+  SAY NAME1 ~Bronze Automaton~
+  SAY NAME2 ~Bronze Automaton~
+  WRITE_ASCII 0x248 ~c02auto~ #8  //override script
+  WRITE_ASCII 0x2cc ~c02auto~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c02auto~ #32  //DV
+  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
+  WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
+
+COPY ~%MOD_FOLDER%/items/SoD/c0aule02.itm~ ~override~
+SAY NAME1 ~Cherry-tinted Leather Armor +3~
+SAY NAME2 ~Cherry-tinted Leather Armor +3~
+SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
+
+Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors, as well as protect from the hazards of her experiments, such as extreme heat or cold, electrical shocks, and chemical burns.
+
+STATISTICS:
+
+Equipped abilities:
+- Save vs. Breath Weapons: +3
+- Elemental Resistance: +20%
+
+Armor Class: 5 (7 vs. piercing and missile)
+Requires:
+ 4 Strength
+
+Weight: 10~
+
+COPY ~%MOD_FOLDER%/items/SoD/c0abomba.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Screaming Void~
+SAY DESC ~This malignant explosive was crafted using dust from the voidstone which caused a negative energy field within Bridgefort. As unsettling as the dark sludge-like substance appears, it can deal an indisputably massive amount of harm to any being unfortunate enough to be caught within its radius.
+
+STATISTICS
+
+When thrown, unleashes a burst of negative energy which deals 6d8+6 magic damage (Save vs. Breath Weapons for half) and reduces all creatures' Strength by one point for 5 rounds (Save vs. Spell negates). Has no effect against undead.
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0asvoid%~
+WRITE_LONG 0x34 2500
+
+COPY ~%MOD_FOLDER%/items/SoD/c02aucat.itm~ ~override~
+SAY NAME1 ~Cat~
+SAY NAME2 ~"Koko-chan"~
+SAY DESC ~This small, grey cat is quite cute, yet it looks at you warily while you are within eyeshot. At the moment, it is contentedly taking a nap inside of Aura's backpack.
+
+STATISTICS:
+
+Weight: 0~
+OUTER_SET strref = RESOLVE_STR_REF (~The cat growls and hisses menacingly when you attempt to move it from its resting place.~ [FAMCAT01])
+APPEND item_use.2da ~c02aucat Aura %strref% 3~
+
+COPY ~%MOD_FOLDER%/items/SoD/c0auaro4.itm~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        match_parameter2  = 82    // Called Shot icon
+        parameter2        = (icon_index + 3)
+      END
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+      match_parameter1 = 0
+ parameter1 = RESOLVE_STR_REF (~Burning~)
+END
+SAY NAME1 ~Trollbane Arrow~
+SAY NAME2 ~Trollbane Arrow~
+SAY DESC ~This unusual arrow, designed and crafted by Aura to fight trolls, is filled with a flammable concoction which alters a troll's physiology, preventing them from regenerating their wounds.
+
+STATISTICS:
+
+Combat abilities:
+- Targets struck by this arrow must make a save vs. death at -4 or suffer two points of fire damage per round for three rounds. If the target is a troll, it permanently loses its regenerative abilities.
+
+THAC0: +2
+Damage: 1d6+4 fire
+Damage type: piercing
+Launcher: Bow
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0auaro4%~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02apotn.itm~ ~override~
+SAY NAME1 ~Potion~
+SAY NAME2 ~Sleeping Potion~
+SAY DESC ~This phial contains a milky-white liquid with strong sedative properties. Even the scent of it is enough to make you feel drowsy. A few drops would be capable of putting any living creature to sleep.
+
+STATISTICS:
+
+Weight: 0~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02afish.itm~ ~override~
+SAY NAME1 ~Sardine~
+SAY NAME2 ~Sardine~
+SAY DESC ~Sardines, also known as pilchards, are small, oily fish that travel in large schools and feed on sea plankton. They are commonly consumed by both larger fish and mammals alike. Cats are known for being especially fond of sardines.
+
+STATISTICS:
+
+Weight: 0~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02aring.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/SoD/c02aring.itm~ ~override~
+SAY NAME1 ~Ring of Moon's Eye~
+SAY NAME2 ~Ring of Moon's Eye~
+SAY DESC ~This roughly crafted ring appears unremarkable at first glance aside from a small crescent-shaped carving on the inner side. When worn, the bearer's skin becomes faintly illuminated, as though bathed in moonlight.
+
+STATISTICS:
+
+Equipped abilities:
+- When struck in combat, the wearer has a 25% chance to cast Reflected Image on <PRO_HIMHER>self
+- Immunity to fear and holding effects
+
+Weight: 0~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02asack.itm~ ~override~
+SAY NAME1 ~Bag~
+SAY NAME2 ~Bag of Seeds~
+SAY DESC ~This bag contains a small handful of fat, brown sunflower seeds.
+
+STATISTICS:
+
+Weight: 1~
+
+COPY ~%MOD_FOLDER%/items/SoD/c02asunf.itm~ ~override~
+SAY NAME1 ~Sunflowers~
+SAY NAME2 ~Sunflowers~
+SAY DESC ~These dried sunflowers are full of large seeds. They give off a pleasant aroma.
+
+STATISTICS:
+
+Weight: 1~
+
+COPY_EXISTING ~scrl2j.itm~ ~override/c02apoem.itm~
+SAY NAME1 ~Strange Poem~
+SAY NAME2 ~Strange Poem~
+SAY DESC ~The writing on this scrap of paper appears to be some kind of poem.
+
+"I follow in her steps
+She turns, a smile parts her lips
+Warm flush, cross'd my cheeks..."
+
+The handwriting is somewhat familiar.~

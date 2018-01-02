@@ -242,7 +242,7 @@ END
 ++ ~It's only mortal to fear. Why would I be different?~ + t3.3
 ++ ~Perhaps I do. I'm as prone to doubts as everyone else.~ + t3.3
 + ~Gender(Player1,MALE)~ + ~Doubts and fears are for lesser men. I'm above them.~ + t3.4
-+ ~Gender(Player1,FEMALE)~ + ~Doubts and fears are for lesser men. I'm above them.~ + t3.4
++ ~Gender(Player1,FEMALE)~ + ~Doubts and fears are for lesser women. I'm above them.~ + t3.4
 ++ ~If I did, I wouldn't discuss it with an outsider like you.~ + t3.x
 
 CHAIN C02AURAJ t3.2
@@ -374,7 +374,7 @@ StartCutscene("c0aufade")~ EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",10)~ THEN C02AURAJ t5
 ~Thank you for the sunflowers, <CHARNAME>. I'll be able to make enough medicinal tea to last me for the rest of the expedition now.~
-DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
+DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1) TakePartyItem("c02asunf") DestroyItem("c02asunf")~
 = ~Umm... there were a few flowers left over from the brewing process, and I wasn't sure what to do with them... so I put them in a glass jar. Even in their condition... I still think they're beautiful. I'd like to give them to you, as my way of saying thanks.~
 END
 ++ ~They are quite lovely. Thank you, Aura.~ + t5.1
@@ -840,13 +840,13 @@ END
 ++ ~Don't you fall down on me right now.~ + coldhearth.1
 
 CHAIN C02AURAJ coldhearth.1
-~No... I'm fine, <CHARNAME>. I just had a sudden sharp pain in my head... as though I've forgotten something important...~
+~No... I'm fine, <CHARNAME>. I just had a sudden sharp pain in my head... as though I've trying to remember something important...~
 = ~I'm not sure why, but... those tubes, those notes... it's like I've seen this place before, or some place just like it... just as horrifying. But I can't put my finger on it.~
 END
 + ~Global("C02AuraWasInBG1","GLOBAL",1) CheckStatGT(Player1,9,INT)~ + ~Come to think of it, you mentioned losing your memory when you were shipwrecked and ended up in Kozakura. Is it possible you're still missing some memories?~ + coldhearth.2
 + ~OR(2)
-Global("C02AuraWasInBG1","GLOBAL",1)
-CheckStatGT(Player1,9,INT)~ + ~Could it be that you've forgotten about something important?~ + coldhearth.2
+!Global("C02AuraWasInBG1","GLOBAL",1)
+!CheckStatGT(Player1,9,INT)~ + ~Could it be that you've forgotten about something important from your past?~ + coldhearth.2
 ++ ~Whatever. Just don't let a little headache get in the way.~ + coldhearth.3
 ++ ~Recover quickly, or I'm leaving you behind.~ + coldhearth.3
 
@@ -1633,7 +1633,7 @@ CHAIN C02AURAJ koko.3
 EXTERN C02AURAJ koko.4
 
 CHAIN C02AURAJ koko.4
-~You be good now, Koko-chan, okay? Don't wander off too far from me now. Have fun!.~
+~You be good now, Koko-chan, okay? Don't wander off unless you know where you're going. I'll still come around and see you, okay? Okay, bye!~
 == C02AKOKO ~*meow*~ [CAT01]
 EXIT
 
@@ -1687,7 +1687,7 @@ CHAIN C02AURA koko.a3
 EXTERN C02AURA koko.a4
 
 CHAIN C02AURA koko.a4
-~You be good now, Koko-chan, okay? Don't wander off unless you know where you're going. I'll still come around and see you, okay? Okay, bye!~
+~You be good now, Koko-chan, okay?  Don't wander off too far from me now. Have fun!~
 == C02AKOKO ~*meow*~ [CAT01]
 EXIT
 
@@ -1857,9 +1857,9 @@ END
 IF ~~ pidtalk
 SAY ~Sure... about what?~
 	+ ~Global("C02AuraPID1","GLOBAL",0) HasItem("c02aucat","C0Aura")~ + ~Where did you get that cat?~ DO ~SetGlobal("C02AuraPID1","GLOBAL",1)~ + pid1
-	+ ~Global("C02AuraPID1","GLOBAL",1)~ + ~Are you fond of cats, Aura?~ + pid1.1
-	+ ~Global("C02AuraPID2","GLOBAL",0)~ + ~Your bow is an interesting weapon. Did you design it?~ + pid2
-	+ ~Global("C02AuraPID2","GLOBAL",1)~ + ~Why is your bow called the 'Sunshooter'?~ + pid2.1
+	+ ~Global("C02AuraPID1","GLOBAL",1)~ + ~Are you fond of cats, Aura?~ DO ~SetGlobal("C02AuraPID1","GLOBAL",2)~ + pid1.1
+	+ ~Global("C02AuraPID2","GLOBAL",0)~ + ~Your bow is an interesting weapon. Did you design it?~ DO ~SetGlobal("C02AuraPID2","GLOBAL",1)~ + pid2
+	+ ~Global("C02AuraPID2","GLOBAL",1)~ + ~Why is your bow called the 'Sunshooter'?~ DO ~SetGlobal("C02AuraPID2","GLOBAL",2)~ + pid2.1
 	++ ~What are your thoughts on the situation right now?~ + pid3
 	+ ~NumInPartyAliveGT(2)~ + ~Can I ask you about one of our companions?~ + pid4
 	+ ~GlobalGT("C02AuraTalk","GLOBAL",0)
@@ -1958,32 +1958,38 @@ END
 
 IF ~~ pid3.1
 SAY ~I mean, I've only joined you for a short while, but... I guess the best thing to do is to press on?~
-IF ~~ EXIT
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
 END
 
 IF ~~ pid3.2
 SAY ~If the crusade had caught me, I'd probably have been forced to build weapons to bring down Bridgefort. I'm glad you found me first.~
-IF ~~ EXIT
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
 END
 
 IF ~~ pid3.3
 SAY ~I feel a little out of place against so many experienced soldiers... but I'll do my best.~
-IF ~~ EXIT
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
 END
 
 IF ~~ pid3.4
 SAY ~We're almost to the end, aren't we? If we've gotten this far, I have faith you'll get us to the end.~
-IF ~~ EXIT
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
 END
 
 IF ~~ pid3.5
 SAY ~Avernus is just as terrifying as I expected it to be... but I'll still face it if you need me.~
-IF ~~ EXIT
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
 END
 
 IF ~~ pid3.6
 SAY ~What is there to say? We've won. Let's celebrate!~
-IF ~~ EXIT
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
 END
 
 IF ~~ pid4
@@ -1999,7 +2005,9 @@ SAY ~Sure... which one?~
 + ~InParty("Khalid")~ + ~What do you think about Khalid?~ + pid4.khalid
 + ~InParty("Mkhiin")~ + ~What do you think about M'khiin?~ + pid4.mkhiin
 + ~InParty("Minsc")~ + ~What do you think about Minsc?~ + pid4.minsc
++ ~InParty("Neera")~ + ~What do you think about Neera?~ + pid4.minsc
 + ~InParty("Rasaad")~ + ~What do you think about Rasaad?~ + pid4.rasaad
++ ~InParty("Safana")~ + ~What do you think about Safana?~ + pid4.safana
 + ~InParty("C0Sirene")~ + ~What do you think about Sirene?~ + pid4.sirene
 + ~InParty("L#1DVER")~ + ~What do you think about Verr'Sza?~ + pid4.verr
 + ~InParty("Viconia")~ + ~What do you think about Viconia?~ + pid4.viconia
@@ -2072,8 +2080,20 @@ SAY ~Minsc is really gentle for someone so big. I think Boo still smells Koko-ch
 ++ ~That's all for now.~ + pid.end
 END
 
+IF ~~ pid4.neera
+SAY ~I like her. Her style's a little too unpredictable for my tastes, though. It bugs me that it follows no conventional laws of magic or reality...~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
 IF ~~ pid4.rasaad
 SAY ~I have a lot of respect for him. He's trained his body with just as much drive as I've trained my mind.~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
+IF ~~ pid4.safana
+SAY ~She's pretty, but she'll never look at me as an equal. I know that.~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
 ++ ~That's all for now.~ + pid.end
 END
