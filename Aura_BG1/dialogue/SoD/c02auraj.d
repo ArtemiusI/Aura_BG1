@@ -805,7 +805,7 @@ END
 // Bridgefort
 
 I_C_T BDBF1 1 C0AuraBDBF11
-== C02DRAKJ IF ~IsValidForPartyDialogue("C0Aura")~ THEN ~N-negative energy... whatever the crusaders threw at us, it's draining our life force. This is bad...~
+== C02AURAJ IF ~IsValidForPartyDialogue("C0Aura")~ THEN ~N-negative energy... whatever the crusaders threw at us, it's draining our life force. This is bad...~
 END
 
 EXTEND_TOP BDWYNAN 7 #4
