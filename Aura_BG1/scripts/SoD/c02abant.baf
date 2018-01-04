@@ -9,6 +9,7 @@ InParty("C0Aura")
 Global("C02AuraBaeloth","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraBaelothTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraBaeloth1","MYAREA",-1)
 Switch("C02AuraBaeloth1","MYAREA")
 THEN
@@ -39,7 +40,8 @@ SetGlobal("C02AuraBaeloth1","MYAREA",60)
 RESPONSE #60
 DisplayStringHead("Baeloth",~Don't get used to it, you impudent little imp.~)
 SetGlobal("C02AuraBaeloth","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraBaeloth1","MYAREA",-1)
 END
 
@@ -54,6 +56,7 @@ InParty("C0Aura")
 Global("C02AuraCorwin","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraCorwinTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraCorwin1","MYAREA",-1)
 Switch("C02AuraCorwin1","MYAREA")
 THEN
@@ -76,8 +79,9 @@ SetGlobal("C02AuraCorwin1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Corwin",~Then you have a strong conscience. I can respect that.~)
 SetGlobal("C02AuraCorwin","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraCorwinTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraCorwinTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraCorwin1","MYAREA",-1)
 END
 
@@ -90,6 +94,7 @@ InParty("C0Aura")
 Global("C02AuraCorwin","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraCorwinTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraCorwin2","MYAREA",-1)
 Switch("C02AuraCorwin2","MYAREA")
 THEN
@@ -107,8 +112,9 @@ SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 SetGlobal("C02AuraCorwin2","MYAREA",30)
 RESPONSE #30
 DisplayStringHead("Corwin",~I'd be happy to. Next time we rest, I'll set up some training targets. We'll train for as long as you'd like.~)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraCorwinTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraCorwinTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraCorwin2","MYAREA",-1)
 END
 
@@ -123,6 +129,7 @@ InParty("C0Aura")
 Global("C02AuraDorn","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraDornTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraDorn1","MYAREA",-1)
 Switch("C02AuraDorn1","MYAREA")
 THEN
@@ -145,8 +152,9 @@ SetGlobal("C02AuraDorn1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Dorn",~No. But if you were, you may even have my respect.~)
 SetGlobal("C02AuraDorn","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraDornTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraDornTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraDorn1","MYAREA",-1)
 END
 
@@ -159,6 +167,7 @@ InParty("C0Aura")
 Global("C02AuraDorn","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraDornTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraDorn2","MYAREA",-1)
 Switch("C02AuraDorn2","MYAREA")
 THEN
@@ -181,7 +190,8 @@ SetGlobal("C02AuraDorn2","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("C0Aura",~If that's true, then I guess you'll never have peace. That's a sad thought.~)
 SetGlobal("C02AuraDorn","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraDorn2","MYAREA",-1)
 END
 
@@ -196,6 +206,7 @@ InParty("C0Aura")
 Global("C02AuraDynaheir","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraDynaheirTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraDynaheir1","MYAREA",-1)
 Switch("C02AuraDynaheir1","MYAREA")
 THEN
@@ -214,8 +225,9 @@ SetGlobal("C02AuraDynaheir1","MYAREA",30)
 RESPONSE #30
 DisplayStringHead("C0Aura",~That's very kind of you. It's reassuring to know that I can work towards a better future without going too far.~)
 SetGlobal("C02AuraDynaheir","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraDynaheirTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraDynaheirTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraDynaheir1","MYAREA",-1)
 END
 
@@ -228,6 +240,7 @@ InParty("C0Aura")
 Global("C02AuraDynaheir","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraDynaheirTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraDynaheir2","MYAREA",-1)
 Switch("C02AuraDynaheir2","MYAREA")
 THEN
@@ -246,8 +259,9 @@ SetGlobal("C02AuraDynaheir2","MYAREA",30)
 RESPONSE #30
 DisplayStringHead("C0Aura",~It won't. We know all too well what would happen. I'd defend the secret with my life-- any of us would.~)
 SetGlobal("C02AuraDynaheir","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraDynaheirTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraDynaheirTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraDynaheir2","MYAREA",-1)
 END
 
@@ -262,6 +276,7 @@ InParty("C0Aura")
 Global("C02AuraEdwin","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraEdwinTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraEdwin1","MYAREA",-1)
 Switch("C02AuraEdwin1","MYAREA")
 THEN
@@ -284,8 +299,9 @@ SetGlobal("C02AuraEdwin1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Edwin",~Me? What a ridiculous proposition. I teach no one of what I know. (after all, I cannot have any competitors surpassing my skill...)~)
 SetGlobal("C02AuraEdwin","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraEdwinTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraEdwinTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraEdwin1","MYAREA",-1)
 END
 
@@ -298,6 +314,7 @@ InParty("C0Aura")
 Global("C02AuraEdwin","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraEdwinTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraEdwin2","MYAREA",-1)
 Switch("C02AuraEdwin2","MYAREA")
 THEN
@@ -320,7 +337,8 @@ SetGlobal("C02AuraEdwin2","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Edwin",~Done. You may have exactly three minutes. And I will be counting.~)
 SetGlobal("C02AuraEdwin","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraEdwin2","MYAREA",-1)
 END
 
@@ -335,6 +353,7 @@ InParty("C0Aura")
 Global("C02AuraGlint","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraGlintTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraGlint1","MYAREA",-1)
 Switch("C02AuraGlint1","MYAREA")
 THEN
@@ -365,8 +384,9 @@ SetGlobal("C02AuraGlint1","MYAREA",60)
 RESPONSE #60
 DisplayStringHead("Glint",~She makes fireworks. The Waterdhavian upper class loves them. When this is over, I should take you along to visit her. I'm sure you'll get along splendidly.~)
 SetGlobal("C02AuraGlint","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraGlintTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraGlintTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraGlint1","MYAREA",-1)
 END
 
@@ -379,6 +399,7 @@ InParty("C0Aura")
 Global("C02AuraGlint","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraGlintTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraGlint2","MYAREA",-1)
 Switch("C02AuraGlint2","MYAREA")
 THEN
@@ -417,8 +438,9 @@ SetGlobal("C02AuraGlint2","MYAREA",80)
 RESPONSE #80
 DisplayStringHead("Glint",~Actually, even with the crashing, I'd do it. I've healed broken bones before.~)
 SetGlobal("C02AuraGlint","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraGlintTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraGlintTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraGlint2","MYAREA",-1)
 END
 
@@ -431,6 +453,7 @@ InParty("C0Aura")
 Global("C02AuraGlint","GLOBAL",3)
 RealGlobalTimerExpired("C02AuraGlintTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraGlint3","MYAREA",-1)
 Switch("C02AuraGlint3","MYAREA")
 THEN
@@ -457,7 +480,8 @@ SetGlobal("C02AuraGlint3","MYAREA",50)
 RESPONSE #50
 DisplayStringHead("C0Aura",~Hee hee. Sorry, Glint. I had to say it.~)
 SetGlobal("C02AuraGlint","GLOBAL",4)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraGlint3","MYAREA",-1)
 END
 
@@ -473,6 +497,7 @@ PartyHasItem("c02aucat")
 Global("C02AuraJaheira","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraJaheiraTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraJaheira1","MYAREA",-1)
 Switch("C02AuraJaheira1","MYAREA")
 THEN
@@ -503,8 +528,9 @@ SetGlobal("C02AuraJaheira1","MYAREA",60)
 RESPONSE #60
 DisplayStringHead("Jaheira",~Also, allow him to eat some grass occasionally, as it helps with digestion, and remember to give plenty of water. I will teach you more when we have time.~)
 SetGlobal("C02AuraJaheira","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraJaheiraTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraJaheiraTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraMinsc1","MYAREA",-1)
 END
 
@@ -516,6 +542,7 @@ InParty("C0Aura")
 !See([ENEMY])
 RealGlobalTimerExpired("C02AuraJaheiraTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraJaheira1","MYAREA",-1)
 Switch("C02AuraJaheira1","MYAREA")
 THEN
@@ -537,8 +564,9 @@ SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 SetGlobal("C02AuraJaheira1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Jaheira",~Very good.~)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraJaheiraTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraJaheiraTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraMinsc1","MYAREA",-1)
 END
 
@@ -553,6 +581,7 @@ InParty("C0Aura")
 Global("C02AuraKhalid","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraKhalidTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraKhalid1","MYAREA",-1)
 Switch("C02AuraKhalid1","MYAREA")
 THEN
@@ -575,8 +604,9 @@ SetGlobal("C02AuraKhalid1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Khalid",~A-as am I.~)
 SetGlobal("C02AuraKhalid","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraKhalidTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraKhalidTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraKhalid1","MYAREA",-1)
 END
 
@@ -589,6 +619,7 @@ InParty("C0Aura")
 Global("C02AuraKhalid","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraKhalidTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraKhalid2","MYAREA",-1)
 Switch("C02AuraKhalid2","MYAREA")
 THEN
@@ -611,8 +642,9 @@ SetGlobal("C02AuraKhalid2","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Khalid",~Though, I would like s-some peace and quiet... p-perhaps such an opportunity will come after the c-crusade is stopped.~)
 SetGlobal("C02AuraKhalid","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraKhalidTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraKhalidTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraKhalid2","MYAREA",-1)
 END
 
@@ -628,6 +660,7 @@ PartyHasItem("c02aucat")
 Global("C02AuraMkhiin","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraMkhiinTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraMkhiin1","MYAREA",-1)
 Switch("C02AuraMkhiin1","MYAREA")
 THEN
@@ -650,8 +683,9 @@ SetGlobal("C02AuraMkhiin1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Mkhiin",~At least now you'll never try eating 'em yourself. No need to thank me.~)
 SetGlobal("C02AuraMkhiin","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraMkhiinTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraMkhiinTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraMkhiin1","MYAREA",-1)
 END
 
@@ -663,6 +697,7 @@ InParty("C0Aura")
 !See([ENEMY])
 RealGlobalTimerExpired("C02AuraMkhiinTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraMkhiin2","MYAREA",-1)
 Switch("C02AuraMkhiin2","MYAREA")
 THEN
@@ -692,7 +727,8 @@ SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 SetGlobal("C02AuraMkhiin2","MYAREA",60)
 RESPONSE #60
 DisplayStringHead("Mkhiin",~Dunno. It doesn't answer my questions. That's fine. Can't understand its language anyway.~)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraMkhiin2","MYAREA",-1)
 END
 
@@ -708,6 +744,7 @@ PartyHasItem("c02aucat")
 Global("C02AuraMinsc","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraMinscTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraMinsc1","MYAREA",-1)
 Switch("C02AuraMinsc1","MYAREA")
 THEN
@@ -730,8 +767,9 @@ SetGlobal("C02AuraMinsc1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("C0Aura",~Uh, never mind, Minsc. I'll save what I wanted to say for later...~)
 SetGlobal("C02AuraMinsc","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraMinscTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraMinscTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraMinsc1","MYAREA",-1)
 END
 
@@ -743,6 +781,7 @@ InParty("C0Aura")
 !See([ENEMY])
 RealGlobalTimerExpired("C02AuraMinscTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraMinsc2","MYAREA",-1)
 Switch("C02AuraMinsc2","MYAREA")
 THEN
@@ -772,7 +811,8 @@ SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 SetGlobal("C02AuraMinsc2","MYAREA",60)
 RESPONSE #60
 DisplayStringHead("C0Aura",~Tell you what, Minsc, if I ever find a way to travel to space, I'll keep my eyes open for a space hamster. Who knows? It could happen one day.~)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraMinsc2","MYAREA",-1)
 END
 
@@ -788,6 +828,7 @@ PartyHasItem("c02aucat")
 Global("C02AuraNeera","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraNeeraTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraNeera1","MYAREA",-1)
 Switch("C02AuraNeera1","MYAREA")
 THEN
@@ -810,8 +851,9 @@ SetGlobal("C02AuraNeera1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Neera",~I love cats, but I don't dare stay near them too long. Last time, I turned one of the poor things green.~)
 SetGlobal("C02AuraNeera","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraNeeraTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraNeeraTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraNeera1","MYAREA",-1)
 END
 
@@ -823,6 +865,7 @@ InParty("C0Aura")
 !See([ENEMY])
 RealGlobalTimerExpired("C02AuraNeeraTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraNeera2","MYAREA",-1)
 Switch("C02AuraNeera2","MYAREA")
 THEN
@@ -844,8 +887,9 @@ SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 SetGlobal("C02AuraNeera2","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Neera",~Ooh, now you're making my mouth water. Stop that, I need to use this mouth to cast spells...~)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraNeeraTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraNeeraTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraNeera2","MYAREA",-1)
 END
 
@@ -860,6 +904,7 @@ InParty("C0Aura")
 Global("C02AuraRasaad","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraRasaadTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraRasaad1","MYAREA",-1)
 Switch("C02AuraRasaad1","MYAREA")
 THEN
@@ -898,8 +943,9 @@ SetGlobal("C02AuraRasaad1","MYAREA",80)
 RESPONSE #80
 DisplayStringHead("Rasaad",~Of course. If it helps you, then I am willing to oblige.~)
 SetGlobal("C02AuraRasaad","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraRasaadTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraRasaadTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraRasaad1","MYAREA",-1)
 END
 
@@ -912,6 +958,7 @@ InParty("C0Aura")
 Global("C02AuraRasaad","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraRasaadTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraRasaad2","MYAREA",-1)
 Switch("C02AuraRasaad2","MYAREA")
 THEN
@@ -942,8 +989,9 @@ SetGlobal("C02AuraRasaad2","MYAREA",60)
 RESPONSE #60
 DisplayStringHead("C0Aura",~I'm not sure yet... but a form of power that you channel naturally, allowing you to perform things other bodies never could... that's got to be worth understanding.~)
 SetGlobal("C02AuraRasaad","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraRasaadTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraRasaadTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraRasaad2","MYAREA",-1)
 END
 
@@ -958,6 +1006,7 @@ InParty("C0Aura")
 Global("C02AuraSafana","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraSafanaTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraSafana1","MYAREA",-1)
 Switch("C02AuraSafana1","MYAREA")
 THEN
@@ -980,8 +1029,9 @@ SetGlobal("C02AuraSafana1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Safana",~Of course it's right. Nobody gets anywhere solely by being themselves.~)
 SetGlobal("C02AuraSafana","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraSafanaTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraSafanaTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraSafana1","MYAREA",-1)
 END
 
@@ -994,6 +1044,7 @@ InParty("C0Aura")
 Global("C02AuraSafana","GLOBAL",2)
 RealGlobalTimerExpired("C02AuraSafanaTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraSafana2","MYAREA",-1)
 Switch("C02AuraSafana2","MYAREA")
 THEN
@@ -1020,8 +1071,9 @@ SetGlobal("C02AuraSafana2","MYAREA",50)
 RESPONSE #50
 DisplayStringHead("Safana",~You can thank me for the reminder later.~)
 SetGlobal("C02AuraSafana","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraSafanaTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraSafanaTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraSafana2","MYAREA",-1)
 END
 
@@ -1036,6 +1088,7 @@ InParty("C0Aura")
 Global("C02AuraViconia","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraViconiaTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraViconia1","MYAREA",-1)
 Switch("C02AuraViconia1","MYAREA")
 THEN
@@ -1058,8 +1111,9 @@ SetGlobal("C02AuraViconia1","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Viconia",~Be thankful that you have that much worth. Most surface slaves are not so fortunate.~)
 SetGlobal("C02AuraViconia","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraViconiaTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraViconiaTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraViconia1","MYAREA",-1)
 END
 
@@ -1073,6 +1127,7 @@ Global("C02AuraViconia","GLOBAL",2)
 ReputationGT(Player1,9)
 RealGlobalTimerExpired("C02AuraViconiaTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraViconia2","MYAREA",-1)
 Switch("C02AuraViconia2","MYAREA")
 THEN
@@ -1095,8 +1150,9 @@ SetGlobal("C02AuraViconia2","MYAREA",40)
 RESPONSE #40
 DisplayStringHead("Viconia",~L'alurl abbil zhah dosstan, Aura. I have learned not to place my full trust in anyone... save for myself.~)
 SetGlobal("C02AuraViconia","GLOBAL",3)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraViconiaTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraViconiaTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraViconia2","MYAREA",-1)
 END
 
@@ -1111,6 +1167,7 @@ InParty("C0Aura")
 Global("C02AuraVoghiln","GLOBAL",1)
 RealGlobalTimerExpired("C02AuraVoghilnTalk","GLOBAL")
 !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 !Global("C02AuraVoghiln1","MYAREA",-1)
 Switch("C02AuraVoghiln1","MYAREA")
 THEN
@@ -1153,13 +1210,15 @@ SetGlobal("C02AuraVoghiln1","MYAREA",90)
 RESPONSE #90
 DisplayStringHead("C0Aura",~No it doesn't. Hee hee... I made that last part up.~)
 SetGlobal("C02AuraVoghiln","GLOBAL",2)
-SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
-RealSetGlobalTimer("C02AuraVoghilnTalk","GLOBAL",ONE_HOUR)
+SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+RealSetGlobalTimer("C02_BANTER_DELAY","GLOBAL",THIRTY_MINUTES)
+RealSetGlobalTimer("C02AuraVoghilnTalk","GLOBAL",THIRTY_MINUTES)
 SetGlobal("C02AuraVoghiln1","MYAREA",-1)
 END
 
 IF
   !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+!RealGlobalTimerNotExpired("C02_BANTER_DELAY","GLOBAL")
 THEN
   RESPONSE #100
     SetAreaScript("",GENERAL)

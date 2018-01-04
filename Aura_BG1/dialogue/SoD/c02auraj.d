@@ -991,6 +991,10 @@ EXTEND_BOTTOM BDPCRUS 3 #6
 + ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ + ~Aura? Do you think you can take a look?~ EXTERN BDPCRUS bdpcrus
 END
 
+EXTEND_BOTTOM BDPCRUS 7 #5
++ ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ + ~Aura? Do you think you can take a look?~ EXTERN BDPCRUS bdpcrus
+END
+
 CHAIN BDPCRUS bdpcrus
 ~Uh huh. I'm already on it.~
 = ~Oh... this... isn't good. Whatever the poison is, it's already become one with their blood flow. There's nothing I can do. We'd need a specific cure for this.~

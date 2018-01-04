@@ -35,7 +35,7 @@ IF
   NextTriggerObject("c0aura")
   Detect(Player1)
 THEN
-  RESPONSE #100
+  RESPONSE #50
     SetGlobal("bd_mdd016b_c0aura","bd1000",1)
   RESPONSE #50
     SetGlobal("bd_mdd016b_c0aura","bd1000",1)
