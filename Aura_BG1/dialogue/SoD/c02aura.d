@@ -1,6 +1,13 @@
 BEGIN C02AURA
 BEGIN C02AKOKO
 
+CHAIN IF WEIGHT #-1 ~AreaCheck("bd4700")
+GlobalLT("bd_plot","global",570)~ THEN C02AURA end
+~I-- I won't back down, <CHARNAME>, not now!~
+DO ~SetGlobal("bd_c0aura_kicked_mdd1330","global",1)
+SetGlobal("bd_joined","locals",0)~
+EXIT
+
 CHAIN IF WEIGHT #-1 ~Global("C02AuraBegin","GLOBAL",0)~ THEN C02AURA j
 ~You okay, Koko-chan? They didn't get close enough to hurt you, did they?~
 DO ~SetGlobal("C02AuraBegin","GLOBAL",1)~
@@ -69,7 +76,8 @@ END
 
 CHAIN C02AURA j.8
 ~I'll tell you all about it later. Just give me a moment to pack up, and I'll be ready to go!~
-DO ~ClearAllActions() StartCutsceneMode() StartCutscene("c0aufade")
+DO ~SetGlobal("C02AuraBegin","GLOBAL",-1)
+ClearAllActions() StartCutsceneMode() StartCutscene("c0aufade")
 ActionOverride("C02AUTO",DestroySelf())
 ActionOverride("c02akoko",DestroySelf())
 GiveItemCreate("c02aucat","C0Aura",1,0,0)
@@ -138,7 +146,8 @@ END
 CHAIN C02AURA k.8
 ~Y-you'll let me join! Thank you! I won't let you down.~
 = ~Just give me a moment to pack up here and I'll be ready to leave. Come on, Koko-chan! It's time to go!~
-DO ~ClearAllActions() StartCutsceneMode() StartCutscene("c0aufade")
+DO ~SetGlobal("C02AuraBegin","GLOBAL",-1)
+ClearAllActions() StartCutsceneMode() StartCutscene("c0aufade")
 ActionOverride("C02AUTO",DestroySelf())
 ActionOverride("c02akoko",DestroySelf())
 GiveItemCreate("c02aucat","C0Aura",1,0,0)
@@ -153,7 +162,7 @@ EXTERN C02AURA m
 CHAIN IF ~Global("C02AuraBegin","GLOBAL",2)~ THEN C02AURA m
 ~Do you need something, <CHARNAME>?~
 END
-++ ~I would like for you to join my group.~ + m.1
+++ ~I would like for you to join my group.~ DO ~SetGlobal("C02AuraBegin","GLOBAL",-1)~ + m.1
 ++ ~Just wanted to say hello.~ + m.2
 ++ ~Nothing. Carry on as you will.~ + m.2
 

@@ -1157,3 +1157,10 @@ SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_DAYS)
 RealSetGlobalTimer("C02AuraVoghilnTalk","GLOBAL",ONE_HOUR)
 SetGlobal("C02AuraVoghiln1","MYAREA",-1)
 END
+
+IF
+  !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+  RESPONSE #100
+    SetAreaScript("",GENERAL)
+END

@@ -62,8 +62,12 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
   EXTEND_TOP ~bd0130.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
   EXTEND_TOP ~bd1000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd1000.baf~
+  EXTEND_TOP ~bd2000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd2000.baf~
   EXTEND_TOP ~bd3000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd3000.baf~
   EXTEND_TOP ~bd4100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4100.baf~
+  EXTEND_TOP ~bd4300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4300.baf~
+  EXTEND_TOP ~bd4400.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4400.baf~
+  EXTEND_TOP ~bd5300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd5300.baf~
   EXTEND_TOP ~bd7000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7000.baf~
   EXTEND_TOP ~bd7100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7100.baf~
   EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~

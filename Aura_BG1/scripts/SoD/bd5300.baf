@@ -1,0 +1,13 @@
+IF
+  Global("BD_AREA_HOSTILE","BD5300",1)
+  !GlobalTimerNotExpired("bd_sdd350b_ot_timer","bd2000")
+  Global("bd_ot_C0Aura","bd5300",0)
+  IfValidForPartyDialog("C0Aura")
+  NextTriggerObject("C0Aura")
+  Range([ENEMY.0.0.0.HOSTILES3],30)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("bd_sdd350b_ot_timer","bd2000",THREE_MINUTES)
+    SetGlobal("bd_ot_C0Aura","bd5300",1)
+    DisplayStringHead("C0Aura",~We'll stop your vile practices here and now!~)
+END

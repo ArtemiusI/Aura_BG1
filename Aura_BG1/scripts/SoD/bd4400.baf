@@ -1,0 +1,15 @@
+IF
+  GlobalLT("bd_plot","global",505)
+  IfValidForPartyDialog("C0Aura")
+  Global("bd_avernus_C0Aura_bark","bd4400",0)
+  GlobalGT("bd_MDD1300_ot","bd4400",-1)
+  GlobalLT("bd_MDD1300_ot","bd4400",3)
+THEN
+  RESPONSE #50
+    Continue()
+  RESPONSE #50
+    DisplayStringWait("C0Aura",~Oh, this is going to give me nightmares...~)
+    IncrementGlobal("bd_MDD1300_ot","bd4400",1)
+    SetGlobal("bd_avernus_C0Aura_bark","bd4400",1)
+    SmallWait(8)
+END

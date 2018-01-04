@@ -145,9 +145,17 @@ END
 
 IF
 	InParty(Myself)
-	OR(2)
-	RealGlobalTimerExpired("C02AuraTalkTimer","GLOBAL")
 	Global("C02AuraTalk","GLOBAL",0)
+THEN
+  RESPONSE #100
+	IncrementGlobal("C02AuraTalk","GLOBAL",1)
+	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+END
+
+IF
+	InParty(Myself)
+	RealGlobalTimerExpired("C02AuraTalkTimer","GLOBAL")
+	GlobalTimerExpired("C02AuraTalkTimer2","GLOBAL")
 	Global("C0AuraTalkStopped","GLOBAL",0)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -158,33 +166,35 @@ IF
 	!AreaType(DUNGEON)
 	Switch("C02AuraTalk","GLOBAL")
 THEN
-  RESPONSE #0
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",TEN_MINUTES)
-	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #1
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #2
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #5
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #6
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #7
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #8
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #11
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #12
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #13
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #14
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
 END
 
@@ -205,6 +215,7 @@ THEN
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
   RESPONSE #4
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
 END
 
@@ -252,6 +263,18 @@ THEN
   RESPONSE #100
 	SetGlobal("C02AuraBandolier","LOCALS",1)
 	GiveItemCreate("c0bandol",Myself,1,0,0)
+END
+
+IF
+	OR(2)
+	PartyHasItem("c0bandol")
+	HasItem("c0bandol",Myself)
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	Global("C02AuraBandolier","LOCALS",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraBandolier","LOCALS",1)
 END
 
 // "Koko-chan"
@@ -373,6 +396,32 @@ THEN
 	StartDialogueNoSet(Player1)
 END
 
+IF
+	See(Player1)
+	See("Phylactery2")
+	Global("C02AuraPhylactery","bd1200",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraPhylactery","bd1200",1)
+	DisplayStringHead(Myself,~<CHARNAME>... I'm getting readings of a powerful gathering of magic in the second box to the left.~)
+END
+
+// Burned Inn
+
+IF
+    InParty(Myself)
+	See("GentrusPanel")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("C02AuraBurnedInn","MYAREA",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraBurnedInn","MYAREA",1)
+	DisplayStringHead(Myself,~Yow! Someone cooked this place real good.~)
+END
+
 // MORENTHERENE
 
 IF
@@ -383,11 +432,28 @@ IF
     !StateCheck(Player1,CD_STATE_NOTVALID)
     CombatCounter(0)
     !Detect([ENEMY])
-    Global("C02AuraMorenthene","LOCALS",0)
+    Global("C02AuraMorenthene","MYAREA",0)
 THEN
   RESPONSE #100
-	SetGlobal("C02AuraMorenthene","LOCALS",1)
+	SetGlobal("C02AuraMorenthene","MYAREA",1)
 	DisplayStringHead(Myself,~*gasp* Don't scream, don't breathe... it'll hear me breathe...~)
+END
+
+// NEOTHELID
+
+IF
+    InParty(Myself)
+	See("BDNEOTHE")
+	Dead("BDNEOTHE")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("C02AuraNeothelid","MYAREA",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraNeothelid","MYAREA",1)
+	DisplayStringHead(Myself,~N-nuts and bolts, what an abominable creature... my mind's still aching...~)
 END
 
 // RHINO BEETLE
@@ -687,6 +753,7 @@ RealGlobalTimerExpired("C02AuraBaelothTalk","GLOBAL")
 OR(2)
 Global("C02AuraBaeloth","GLOBAL",1)
 Global("C02AuraBaeloth","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -721,6 +788,7 @@ RealGlobalTimerExpired("C02AuraCorwinTalk","GLOBAL")
 OR(2)
 Global("C02AuraCorwin","GLOBAL",1)
 Global("C02AuraCorwin","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -755,6 +823,7 @@ RealGlobalTimerExpired("C02AuraDornTalk","GLOBAL")
 OR(2)
 Global("C02AuraDorn","GLOBAL",1)
 Global("C02AuraDorn","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -789,6 +858,7 @@ RealGlobalTimerExpired("C02AuraDynaheirTalk","GLOBAL")
 OR(2)
 Global("C02AuraDynaheir","GLOBAL",1)
 Global("C02AuraDynaheir","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -823,6 +893,7 @@ RealGlobalTimerExpired("C02AuraEdwinTalk","GLOBAL")
 OR(2)
 Global("C02AuraEdwin","GLOBAL",1)
 Global("C02AuraEdwin","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -858,6 +929,7 @@ OR(4)
 Global("C02AuraGlint","GLOBAL",1)
 Global("C02AuraGlint","GLOBAL",2)
 Global("C02AuraGlint","GLOBAL",3)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -892,6 +964,7 @@ RealGlobalTimerExpired("C02AuraJaheiraTalk","GLOBAL")
 OR(2)
 Global("C02AuraJaheira","GLOBAL",1)
 Global("C02AuraJaheira","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -926,6 +999,7 @@ RealGlobalTimerExpired("C02AuraKhalidTalk","GLOBAL")
 OR(2)
 Global("C02AuraKhalid","GLOBAL",1)
 Global("C02AuraKhalid","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -960,6 +1034,7 @@ RealGlobalTimerExpired("C02AuraMkhiinTalk","GLOBAL")
 OR(2)
 Global("C02AuraMkhiin","GLOBAL",1)
 Global("C02AuraMkhiin","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -994,6 +1069,7 @@ RealGlobalTimerExpired("C02AuraMinscTalk","GLOBAL")
 OR(2)
 Global("C02AuraMinsc","GLOBAL",1)
 Global("C02AuraMinsc","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -1028,6 +1104,7 @@ RealGlobalTimerExpired("C02AuraNeeraTalk","GLOBAL")
 OR(2)
 Global("C02AuraNeera","GLOBAL",1)
 Global("C02AuraNeera","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -1062,6 +1139,7 @@ RealGlobalTimerExpired("C02AuraRasaadTalk","GLOBAL")
 OR(2)
 Global("C02AuraRasaad","GLOBAL",1)
 Global("C02AuraRasaad","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -1096,6 +1174,7 @@ RealGlobalTimerExpired("C02AuraSafanaTalk","GLOBAL")
 OR(2)
 Global("C02AuraSafana","GLOBAL",1)
 Global("C02AuraSafana","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -1130,6 +1209,7 @@ RealGlobalTimerExpired("C02AuraViconiaTalk","GLOBAL")
 OR(2)
 Global("C02AuraViconia","GLOBAL",1)
 Global("C02AuraViconia","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)
@@ -1164,6 +1244,7 @@ RealGlobalTimerExpired("C02AuraVoghilnTalk","GLOBAL")
 OR(2)
 Global("C02AuraVoghiln","GLOBAL",1)
 Global("C02AuraVoghiln","GLOBAL",2)
+!AreaType(DUNGEON)
 THEN
 RESPONSE #100
 SetAreaScript("c02abant",GENERAL)

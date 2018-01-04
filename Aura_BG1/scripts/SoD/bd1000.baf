@@ -26,3 +26,19 @@ THEN
     ActionOverride("C0Aura",ChangeAIScript("BDTHIE01",GENERAL))
     Continue()
 END
+
+IF
+  Global("bd_plot","global",170)
+  Global("bd_mdd016b_c0aura","bd1000",0)
+  !GlobalTimerNotExpired("bd_mdd016b_timer","bd1000")
+  IfValidForPartyDialog("c0aura")
+  NextTriggerObject("c0aura")
+  Detect(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("bd_mdd016b_c0aura","bd1000",1)
+  RESPONSE #50
+    SetGlobal("bd_mdd016b_c0aura","bd1000",1)
+    SetGlobalTimer("bd_mdd016b_timer","bd1000",ONE_ROUND)
+    DisplayStringHead("c0aura",~She's... very convincing. It's almost frightening.~)
+END

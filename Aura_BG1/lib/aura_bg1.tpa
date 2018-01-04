@@ -549,457 +549,506 @@ SAY NAME1 ~Runecrafting~
 SAY NAME2 ~Runecrafting~
   WRITE_ASCII 0x2cc ~c0auin2~ #8   //pre-joining dialogue file
   
-COPY ~%MOD_FOLDER%/spells/c0rune1a.spl~ ~override~
-SAY NAME1 ~Burning Hands~
-SAY NAME2 ~Burning Hands~
+COPY_EXISTING ~spwi103.spl~ ~override/c0rune1a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune1a.itm~ ~override~
 SAY NAME1 ~Minor Fire Rune~
 SAY NAME2 ~Minor Fire Rune~
-SAY DESC ~Burning Hands
-(Alteration)
+SAY DESC ~This minor fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 1
-Range: 5 ft.
-Duration: Instant 
-Casting Time: 1 
-Area of Effect: 1 creature
-Saving Throw: 1/2
-
-When the wizard casts this spell, a jet of searing flame shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The burning hands send out flame jets of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of fire damage. A creature that successfully saves vs. Spell receives half damage.~
+STATISTIC:
+- May cast Burning Hands once
+- If used on an automaton, grants +1 enchantment bonus and +1d2 fire damage to attacks.~
   
-COPY ~%MOD_FOLDER%/spells/c0rune1b.spl~ ~override~
-SAY NAME1 ~Chill Touch~
-SAY NAME2 ~Chill Touch~
+COPY_EXISTING ~spwi117.spl~ ~override/c0rune1b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+
 COPY ~%MOD_FOLDER%/spells/c0rune1b.itm~ ~override~
 SAY NAME1 ~Minor Ice Rune~
 SAY NAME2 ~Minor Ice Rune~
-SAY DESC ~Chill Touch
-(Necromancy)
+SAY DESC ~This minor ice rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 1
-Range: 0
-Duration: 1 turn
-Casting Time: 1 
-Area of Effect: The creature
-Saving Throw: Neg. 
+STATISTIC:
+- May cast Chill Touch once
+- If used on an automaton, grants a cold aura that lowers nearby enemies' Armor Class, THAC0 and damage by one point each.~
 
-When the caster completes this spell, a blue glow encompasses <PRO_HISHER> hand. This energy attacks the life force of any living creature upon which the wizard makes a successful melee attack. (Nonliving creatures such as golems and undead are unaffected by this spell.) The creature is punched for 1d2 fist damage (Strength bonuses apply) and must make a Saving Throw vs. Spell or suffer 1d8 points of damage and receive a -2 THAC0 penalty for 5 rounds.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune1c.spl~ ~override~
-SAY NAME1 ~Magic Missile~
-SAY NAME2 ~Magic Missile~
+COPY_EXISTING ~spwi112.spl~ ~override/c0rune1c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune1c.itm~ ~override~
 SAY NAME1 ~Minor Arcane Rune~
 SAY NAME2 ~Minor Arcane Rune~
-SAY DESC ~Magic Missile
-(Evocation)
+SAY DESC ~This minor arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 1
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 1
-Area of Effect: 1 creature
-Saving Throw: None 
-
-Use of the Magic Missile spell, one of the most popular 1st-level spells, creates up to five missiles of magical energy that dart forth from the wizard's fingertip and unerringly strike their target, which must be a creature of some sort. Each missile inflicts 1d4+1 points of damage. For every 2 extra levels of experience, the wizard gains an additional missile—<PRO_HESHE> has 2 at 3rd level, 3 at 5th level, 4 at 7th level, up to a total of 5 at 9th level.~
+STATISTIC:
+- May cast Magic Missile once
+- If used on an automaton, grants +10% magic resistance and absorption of one spell of 2nd level or lower.~
   
-COPY ~%MOD_FOLDER%/spells/c0rune1d.spl~ ~override~
-SAY NAME1 ~Reflected Image~
-SAY NAME2 ~Reflected Image~
+COPY_EXISTING ~spwi120.spl~ ~override/c0rune1d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune1d.itm~ ~override~
 SAY NAME1 ~Minor Illusion Rune~
 SAY NAME2 ~Minor Illusion Rune~
-SAY DESC ~Reflected Image
-(Illusion/Phantasm)
+SAY DESC ~This minor illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 1
-Range: 0
-Duration: 3 rounds + 1 round/level
-Casting Time: 1
-Area of Effect: The caster
-Saving Throw: None
+STATISTIC:
+- May cast Reflected Image once
+- If used on an automaton, grants the effects of Reflected Image.~
 
-Upon casting this spell, the wizard creates 1 image of <PRO_HIMHER>self that will travel alongside <PRO_HIMHER>. The image will perform all of the actions that the wizard does so that if any enemies are trying to attack the wizard, they will not know which one is real. There is a 50% chance that the attacker will attack the image and a 50% chance that he will attack the caster. The image will disappear with a successful Dispel Magic, when attacked, or when the spell's duration expires.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune1e.spl~ ~override~
-SAY NAME1 ~Shocking Grasp~
-SAY NAME2 ~Shocking Grasp~
+COPY_EXISTING ~spwi115.spl~ ~override/c0rune1e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune1e.itm~ ~override~
 SAY NAME1 ~Minor Lightning Rune~
 SAY NAME2 ~Minor Lightning Rune~
-SAY DESC ~Shocking Grasp
-(Alteration)
+SAY DESC ~This minor lightning rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 1
-Range: Touch
-Duration: Special
-Casting Time: 1
-Area of Effect: 1 creature
-Saving Throw: None
-
-When the wizard touches a creature while this spell is in effect, an electrical charge will deal 1d8 points of damage plus 1 per level of the caster to the creature touched. In addition, the grasp itself does 1d2 fist damage (Strength bonuses apply). The wizard only has one charge, and once an opponent has been touched, the spell's energies have been used. If the wizard misses, the spell is wasted. The wizard has 1 round per level to touch the target creature.~
+STATISTIC:
+- May cast Shocking Grasp once
+- If used on an automaton, restores 30% of its maximum hit points and grants it a lightning bolt for its next attack dealing 3d6+3 electrical damage to all targets in a line.~
   
-COPY ~%MOD_FOLDER%/spells/c0rune1f.spl~ ~override~
-SAY NAME1 ~Shield~
-SAY NAME2 ~Shield~
+COPY_EXISTING ~spwi114.spl~ ~override/c0rune1f.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune1f.itm~ ~override~
 SAY NAME1 ~Minor Shield Rune~
 SAY NAME2 ~Minor Shield Rune~
-SAY DESC ~Shield
-(Evocation)
+SAY DESC ~This minor shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 1
-Range: 0 
-Duration: 1 hour
-Casting Time: 1 
-Area of Effect: The caster
-Saving Throw: None
+STATISTIC:
+- May cast Shield once
+- If used on an automaton, grants +2 to Armor Class against all weapons.~
 
-When this spell is cast, an invisible barrier comes into being in front of the wizard. It sets the wizard's Armor Class to 4 against all weapons and 2 against missile weapons.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2a.spl~ ~override~
-SAY NAME1 ~Aganazzar's Scorcher~
-SAY NAME2 ~Aganazzar's Scorcher~
+COPY_EXISTING ~spwi217.spl~ ~override/c0rune2a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2a.itm~ ~override~
 SAY NAME1 ~Lesser Fire Rune~
 SAY NAME2 ~Lesser Fire Rune~
-SAY DESC ~Agannazar's Scorcher
-(Evocation)
+SAY DESC ~This lesser fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 2
-Range: 15 ft. 
-Duration: 1 round
-Casting Time: 3 
-Area of Effect: 2-ft. by 15-ft. jet
-Saving Throw: None 
+STATISTIC:
+- May cast Agannazar's Scorcher once
+- If used on an automaton, grants +2 enchantment bonus and +1d4 fire damage to attacks.~
 
-Upon casting this spell, a jet of flame appears at the caster's fingertips and bursts out toward one target of the caster's choice. That target will be hit by this flame for 3d6 points of damage. The flame jet strikes a second time halfway through its duration, and the caster may move while the spell is in effect. There is no Saving Throw against this spell, though anti-fire capabilities such as Fire Resistance will apply and may reduce or eliminate the damage.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2b.spl~ ~override~
-SAY NAME1 ~Strength~
-SAY NAME2 ~Strength~
+COPY_EXISTING ~spwi214.spl~ ~override/c0rune2b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2b.itm~ ~override~
 SAY NAME1 ~Lesser Strength Rune~
 SAY NAME2 ~Lesser Strength Rune~
-SAY DESC ~Strength
-(Alteration)
+SAY DESC ~This lesser strength rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 2
-Range: Touch
-Duration: 1 turn/level
-Casting Time: 9
-Area of Effect: 1 creature
-Saving Throw: None
+STATISTIC:
+- May cast Strength once
+- If used on an automaton, grants +2 to THAC0 and damage.~
 
-Application of this spell increases the Strength of the character to 18 and then adds 50% bonus on top of this. The character receives any Strength bonuses appropriate. For example, if a character has between 18/50 and 18/00 Strength, then his Strength will just be set to 18/00. If a character has a Strength between 18/01 and 18/50, then his Strength will become 18/50 + original percentage. If his Strength is less than 18, then it will just become 18/50. However, this spell will actually lower a character's Strength if it is already 19 or more.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2c.spl~ ~override~
-SAY NAME1 ~Blur~
-SAY NAME2 ~Blur~
+COPY_EXISTING ~spwi201.spl~ ~override/c0rune2c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2c.itm~ ~override~
 SAY NAME1 ~Lesser Illusion Rune~
 SAY NAME2 ~Lesser Illusion Rune~
-SAY DESC ~Blur 
-(Illusion/Phantasm)
+SAY DESC ~This lesser illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 2
-Range: 0
-Duration: 4 rounds + 2 round/level
-Casting Time: 2
-Area of Effect: The caster
-Saving Throw: None 
+STATISTIC:
+- May cast Blur once
+- If used on an automaton, grants the effects of Blur.~
 
-When a Blur spell is cast, the wizard causes the outline of <PRO_HISHER> form to become blurred, shifting and wavering. This distortion causes all missile and melee combat attacks against the caster to be made with -3 penalties. The wizard also gains a +1 to all of <PRO_HISHER> Saving Throws.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2d.spl~ ~override~
-SAY NAME1 ~Glitterdust~
-SAY NAME2 ~Glitterdust~
+COPY_EXISTING ~spwi224.spl~ ~override/c0rune2d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2d.itm~ ~override~
 SAY NAME1 ~Lesser Dust Rune~
 SAY NAME2 ~Lesser Dust Rune~
-SAY DESC ~Glitterdust
-(Conjuration/Summoning)
+SAY DESC ~This lesser dust rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 2
-Range: 30 ft.
-Duration: 4 rounds
-Casting Time: 2
-Area of Effect: 20 ft.
-Saving Throw: Special
+STATISTIC:
+- May cast Glitterdust once
+- If used on an automaton, grants one use of Dust Particle Breath, reducing all nearby creatures' Armor Class and THAC0 by four points.~
 
-This spell creates a cloud of glittering golden particles within the area of effect. All enemies in the area must roll a successful Saving Throw vs. Spell or be blinded (-4 penalties to attack rolls and Armor Class) for 4 rounds. In addition, all within the area are covered by the dust, which cannot be removed and continues to sparkle until it fades. Note that this reveals invisible creatures. The dust fades in 4 rounds.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2e.spl~ ~override~
-SAY NAME1 ~Fireball~
-SAY NAME2 ~Fireball~
+COPY_EXISTING ~spwi304.spl~ ~override/c0rune2e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2e.itm~ ~override~
 SAY NAME1 ~Fire Rune~
 SAY NAME2 ~Fire Rune~
-SAY DESC ~Fireball
-(Evocation)
+SAY DESC ~This fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 3
-Range: 40 ft.
-Duration: Instant
-Casting Time: 3
-Area of Effect: 30-ft. radius
-Saving Throw: 1/2 
+STATISTIC:
+- May cast Fireball once
+- If used on an automaton, grants +3 enchantment bonus and +1d6 fire damage to attacks.~
 
-A fireball is an explosive burst of flame that detonates with a low roar and delivers damage proportional to the level of the wizard who cast it—1d6 points of damage for each level of experience of the caster (up to a maximum of 10d6). The wizard points <PRO_HISHER> finger and speaks the range (distance and height) at which the fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their Saves vs. Spell each suffer full damage from the blast. Those who roll successful Saving Throws manage to dodge, fall flat, or roll aside, each receiving half.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2f.spl~ ~override~
-SAY NAME1 ~Lightning Bolt~
-SAY NAME2 ~Lightning Bolt~
+COPY_EXISTING ~spwi308.spl~ ~override/c0rune2f.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2f.itm~ ~override~
 SAY NAME1 ~Lightning Rune~
 SAY NAME2 ~Lightning Rune~
-SAY DESC ~Lightning Bolt
-(Evocation)
+SAY DESC ~This lightning rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 3
-Range: 120 ft. + 30 ft./level
-Duration: Instant 
-Casting Time: 3 
-Area of Effect: Special 
-Saving Throw: 1/2
+STATISTIC:
+- May cast Lightning Bolt once
+- If used on an automaton, restores +50% of its maximum hit points and grants it lightning bolts for its next three attacks dealing 3d6+3 electrical damage to all targets in a line.~
 
-Upon casting this spell, the wizard releases a powerful stroke of electrical energy that inflicts 1d6 points of damage per level of the caster (maximum damage of 10d6) to each creature within its area of effect. A successful Saving Throw vs. Spell reduces this damage to half (round fractions down). The bolt begins at a range and height decided by the caster and streaks outward in a direct line from the casting wizard (e.g., if a 40-ft. bolt was started at 180 ft. from the wizard, the far end of bolt would reach 220 ft. (180+40)). If the Lightning Bolt intersects with a wall, it will bounce until it reaches its full length.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2g.spl~ ~override~
-SAY NAME1 ~Slow~
-SAY NAME2 ~Slow~
+COPY_EXISTING ~spwi312.spl~ ~override/c0rune2g.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2g.itm~ ~override~
 SAY NAME1 ~Time Rune~
 SAY NAME2 ~Time Rune~
-SAY DESC ~Slow
-(Alteration)
+SAY DESC ~This time rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 3
-Range: 25 ft.
-Duration: 1 turn
-Casting Time: 3
-Area of Effect: 30-ft. radius
-Saving Throw: Neg. 
+STATISTIC:
+- May cast Slow once
+- If used on an automaton, grants the effects of Haste.~
 
-A Slow spell causes creatures to move and attack at half of their normal rates. It negates Haste, but does not otherwise affect magically hasted or slowed creatures. Slowed creatures have an Armor Class and attack penalty of -4. Creatures save at -4 vs. Spell.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune2h.spl~ ~override~
-SAY NAME1 ~Invisibility 10' Radius~
-SAY NAME2 ~Invisibility 10' Radius~
+COPY_EXISTING ~spwi307.spl~ ~override/c0rune2h.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune2h.itm~ ~override~
 SAY NAME1 ~Illusion Rune~
 SAY NAME2 ~Illusion Rune~
-SAY DESC ~Invisibility, 10' Radius
-(Illusion/Phantasm)
+SAY DESC ~This illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 3
-Range: 0
-Duration: Special 
-Casting Time: 9
-Area of Effect: 20-ft. radius
-Saving Throw: None 
+STATISTIC:
+- May cast Invisibility 10' Radius once
+- If used on an automaton, grants the effects of Mirror Image.~
 
-This spell causes all creatures within 20 ft. of the caster to vanish from sight and be undetectable by normal vision or even infravision. Of course, the invisible creature(s) are not magically silenced, and certain other conditions can render the creature(s) detectable. Even allies cannot see the invisible creature(s) or their gear, unless these allies can normally see invisible things or employ magic to do so. Items dropped or put down by the invisible creature(s) become visible; items picked up disappear if tucked into the clothing or pouches worn by the creature(s). The spell remains in effect until it is magically broken or dispelled, until the wizard or recipient cancels it, until the recipient attacks any creature, or until 24 hours have passed. The invisible being(s) cannot open doors, talk, eat, climb stairs, etc. If they attack, they immediately become visible, although the invisibility enables them to attack first.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune3a.spl~ ~override~
-SAY NAME1 ~Fireshield (Red)~
-SAY NAME2 ~Fireshield (Red)~
+COPY_EXISTING ~spwi418.spl~ ~override/c0rune3a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune3a.itm~ ~override~
 SAY NAME1 ~Greater Fire Rune~
 SAY NAME2 ~Greater Fire Rune~
-SAY DESC ~Fireshield (Red)
-(Evocation)
+SAY DESC ~This greater fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 4
-Range: 0
-Duration: 3 rounds + 1 round/level
-Casting Time: 4 
-Area of Effect: The caster 
-Saving Throw: None 
+STATISTIC:
+- May cast Fireshield (Red) once
+- If used on an automaton, grants +4 enchantment bonus and +1d8 fire damage to attacks.~
 
-The red Fireshield protects the user from fire damage by surrounding the caster with a shield of flame. This shield not only grants the user 50% Fire Resistance, but also protects the caster from attacks made within a 5-ft. radius around the caster. An opponent that hits the caster with any weapons or spells within this radius suffers 1d8+2 fire damage.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune3b.spl~ ~override~
-SAY NAME1 ~Stoneskin~
-SAY NAME2 ~Stoneskin~
+COPY_EXISTING ~spwi408.spl~ ~override/c0rune3b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune3b.itm~ ~override~
 SAY NAME1 ~Greater Earth Rune~
 SAY NAME2 ~Greater Earth Rune~
-SAY DESC ~Stoneskin
-(Alteration)
+SAY DESC ~This greater earth rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 4
-Range: 0
-Duration: 12 hours
-Casting Time: 1
-Area of Effect: The caster
-Saving Throw: None 
+STATISTIC:
+- May cast Stoneskin once
+- If used on an automaton, grants +30% physical resistance.~
 
-When a wizard casts this powerful spell upon <PRO_HIMHER>self, an outer skin of stone will move up from the ground, completely covering <PRO_HIMHER>. This skin is of course magical and will hinder the wizard in no way. The effect of this is to protect the wizard from physical attacks such as melee weapons and projectiles. For every 2 levels of the caster, an additional skin is gained upon casting. For example, a 10th-level wizard would receive 5 skins while a 20th-level wizard would receive 10. For each skin the wizard possesses, the spell will stop one attack, so a 10th-level wizard would be protected from the first 5 attacks made against <PRO_HIMHER>, but the 6th would affect <PRO_HIMHER> normally. The skins will remain on the wizard until <PRO_HESHE> is affected by a Dispel Magic, all of the skins are removed due to physical attacks, or the spell duration expires. It is important to note that this will not protect the wizard from any magical attacks, such as Fireball.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune3c.spl~ ~override~
-SAY NAME1 ~Minor Globe of Invulnerability~
-SAY NAME2 ~Minor Globe of Invulnerability~
+COPY_EXISTING ~spwi406.spl~ ~override/c0rune3c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune3c.itm~ ~override~
 SAY NAME1 ~Greater Arcane Rune~
 SAY NAME2 ~Greater Arcane Rune~
-SAY DESC ~Minor Globe of Invulnerability
-(Abjuration)
+SAY DESC ~This greater arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 4
-Range: 0
-Duration: 1 round/level
-Casting Time: 4
-Area of Effect: 5-ft. radius sphere
-Saving Throw: None 
+STATISTIC:
+- May cast Minor Globe of Invulnerability once
+- If used on an automaton, grants +30% magic resistance and absorption of two spells of 4th level or lower.~
 
-This spell creates an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, or 3rd-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the Minor Globe of Invulnerability). This includes innate abilities and some effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the Minor Globe. 4th and higher level spells are not affected by the globe.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune3d.spl~ ~override~
-SAY NAME1 ~Improved Invisibility~
-SAY NAME2 ~Improved Invisibility~
+COPY_EXISTING ~spwi405.spl~ ~override/c0rune3d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune3d.itm~ ~override~
 SAY NAME1 ~Greater Illusion Rune~
 SAY NAME2 ~Greater Illusion Rune~
-SAY DESC ~Improved Invisibility
-(Illusion/Phantasm)
+SAY DESC ~This greater illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 4
-Range: Touch
-Duration: 3 rounds + 1 round/level
-Casting Time: 4
-Area of Effect: 1 creature
-Saving Throw: None
+STATISTIC:
+- May cast Improved Invisibility once
+- If used on an automaton, grants the effects of Improved Invisibility.~
 
-This spell is similar to Invisibility, but the recipient is able to attack by missile discharge, melee combat, or spellcasting while remaining unseen. However, telltale traces—a shimmering—allow an observant opponent to attack the invisible spell recipient. These traces are only noticeable when specifically looked for (after the invisible character has made <PRO_HISHER> presence known). Attacks against the invisible character suffer a -4 penalty to attack rolls, and the invisible character's Saving Throws are made with a +4 bonus.
-
-Note: After making an attack, the wizard is no longer completely invisible. Opponents can target the wizard.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune3e.spl~ ~override~
-SAY NAME1 ~Farsight~
-SAY NAME2 ~Farsight~
+COPY_EXISTING ~spwi424.spl~ ~override/c0rune3e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune3e.itm~ ~override~
 SAY NAME1 ~Greater Scrying Rune~
 SAY NAME2 ~Greater Scrying Rune~
-SAY DESC ~Farsight
-(Divination)
+SAY DESC ~This greater scrying rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 4
-Range: Special
-Duration: 3 rounds + 1 round/level
-Casting Time: 4 
-Area of Effect: Special
-Saving Throw: None 
+STATISTIC:
+- May cast Farsight once
+- If used on an automaton, grants increased vision range and ability to attack invisible creatures.~
 
-When Farsight is cast, the caster is able to view an area of an unexplored map. After casting the spell, simply click on a section of the map that you want to view. For the duration of the spell, the caster can spy on that area, noting creatures and fortifications.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune3f.spl~ ~override~
-SAY NAME1 ~Spirit Armor~
-SAY NAME2 ~Spirit Armor~
+COPY_EXISTING ~spwi414.spl~ ~override/c0rune3f.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune3f.itm~ ~override~
 SAY NAME1 ~Greater Shield Rune~
 SAY NAME2 ~Greater Shield Rune~
-SAY DESC ~Spirit Armor 
-(Necromancy)
+SAY DESC ~This greater shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 4
-Range: Touch
-Duration: 3 turns
-Casting Time: 3
-Area of Effect: 1 creature
-Saving Throw: None 
+STATISTIC:
+- May cast Spirit Armor once
+- If used on an automaton, grants +4 to Armor Class against all weapons.~
 
-This spell is very similar to the 3rd-level spell Ghost Armor in that it creates a corporeal barrier around the target's body for the duration of the spell. This spell, however, actually taps in to the target's life force in order to create the barrier. The armor itself is weightless and does not hinder movement or spellcasting at all. The spirit armor does not work cumulatively with any other armor; however, Dexterity bonuses still apply as well as magic rings and shields. While in effect, the AC (Armor Class) of the recipient will be set to 1, as if <PRO_HESHE> were wearing plate mail. Also, due to the magical nature of the spell, <PRO_HESHE> will also receive a +3 bonus to Save vs. Spell. There is a danger however, as when the spell runs out, the external portion of the spirit is temporarily lost, inflicting 2d4 points of damage upon the target.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune4a.spl~ ~override~
-SAY NAME1 ~Sunfire~
-SAY NAME2 ~Sunfire~
+COPY_EXISTING ~spwi523.spl~ ~override/c0rune4a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune4a.itm~ ~override~
 SAY NAME1 ~Perfect Fire Rune~
 SAY NAME2 ~Perfect Fire Rune~
-SAY DESC ~Sunfire
-(Evocation)
+SAY DESC ~This perfect fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 5
-Range: 0
-Duration: Instant 
-Casting Time: 3 
-Area of Effect: 30-ft. radius 
-Saving Throw: 1/2 
+STATISTIC:
+- May cast Sunfire once
+- If used on an automaton, grants +5 enchantment bonus and +1d10 fire damage to attacks.~
 
-A Sunfire is like a Fireball: An explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it: 1d6 points of damage for each level of experience of the spellcaster (up to a maximum of 15d6). The wizard gestures with <PRO_HISHER> hand and the entire area around <PRO_HIMHER> erupts in flames, striking all except for the caster. Creatures failing their Saving Throws each suffer full damage from the blast. Those who roll successful Saving Throws manage to dodge, fall flat, or roll aside, each receiving half.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune4b.spl~ ~override~
-SAY NAME1 ~Cone of Cold~
-SAY NAME2 ~Cone of Cold~
+COPY_EXISTING ~spwi503.spl~ ~override/c0rune4b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune4b.itm~ ~override~
 SAY NAME1 ~Perfect Ice Rune~
 SAY NAME2 ~Perfect Ice Rune~
-SAY DESC ~Cone of Cold
-(Evocation)
+SAY DESC ~This perfect ice rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 5
-Range: 0
-Duration: Instant
-Casting Time: 5
-Area of Effect: 35-ft. cone with 90-deg. arc
-Saving Throw: 1/2
+STATISTIC:
+- May cast Cone of Cold once
+- If used on an automaton, grants a cold aura that lowers nearby enemies' Armor Class, THAC0 and damage by three points each.~
 
-When this spell is cast, it generates a cone-shaped area of extreme cold originating at the wizard's hand and extending outward in a cone 35 ft. long with a 90-deg. arc. It drains heat and causes 1d4+1 points of damage per level of the caster. For example, a 10th-level wizard would cast a cone of cold causing 10d4+10 points of damage.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune4c.spl~ ~override~
-SAY NAME1 ~Breach~
-SAY NAME2 ~Breach~
+COPY_EXISTING ~spwi513.spl~ ~override/c0rune4c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune4c.itm~ ~override~
 SAY NAME1 ~Perfect Arcane Rune~
 SAY NAME2 ~Perfect Arcane Rune~
-SAY DESC ~Breach
-(Abjuration)
+SAY DESC ~This perfect arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 5
-Range: 40 ft.
-Duration: Instant
-Casting Time: 5
-Area of Effect: 1 creature
-Saving Throw: None
+STATISTIC:
+- May cast Breach once
+- If used on an automaton, grants +40% magic resistance and absorption of three spells of 6th level or lower.~
 
-When this spell is cast at a creature, it breaches and dispels all of the specific and combat protections on the target creature. Here is a complete list of all the specific protection spells that are dispelled by Breach: Shield, Protection Circle, Resist Fear, Protection From Fire/Cold, Fireshield, Protection From Acid, Protection From Electricity, Protection From Magic Energy, Protection From The Elements, and Protection From Energy. The combat protection spells dispelled by Breach are Protection From Normal Missiles, Protection From Normal Weapons, Protection From Magical Weapons, Stoneskin, Armor, Ghost Armor, Spirit Armor, Absolute Immunity, Mantle, and Improved Mantle. The target's Magic Resistance, if any, does not affect this spell.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune4d.spl~ ~override~
-SAY NAME1 ~Oracle~
-SAY NAME2 ~Oracle~
+COPY_EXISTING ~spwi515.spl~ ~override/c0rune4d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune4d.itm~ ~override~
 SAY NAME1 ~Perfect Scrying Rune~
 SAY NAME2 ~Perfect Scrying Rune~
-SAY DESC ~Oracle
-(Divination)
+SAY DESC ~This perfect scrying rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 5
-Range: 0
-Duration: Instant
-Casting Time: 5
-Area of Effect: 235-ft. radius
-Saving Throw: None
+STATISTIC:
+- May cast Oracle once
+- If used on an automaton, grants increased vision range and ability to attack invisible creatures. Attacks dispel illusions on hit.~
 
-When cast, this spell will cancel all Illusion/Phantasm spells of 5th level and lower within its area of effect. The spells affected are Reflected Image, Invisibility, Mirror Image, Non-Detection, Improved Invisibility, and Shadow Door. The caster can control just who this spell affects: Therefore, it will affect only creatures that are not in the caster's party. The area of effect is a 235-ft. radius around the caster.~
-
-COPY ~%MOD_FOLDER%/spells/c0rune4e.spl~ ~override~
-SAY NAME1 ~Spell Immunity~
-SAY NAME2 ~Spell Immunity~
+COPY_EXISTING ~spwi510.spl~ ~override/c0rune4e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
 COPY ~%MOD_FOLDER%/spells/c0rune4e.itm~ ~override~
 SAY NAME1 ~Perfect Shield Rune~
 SAY NAME2 ~Perfect Shield Rune~
-SAY DESC ~Spell Immunity
-(Abjuration)
+SAY DESC ~This perfect shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
 
-Level: 5
-Range: 0
-Duration: 1 round/level
-Casting Time: 5
-Area of Effect: Special
-Saving Throw: None 
-
-Casting this spell grants the wizard protection from one spell school of <PRO_HISHER> choice. After the spell is cast, the wizard must choose the school <PRO_HESHE> wishes to be protected from. All spells of this school will not be able to harm or aid the caster for the duration of this spell. This includes all spells from this school, including any priest spells that might benefit the caster.~
+STATISTIC:
+- May cast Spell Immunity once
+- If used on an automaton, grants +8 to Armor Class against all weapons.~
 
 COPY ~%MOD_FOLDER%/spells/c0aualc.spl~ ~override~
 SAY NAME1 ~Advanced Alchemy~
