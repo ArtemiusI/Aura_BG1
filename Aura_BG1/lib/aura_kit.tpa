@@ -165,6 +165,8 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
 
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+THEN BEGIN
 COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
   SAY NAME1 ~Aura~
   SAY NAME2 ~Aura~
@@ -221,6 +223,7 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+END
 
       PRINT ~Installed Aura as an Artificer~
       END
@@ -272,7 +275,7 @@ ADD_KIT ~C0AURA~
  ~~
 
  // usability flags, added to the end of the KITLIST.2da entry
- ~0x00004000     13~
+ ~0x00000400     13~
 
  // HLA table to use; see LUABBR.2da
  ~C0AURA~
@@ -284,6 +287,8 @@ ADD_KIT ~C0AURA~
   SAY ~illusionist / artificer~
   SAY ~Illusionist / Artificer~
   SAY ~ILLUSIONIST/ARTIFICER: This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
+  
+Gnomes can choose this multi-class, but become Illusionist/Artificers by default. Gnomes are the only race that can combine a specialist Mage class in a multi-class.
   
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 

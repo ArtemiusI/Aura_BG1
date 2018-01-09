@@ -1,3 +1,14 @@
+// APPEARANCE
+
+IF
+	Class(Myself,CLERIC_ALL)
+	Global("Appearance","LOCALS",0)
+THEN
+  RESPONSE #100
+	Polymorph(THIEF_FEMALE_GNOME)
+	SetGlobal("Appearance","LOCALS",1)
+END
+
 // MULTICLASS KIT
 
 IF
@@ -45,6 +56,7 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  !Class(Myself,MAGE_ALL)
   XPGT(Player1,249999)
   XPLT(Myself,250000)
 THEN
@@ -58,6 +70,25 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  Class(Myself,MAGE_ALL)
+  XPGT(Player1,249999)
+  XPLT(Myself,250000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,250000,SET)
+	AddSpecialAbility("spwi503")
+	AddSpecialAbility("spwi522")
+	AddSpecialAbility("spwi405")
+	AddSpecialAbility("spwi415")
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  !Class(Myself,MAGE_ALL)
   XPGT(Player1,199999)
   XPLT(Myself,200000)
 THEN
@@ -71,6 +102,23 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  Class(Myself,MAGE_ALL)
+  XPGT(Player1,199999)
+  XPLT(Myself,200000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,200000,SET)
+	AddSpecialAbility("spwi405")
+	AddSpecialAbility("spwi415")
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  !Class(Myself,MAGE_ALL)
   XPGT(Player1,160999)
   XPLT(Myself,161000)
 THEN
@@ -84,6 +132,23 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  Class(Myself,MAGE_ALL)
+  XPGT(Player1,160999)
+  XPLT(Myself,161000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,161000,SET)
+	AddSpecialAbility("spwi405")
+	AddSpecialAbility("spwi415")
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  !Class(Myself,MAGE_ALL)
   XPGT(Player1,134999)
   XPLT(Player1,161000)
   XPLT(Myself,135000)
@@ -92,6 +157,23 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,135000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  Class(Myself,MAGE_ALL)
+  XPGT(Player1,134999)
+  XPLT(Player1,161000)
+  XPLT(Myself,135000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,135000,SET)
+	AddSpecialAbility("spwi405")
+	AddSpecialAbility("spwi415")
     SetInterrupt(TRUE)
 END
 

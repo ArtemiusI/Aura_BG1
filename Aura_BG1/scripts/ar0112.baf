@@ -12,27 +12,73 @@ IF
 	Global("C0AuraQuest","GLOBAL",3)
 	Global("C0NinjaSpawn","AR0112",0)
 THEN
-RESPONSE #100
+RESPONSE #17
+	Wait(10)
 	IncrementGlobal("C0NinjaSpawn","AR0112",1)
 	CreateCreatureObjectOffset("c0ninja",Player1,[10.10])
-	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",ONE_ROUND)
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #17
+	Wait(10)
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player2,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #16
+	Wait(10)
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player3,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #17
+	Wait(10)
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player4,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #16
+	Wait(10)
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player5,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #17
+	Wait(10)
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player6,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
 END
 
 IF
 	Global("C0AuraQuest","GLOBAL",3)
 	GlobalGT("C0NinjaSpawn","AR0112",0)
-	GlobalLT("C0NinjaSpawn","AR0112",15)
+	GlobalLT("C0NinjaSpawn","AR0112",10)
 	RealGlobalTimerExpired("C0NinjaSpawnTimer","AR0112")
 THEN
-RESPONSE #100
+RESPONSE #17
 	IncrementGlobal("C0NinjaSpawn","AR0112",1)
 	CreateCreatureObjectOffset("c0ninja",Player1,[10.10])
-	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",ONE_ROUND)
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #17
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player2,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #16
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player3,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #17
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player4,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #16
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player5,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
+RESPONSE #17
+	IncrementGlobal("C0NinjaSpawn","AR0112",1)
+	CreateCreatureObjectOffset("c0ninja",Player6,[10.10])
+	RealSetGlobalTimer("C0NinjaSpawnTimer","AR0112",TWO_ROUNDS)
 END
 
 IF
 	Global("C0AuraQuest","GLOBAL",3)
-	Global("C0NinjaSpawn","AR0112",15)
+	Global("C0NinjaSpawn","AR0112",10)
 	CombatCounter(0)
 THEN
 RESPONSE #100

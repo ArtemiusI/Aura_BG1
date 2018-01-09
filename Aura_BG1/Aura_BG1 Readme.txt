@@ -120,6 +120,14 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v0.7
+- Added illusionist restrictions to mage/thief Aura
+- Added learned spells for mage/thief Aura at higher levels
+- Made the Undercellar battle easier again
+- Fixed SoD-versions of Aura having too many skill points
+- Fixed C/T Aura reverting to cleric animations in SoD
+- Fixed erroneous scripts that caused dialogues to trigger too early
+
 v0.6
 - Added extra bear-related dialogue
 - Fixed repeating dialogue bug
@@ -127,7 +135,7 @@ v0.6
 - Added hard cap to number of runes per session
 - Added optional mage/thief and cleric/thief alternates
 - Added restrictions to upgraded Idol of Kozah
-- Made the Underceller battle easier
+- Made the Undercellar battle easier
 
 v0.5
 - Improved explosive visuals

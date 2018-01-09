@@ -22,6 +22,7 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  !Class(Myself,MAGE_ALL)
   XPGT(Player1,31999)
   XPLT(Myself,32000)
 THEN
@@ -35,6 +36,23 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  Class(Myself,MAGE_ALL)
+  XPGT(Player1,31999)
+  XPLT(Myself,32000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,32000,SET)
+	AddSpecialAbility("spwi206")
+	AddSpecialAbility("spwi212")
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  !Class(Myself,MAGE_ALL)
   XPGT(Player1,15999)
   XPLT(Myself,16000)
 THEN
@@ -42,6 +60,22 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,16000,SET)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  Class(Myself,MAGE_ALL)
+  XPGT(Player1,15999)
+  XPLT(Myself,16000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,16000,SET)
+	AddSpecialAbility("spwi206")
+	AddSpecialAbility("spwi212")
     SetInterrupt(TRUE)
 END
 
@@ -140,17 +174,14 @@ IF
     ReputationGT(Player1,9)
     !Global("C0AuraTalkStopped","GLOBAL",1)
 	GlobalLT("C0AuraInsulted","GLOBAL",2)
-    OR(10)
+    OR(7)
       Global("C0AuraTalk","GLOBAL",1)
 	  Global("C0AuraTalk","GLOBAL",3)
       Global("C0AuraTalk","GLOBAL",5)
       Global("C0AuraTalk","GLOBAL",7)
       Global("C0AuraTalk","GLOBAL",9)
-      Global("C0AuraTalk","GLOBAL",11)
 	  Global("C0AuraTalk","GLOBAL",13)
-	  Global("C0AuraTalk","GLOBAL",15)
 	  Global("C0AuraTalk","GLOBAL",17)
-	  Global("C0AuraTalk","GLOBAL",19)
 THEN
   RESPONSE #100
 	IncrementGlobal("C0AuraTalk","GLOBAL",1)
