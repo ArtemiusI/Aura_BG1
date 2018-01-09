@@ -84,12 +84,12 @@ SAY ~You're from Candlekeep? Wow... I've heard of the immense amount of knowledg
 ++ ~That's none of your business.~ + a14
 END
 
-IF ~~ a9
+IF ~~ a9a
 SAY ~No, I'm no mage. Lantan doesn't have any academies for magic users and private tutors aren't easy to find either. What little skill I have in working with magic is self-taught.~
 IF ~~ + a10
 END
 
-IF ~~ a9
+IF ~~ a9b
 SAY ~Well... yes, I suppose you could call me that. I've studied arcane magic in many forms, and picked up a few skills in the way. Though Lantan doesn't have any true academies for magic users, so what little skill I have is self-taught.~
 IF ~~ + a10
 END

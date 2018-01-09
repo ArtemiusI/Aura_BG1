@@ -122,6 +122,12 @@ If there are any issues, queries or suggestions you would like to make for this 
 
 v0.6
 - Added extra bear-related dialogue
+- Fixed repeating dialogue bug
+- Fixed rank III Sunshooter creating five Lightning Arrows instead of two
+- Added hard cap to number of runes per session
+- Added optional mage/thief and cleric/thief alternates
+- Added restrictions to upgraded Idol of Kozah
+- Made the Underceller battle easier
 
 v0.5
 - Improved explosive visuals
