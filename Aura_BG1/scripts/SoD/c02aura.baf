@@ -1,3 +1,22 @@
+// MULTICLASS KIT
+
+IF
+  InParty(Myself)
+  Global("MulticlassKit","LOCALS",0)
+THEN
+  RESPONSE #100
+  SetGlobal("MulticlassKit","LOCALS",1)
+END
+
+IF
+  !InParty(Myself)
+  Global("MulticlassKit","LOCALS",1)
+THEN
+  RESPONSE #100
+  ApplySpellRES("c0auref",Myself)
+  SetGlobal("MulticlassKit","LOCALS",0)
+END
+
 // HAPPINESS
 
 IF
@@ -582,6 +601,14 @@ THEN
 RESPONSE #100
 	Wait(1)
 	MoveGlobalObject("c0auin3",Myself)
+END
+
+IF
+  Dead("c0auin3")
+  !Global("C0AutoCreated", "GLOBAL", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("C0AutoCreated", "GLOBAL", 0)
 END
 
 // AUTOMATON - HELP
