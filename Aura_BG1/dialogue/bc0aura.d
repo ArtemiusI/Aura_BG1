@@ -561,13 +561,15 @@ See("Imoen")
 CombatCounter(0)
 !See([ENEMY])
 Class("imoen",MAGE_ALL)
+!Class("C0Aura",MAGE_ALL)
 Global("C0AuraImoen3","GLOBAL",0)~ THEN BC0AURA C0AuraImoen3
 ~You're a mage now, huh, Imoen? That must be nice.~
 DO ~SetGlobal("C0AuraImoen3","GLOBAL",1)~
 == BIMOEN ~Yep, it's great... wait, hang on, you're not jealous, are you?~
 == BC0AURA ~What? Nah, I-- well, okay. I would really like to know what it's like. It's like it was only yesterday that you were pilfering candy from my pockets, and then suddenly- *BAM*! magic. You make it look so easy.~
 == BIMOEN ~Really? Hmm. I guess it's not the same for everyone. But I thought you could use magic... can't you?~
-== BC0AURA ~Not in the way you can. Rune inscription is... different. You do far more than I ever could with your bare hands alone.~
+== BC0AURA IF ~Class("C0Aura",CLERIC_ALL)~ THEN ~Not in the way you can. Rune inscription is... different. And, well, the prayers I've learned to use divine magic isn't quite the same. You do far more than I ever could with your bare hands alone.~
+== BC0AURA IF ~!Class("C0Aura",CLERIC_ALL)~ THEN ~Not in the way you can. Rune inscription is... different. You do far more than I ever could with your bare hands alone.~
 == BIMOEN ~Sure, but... so can you. I mean, you can make so many things that I can't.~
 == BC0AURA ~Yeah... I guess you're right. Still... I would like to channel arcane power through my own fingers... just once.~
 == BIMOEN ~I betcha you will one day. I mean, what could be impossible for you?~

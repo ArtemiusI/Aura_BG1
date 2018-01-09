@@ -1,0 +1,781 @@
+// KIT
+
+PRINT ~Choose a class for Aura:~
+
+PRINT ~Please choose one of the following:
+[1] Artificer (Thief)
+[2] Illusionist / Artificer (Mage / Thief)
+[3] Priestess / Artificer (Cleric / Thief)~
+
+OUTER_SPRINT ~auraclass~ ~placeholder_value~
+OUTER_WHILE (!(IS_AN_INT ~auraclass~) OR (~auraclass~ > 0x5) OR (~auraclass~ < 0x1)) BEGIN
+  PRINT ~Please select 1, 2, or 3 and press Enter.~
+  ACTION_READLN ~auraclass~
+END
+      ACTION_IF ("auraclass" = 1) THEN BEGIN
+INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+ADD_KIT ~C0AURA~
+
+ // appended to CLASWEAP.2da
+ ~C0AURA		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0AURA				0      9	0	15	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0AURA				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0AURA                		0       0       0       0       0       0~
+
+ // appended to ABDCSCRQ.2da
+ ~C0AURA                 	0       0       0       0       0	0~
+
+ // appended to ALIGNMNT.2da
+ ~C0AURA                  	1       1       1       1      1	1       1       1       1~
+
+ // appended to DUALCLAS.2da
+ ~C0AURA                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/C0AURACL.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00004000     4~
+
+ // HLA table to use; see LUABBR.2da
+ ~C0AURA~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~artificer~
+  SAY ~Artificer~
+  SAY ~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+Advantages:
+- +15 bonus to Lore.
+- +10% bonus to Find Traps, Open Locks and Set Traps.
+- May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZING REAGENT: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
+
+- May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+
+- From level 4 onwards, may use the Advanced Alchemy ability once per day.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+- From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+Disadvantages:
+- Hit Die: d4
+- -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+- -1 penalty to THAC0 every 6 levels (starting at level 1).
+- No backstab multiplier.
+- May only distribute 20 skill points per level among thieving skills.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+    kit_name = C0AURA
+    clswpbon = ~0 0 5~
+	hpclass = ~HPWIZ~
+	thiefskl = ~40 20~
+END
+
+COPY ~%MOD_FOLDER%/creatures/C0Aura.cre~ ~override/C0Aura.cre~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C0Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+
+COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+
+During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+
+      PRINT ~Installed Aura as an Artificer~
+      END
+      ACTION_IF ("auraclass" = 2) THEN BEGIN
+INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
+COPY ~%MOD_FOLDER%/2da/mage~ ~override~
+ADD_KIT ~C0AURA~
+
+ // appended to CLASWEAP.2da
+ ~C0AURA		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0AURA				0      9	0	15	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0AURA				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0AURA                		0       0       0       0       0       0~
+
+ // appended to ABDCSCRQ.2da
+ ~C0AURA                 	0       0       0       0       0	0~
+
+ // appended to ALIGNMNT.2da
+ ~C0AURA                  	1       1       1       1      1	1       1       1       1~
+
+ // appended to DUALCLAS.2da
+ ~C0AURA                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/blankclab.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00004000     13~
+
+ // HLA table to use; see LUABBR.2da
+ ~C0AURA~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~illusionist / artificer~
+  SAY ~Illusionist / Artificer~
+  SAY ~ILLUSIONIST/ARTIFICER: This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
+  
+ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+Advantages:
+- +15 bonus to Lore.
+- +10% bonus to Find Traps, Open Locks and Set Traps.
+- May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZING REAGENT: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
+
+- May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+
+- From level 4 onwards, may use the Advanced Alchemy ability once per day.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+- From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+Disadvantages:
+- -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+- -1 penalty to THAC0 every 6 levels (starting at level 1).
+- No backstab multiplier.
+- May only distribute 20 skill points per level among thieving skills.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+		kit_name = C0AURA
+		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+		clswpbon = ~0 0 3~
+		thiefskl = ~40 20~
+		hpclass = ~HPMT~
+END
+LAF qd_multiclass
+	STR_VAR
+		kit_name = c0aura
+		kit_clab = c0auracl
+		base_class = ~T~
+		mc_dir = ~%MOD_FOLDER%/2da~
+END
+
+COPY ~%MOD_FOLDER%/creatures/C0AuraMA.cre~ ~override/C0Aura.cre~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C0Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+
+COPY ~%MOD_FOLDER%/items/c0auleMA.itm~ ~override/c0aule01.itm~
+SAY NAME1 ~Cherry-tinted Leather Armor~
+SAY NAME2 ~Cherry-tinted Leather Armor~
+SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
+
+Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors.
+
+STATISTICS:
+
+Equipped abilities:
+- Save vs. Breath Weapons: +3
+- Spellcasting is not disabled
+
+Armor Class: 8 (10 vs. piercing and missile)
+Requires:
+ 4 Strength
+
+Weight: 10~
+  
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+THEN BEGIN
+COPY ~%MOD_FOLDER%/creatures/SoD/C02AuraM.cre~ ~override/C02Aura.cre~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+
+During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+THEN BEGIN
+COPY ~%MOD_FOLDER%/items/SoD/c02aulem.itm~ ~override/c0aule02.itm~
+SAY NAME1 ~Cherry-tinted Leather Armor +2~
+SAY NAME2 ~Cherry-tinted Leather Armor +2~
+SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
+
+Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors, as well as protect from the hazards of her experiments, such as extreme heat or cold, electrical shocks, and chemical burns.
+
+STATISTICS:
+
+Equipped abilities:
+- Save vs. Breath Weapons: +3
+- Elemental Resistance: +20%
+- Spellcasting is not disabled
+
+Armor Class: 6 (8 vs. piercing and missile)
+Requires:
+ 4 Strength
+
+Weight: 10~
+END
+
+      PRINT ~Installed Aura as an Illusionist / Artificer~
+      END
+      ACTION_IF ("auraclass" = 3) THEN BEGIN	
+INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
+COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
+ADD_KIT ~C0AURA~
+
+ // appended to CLASWEAP.2da
+ ~C0AURA		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0AURA	0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0AURA				0      9	0	15	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0AURA				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0AURA                		0       0       0       0       0       0~
+
+ // appended to ABDCSCRQ.2da
+ ~C0AURA                 	0       0       0       0       0	0~
+
+ // appended to ALIGNMNT.2da
+ ~C0AURA                  	1       1       0       1      1	1       0       0       0~
+
+ // appended to DUALCLAS.2da
+ ~C0AURA                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/blankclab.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00020000     15~
+
+ // HLA table to use; see LUABBR.2da
+ ~C0AURA~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~priestess / artificer~
+  SAY ~Priestess / Artificer~
+  SAY ~PRIESTESS/ARTIFICER: This character can use the abilities of a Priestess and an Artificer, though weapons are restricted to only those allowed by the Priestess's ethos. Thieving skills cannot be used while wearing more than studded leather armor.
+  
+ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+Advantages:
+- +15 bonus to Lore.
+- +10% bonus to Find Traps, Open Locks and Set Traps.
+- May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZING REAGENT: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
+
+- May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+
+- From level 4 onwards, may use the Advanced Alchemy ability once per day.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+- From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+Disadvantages:
+- -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+- -1 penalty to THAC0 every 6 levels (starting at level 1).
+- No backstab multiplier.
+- May only distribute 20 skill points per level among thieving skills.
+
+PRIESTESS: Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.
+
+Advantages:
+- May cast Protection from Evil as an innate ability.
+- From 6th level onwards, may cast Protection from Evil 10' Radius as an innate ability.
+- From 11th level onwards, may cast True Seeing as an innate ability.
+
+Disadvantages:
+– May only be proficient in clubs, quarterstaves, short bows and slings.
+– May not wear armor heavier than studded leather.
+- May not be chaotic or evil-aligned.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+		kit_name = C0AURA
+		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+		clswpbon = ~0 0 3~
+		thiefskl = ~40 20~
+		hpclass = ~HPCT~
+END
+LAF qd_multiclass
+	STR_VAR
+		kit_name = c0aura
+		kit_clab = c0auracl
+		base_class = ~T~
+		mc_dir = ~%MOD_FOLDER%/2da~
+END
+
+COPY ~%MOD_FOLDER%/creatures/C0AuraPR.cre~ ~override/C0Aura.cre~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C0Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+  
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+THEN BEGIN
+COPY ~%MOD_FOLDER%/creatures/SoD/C02AuraP.cre~ ~override/C02Aura.cre~
+  SAY NAME1 ~Aura~
+  SAY NAME2 ~Aura~
+  WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
+  WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  
+Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+
+During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
+  SAY MORALE ~~
+  SAY HAPPY ~I'm glad my skills are being put to good use. You're a kind leader.~
+  SAY UNHAPPY_ANNOYED ~Please, please, please tell me you're joking.~ [AURAv]
+  SAY UNHAPPY_SERIOUS ~Things are lookin'...pretty bad right now.~ [AURAw]
+  SAY UNHAPPY_BREAKING_POINT ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [AURAb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [AURAc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [AURAd]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [AURAa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [AURA8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [AURA9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [AURAz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [AURAs]
+  SAY DAMAGE ~Uhh!~ [AURAl]
+  SAY DYING ~Ah! Oh, ugh...~ [AURAm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [AURAe]
+  SAY AREA_FOREST ~No matter how much I improve, I could never replicate the beauty of nature...~
+  SAY AREA_CITY ~I can't believe your cities still use stone for their walls!~
+  SAY AREA_DUNGEON ~Don't scamper off too far from me now, Muffy, you never know what we might find here.~
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~
+  SAY AREA_NIGHT ~I- I'm not afraid of the dark! Really!~
+  SAY SELECT_COMMON1 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON2 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_COMMON4 ~How's it going?~ [AURAf]
+  SAY SELECT_COMMON5 ~Yep.~ [AURAg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [AURAt]
+  SAY SELECT_ACTION1 ~Okay.~ [AURAi]
+  SAY SELECT_ACTION2 ~You bet.~ [AURAj]
+  SAY SELECT_ACTION3 ~Finished.~ [AURA7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [AURAh]
+  SAY SELECT_ACTION5 ~*giggle*~ [AURAu]
+  SAY SELECT_ACTION6 ~No way.~ [AURAx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [AURA#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [AURAy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [AURA1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [AURA2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [AURA3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [AURA6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [AURAk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [AURA5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
+  WRITE_SHORT 0x246 0x4000 + ~%C0AURA%~
+END
+
+COPY_EXISTING ~sppr107.spl~ ~override/c0aupr1.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~sppr408.spl~ ~override/c0aupr2.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~sppr505.spl~ ~override/c0aupr3.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
+    READ_BYTE    0x20 thief //reads the byte containing the mage usability flag
+    PATCH_IF ((thief BAND 0b01000000) = 0b00000000) BEGIN // if it is usable by thieves
+      READ_BYTE    0x1F cthief //reads the byte containing cleric/thieves usability flag
+      READ_SHORT    0x1C type //reads the byte containing item type
+      PATCH_IF (type = 5) BEGIN // if it is arrows
+        WRITE_BYTE    0x1F (thief BAND 0b11111101)  // makes usable by cleric/thieves
+      END
+    END
+  END
+BUT_ONLY_IF_IT_CHANGES
+
+      PRINT ~Installed Aura as a Priestess / Artificer~
+      END

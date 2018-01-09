@@ -722,6 +722,91 @@ THEN
 	SetGlobal("C02Sireneromanceactive","global",3)
 END
 
+// I HATE BEARS
+
+IF
+	InParty(Myself)
+	Global("C0AuraHatesBears","GLOBAL",0)
+	OR(12)
+	See("bearbl")
+	See("bearbr")
+	See("bearca")
+	See("bearpo")
+	See("JaredPbear")
+	See("cavene")
+	See("ursa")
+	See("bdbearbr")
+	See("bdbearbl")
+	See("bdbearca")
+	See("bdgrizhu")
+	See("ubdbear")
+THEN
+  RESPONSE #100
+  SetGlobal("C0AuraHatesBears","GLOBAL",1)
+  StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	Global("C0AuraHatesBears","GLOBAL",1)
+	GlobalGT("bd_plot","GLOBAL",0)
+	OR(12)
+	See("bearbl")
+	See("bearbr")
+	See("bearca")
+	See("bearpo")
+	See("JaredPbear")
+	See("cavene")
+	See("ursa")
+	See("bdbearbr")
+	See("bdbearbl")
+	See("bdbearca")
+	See("bdgrizhu")
+	See("ubdbear")
+THEN
+  RESPONSE #100
+  SetGlobal("C0AuraHatesBears","GLOBAL",2)
+  StartDialogueNoSet(Player1)
+END
+
+IF
+	OR(2)
+	See("SPIRDTH")
+	See("BDSHA06A")
+	!Allegiance("SPIRDTH",ENEMY)
+	!Allegiance("BDSHA06A",ENEMY)
+	Global("C0AuraSummonedBears","GLOBAL",0)
+THEN
+  RESPONSE #100
+  SetGlobal("C0AuraSummonedBears","GLOBAL",1)
+  StartDialogueNoSet(Player1)
+END
+	
+IF
+	InParty(Myself)
+	OR(13)
+	Range("bearbl",5)
+	Range("bearbr",5)
+	Range("bearca",5)
+	Range("bearpo",5)
+	Range("JaredPbear",5)
+	Range("cavene",5)
+	Range("ursa",5)
+	Range("bdbearbr",5)
+	Range("bdbearbl",5)
+	Range("bdbearca",5)
+	Range("bdgrizhu",5)
+	Range("ubdbear",5)
+	Range("SPIRDTH",5)
+	Range("kaldran",5)
+	Range("BDSHA06A",5)
+THEN
+RESPONSE #100
+	Wait(1)
+	ReallyForceSpellRES("c0aubear",Myself)
+	Continue()
+END
+
 // BANTERS
 
 // Baeloth

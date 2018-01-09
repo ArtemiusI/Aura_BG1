@@ -4,7 +4,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",1)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -13,7 +15,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",2)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -22,7 +26,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",3)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -31,7 +37,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",4)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -40,7 +48,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",5)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -49,7 +59,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",6)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -58,7 +70,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",7)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -67,7 +81,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",8)
+	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -76,7 +92,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",9)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -85,7 +103,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",10)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -94,7 +114,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",11)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -103,7 +125,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",12)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -112,7 +136,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",13)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -121,7 +147,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",14)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -130,7 +158,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",15)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -139,7 +169,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",16)
+	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -148,7 +180,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",17)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -157,7 +191,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",18)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -166,7 +202,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",19)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -175,7 +213,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",20)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -184,7 +224,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",21)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -193,7 +235,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",22)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -202,7 +246,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",23)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -211,7 +257,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",24)
+	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -220,7 +268,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",25)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -229,7 +279,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",26)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -238,7 +290,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",27)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -247,7 +301,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",28)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -256,7 +312,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",29)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -265,7 +323,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",30)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -274,7 +334,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",31)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -283,7 +345,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",32)
+	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -292,7 +356,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",33)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -301,7 +367,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",34)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -310,7 +378,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",35)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -319,7 +389,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",36)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -328,7 +400,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",37)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -337,7 +411,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",38)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -346,7 +422,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",39)
+	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -355,7 +433,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",40)
+	SetGlobal("RuneLimit","LOCALS",10)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
@@ -369,7 +449,9 @@ END
 
 IF
   Detect(Lastsummonerof(Myself))
+  OR(2)
   Global("C0ArtificerRuneCount","LOCALS",0)
+  Global("RuneLimit","LOCALS",0)
 THEN
   RESPONSE #100
     DestroySelf()

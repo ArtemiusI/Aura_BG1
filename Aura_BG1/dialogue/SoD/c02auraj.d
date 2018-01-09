@@ -1464,12 +1464,12 @@ CHAIN BDTHRIX ThrixWager1
 ~A prodigy of the Lantanese trade will surely be a valuable asset to Thrix. Yes, she will do quite nicely. What say you, Bhaalspawn?~
 END
 ++ ~I accept your terms, devil. Say your riddle, and should I lose, I will forfeit Aura to you.~ DO ~SetGlobal("C02AuraSacrifice","bd4500",1) SetGlobal("bd_thrix_sacrifice_companion","global",1)~ EXTERN BDTHRIX 116
-+ ~OR(2) Global("C02AuraRomanceActive","GLOBAL",1) Global("C02AuraRomanceActive","GLOBAL",2)~ + ~Don't speak of Aura as if she's an object, fiend! She is more to me than she will ever become to you.~ DO ~SetGlobal("C02_Saved_Aura","bd4500",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ EXTERN C02SIREJ ThrixWager2
-+ ~!Global("C02AuraRomanceActive","GLOBAL",1) !Global("C02AuraRomanceActive","GLOBAL",2)~ + ~You ask for too much, fiend. Aura's soul is worth too much for me to risk it. Choose another.~ DO ~SetGlobal("C02_Saved_Aura","bd4500",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ EXTERN C02SIREJ ThrixWager2
++ ~OR(2) Global("C02AuraRomanceActive","GLOBAL",1) Global("C02AuraRomanceActive","GLOBAL",2)~ + ~Don't speak of Aura as if she's an object, fiend! She is more to me than she will ever become to you.~ DO ~SetGlobal("C02_Saved_Aura","bd4500",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ EXTERN C02AURAJ ThrixWager2
++ ~!Global("C02AuraRomanceActive","GLOBAL",1) !Global("C02AuraRomanceActive","GLOBAL",2)~ + ~You ask for too much, fiend. Aura's soul is worth too much for me to risk it. Choose another.~ DO ~SetGlobal("C02_Saved_Aura","bd4500",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ EXTERN C02AURAJ ThrixWager2
 ++ ~It's a poor <PRO_MANWOMAN> indeed who'd sacrifice a friend in such a way. If I can't answer your riddle, you will take me, and let them go on their way. Agreed?~ EXTERN BDTHRIX 113
 ++ ~I'll not play your twisted game, devil. Stand aside, or pay the price.~ EXTERN BDTHRIX 12
 
-CHAIN C02SIREJ ThrixWager2
+CHAIN C02AURAJ ThrixWager2
 ~Thanks, <CHARNAME>... but... why are you even considering dealing with this beast?~
 == BDTHRIX ~Hnh. Far too cruel of you to deny Thrix such a useful little mind. He would have liked to enhance upon his torture room. Oh well...~
 END
@@ -1506,10 +1506,10 @@ END
 CHAIN BDTHRIX ThrixWager4
 ~Mmm... Thrix can see it already. Machines of destructions and conquest, bringing Thrix's enemies to heel. Come, little girl, to your new master.~
 END
-++ ~Sorry, Aura. I guess I wasn't smart enough to get that right.~ DO ~SetGlobal("C02_thrix_mark_Aura","global",1)~ EXTERN C02SIREJ ThrixWager5
+++ ~Sorry, Aura. I guess I wasn't smart enough to get that right.~ DO ~SetGlobal("C02_thrix_mark_Aura","global",1)~ EXTERN C02AURAJ ThrixWager5
 ++ ~I don't think so. The only one to be brought to heel will be you, fiend!~ EXTERN BDTHRIX 10
 
-CHAIN C02SIREJ ThrixWager5
+CHAIN C02AURAJ ThrixWager5
 ~No! Magatama... spirits above... protect me...~
 DO ~SetGlobal("bd_thrix_plot","global",11)~ EXTERN BDTHRIX 140
 
@@ -1696,6 +1696,59 @@ CHAIN C02AURA koko.a4
 EXIT
 
 APPEND C02AURAJ
+
+// SEES BEAR
+
+IF ~Global("C0AuraHatesBears","GLOBAL",1)~ ihatebears
+SAY ~Aaiiiee!~
+++ ~What?! What's wrong?~ DO ~SetGlobal("C0AuraHatesBears","GLOBAL",3)~ + ihatebears2
+END
+
+IF ~~ ihatebears2
+SAY ~B-b-BEAR! I-it's a bear! Oh, no, it's spotted us! Eek, let's run as fast as we can, <CHARNAME>!~
++ ~OR(2) Class(Player1,DRUID_ALL) Class(Player1,RANGER_ALL)~ + ~That's the quickest way of making sure the bear catches you, Aura. You're not supposed to run away from a bear, or else it'll think of you as prey.~ + ihatebears5
+++ ~You're afraid of a *bear*?~ + ihatebears3
+++ ~I don't like bears myself. You're right, let's run!~ + ihatebears4
+END
+
+IF ~~ ihatebears3
+SAY ~D-don't joke about it. You have no idea... in Kozakura, they say there are bears in the mountains that eat people. And I'm so tiny, it'd swallow me in one gulp! Oh, curse it, why did I have to say it out loud? Now I'll be picturing it all day...~
+IF ~~ + ihatebears4
+END
+
+IF ~~ ihatebears4
+SAY ~Ooh, too late, I think it's coming at us. Y-you stay at the front, <CHARNAME>, I'll stand behind you. To shoot arrows at it, n-not to run away, of course!~
+IF ~~ EXIT
+END
+
+IF ~~ ihatebears5
+SAY ~E-easy for you to say, no bear would ever go after you! I'm sure I already look like a nice, delicious snack for any bear that sees me... *shudder*~
+IF ~~ + ihatebears4
+END
+
+IF ~Global("C0AuraHatesBears","GLOBAL",2)~ ihatebearsagain
+SAY ~Aaiiiee!~
+++ ~What?! What's wrong?~ DO ~SetGlobal("C0AuraHatesBears","GLOBAL",3)~ + ihatebearsagain2
+END
+
+IF ~~ ihatebearsagain2
+SAY ~B-b-b... it's a b--~
+++ ~Bear?~ + ihatebearsagain3
+++ ~Don't tell me you're STILL afraid of bears?!~ + ihatebearsagain3
+++ ~*sigh*~ + ihatebearsagain3
+END
+
+IF ~~ ihatebearsagain3
+SAY ~W-why must there always be big, scary bears wherever we go?!~
+IF ~~ EXIT
+END
+
+// SPIRIT BEAR
+
+IF ~Global("C0AuraSummonedBears","GLOBAL",1)~ spiritbear
+SAY ~Eep! Ghosts and bear were bad enough! Now it's a ghost of a bear? Couldn't you have summoned something nicer?~
+IF ~~ DO ~SetGlobal("C0AuraSummonedBears","GLOBAL",2)~ EXIT
+END
 
 // THRIX
 

@@ -120,6 +120,9 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v0.6
+- Added extra bear-related dialogue
+
 v0.5
 - Improved explosive visuals
 - Improved icons

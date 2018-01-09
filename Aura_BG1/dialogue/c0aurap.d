@@ -87,7 +87,7 @@ END
 
 IF ~~ rejoin.1
 SAY ~Sure thing! Just give me a sec... Muffy? Hey, where do you think you're... ha, gotcha! Come on, quit fooling around, it's time to go!~
-IF ~~ DO ~SetGlobal("KickedOut","LOCALS",0) ActionOverride("C0AUIN3",AddFamiliar()) JoinParty()~ EXIT
+IF ~~ DO ~SetGlobal("KickedOut","LOCALS",0) JoinParty()~ EXIT
 END
 
 IF ~~ crystal

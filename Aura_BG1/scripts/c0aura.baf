@@ -1,3 +1,16 @@
+// MULTICLASS KIT
+
+IF
+  Joins(Myself)
+  !Kit(Myself,C0AURA)
+  OR(2)
+  Class(Myself,MAGE_THIEF)
+  Class(Myself,CLERIC_THIEF)
+THEN
+  RESPONSE #100
+  AddKit(C0AURA)
+END
+
 // EXPERIENCE
 
 IF
@@ -97,7 +110,7 @@ IF
     !See([ENEMY])
 	!Global("C0AuraTalkStopped","GLOBAL",1)
 	GlobalLT("C0AuraInsulted","GLOBAL",2)
-    OR(11)
+    OR(7)
       Global("C0AuraTalk","GLOBAL",2)
       Global("C0AuraTalk","GLOBAL",4)
       Global("C0AuraTalk","GLOBAL",6)
@@ -121,7 +134,7 @@ IF
     ReputationGT(Player1,9)
     !Global("C0AuraTalkStopped","GLOBAL",1)
 	GlobalLT("C0AuraInsulted","GLOBAL",2)
-    OR(11)
+    OR(10)
       Global("C0AuraTalk","GLOBAL",1)
 	  Global("C0AuraTalk","GLOBAL",3)
       Global("C0AuraTalk","GLOBAL",5)
@@ -630,7 +643,7 @@ END
 IF
 	InParty(Myself)
 	Global("C0AuraHatesBears","GLOBAL",0)
-	OR(12)
+	OR(13)
 	See("bearbl")
 	See("bearbr")
 	See("bearca")
@@ -643,15 +656,29 @@ IF
 	See("bdbearca")
 	See("bdgrizhu")
 	See("ubdbear")
+	See("kaldran")
 THEN
   RESPONSE #100
   SetGlobal("C0AuraHatesBears","GLOBAL",1)
   StartDialogueNoSet(Player1)
 END
+
+IF
+	OR(2)
+	See("SPIRDTH")
+	See("BDSHA06A")
+	!Allegiance("SPIRDTH",ENEMY)
+	!Allegiance("BDSHA06A",ENEMY)
+	Global("C0AuraSummonedBears","GLOBAL",0)
+THEN
+  RESPONSE #100
+  SetGlobal("C0AuraSummonedBears","GLOBAL",1)
+  StartDialogueNoSet(Player1)
+END
 	
 IF
 	InParty(Myself)
-	OR(12)
+	OR(15)
 	Range("bearbl",5)
 	Range("bearbr",5)
 	Range("bearca",5)
@@ -664,6 +691,9 @@ IF
 	Range("bdbearca",5)
 	Range("bdgrizhu",5)
 	Range("ubdbear",5)
+	Range("SPIRDTH",5)
+	Range("kaldran",5)
+	Range("BDSHA06A",5)
 THEN
 RESPONSE #100
 	Wait(1)
@@ -683,6 +713,14 @@ RESPONSE #100
 	Wait(1)
 	SetGlobal("C0AuraAutomaton","GLOBAL",1)
 	StartDialogueNoSet(Player1)
+END
+
+IF
+  Dead("c0auin3")
+  !Global("C0AutoCreated", "GLOBAL", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("C0AutoCreated", "GLOBAL", 0)
 END
 
 // AUTOMATON - MOVE

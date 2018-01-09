@@ -71,7 +71,8 @@ END
 IF ~~ a7
 SAY ~We all have different skills depending on our area of study. My work focuses on engineering, alchemy and wondrous crafting. I've also studied a little bit of magic on the side, but... that's not a common field for us Lantanese.~
 + ~CheckStatGT(Player1,14,INT)~ + ~Aren't people from your land usually Gond worshippers and inventors?~ + a5
-++ ~Magic? Are you some sort of spellcaster, then?~ + a9
++ ~!Class("C0Aura",MAGE_ALL)~ + ~Magic? Are you some sort of spellcaster, then?~ + a9a
++ ~Class("C0Aura",MAGE_ALL)~ + ~Magic? Are you some sort of spellcaster, then?~ + a9b
 ++ ~What brings a Lantanese to the Sword Coast, anyway? It's a long way from home.~ + a6
 ++ ~I think we've talked for long enough. Goodbye.~ EXIT
 END
@@ -85,6 +86,11 @@ END
 
 IF ~~ a9
 SAY ~No, I'm no mage. Lantan doesn't have any academies for magic users and private tutors aren't easy to find either. What little skill I have in working with magic is self-taught.~
+IF ~~ + a10
+END
+
+IF ~~ a9
+SAY ~Well... yes, I suppose you could call me that. I've studied arcane magic in many forms, and picked up a few skills in the way. Though Lantan doesn't have any true academies for magic users, so what little skill I have is self-taught.~
 IF ~~ + a10
 END
 

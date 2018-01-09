@@ -1569,6 +1569,13 @@ SAY ~E-easy for you to say, no bear would ever go after you! I'm sure I already 
 IF ~~ + ihatebears4
 END
 
+// SPIRIT BEAR
+
+IF ~Global("C0AuraSummonedBears","GLOBAL",1)~ spiritbear
+SAY ~Eep! Ghosts and bear were bad enough! Now it's a ghost of a bear? Couldn't you have summoned something nicer?~
+IF ~~ DO ~SetGlobal("C0AuraSummonedBears","GLOBAL",2)~ EXIT
+END
+
 // HIGH HALL OF WONDERS
 
 IF ~Global("C0AuraHighHallofWonders","GLOBAL",1)~ highhall
@@ -1964,7 +1971,8 @@ IF ~~ runes
 SAY ~My uncle Marius - have I told you about him? He's one of the few master arcanists who calls Lantan home.~
 = ~When I visited my younger brother, who studies at his tower, I used to peek at my uncle's spellbook when he wasn't looking. Well... I've always had a good memory, so I tried inscribing what I saw on magical runes and trying to use magic myself.~
 = ~I got caught before I could cast a single spell, but my uncle was delighted at seeing how quickly I picked up on the skill, just by observing. So he taught me how to do it properly, and it's been a skill I've been developing since.~
-++ ~Would you be interested in becoming a proper mage?~ + runes.1
++ ~Class("C0Aura",MAGE_ALL)~ + ~You're capable of casting spells normally as well. Is it somehow different?~ + runes.2
++ ~!Class("C0Aura",MAGE_ALL)~ + ~Would you be interested in becoming a proper mage?~ + runes.1
 ++ ~Let's talk about something else.~ + pid2
 ++ ~That's all I wanted to ask.~ + end
 END
@@ -1975,6 +1983,14 @@ SAY ~Well... I've considered it. It's a nice thought, but... my talents are in c
 ++ ~Let's talk about something else.~ + pid2
 ++ ~That's all I wanted to ask.~ + end
 END
+
+IF ~~ runes.2
+SAY ~Well... the difference is in the method, I suppose. Like two formulae that result in the same answer... that sort of thing.~
+= ~Rune magic has its own power. I can use it to empower my artificial creations, and their power is lasting. But it is... limited, in what it's capable of. I can understand why most mages don't practice it, but... for those like me, it's a skill worth having.~
+++ ~Let's talk about something else.~ + pid2
+++ ~That's all I wanted to ask.~ + end
+END
+
 
 IF ~~ lantan
 SAY ~Okay, I'll do my best to answer. Shoot.~
@@ -2072,6 +2088,7 @@ IF ~~ karatur
 SAY ~Sure, ask away. I'll tell you what I can.~
 ++ ~Tell me the basic geography of Kara-Tur.~ + karatur.geography
 ++ ~What was it like living in Kozakura?~ + karatur.living
++ ~Class("C0Aura",CLERIC_ALL)~ + ~You're capable of using divine magic, but you don't invoke a god's name. How is that possible?~ + karatur.priestess
 + ~Global("C0AuraKaraLanguage","GLOBAL",0)~ + ~Can you speak the Kara-Turan language?~ DO ~SetGlobal("C0AuraKaraLanguage","GLOBAL",1)~ + karatur.language
 + ~Global("C0AuraKaraLanguage","GLOBAL",1) RandomNum(3,1)~ + ~Can you say something in Kozakuran?~ + karatur.language.proverb1
 + ~Global("C0AuraKaraLanguage","GLOBAL",1) RandomNum(3,2)~ + ~Can you say something in Kozakuran?~ + karatur.language.proverb2
@@ -2081,6 +2098,14 @@ SAY ~Sure, ask away. I'll tell you what I can.~
 + ~GlobalGT("C0AuraTamoko","GLOBAL",3) Global("C0AuraAskTamoko","GLOBAL",0)~ + ~Did you know about Tamoko being Reika's niece?~ + reika.tamoko
 ++ ~Let's talk about something else.~ + pid2
 ++ ~We're done for now.~ + end
+END
+
+IF ~~ karatur.priestess
+SAY ~Well... it's complicated. The deities in Kozakura aren't quite like those we're more familiar with. It's more... akin to following a particular ideal rather than a named entity. I know it sounds strange, but... it's more akin to asking the natural forces of the world to heal, or protect, or hurt. There's no specific deity to call on.~
+= ~What's strange to me is that... even after leaving Kozakura, the prayers I learned from Reika-san are still answered, and they haven't diminished at all, even though it's different outside of Kara-Tur...~
+= ~I can't really explain that. I'm not a true priestess, I'm just someone who learned the right prayers and became familiar with the voices. Only an educated follower of the Way might know.~
+++ ~I see. There's something else I'd like to ask.~ + karatur
+++ ~That's all for now.~ + end
 END
 
 IF ~~ karatur.geography
