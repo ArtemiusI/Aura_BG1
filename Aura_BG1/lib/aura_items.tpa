@@ -1,23 +1,5 @@
 // ITEMS
 
-COPY ~%MOD_FOLDER%/items/c0aule01.itm~ ~override~
-SAY NAME1 ~Cherry-tinted Leather Armor~
-SAY NAME2 ~Cherry-tinted Leather Armor~
-SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
-
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors.
-
-STATISTICS:
-
-Equipped abilities:
-- Save vs. Breath Weapons: +3
-
-Armor Class: 7 (9 vs. piercing and missile)
-Requires:
- 4 Strength
-
-Weight: 10~
-
 COPY ~%MOD_FOLDER%/items/c0abadge.itm~ ~override~
 SAY NAME1 ~Glimmershine Family Insignia~
 SAY NAME2 ~Glimmershine Family Insignia~
