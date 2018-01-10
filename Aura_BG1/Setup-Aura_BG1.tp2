@@ -35,6 +35,7 @@ SUBCOMPONENT ~Aura Glimmershine NPC~
   REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE.~
 INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
 
 BEGIN ~Baldur's Gate: Enhanced Edition + Siege of Dragonspear~
 SUBCOMPONENT ~Aura Glimmershine NPC~ (FILE_EXISTS_IN_GAME ~bdcaelar.cre~)
@@ -42,6 +43,7 @@ SUBCOMPONENT ~Aura Glimmershine NPC~ (FILE_EXISTS_IN_GAME ~bdcaelar.cre~)
 INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_sod.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
 ////////////////////////////////////// Alternate Portrait
 
 // Alternate Portrait

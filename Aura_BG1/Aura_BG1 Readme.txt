@@ -120,6 +120,9 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v0.8
+- Fixed Artificer-only item restrictions
+
 v0.7
 - Added illusionist restrictions to mage/thief Aura
 - Added learned spells for mage/thief Aura at higher levels
