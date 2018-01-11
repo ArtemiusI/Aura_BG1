@@ -111,7 +111,8 @@ A: Yes. You must be non-evil and have 14+ Charisma. Bear in mind Aura herself wi
 
 Written, coded and tested by Artemius_I (me)
 Aura's default portrait made by Lava Del'Vortel
-Aura's alternate portrait made by Omar Diaz
+Aura's alternate portrait #1 made by Omar Diaz
+Aura's alternate portrait #2 made by Pantalion
 Aura's soundset taken from Neverwinter Nights by Bioware
 
 If there are any issues, queries or suggestions you would like to make for this mod, please contact me at Beamdog Forums or my mod site, "https://artisans-corner.com/". Don't message me at SHS or G3 forums, I barely go there nowadays.
@@ -119,6 +120,10 @@ If there are any issues, queries or suggestions you would like to make for this 
 ==============================================
 6. Change Log
 ==============================================
+
+v0.8.1
+- Fixed single-class Aura's loss of Set Snare
+- Added alternate portrait by Pantalion
 
 v0.8
 - Fixed Artificer-only item restrictions

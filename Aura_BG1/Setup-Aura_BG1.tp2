@@ -44,13 +44,34 @@ INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_sod.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
-////////////////////////////////////// Alternate Portrait
 
-// Alternate Portrait
+PRINT ~Choose a portrait for Aura (check mod folder for portraits):~
 
-BEGIN ~Alternative Portrait?~
-REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~c0aura.cre~ ~Requires the main component to be installed.~ 
+PRINT ~Please choose one of the following:
+[1] Default by Lava Del'Vortel
+[2] Alternate 1 by Omar Diaz
+[3] Alternate 2 by Pantalion~
 
-COPY ~%MOD_FOLDER%/alt-portrait/AuraL.bmp~ ~override~
-COPY ~%MOD_FOLDER%/alt-portrait/AuraM.bmp~ ~override~
-COPY ~%MOD_FOLDER%/alt-portrait/AuraS.bmp~ ~override~
+OUTER_SPRINT ~portrait~ ~placeholder_value~
+OUTER_WHILE (!(IS_AN_INT ~portrait~) OR (~portrait~ > 0x5) OR (~portrait~ < 0x1)) BEGIN
+  PRINT ~Please select 1, 2 or 3 and press Enter.~
+  ACTION_READLN ~portrait~
+END
+      ACTION_IF ("portrait" = 1) THEN BEGIN
+		COPY ~%MOD_FOLDER%/portraits/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/portraits/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/portraits/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Default by Lava Del'Vortel~
+      END
+      ACTION_IF ("portrait" = 2) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Alternate 1 by Omar Diaz~
+      END
+      ACTION_IF ("portrait" = 3) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/Aura2L.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/Aura2M.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/Aura2S.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Alternate 2 by Pantalion~
+	  END

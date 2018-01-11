@@ -116,8 +116,8 @@ COPY ~%MOD_FOLDER%/creatures/C0Aura.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x248 ~C0Aura~ #8  //override script
   WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
-  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
 Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
@@ -173,8 +173,8 @@ COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
   WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
   WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
   WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
-  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
 Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
@@ -372,7 +372,7 @@ LAF qd_multiclass
 		kit_name = c0aura
 		kit_clab = c0auracl
 		base_class = ~T~
-		mc_dir = ~%MOD_FOLDER%/2da~
+		mc_dir = ~%MOD_FOLDER%/2da/mage~
 END
 
 COPY ~%MOD_FOLDER%/creatures/C0AuraMA.cre~ ~override/C0Aura.cre~
@@ -381,8 +381,8 @@ COPY ~%MOD_FOLDER%/creatures/C0AuraMA.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x248 ~C0Aura~ #8  //override script
   WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
-  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
 Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
@@ -457,8 +457,8 @@ COPY ~%MOD_FOLDER%/creatures/SoD/C02AuraM.cre~ ~override/C02Aura.cre~
   WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
   WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
   WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
-  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
 Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
@@ -661,8 +661,8 @@ COPY ~%MOD_FOLDER%/creatures/C0AuraPR.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x248 ~C0Aura~ #8  //override script
   WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
-  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
 Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
@@ -718,8 +718,8 @@ COPY ~%MOD_FOLDER%/creatures/SoD/C02AuraP.cre~ ~override/C02Aura.cre~
   WRITE_ASCII 0x248 ~C02Aura~ #8  //override script
   WRITE_ASCII 0x280 ~C0Aura~ #32  //DV
   WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~AuraS~ #8   //small portrait
-  WRITE_ASCII 0x3c ~AuraM~ #8   //medium portrait
+  WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
   SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
   
 Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
