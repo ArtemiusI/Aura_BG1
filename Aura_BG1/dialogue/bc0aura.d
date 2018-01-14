@@ -1022,7 +1022,7 @@ EXIT
 // Shar-Teel
 CHAIN IF ~InParty("C0Aura")
 See("C0Aura")
-!StateCheck("Alora",CD_STATE_NOTVALID)
+!StateCheck("Sharteel",CD_STATE_NOTVALID)
 !StateCheck("C0Aura",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
@@ -1148,7 +1148,7 @@ CombatCounter(0)
 Global("C0AuraXan2","GLOBAL",0)~ THEN BXANNN C0AuraXan1
 ~You remind me of my cousin Erevain. Adventurous, optimistic, and enough curiosity to put a human child to shame.~
 DO ~SetGlobal("C0AuraXan2","GLOBAL",1)~
-== BC0AURA ~That sound like me. Where's this cousin of yours right now?~
+== BC0AURA ~That sounds like me. Where's this cousin of yours right now?~
 == BXANNN ~In Arvandor... I pray. He ventured north into the hellish wastes of Icewind Dale years ago, and there he fell.~
 == BC0AURA ~Oh... I'm so sorry, Xan. That must be hard on you.~
 == BXANNN ~Perhaps. We were close enough, insofar as family relations go. But I told him his exploits would be the end of him one day. He laughed. And who was correct in the end?~
