@@ -738,39 +738,6 @@ RESPONSE #100
 	Continue()
 END
 
-// AUTOMATON - CREATED
-
-IF
-	See("c0auin3")
-	Exists("c0auin3")
-	InMyArea("c0auin3")
-	Global("C0AuraAutomaton","GLOBAL",0)
-THEN
-RESPONSE #100
-	Wait(1)
-	SetGlobal("C0AuraAutomaton","GLOBAL",1)
-	StartDialogueNoSet(Player1)
-END
-
-IF
-  Dead("c0auin3")
-  !Global("C0AutoCreated", "GLOBAL", 0)
-THEN
-  RESPONSE #100
-    SetGlobal("C0AutoCreated", "GLOBAL", 0)
-END
-
-// AUTOMATON - MOVE
-
-IF
-	Exists("c0auin3")
-	!InMyArea("c0auin3")
-	!Dead("c0auin3")
-THEN
-RESPONSE #100
-	MoveGlobalObject("c0auin3",Myself)
-END
-
 // AUTOMATON - HELP
 
 IF
@@ -796,13 +763,15 @@ END
 
 // SUNSHOOTER
 
+// SUNSHOOTER
+
 IF
 	LevelGT(Myself,5)
 	HasItemEquiped("c0aubow1",Myself)
 THEN
 RESPONSE #100
 	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter II.)~ [GAM_11])
-	TakeItemReplace("c0aubow2","c0aubow1",Myself)
+	TransformItem("c0aubow1","c0aubow2")
 	EquipRanged()
 END
 
@@ -812,7 +781,7 @@ IF
 THEN
 RESPONSE #100
 	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter III.)~ [GAM_11])
-	TakeItemReplace("c0aubow3","c0aubow2",Myself)
+	TransformItem("c0aubow2","c0aubow3")
 	EquipRanged()
 END
 
@@ -822,7 +791,7 @@ IF
 THEN
 RESPONSE #100
 	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter IV.)~ [GAM_11])
-	TakeItemReplace("c0aubow4","c0aubow3",Myself)
+	TransformItem("c0aubow3","c0aubow4")
 	EquipRanged()
 END
 

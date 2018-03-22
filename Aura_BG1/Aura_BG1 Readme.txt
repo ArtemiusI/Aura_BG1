@@ -119,8 +119,6 @@ If there are any issues, queries or suggestions you would like to make for this 
 ==============================================
 6. Change Log
 ==============================================
-v0.9
-- Reduced levels on ninjas to make them easier
 
 v0.8
 - Fixed Artificer-only item restrictions

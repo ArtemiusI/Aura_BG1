@@ -2,9 +2,11 @@ IF
   Die()
 THEN
   RESPONSE #100
+	SetInterrupt(FALSE)
     SetGlobal("C0AutoCreated", "GLOBAL", 0)
     ApplySpellRES("c0autos3",Myself)
 	DestroyAllEquipment()
+	SetInterrupt(TRUE)
 END
 
 IF
@@ -23,15 +25,17 @@ IF
 THEN
   RESPONSE #100
   ChangeEnemyAlly(Myself,NEUTRAL)
+  Continue()
 END
 
 IF
   InParty("C0Aura")
   !Dead("C0Aura")
-  !Allegiance(Myself,CONTROLLED)
+  !Allegiance(Myself,FAMILIAR)
 THEN
   RESPONSE #100
-  ChangeEnemyAlly(Myself,CONTROLLED)
+  ChangeEnemyAlly(Myself,FAMILIAR)
+  Continue()
 END
 
 IF
@@ -40,6 +44,7 @@ IF
 THEN
   RESPONSE #100
   Enemy()
+  Continue()
 END
 
 IF
@@ -58,28 +63,28 @@ THEN
 	DisplayStringHead(Myself,~Recharging~)
 	CreateVisualEffectObject("spsmkjet",Myself)
 	SetGlobal("Recharging","LOCALS",1)
-	MakeUnselectable(6)
+	ApplySpellRES("c0auto1",Myself)
 	SetGlobalTimer("RechargeTimer","LOCALS",6)
 	RESPONSE #25
 	SmallWait(5)
 	DisplayStringHead(Myself,~Recharging~)
 	CreateVisualEffectObject("spsmkjet",Myself)
 	SetGlobal("Recharging","LOCALS",1)
-	MakeUnselectable(12)
+	ApplySpellRES("c0auto1",Myself)
 	SetGlobalTimer("RechargeTimer","LOCALS",12)
 	RESPONSE #25
 	SmallWait(5)
 	DisplayStringHead(Myself,~Recharging~)
 	CreateVisualEffectObject("spsmkjet",Myself)
 	SetGlobal("Recharging","LOCALS",1)
-	MakeUnselectable(18)
+	ApplySpellRES("c0auto1",Myself)
 	SetGlobalTimer("RechargeTimer","LOCALS",18)
 	RESPONSE #25
 	SmallWait(5)
 	DisplayStringHead(Myself,~Recharging~)
 	CreateVisualEffectObject("spsmkjet",Myself)
 	SetGlobal("Recharging","LOCALS",1)
-	MakeUnselectable(24)
+	ApplySpellRES("c0auto1",Myself)
 	SetGlobalTimer("RechargeTimer","LOCALS",24)
 END
 
@@ -91,40 +96,9 @@ THEN
 	RESPONSE #100
 	SetGlobal("Recharge","LOCALS",0)
 	SetGlobal("Recharging","LOCALS",0)
+	ApplySpellRES("c0auto3",Myself)
 	DisplayStringHead(Myself,~Recharged~)
 	CreateVisualEffectObject("sprotect",Myself)
-END
-
-IF
-	OR(2)
-	Global("Upgrade","LOCALS",0)
-	Global("Upgrade","LOCALS",1)
-	Global("C0AUTOS4","LOCALS",1)
-	Global("Enlarge","LOCALS",0)
-THEN
-  RESPONSE #100
-	SetGlobal("Enlarge","LOCALS",1)
-	ApplySpellRES("c0autos5",Myself)
-END
-
-IF
-	Global("Upgrade","LOCALS",2)
-	Global("C0AUTOS4","LOCALS",1)
-	Global("Enlarge","LOCALS",0)
-THEN
-  RESPONSE #100
-	SetGlobal("Enlarge","LOCALS",1)
-	ApplySpellRES("c0autos6",Myself)
-END
-
-IF
-	Global("Upgrade","LOCALS",3)
-	Global("C0AUTOS4","LOCALS",1)
-	Global("Enlarge","LOCALS",0)
-THEN
-  RESPONSE #100
-	SetGlobal("Enlarge","LOCALS",1)
-	ApplySpellRES("c0autos7",Myself)
 END
 
 IF
@@ -134,7 +108,7 @@ THEN
 RESPONSE #100
 	SetGlobal("Disabled","LOCALS",1)
 	DisplayStringHead(Myself,~Disabled~)
-	ReallyForceSpellRES("c0auto1",Myself)
+	ApplySpellRES("c0auto1",Myself)
 END
 
 IF
@@ -144,7 +118,7 @@ THEN
 RESPONSE #100
 	SetGlobal("Disabled","LOCALS",0)
 	DisplayStringHead(Myself,~Re-enabled~)
-	ReallyForceSpellRES("c0auto3",Myself)
+	ApplySpellRES("c0auto3",Myself)
 END
 
 IF
@@ -176,7 +150,7 @@ END
 
 IF
 	CombatCounter(0)
-	LevelGT("C0Aura",11)
+	ClassLevelGT("C0Aura",ROGUE,11)
     Global("Upgrade","LOCALS",0)
 THEN
 RESPONSE #100
@@ -188,7 +162,7 @@ END
 
 IF
 	CombatCounter(0)
-	LevelGT("C0Aura",15)
+	ClassLevelGT("C0Aura",ROGUE,15)
     Global("Upgrade","LOCALS",0)
 THEN
 RESPONSE #100
@@ -205,7 +179,7 @@ END
 
 IF
 	CombatCounter(0)
-	LevelGT("C0Aura",19)
+	ClassLevelGT("C0Aura",ROGUE,19)
     Global("Upgrade","LOCALS",0)
 THEN
 RESPONSE #100
@@ -224,7 +198,7 @@ END
 
 IF
 	CombatCounter(0)
-	LevelGT("C0Aura",15)
+	ClassLevelGT("C0Aura",ROGUE,15)
     Global("Upgrade","LOCALS",1)
 THEN
 RESPONSE #100
@@ -239,7 +213,7 @@ END
 
 IF
 	CombatCounter(0)
-	LevelGT("C0Aura",19)
+	ClassLevelGT("C0Aura",ROGUE,19)
     Global("Upgrade","LOCALS",2)
 THEN
 RESPONSE #100

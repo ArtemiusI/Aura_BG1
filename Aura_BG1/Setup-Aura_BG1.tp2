@@ -24,7 +24,7 @@ ALWAYS
   END
 END
 
-AUTO_TRA ~%MOD_FOLDER%/tra/%s~ //~%~
+AUTO_TRA ~Aura_BG1/tra/%s~ //~%~
 LANGUAGE 
   ~English~ 
   ~english~

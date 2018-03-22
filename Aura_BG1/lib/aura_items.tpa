@@ -876,12 +876,13 @@ STATISTICS:
 Combat abilities:
 - Returns to the wielder's hand when thrown
 - Disarm: 10% chance (40% chance in melee) to disarm opponent, reducing their attacks per round to 0 for 1 round (save vs. death to avoid)
+- Critical hits deal an additional 1d10+4 slashing damage
 
 Equipped abilities:
 - 1/2 extra attack per round
 
 THAC0: +2
-Damage (melee): 1d10+2
+Damage (melee): 1d10+4
 Damage (ranged): 1d4+2
 Damage type: slashing
 Speed Factor: 2
@@ -1012,6 +1013,7 @@ STATISTICS:
 Combat abilities:
 - Sets attacks per round to 1
 - Critical Hit Chance: +10% (this weapon)
+- Armor Breaker: Critical hits deal an additional 1d10 piercing damage and reduces the target's Armor Class by 4 points for two rounds.
 
 Equipped ability:
 - Increased vision range
