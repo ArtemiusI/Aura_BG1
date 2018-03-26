@@ -298,6 +298,1300 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aarea1.PRO~
 COPY ~%MOD_FOLDER%/spells/c0achain.pro~ ~override~
 WRITE_SHORT 0x21A ~c0auaro2~
 
+// SPELLS
+
+COPY ~%MOD_FOLDER%/spells/c0aukt1.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0aukt2.spl~ ~override~
+
+COPY ~%MOD_FOLDER%/spells/c0auin1.2da~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auin1.spl~ ~override~
+SAY NAME1 ~Set Alchemical Snare~
+SAY NAME2 ~Set Alchemical Snare~
+SAY UNIDENTIFIED_DESC ~Set Alchemical Snare
+Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZE: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap1.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap2.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap3.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap4.PRO~
+
+COPY ~%MOD_FOLDER%/spells/c0atrap1.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap1%~
+END
+COPY ~%MOD_FOLDER%/spells/c0atrap5.spl~ ~override~
+  LPF ADD_SPELL_EFFECT
+    INT_VAR
+      opcode = 142
+	  target = 2
+	  timing = 0
+	  duration = 6
+	  parameter2 = (icon_index + 3)
+END
+COPY ~%MOD_FOLDER%/spells/c0auin1a.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Alchemist's Fire~
+SAY NAME2 ~Set Alchemical Trap: Alchemist's Fire~
+
+COPY ~%MOD_FOLDER%/spells/c0atrap2.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap2%~
+END
+COPY ~%MOD_FOLDER%/spells/c0atrap6.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auin1b.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Rapid Freezing Reagent~
+SAY NAME2 ~Set Alchemical Trap: Rapid Freezing Reagent~
+
+COPY ~%MOD_FOLDER%/spells/c0atrap3.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap3%~
+END
+COPY ~%MOD_FOLDER%/spells/c0atrap7.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auin1c.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Corrosive Acidic Compound~
+SAY NAME2 ~Set Alchemical Trap: Corrosive Acidic Compound~
+
+COPY ~%MOD_FOLDER%/spells/c0atrap4.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap4%~
+END
+COPY ~%MOD_FOLDER%/spells/c0atrap8.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 142   // Display portrait icon
+        match_parameter2  = 1    // Called Shot icon
+        parameter2        = 105
+      END
+COPY ~%MOD_FOLDER%/spells/c0auin1d.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
+SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
+
+COPY ~%MOD_FOLDER%/spells/c0auin2.spl~ ~override~
+SAY NAME1 ~Craft Rune~
+SAY NAME2 ~Craft Rune~
+SAY UNIDENTIFIED_DESC ~Craft Rune
+Artificers can inscribe runes with arcane magic, allowing them to use a limited variety of spells. The amount and strength of runes created depend on the artificer's level.
+
+Runes may not be crafted during combat.~
+
+COPY ~%MOD_FOLDER%/spells/c0auin2.cre~ ~override~
+SAY NAME1 ~Runecrafting~
+SAY NAME2 ~Runecrafting~
+  WRITE_ASCII 0x2cc ~c0auin2~ #8   //pre-joining dialogue file
+  
+COPY_EXISTING ~spwi103.spl~ ~override/c0rune1a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune1a.itm~ ~override~
+SAY NAME1 ~Minor Fire Rune~
+SAY NAME2 ~Minor Fire Rune~
+SAY DESC ~This minor fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Burning Hands once
+- If used on an automaton, grants +1 enchantment bonus and +1d2 fire damage to attacks.~
+  
+COPY_EXISTING ~spwi117.spl~ ~override/c0rune1b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+
+COPY ~%MOD_FOLDER%/spells/c0rune1b.itm~ ~override~
+SAY NAME1 ~Minor Ice Rune~
+SAY NAME2 ~Minor Ice Rune~
+SAY DESC ~This minor ice rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Chill Touch once
+- If used on an automaton, grants a cold aura that lowers nearby enemies' Armor Class, THAC0 and damage by one point each.~
+
+COPY_EXISTING ~spwi112.spl~ ~override/c0rune1c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune1c.itm~ ~override~
+SAY NAME1 ~Minor Arcane Rune~
+SAY NAME2 ~Minor Arcane Rune~
+SAY DESC ~This minor arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Magic Missile once
+- If used on an automaton, grants +10% magic resistance and absorption of one spell of 2nd level or lower.~
+  
+COPY_EXISTING ~spwi120.spl~ ~override/c0rune1d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune1d.itm~ ~override~
+SAY NAME1 ~Minor Illusion Rune~
+SAY NAME2 ~Minor Illusion Rune~
+SAY DESC ~This minor illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Reflected Image once
+- If used on an automaton, grants the effects of Reflected Image.~
+
+COPY_EXISTING ~spwi115.spl~ ~override/c0rune1e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune1e.itm~ ~override~
+SAY NAME1 ~Minor Lightning Rune~
+SAY NAME2 ~Minor Lightning Rune~
+SAY DESC ~This minor lightning rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Shocking Grasp once
+- If used on an automaton, restores 30% of its maximum hit points and grants it a lightning bolt for its next attack dealing 3d6+3 electrical damage to all targets in a line.~
+  
+COPY_EXISTING ~spwi114.spl~ ~override/c0rune1f.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune1f.itm~ ~override~
+SAY NAME1 ~Minor Shield Rune~
+SAY NAME2 ~Minor Shield Rune~
+SAY DESC ~This minor shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Shield once
+- If used on an automaton, grants +2 to Armor Class against all weapons.~
+
+COPY_EXISTING ~spwi217.spl~ ~override/c0rune2a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2a.itm~ ~override~
+SAY NAME1 ~Lesser Fire Rune~
+SAY NAME2 ~Lesser Fire Rune~
+SAY DESC ~This lesser fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Agannazar's Scorcher once
+- If used on an automaton, grants +2 enchantment bonus and +1d4 fire damage to attacks.~
+
+COPY_EXISTING ~spwi214.spl~ ~override/c0rune2b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2b.itm~ ~override~
+SAY NAME1 ~Lesser Strength Rune~
+SAY NAME2 ~Lesser Strength Rune~
+SAY DESC ~This lesser strength rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Strength once
+- If used on an automaton, grants +2 to THAC0 and damage.~
+
+COPY_EXISTING ~spwi201.spl~ ~override/c0rune2c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2c.itm~ ~override~
+SAY NAME1 ~Lesser Illusion Rune~
+SAY NAME2 ~Lesser Illusion Rune~
+SAY DESC ~This lesser illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Blur once
+- If used on an automaton, grants the effects of Blur.~
+
+COPY_EXISTING ~spwi224.spl~ ~override/c0rune2d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2d.itm~ ~override~
+SAY NAME1 ~Lesser Dust Rune~
+SAY NAME2 ~Lesser Dust Rune~
+SAY DESC ~This lesser dust rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Glitterdust once
+- If used on an automaton, grants one use of Dust Particle Breath, reducing all nearby creatures' Armor Class and THAC0 by four points.~
+
+COPY_EXISTING ~spwi304.spl~ ~override/c0rune2e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2e.itm~ ~override~
+SAY NAME1 ~Fire Rune~
+SAY NAME2 ~Fire Rune~
+SAY DESC ~This fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Fireball once
+- If used on an automaton, grants +3 enchantment bonus and +1d6 fire damage to attacks.~
+
+COPY_EXISTING ~spwi308.spl~ ~override/c0rune2f.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2f.itm~ ~override~
+SAY NAME1 ~Lightning Rune~
+SAY NAME2 ~Lightning Rune~
+SAY DESC ~This lightning rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Lightning Bolt once
+- If used on an automaton, restores +50% of its maximum hit points and grants it lightning bolts for its next three attacks dealing 3d6+3 electrical damage to all targets in a line.~
+
+COPY_EXISTING ~spwi312.spl~ ~override/c0rune2g.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2g.itm~ ~override~
+SAY NAME1 ~Time Rune~
+SAY NAME2 ~Time Rune~
+SAY DESC ~This time rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Slow once
+- If used on an automaton, grants the effects of Haste.~
+
+COPY_EXISTING ~spwi307.spl~ ~override/c0rune2h.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune2h.itm~ ~override~
+SAY NAME1 ~Illusion Rune~
+SAY NAME2 ~Illusion Rune~
+SAY DESC ~This illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Invisibility 10' Radius once
+- If used on an automaton, grants the effects of Mirror Image.~
+
+COPY_EXISTING ~spwi418.spl~ ~override/c0rune3a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune3a.itm~ ~override~
+SAY NAME1 ~Greater Fire Rune~
+SAY NAME2 ~Greater Fire Rune~
+SAY DESC ~This greater fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Fireshield (Red) once
+- If used on an automaton, grants +4 enchantment bonus and +1d8 fire damage to attacks.~
+
+COPY_EXISTING ~spwi408.spl~ ~override/c0rune3b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune3b.itm~ ~override~
+SAY NAME1 ~Greater Earth Rune~
+SAY NAME2 ~Greater Earth Rune~
+SAY DESC ~This greater earth rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Stoneskin once
+- If used on an automaton, grants +30% physical resistance.~
+
+COPY_EXISTING ~spwi406.spl~ ~override/c0rune3c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune3c.itm~ ~override~
+SAY NAME1 ~Greater Arcane Rune~
+SAY NAME2 ~Greater Arcane Rune~
+SAY DESC ~This greater arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Minor Globe of Invulnerability once
+- If used on an automaton, grants +30% magic resistance and absorption of two spells of 4th level or lower.~
+
+COPY_EXISTING ~spwi405.spl~ ~override/c0rune3d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune3d.itm~ ~override~
+SAY NAME1 ~Greater Illusion Rune~
+SAY NAME2 ~Greater Illusion Rune~
+SAY DESC ~This greater illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Improved Invisibility once
+- If used on an automaton, grants the effects of Improved Invisibility.~
+
+COPY_EXISTING ~spwi424.spl~ ~override/c0rune3e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune3e.itm~ ~override~
+SAY NAME1 ~Greater Scrying Rune~
+SAY NAME2 ~Greater Scrying Rune~
+SAY DESC ~This greater scrying rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Farsight once
+- If used on an automaton, grants increased vision range and ability to attack invisible creatures.~
+
+COPY_EXISTING ~spwi414.spl~ ~override/c0rune3f.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune3f.itm~ ~override~
+SAY NAME1 ~Greater Shield Rune~
+SAY NAME2 ~Greater Shield Rune~
+SAY DESC ~This greater shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Spirit Armor once
+- If used on an automaton, grants +4 to Armor Class against all weapons.~
+
+COPY_EXISTING ~spwi523.spl~ ~override/c0rune4a.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune4a.itm~ ~override~
+SAY NAME1 ~Perfect Fire Rune~
+SAY NAME2 ~Perfect Fire Rune~
+SAY DESC ~This perfect fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Sunfire once
+- If used on an automaton, grants +5 enchantment bonus and +1d10 fire damage to attacks.~
+
+COPY_EXISTING ~spwi503.spl~ ~override/c0rune4b.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune4b.itm~ ~override~
+SAY NAME1 ~Perfect Ice Rune~
+SAY NAME2 ~Perfect Ice Rune~
+SAY DESC ~This perfect ice rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Cone of Cold once
+- If used on an automaton, grants a cold aura that lowers nearby enemies' Armor Class, THAC0 and damage by three points each.~
+
+COPY_EXISTING ~spwi513.spl~ ~override/c0rune4c.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune4c.itm~ ~override~
+SAY NAME1 ~Perfect Arcane Rune~
+SAY NAME2 ~Perfect Arcane Rune~
+SAY DESC ~This perfect arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Breach once
+- If used on an automaton, grants +40% magic resistance and absorption of three spells of 6th level or lower.~
+
+COPY_EXISTING ~spwi515.spl~ ~override/c0rune4d.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune4d.itm~ ~override~
+SAY NAME1 ~Perfect Scrying Rune~
+SAY NAME2 ~Perfect Scrying Rune~
+SAY DESC ~This perfect scrying rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Oracle once
+- If used on an automaton, grants increased vision range and ability to attack invisible creatures. Attacks dispel illusions on hit.~
+
+COPY_EXISTING ~spwi510.spl~ ~override/c0rune4e.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY ~%MOD_FOLDER%/spells/c0rune4e.itm~ ~override~
+SAY NAME1 ~Perfect Shield Rune~
+SAY NAME2 ~Perfect Shield Rune~
+SAY DESC ~This perfect shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+
+STATISTIC:
+- May cast Spell Immunity once
+- If used on an automaton, grants +8 to Armor Class against all weapons.~
+
+COPY ~%MOD_FOLDER%/spells/c0aualc.spl~ ~override~
+SAY NAME1 ~Advanced Alchemy~
+SAY NAME2 ~Advanced Alchemy~
+SAY UNIDENTIFIED_DESC ~Advanced Alchemy
+Lantanese artificers are exceptionally skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons equal to half of the artificer's level. The types of potions available for crafting increase with the artificer's level.~
+
+COPY ~%MOD_FOLDER%/spells/c0auin2.cre~ ~override/c0aualch.cre~
+SAY NAME1 ~Alchemy~
+SAY NAME2 ~Alchemy~
+  WRITE_ASCII 0x248 ~c0aualch~ #8  //override script
+  WRITE_ASCII 0x280 ~c0aualch~ #32  //DV
+  WRITE_ASCII 0x2cc ~c0aualch~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0x268 ~c0aualch~ #8   //default
+  
+COPY ~%MOD_FOLDER%/items/c0aualc1.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aualc2.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aualc3.spl~ ~override~
+  
+COPY ~%MOD_FOLDER%/items/c0aualc1.sto~ ~override/c0aualc1.sto~
+SAY 0xc ~Alchemy - Standard Potions~
+  
+COPY ~%MOD_FOLDER%/items/c0aualc1.sto~ ~override/c0aualc2.sto~
+SAY 0xc ~Alchemy - Advanced Potions~
+   
+COPY ~%MOD_FOLDER%/items/c0aualc1.sto~ ~override/c0aualc3.sto~
+SAY 0xc ~Alchemy - Explosives~
+  
+// POTIONS
+
+COPY ~%MOD_FOLDER%/items/c0apot01.spl~ ~override~
+SAY NAME1 ~Potion of Renewal~
+SAY NAME2 ~Potion of Renewal~
+COPY ~%MOD_FOLDER%/items/c0apot01.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Renewal~
+SAY NAME2 ~Lantanese Potion of Renewal~
+SAY DESC ~This potion is composed of several exotic medicinal herbs and alchemical ingredients, giving it significant healing properties.
+
+STATISTICS:
+
+Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
+
+Weight: 1~
+WRITE_LONG 0x34 500
+ 
+COPY ~%MOD_FOLDER%/items/c0apot02.spl~ ~override~
+SAY NAME1 ~Potion of Fire Resistance~
+SAY NAME2 ~Potion of Fire Resistance~
+COPY ~%MOD_FOLDER%/items/c0apot02.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Fire Resistance~
+SAY NAME2 ~Lantanese Potion of Fire Resistance~
+SAY DESC ~This exotic potion provides the imbiber with a significant resistance to heat. Those who drink this potion would be capable of leaping through a wall of flame without suffering the slightest injury.
+
+STATISTICS:
+
+Fire Resistance: +100%
+Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+WRITE_LONG 0x34 550
+
+COPY ~%MOD_FOLDER%/items/c0apot03.spl~ ~override~
+SAY NAME1 ~Potion of Cold Resistance~
+SAY NAME2 ~Potion of Cold Resistance~
+COPY ~%MOD_FOLDER%/items/c0apot03.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Cold Resistance~
+SAY NAME2 ~Lantanese Potion of Cold Resistance~
+SAY DESC ~This potion was designed for Lantanese researchers to allow them to survive at near-fatally low temperatures while experimenting with certain cold-dwelling creatures or plants. Those who drink this potion find themselves in a state of perpetual warmth.
+
+STATISTICS:
+
+Cold Resistance: +100%
+Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+WRITE_LONG 0x34 550
+
+COPY ~%MOD_FOLDER%/items/c0apot04.spl~ ~override~
+SAY NAME1 ~Philter of Health~
+SAY NAME2 ~Philter of Health~
+COPY ~%MOD_FOLDER%/items/c0apot04.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Health~
+SAY NAME2 ~Lantanese Philter of Health~
+SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
+
+STATISTICS:
+
+Maximum Hit Points: +10%
+Special: Removes fatigue
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 600
+
+COPY ~%MOD_FOLDER%/items/c0apot05.spl~ ~override~
+SAY NAME1 ~Potion of Invisibility~
+SAY NAME2 ~Potion of Invisibility~
+COPY ~%MOD_FOLDER%/items/c0apot05.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Invisibility~
+SAY NAME2 ~Lantanese Potion of Invisibility~
+SAY DESC ~The natives of Lantan are known for being relatively pacifistic and prefer to avoid conflict wherever possible. To this end, their potions of invisibility are among the most popular of their alchemical creations, as it allows them to escape nearly any situation completely unscathed.
+
+STATISTICS:
+
+Special: Invisibility and Non-Detection
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 750
+
+COPY ~%MOD_FOLDER%/items/c0apot06.spl~ ~override~
+SAY NAME1 ~Trollblood Extract~
+SAY NAME2 ~Trollblood Extract~
+COPY ~%MOD_FOLDER%/items/c0apot06.itm~ ~override~
+SAY NAME1 ~Lantanese Trollblood Extract~
+SAY NAME2 ~Lantanese Trollblood Extract~
+SAY DESC ~As foul-looking as this liquid appears to be, it has the undeniably effective property of bestowing its drinker with cellular regeneration of shocking rates. However, the concoction also temporarily bestows some of the weaknesses of trollkin as a result.
+
+STATISTICS:
+
+Fire Resistance: -50%
+Acid Resistance: -50%
+Special: Regenerate two hit points per second
+Duration: 5 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY ~%MOD_FOLDER%/items/c0apot07.spl~ ~override~
+SAY NAME1 ~Tonic of Alertness~
+SAY NAME2 ~Tonic of Alertness~
+COPY ~%MOD_FOLDER%/items/c0apot07.itm~ ~override~
+SAY NAME1 ~Lantanese Tonic of Alertness~
+SAY NAME2 ~Lantanese Tonic of Alertness~
+SAY DESC ~This strongly-scented potion puts its drinker into a state of constant and total awareness, to the point where they can hear the slightest movement and practically see out of the back of their heads.
+
+STATISTICS:
+
+Dexterity: +1
+Find Traps: +25%
+Detect Illusions: +25%
+Special: Immunity to backstab
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY ~%MOD_FOLDER%/items/c0apot08.spl~ ~override~
+SAY NAME1 ~Elixir of Harmony~
+SAY NAME2 ~Elixir of Harmony~
+COPY ~%MOD_FOLDER%/items/c0apot08.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Harmony~
+SAY NAME2 ~Lantanese Elixir of Harmony~
+SAY DESC ~This powerful potion subscribes to the principle of "the best offense is a good defense". The drinker becomes nearly invulnerable to physical harm, yet finds their own blows significantly weakened in return.
+
+STATISTICS:
+
+Armor Class: +6
+Physical Resistance: +50%
+Special: Damage output is reduced by 50%
+Duration: 5 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY ~%MOD_FOLDER%/items/c0apot09.spl~ ~override~
+SAY NAME1 ~Potion of Antimagic~
+SAY NAME2 ~Potion of Antimagic~
+COPY ~%MOD_FOLDER%/items/c0apot09.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Antimagic~
+SAY NAME2 ~Lantanese Potion of Antimagic~
+SAY DESC ~This powerful potion expunges all traces of magic from its imbiber and prevents them from being affected by all but the most powerful spells until its effects dissipate.
+
+STATISTICS:
+
+Magic Resistance: +50%
+Special: Immunity to spells of 5th level and below, all spell effects are removed from the imbiber and <PRO_HESHE> may not cast spells for the duration.
+Duration: 2 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1350
+
+COPY ~%MOD_FOLDER%/items/c0apot10.spl~ ~override~
+SAY NAME1 ~Potion of Equanimity~
+SAY NAME2 ~Potion of Equanimity~
+COPY ~%MOD_FOLDER%/items/c0apot10.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Equanimity~
+SAY NAME2 ~Lantanese Potion of Equanimity~
+SAY DESC ~This potion clears the drinker's mind of distracting and inhibiting thoughts, allowing them to think and act with greater efficiency. Their hand-eye coordination is also significantly improved as a result.
+
+STATISTICS:
+
+Special: Prevents feeblemind, confusion, fear, and charm
+Intelligence: +4
+Dexterity: +4
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY ~%MOD_FOLDER%/items/c0apot11.spl~ ~override~
+SAY NAME1 ~Oil of Speed~
+SAY NAME2 ~Oil of Speed~
+COPY ~%MOD_FOLDER%/items/c0apot11.itm~ ~override~
+SAY NAME1 ~Lantanese Oil of Speed~
+SAY NAME2 ~Lantanese Oil of Speed~
+SAY DESC ~This oil, when applied on the user, hastens their actions greatly, doubling their movement and combat capacities. However, this does not reduce spellcasting time.
+
+STATISTICS:
+
+Special: Doubles movement and attack rates
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 400
+
+COPY ~%MOD_FOLDER%/items/c0apot12.spl~ ~override~
+SAY NAME1 ~Potion of Invulnerability~
+SAY NAME2 ~Potion of Invulnerability~
+COPY ~%MOD_FOLDER%/items/c0apot12.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Invulnerability~
+SAY NAME2 ~Lantanese Potion of Invulnerability~
+SAY DESC ~This potion confers very high resistance to all attacks while giving bonuses to all Saving Throws. Unlike regular Potions of Invulnerability, this potion can be used by those of any profession.
+
+STATISTICS:
+
+Armor Class: +2
+Saving Throws: +5
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1400
+
+COPY ~%MOD_FOLDER%/items/c0apot13.spl~ ~override~
+SAY NAME1 ~Philter of Luck~
+SAY NAME2 ~Philter of Luck~
+COPY ~%MOD_FOLDER%/items/c0apot13.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Luck~
+SAY NAME2 ~Lantanese Philter of Luck~
+SAY DESC ~Also known informally as 'liquid luck', this gold-colored liquid provides the drinker with an sense of temporary luck and confidence, as though nothing could go wrong.
+
+STATISTICS:
+
+Saving Throws: +2
+Find Traps: +10%
+Pick Pockets: +10%
+Move Silently: +10%
+Hide In Shadows: +10%
+Detect Illusion: +10%
+Set Traps: +10%
+Luck: +2
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY ~%MOD_FOLDER%/items/c0apot14.spl~ ~override~
+SAY NAME1 ~Elixir of Restoration~
+SAY NAME2 ~Elixir of Restoration~
+COPY ~%MOD_FOLDER%/items/c0apot14.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Restoration~
+SAY NAME2 ~Lantanese Elixir of Restoration~
+SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. Concocted from several restorative ingredients and a dash of holy water, it is effective against the draining touch of vampires and wights.
+
+STATISTICS:
+
+Special: Restores lost levels
+Duration: Permanent
+
+Weight: 1~
+WRITE_LONG 0x34 250
+
+COPY ~%MOD_FOLDER%/items/c0apot15.spl~ ~override~
+SAY NAME1 ~Potion of Freedom~
+SAY NAME2 ~Potion of Freedom~
+COPY ~%MOD_FOLDER%/items/c0apot15.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Freedom~
+SAY NAME2 ~Lantanese Potion of Freedom~
+SAY DESC ~This potion acts like the spell Free Action when consumed. The drinker becomes completely immune to any effects that influence action or movement, whether it is magical in origin or not.
+
+STATISTICS:
+
+Special: Free Action
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 750
+
+COPY ~%MOD_FOLDER%/items/c0apot16.spl~ ~override~
+SAY NAME1 ~Elixir of Lifeshield~
+SAY NAME2 ~Elixir of Lifeshield~
+COPY ~%MOD_FOLDER%/items/c0apot16.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Lifeshield~
+SAY NAME2 ~Lantanese Elixir of Lifeshield~
+SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. The drinker's soul becomes protected by magical energies, preventing it from being separated from their body through unnatural means.
+
+STATISTICS:
+
+Special: Death Ward
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 900
+
+COPY ~%MOD_FOLDER%/items/c0apot17.spl~ ~override~
+SAY NAME1 ~Elixir of Might~
+SAY NAME2 ~Elixir of Might~
+COPY ~%MOD_FOLDER%/items/c0apot17.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Might~
+SAY NAME2 ~Lantanese Elixir of Might~
+SAY DESC ~This elixir was concocted from a combination of various ingredients including giants' blood. When imbibed, the drinker's strength increases dramatically.
+
+STATISTICS:
+
+Strength: +2
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY ~%MOD_FOLDER%/items/c0apot18.spl~ ~override~
+SAY NAME1 ~Thrym Extract~
+SAY NAME2 ~Thrym Extract~
+COPY ~%MOD_FOLDER%/items/c0apot18.itm~ ~override~
+SAY NAME1 ~Lantanese Thrym Extract~
+SAY NAME2 ~Lantanese Thrym Extract~
+SAY DESC ~This thick liquid is harvested and distilled from the glands of dead polar worms.  It is the substance that helps keep the huge creatures warm in the desolate north.  Drinking the liquid straight from the creature's body is almost always fatal, so alchemists attempt to distill the substance until it is relatively safe to consume.  Even in its current state, however, it can still be deadly.
+
+STATISTICS:
+
+Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in exchange for immunity to cold damage and +3 to Strength and Dexterity
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY ~%MOD_FOLDER%/items/c0apot19.spl~ ~override~
+SAY NAME1 ~Potion of Etherealness~
+SAY NAME2 ~Potion of Etherealness~
+COPY ~%MOD_FOLDER%/items/c0apot19.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Etherealness~
+SAY NAME2 ~Lantanese Potion of Etherealness~
+SAY DESC ~This potion is composed of ectoplasm and dust from will-o'-wisps. The drinker takes on some of their ghostly properties, temporarily becoming ethereal.
+
+STATISTICS:
+
+Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> is immune to normal weapons and gains 20% magic resistance. Spells and weapons may still be used.
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY ~%MOD_FOLDER%/items/c0apot20.spl~ ~override~
+SAY NAME1 ~Elixir of Focus~
+SAY NAME2 ~Elixir of Focus~
+COPY ~%MOD_FOLDER%/items/c0apot20.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Focus~
+SAY NAME2 ~Lantanese Elixir of Focus~
+SAY DESC ~This potion temporarily sharpens the drinker's senses to their absolute limit, making them feel as if time has stopped for a brief duration. However, they will find it nearly impossible to take action during this state.
+
+STATISTICS:
+
+Special: Imbiber may move freely for one round while others are frozen in time. The imbiber may not attack or use spells while in this state.
+Duration: 1 round
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY ~%MOD_FOLDER%/items/c0apot21.spl~ ~override~
+SAY NAME1 ~Potion of Life Transference~
+SAY NAME2 ~Potion of Life Transference~
+COPY ~%MOD_FOLDER%/items/c0apot21.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Life Transference~
+SAY NAME2 ~Lantanese Potion of Life Transference~
+SAY DESC ~This dangerous potion sacrifices vitality for power. The drinker finds <PRO_HISHER> strength dramatically increased at the cost of their health.
+
+STATISTICS:
+
+Strength: +6
+Maximum Hit Points: -50%
+Duration: 8 hours
+
+Weight: 1~
+WRITE_LONG 0x34 3000
+
+COPY ~%MOD_FOLDER%/items/c0apot22.spl~ ~override~
+SAY NAME1 ~Philter of Arcane Barrier~
+SAY NAME2 ~Philter of Arcane Barrier~
+COPY ~%MOD_FOLDER%/items/c0apot22.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Arcane Barrier~
+SAY NAME2 ~Lantanese Philter of Arcane Barrier~
+SAY DESC ~This potion causes the drinker's very skin itself to repel magical energies, making them all but immune to the majority of spells. However, they may still cast their own spells if they so choose.
+
+STATISTICS:
+
+Damage Resistance: +75% against all forms of magical non-physical damage
+Special: All Saving Throws are automatically successful
+Duration: 3 turns
+
+Weight: 1~
+WRITE_LONG 0x34 3000
+
+COPY ~%MOD_FOLDER%/spells/c0auto.itm~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auto2.itm~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auto1.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auto2.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auto3.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0ausumm.cre~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0auin3.spl~ ~override~
+SAY NAME1 ~Craft Automaton~
+SAY NAME2 ~Craft Automaton~
+SAY UNIDENTIFIED_DESC ~Craft Automaton
+The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed and cannot be controlled but will defend their creators, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed.
+
+Only one automaton can be controlled at any given time.~
+
+COPY ~%MOD_FOLDER%/spells/c0auin3a.cre~ ~override~
+  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
+SAY NAME1 ~Bronze Automaton~
+SAY NAME2 ~Bronze Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
+
+COPY ~%MOD_FOLDER%/spells/c0auin3b.cre~ ~override~
+  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
+SAY NAME1 ~Bronze Automaton~
+SAY NAME2 ~Bronze Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
+
+COPY ~%MOD_FOLDER%/spells/c0auin3c.cre~ ~override~
+  WRITE_ASCII 0X34 ~AJadeL~ #8   //small portrait
+SAY NAME1 ~Jade Automaton~
+SAY NAME2 ~Jade Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_JADE~))
+
+COPY ~%MOD_FOLDER%/spells/c0auin3d.cre~ ~override~
+  WRITE_ASCII 0X34 ~ABlackL~ #8   //small portrait
+SAY NAME1 ~Black Automaton~
+SAY NAME2 ~Black Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_BLACK~))
+COPY ~%MOD_FOLDER%/spells/c0auto3.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+ parameter1 = RESOLVE_STR_REF (~Stunned~)
+END
+COPY ~%MOD_FOLDER%/spells/c0auin4.spl~ ~override~
+SAY NAME1 ~Craft Wand~
+SAY NAME2 ~Craft Wand~
+SAY UNIDENTIFIED_DESC ~Craft Wand
+The master artificer may use this ability to craft one of the following wands with limited charges per day:
+
+- Wand of Fire
+- Wand of Frost
+- Wand of Lightning
+- Wand of Paralyzation
+- Wand of Polymorphing
+- Wand of the Heavens
+- Wand of Cloudkill
+- Wand of Spell Striking
+- Wand of Cursing
+- Wand of Wonder
+- Rod of Resurrection~
+COPY ~%MOD_FOLDER%/spells/c0auin2.cre~ ~override/c0auin4.cre~
+SAY NAME1 ~Wandcrafting~
+SAY NAME2 ~Wandcrafting~
+  WRITE_ASCII 0x248 ~c0auin4~ #8  //override script
+  WRITE_ASCII 0x280 ~c0auin4~ #32  //DV
+  WRITE_ASCII 0x2cc ~c0auin4~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0x268 ~c0auin4~ #8   //default
+COPY ~%MOD_FOLDER%/spells/c0auin5.spl~ ~override~
+SAY NAME1 ~Master Alchemist~
+SAY NAME2 ~Master Alchemist~
+SAY UNIDENTIFIED_DESC ~Master Alchemist
+The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
+
+COPY ~%MOD_FOLDER%/items/c0apoth1.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Divine Might~
+SAY NAME2 ~Lantanese Elixir of Divine Might~
+SAY DESC ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
+WRITE_LONG 0x34 7500
+
+COPY ~%MOD_FOLDER%/items/c0apoth2.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Complete Healing~
+SAY NAME2 ~Lantanese Potion of Complete Healing~
+SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
+WRITE_LONG 0x34 7500
+
+COPY ~%MOD_FOLDER%/items/c0apoth3.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Truth~
+SAY NAME2 ~Lantanese Philter of Truth~
+SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
+WRITE_LONG 0x34 7500
+
+COPY ~%MOD_FOLDER%/items/c0apoth4.itm~ ~override~
+SAY NAME1 ~Lantanese Tonic of Hardiness~
+SAY NAME2 ~Lantanese Tonic of Hardiness~
+SAY DESC ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
+WRITE_LONG 0x34 7500
+
+COPY ~%MOD_FOLDER%/items/c0apoth5.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Permanent Ability Increase~)
+  END
+SAY NAME1 ~Ultimate Mastery~
+COPY ~%MOD_FOLDER%/items/c0apoth5.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Ultimate Mastery~
+SAY NAME2 ~Lantanese Potion of Ultimate Mastery~
+SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
+
+   - Mages and Bards gain +1 to Intelligence.
+   - Clerics and Druids gain +1 to Wisdom.
+   - Thieves and Monks gain +1 to Dexterity.
+   - Fighters, Rangers and Paladins gain +1 to Strength.
+   - Sorcerers and Shamans gain +1 to Constitution.
+   - Spellcasting classes take precedence over warrior classes.
+   - Arcane classes take precedence over divine classes.~
+WRITE_LONG 0x34 15000
+
+// STORE
+
+COPY ~%MOD_FOLDER%/spells/c0autinv.sto~ ~override~
+SAY 0xc ~Clockwork Servant Automaton~
+
+COPY ~%MOD_FOLDER%/spells/c0autos1.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+	  resist_dispel = 0
+      timing = 9
+  END
+COPY ~%MOD_FOLDER%/spells/c0autos2.spl~ ~override~
+SAY NAME1 ~Activate: Barrier Sphere~
+SAY NAME2 ~Activate: Barrier Sphere~
+SAY UNIDENTIFIED_DESC ~Barrier Sphere
+With this ability, the automaton activates a device which causes it to surround the target with a protective Sphere of energy, rendering her unable to interact with the outside world and vice versa, as per the spell Otiluke's Resilient Sphere. Unlike the spell, this ability is not magical in nature and is thus not affected by magic resistance, but the automaton is unable to act so long as it continues to charge the Sphere. This ability may be deactivated at will.
+
+Enemies may make a save vs. breath at -3 to avoid being trapped by the Sphere.~
+COPY ~%MOD_FOLDER%/spells/c0autos3.spl~ ~override~
+  LPF ADD_SPELL_CFEFFECT
+    INT_VAR
+      opcode = 139
+	  target = 1
+	  timing = 4
+	  duration = 24
+	  parameter1 = RESOLVE_STR_REF (~Barrier Sphere Ready~)
+END
+SAY NAME1 ~Deactivate: Barrier Sphere~
+SAY NAME2 ~Deactivate: Barrier Sphere~
+SAY UNIDENTIFIED_DESC ~Barrier Sphere
+Use this ability to deactivate Barrier Sphere.~
+COPY ~%MOD_FOLDER%/spells/c0autos4.spl~ ~override~
+SAY NAME1 ~Activate: Empower~
+SAY NAME2 ~Activate: Empower~
+SAY UNIDENTIFIED_DESC ~Empower
+With this ability, the automaton activates an internal device which causes it to become magically empowered for one turn, altering its stats:
+  - +5 to THAC0
+  - +30% to Damage
+  - +40% Physical Resistance~
+COPY ~%MOD_FOLDER%/spells/c0autos8.spl~ ~override~
+  LPF ADD_SPELL_CFEFFECT
+    INT_VAR
+      opcode = 139
+	  target = 1
+	  timing = 4
+	  duration = 120
+	  parameter1 = RESOLVE_STR_REF (~Static Burst Ready~)
+END
+SAY NAME1 ~Activate: Static Burst~
+SAY NAME2 ~Activate: Static Burst~
+SAY UNIDENTIFIED_DESC ~Static Burst
+With this ability, the automaton activates an internal device which releases a colossal burst of static electricity, dealing 12d6 electrical damage (Save vs. Breath Weapons at -4 for half damage)~
+COPY ~%MOD_FOLDER%/spells/c0autos9.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0autosa.spl~ ~override~
+SAY NAME1 ~Activate: Self-Destruct~
+SAY NAME2 ~Activate: Self-Destruct~
+SAY UNIDENTIFIED_DESC ~Self-Destruct
+With this ability, the automation activates an internal device which causes it to explode after one turn of channelling, dealing 24d6 damage (half fire, half electrical) and knocking all creatures unconscious and away from the automaton. This devastating explosion immediately destroys the automaton.~
+
+COPY ~%MOD_FOLDER%/spells/c0afire1.spl~ ~override~
+SAY NAME1 ~Augment: Fire I~
+SAY NAME2 ~Augment: Fire I~
+COPY ~%MOD_FOLDER%/spells/c0afire2.spl~ ~override~
+SAY NAME1 ~Augment: Fire II~
+SAY NAME2 ~Augment: Fire II~
+COPY ~%MOD_FOLDER%/spells/c0afire3.spl~ ~override~
+SAY NAME1 ~Augment: Fire III~
+SAY NAME2 ~Augment: Fire III~
+COPY ~%MOD_FOLDER%/spells/c0afire4.spl~ ~override~
+SAY NAME1 ~Augment: Fire IV~
+SAY NAME2 ~Augment: Fire IV~
+COPY ~%MOD_FOLDER%/spells/c0afire5.spl~ ~override~
+SAY NAME1 ~Augment: Fire V~
+SAY NAME2 ~Augment: Fire V~
+COPY ~%MOD_FOLDER%/spells/c0acold1.spl~ ~override~
+SAY NAME1 ~Augment: Frost I~
+SAY NAME2 ~Augment: Frost I~
+COPY ~%MOD_FOLDER%/spells/c0acold2.spl~ ~override~
+SAY NAME1 ~Augment: Frost II~
+SAY NAME2 ~Augment: Frost II~
+COPY ~%MOD_FOLDER%/spells/c0acold3.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Slowed~)
+  END
+COPY ~%MOD_FOLDER%/spells/c0acold4.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Slowed~)
+  END
+COPY ~%MOD_FOLDER%/spells/c0amagi1.spl~ ~override~
+SAY NAME1 ~Augment: Arcane I~
+SAY NAME2 ~Augment: Arcane I~
+COPY ~%MOD_FOLDER%/spells/c0amagi2.spl~ ~override~
+SAY NAME1 ~Augment: Arcane II~
+SAY NAME2 ~Augment: Arcane II~
+COPY ~%MOD_FOLDER%/spells/c0amagi3.spl~ ~override~
+SAY NAME1 ~Augment: Arcane III~
+SAY NAME2 ~Augment: Arcane III~
+COPY ~%MOD_FOLDER%/spells/c0atime1.spl~ ~override~
+SAY NAME1 ~Augment: Time~
+SAY NAME2 ~Augment: Time~
+COPY ~%MOD_FOLDER%/spells/c0astre1.spl~ ~override~
+SAY NAME1 ~Augment: Strength~
+SAY NAME2 ~Augment: Strength~
+COPY ~%MOD_FOLDER%/spells/c0aligh1.spl~ ~override~
+SAY NAME1 ~Augment: Lightning I~
+SAY NAME2 ~Augment: Lightning I~
+COPY ~%MOD_FOLDER%/spells/c0aligh2.spl~ ~override~
+SAY NAME1 ~Augment: Lightning II~
+SAY NAME2 ~Augment: Lightning II~
+COPY ~%MOD_FOLDER%/spells/c0alight.itm~ ~override~
+SAY NAME1 ~Lightning Bolt~
+SAY NAME2 ~Lightning Bolt~
+WRITE_SHORT 0x9C ~%c0athund%~
+COPY ~%MOD_FOLDER%/spells/c0ashie1.spl~ ~override~
+SAY NAME1 ~Augment: Shield I~
+SAY NAME2 ~Augment: Shield I~
+COPY ~%MOD_FOLDER%/spells/c0ashie2.spl~ ~override~
+SAY NAME1 ~Augment: Shield II~
+SAY NAME2 ~Augment: Shield II~
+COPY ~%MOD_FOLDER%/spells/c0ashie3.spl~ ~override~
+SAY NAME1 ~Augment: Shield III~
+SAY NAME2 ~Augment: Shield III~
+COPY ~%MOD_FOLDER%/spells/c0adust1.spl~ ~override~
+SAY NAME1 ~Augment: Dust~
+SAY NAME2 ~Augment: Dust~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0adust.pro~
+COPY ~%MOD_FOLDER%/spells/c0adust2.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Blinded~)
+  END
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0adust%~
+END
+SAY NAME1 ~Dust Particle Breath~
+SAY NAME2 ~Dust Particle Breath~
+SAY UNIDENTIFIED_DESC ~Dust Particle Breath
+The automaton breathes a cloud of glittering dust, blinding all creatures in an area of effect and reducing their Armor Class and THAC0 by four points for five rounds. This ability may only be used once and can only be regained through using another Dust Rune.~
+COPY ~%MOD_FOLDER%/spells/c0ascry1.spl~ ~override~
+SAY NAME1 ~Augment: Scrying I~
+SAY NAME2 ~Augment: Scrying I~
+COPY ~%MOD_FOLDER%/spells/c0ascry2.spl~ ~override~
+SAY NAME1 ~Augment: Scrying II~
+SAY NAME2 ~Augment: Scrying II~
+COPY ~%MOD_FOLDER%/spells/c0ascryi.spl~ ~override~
+SAY NAME1 ~Dispel Illusions~
+SAY NAME2 ~Dispel Illusions~
+COPY ~%MOD_FOLDER%/spells/c0aupgd1.spl~ ~override~
+
 COPY ~%MOD_FOLDER%/spells/c0aubear.spl~ ~override~
 SAY NAME1 ~I Hate Bears!~
 SAY NAME2 ~I Hate Bears!~

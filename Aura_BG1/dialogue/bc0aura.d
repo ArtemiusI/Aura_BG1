@@ -66,7 +66,7 @@ CombatCounter(0)
 !See([ENEMY])
 Global("C0AuraAlora2","GLOBAL",0)~ THEN BALORA C0AuraAlora4
 ~Whoa... hey, this is CUTE. What sort of dress is it, Aura?~
-DO ~SetGlobal("C0AuraAlora1","GLOBAL",1)~
+DO ~SetGlobal("C0AuraAlora2","GLOBAL",1)~
 == BC0AURA ~It's a yukata. Kozakuran style. It's meant to be worn during the summer when it's hot.~
 == BALORA ~I've never seen clothes with such a pretty flower pattern before. Where did you get it?~
 == BC0AURA ~When I lived in Kozakura, my mentor, Reika-san, brought me to a Mitama harvest festival. I loved the colorful outfits that the locals wore, but there weren't any that would fit me. So Reika-san brought me to the market and asked me to pick my favorite pattern. When we returned home, she worked all night to sew this together for me.~
