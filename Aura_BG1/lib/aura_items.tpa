@@ -1,3 +1,19 @@
+// PVRZ-based bams
+
+ACTION_FOR_EACH bamFile IN ~c0amaskc.bam~ ~c0muffyc.bam~ ~c0amagac.bam~ ~c02asunc.bam~ ~c0spikec.bam~ BEGIN
+    COPY ~%MOD_FOLDER%/bams/%bamFile%~ ~override~
+      LPF UPDATE_PVRZ_INDICES RET original_base_index new_base_index END
+    ACTION_IF (original_base_index >= 0 AND new_base_index >= 0) BEGIN
+      LAF INSTALL_PVRZ
+      INT_VAR
+        original_base_index = original_base_index
+        new_base_index = new_base_index
+      STR_VAR
+        source_file = EVAL ~%MOD_FOLDER%/pvrz/mos%original_base_index%.pvrz~
+      END
+    END
+END
+
 // ITEMS
 
 COPY ~%MOD_FOLDER%/items/c0abadge.itm~ ~override~
@@ -387,6 +403,18 @@ COPY ~%MOD_FOLDER%/items/c0auaro3.itm~ ~override~
       match_opcode = 139 // display string
       match_parameter1 = 0
  parameter1 = RESOLVE_STR_REF (~Paralyzed~)
+END
+COPY ~%MOD_FOLDER%/items/c0auaro2.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
 END
 SAY NAME1 ~Static Arrow~
 SAY NAME2 ~Static Arrow~

@@ -78,7 +78,17 @@ END
 
 IF
   Global("C0AutoCreated", "GLOBAL", 1)
+  InMyArea("C0AUIN3")
 THEN RESPONSE #100
+	DisplayString("c0aura",~An automaton is already currently active.~)
+	DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 1)
+  !InMyArea("C0AUIN3")
+THEN RESPONSE #100
+	MoveGlobalObject("C0AUIN3","C0Aura")
 	DisplayString("c0aura",~An automaton is already currently active.~)
 	DestroySelf()
 END

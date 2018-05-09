@@ -41,9 +41,9 @@ To install the mod, extract all the contents of the .zip folder into your game d
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +15 bonus to Lore.
-– +10% bonus to Find Traps, Open Locks and Set Traps.
-– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+- +15 bonus to Lore.
+- +10% bonus to Find Traps, Open Locks and Set Traps.
+- May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
 
@@ -52,24 +52,24 @@ RAPID FREEZE: Slows the victim.
 ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
 ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
 
-– May use the Craft Rune ability once per day.
+- May use the Craft Rune ability once per day.
 
 CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to cast spells or temporarily empower an automaton. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
 
-– From level 4 onwards, may use the Advanced Alchemy ability once per day.
+- From level 4 onwards, may use the Advanced Alchemy ability once per day.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used once per day to craft a number of potions or alchemical weapons equal to half of the artificer's level. The types of potions available for crafting increase with the artificer's level.
 
-– From level 8 onwards, may use the Craft Automaton ability once per day.
+From level 8 onwards, may use the Craft Automaton ability once per day.
 
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
 
 Disadvantages:
-– Hit Die: d4
-– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.
+Hit Die: d4
+-10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+-1 penalty to THAC0 every 6 levels (starting at level 1).
+No backstab multiplier.
+- May only distribute 20 skill points per level among thieving skills.
 
 ==============================================
 4. Frequently Asked Questions

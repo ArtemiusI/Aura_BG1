@@ -30,20 +30,15 @@ LANGUAGE
   ~english~
   ~%MOD_FOLDER%/tra/english/setup.tra~
 
-BEGIN ~Baldur's Gate: Enhanced Edition only~
-SUBCOMPONENT ~Aura Glimmershine NPC~
-  REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE.~
-INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
+BEGIN ~Aura NPC for Baldur's Gate: Enhanced Edition~
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
-
-BEGIN ~Baldur's Gate: Enhanced Edition + Siege of Dragonspear~
-SUBCOMPONENT ~Aura Glimmershine NPC~ (FILE_EXISTS_IN_GAME ~bdcaelar.cre~)
-  REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE.~
 INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
+ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+THEN BEGIN
+  PRINT ~Installing content for Siege of Dragonspear...~
 INCLUDE ~%MOD_FOLDER%/lib/aura_sod.tpa~
-INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
-INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
+END
 
 PRINT ~Choose a portrait for Aura (check mod folder for portraits):~
 
