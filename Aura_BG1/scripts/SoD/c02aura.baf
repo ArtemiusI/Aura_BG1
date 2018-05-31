@@ -9,16 +9,6 @@ THEN
 	SetGlobal("Appearance","LOCALS",1)
 END
 
-// MULTICLASS KIT
-
-IF
-  InParty(Myself)
-  Global("MulticlassKit","LOCALS",0)
-THEN
-  RESPONSE #100
-  SetGlobal("MulticlassKit","LOCALS",1)
-END
-
 IF
   !InParty(Myself)
   Global("MulticlassKit","LOCALS",1)

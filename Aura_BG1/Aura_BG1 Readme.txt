@@ -120,6 +120,11 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v1.3
+- Updated qd_multiclass.tpa resource
+- Increased Alchemy stock to 99 of each potion
+- Added item checks for Improved Idol of Kozah
+
 v0.8
 - Fixed Artificer-only item restrictions
 

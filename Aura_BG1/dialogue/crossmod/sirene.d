@@ -23,7 +23,7 @@ See("C0Aura")
 CombatCounter(0)
 !See([ENEMY])
 Global("C0AuraSirene2","GLOBAL",1)~ THEN BC0Siren C0AuraSirene2
-~Is something the matter, Aura?~
+~Hmm? What is it, Aura?~
 DO ~SetGlobal("C0AuraSirene2","GLOBAL",2)~
 == BC0Aura ~I've, um, got the tools prepared. Are... are you sure you want to act as my test subject? I can't help but feel this is wrong.~
 == BC0Siren ~Fear not, Aura. I have suffered and endured much pain. I can tolerate this much.~
