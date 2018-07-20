@@ -120,10 +120,36 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v1.4
+- Rebalanced the Advanced Alchemy innate: Alchemy is gained at level 1 and can be used at will. Stock is limited and replenishes after resting.
+- Improved runecrafting dialogue
+- Cast time on runes reduced to 0
+- Lightning Arrow no longer chains, instead always hits and penetrates through targets in its path (not party-friendly)
+
 v1.3
-- Updated qd_multiclass.tpa resource
+- Updated qd_multiclass.tpa resource (no more abilities duplicating on multi-class kits)
 - Increased Alchemy stock to 99 of each potion
 - Added item checks for Improved Idol of Kozah
+
+v1.2
+- Added failsafe for cases where the automaton vanishes. Casting the ability again will spawn the automaton in your location.
+- Improved arrow inventory icons
+- Merged installation options: mod auto-detects and installs content for SoD
+
+v1.1
+- Fixed repeating banter with Alora
+- Fixed stutter bug in SoD
+
+v1.0
+- Initial stable release
+- Automaton changed to PST animation
+
+v0.8.2
+- Reduced levels on ninjas to make them easier
+
+v0.8.1
+- Fixed single-class Aura's loss of Set Snare
+- Added alternate portrait by Pantalion
 
 v0.8
 - Fixed Artificer-only item restrictions

@@ -1,0 +1,7 @@
+IF
+	PartyRested()
+	!Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+END

@@ -9,15 +9,6 @@ THEN
 	SetGlobal("Appearance","LOCALS",1)
 END
 
-IF
-  !InParty(Myself)
-  Global("MulticlassKit","LOCALS",1)
-THEN
-  RESPONSE #100
-  ApplySpellRES("c0auref",Myself)
-  SetGlobal("MulticlassKit","LOCALS",0)
-END
-
 // HAPPINESS
 
 IF
@@ -40,6 +31,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BDSODXP","LOCALS",1)
     SetGlobal("BD_JOINXP","LOCALS",0)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -54,6 +46,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,250000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -72,6 +65,7 @@ THEN
 	AddSpecialAbility("spwi522")
 	AddSpecialAbility("spwi405")
 	AddSpecialAbility("spwi415")
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -86,6 +80,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,200000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -102,6 +97,7 @@ THEN
     ChangeStat(Myself,XP,200000,SET)
 	AddSpecialAbility("spwi405")
 	AddSpecialAbility("spwi415")
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -116,6 +112,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,161000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -132,6 +129,7 @@ THEN
     ChangeStat(Myself,XP,161000,SET)
 	AddSpecialAbility("spwi405")
 	AddSpecialAbility("spwi415")
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -147,6 +145,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,135000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -164,6 +163,7 @@ THEN
     ChangeStat(Myself,XP,135000,SET)
 	AddSpecialAbility("spwi405")
 	AddSpecialAbility("spwi415")
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -178,6 +178,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,110000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -192,6 +193,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
     ChangeStat(Myself,XP,90000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 
@@ -203,6 +205,7 @@ THEN
   RESPONSE #100
     SetInterrupt(FALSE)
     SetGlobal("BD_JOINXP","LOCALS",1)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
     SetInterrupt(TRUE)
 END
 

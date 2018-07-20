@@ -51,8 +51,8 @@ Aura's magatama is carved from a piece of green jade and was enchanted by the Ko
 STATISTICS:
 
 Equipped abilities:
-- Saving Throws: +2
-- All attacks made against the wearer by evil or chaotic creatures receive a -2 penalty to their attack roll and any saving throws caused by such attacks are made with a +2 bonus
+– Saving Throws: +2
+– All attacks made against the wearer by evil or chaotic creatures receive a -2 penalty to their attack roll and any saving throws caused by such attacks are made with a +2 bonus
 
 Weight: 0~
 OUTER_SET strref = RESOLVE_STR_REF (~Aura bats your hand away with the hint of a frown on her face. "Hey, hands off!"~ [GAM_47])
@@ -68,8 +68,8 @@ This magatama was by Aura created as a gift to <CHARNAME> using a small piece of
 STATISTICS:
 
 Equipped abilities:
-- Saving Throws: +1
-- All attacks made against the wearer by evil or chaotic creatures receive a -2 penalty to their attack roll and any saving throws caused by such attacks are made with a +2 bonus
+– Saving Throws: +1
+– All attacks made against the wearer by evil or chaotic creatures receive a -2 penalty to their attack roll and any saving throws caused by such attacks are made with a +2 bonus
 
 Weight: 0~
 
@@ -124,21 +124,21 @@ SAY DESC ~Eyewear of this sort are mass-produced in Lantanese workshops, with sp
 STATISTICS:
 
 Charge abilities (three times per day):
-- Identify
-- Reveal Magic: Reveal all dispellable enchantments within 50' and gain +2 to attack rolls vs. arcane casters (bards, mages, sorcerers) for one turn
+– Identify
+– Reveal Magic: Reveal all dispellable enchantments within 50' and gain +2 to attack rolls vs. arcane casters (bards, mages, sorcerers) for one turn
 
 Equipped abilities:
-- Find Traps: +20%
-- Detect Illusions: +20%
-- Protection from gaze attacks
-- Immunity to blindness~
+– Find Traps: +20%
+– Detect Illusions: +20%
+– Protection from gaze attacks
+– Immunity to blindness~
 
 COPY ~%MOD_FOLDER%/items/c0muffy.itm~ ~override~
 SAY NAME1 ~Muffy the Clockwork Squirrel~
 SAY NAME2 ~Muffy the Clockwork Squirrel~
 SAY DESC ~Muffy is a strange machine made of metal and clockwork that serves as Aura's pet. It has a strange degree of sentience, understanding human speech and exhibiting behaviour just like a real, living squirrel, to the point where its state as an animated construct is debatable. Aura claims to have crafted Muffy herself, though how she gave it life is a secret she keeps to herself.
 
-Regardless of how it is able to act as though it were alive, Muffy is doubtlessly a useful creation - the squirrel's stomach is a hollow compartment capable of storing small objects such as gems, potions or keys. Though the act of opening up Muffy seems rather morbid, the squirrel seems rather happy to have its 'belly' filled with valuables.
+Regardless of how it is able to act as though it were alive, Muffy is doubtlessly a useful creation – the squirrel's stomach is a hollow compartment capable of storing small objects such as gems, potions or keys. Though the act of opening up Muffy seems rather morbid, the squirrel seems rather happy to have its 'belly' filled with valuables.
 
 STATISTICS:
 
@@ -162,7 +162,7 @@ Weight: 0~
 
 COPY ~%MOD_FOLDER%/items/c0aubook.sto~ ~override~
 SAY 0xc ~Aura's Rune Book~
-
+/*
 COPY ~%MOD_FOLDER%/items/c0axbow1.itm~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
@@ -179,13 +179,13 @@ SAY DESC ~This strange bronze-colored contraption appears to be some sort of lau
 STATISTICS:
 
 Equipped abilities:
-- Armor Class: +6 vs. melee weapons
-- Attacks per round set to 2
-- Increased visual range
-- Electrical Resistance: +100%
+– Armor Class: +6 vs. melee weapons
+– Attacks per round set to 2
+– Increased visual range
+– Electrical Resistance: +100%
 
 Combat abilities:
-- The Thunderbolt does not launch projectiles. Instead, it fires a ray of lightning which deals 6d6+10 (save vs. breath weapons for half) electrical damage to all creatures within its line of fire and paralyzes them for two rounds on a failed save vs. breath. All targets struck are also Magnetized (-2 to AC vs. missiles and -20% missile damage resistance) for five rounds. The Thunderbolt strikes as a +6 weapon and may be fired 80 times before needing to recharge.
+– The Thunderbolt does not launch projectiles. Instead, it fires a ray of lightning which deals 6d6+10 (save vs. breath weapons for half) electrical damage to all creatures within its line of fire and paralyzes them for two rounds on a failed save vs. breath. All targets struck are also Magnetized (-2 to AC vs. missiles and -20% missile damage resistance) for five rounds. The Thunderbolt strikes as a +6 weapon and may be fired 80 times before needing to recharge.
 
 Speed Factor: 5
 Proficiency Type: None
@@ -196,7 +196,7 @@ Requires:
 
 Weight: 20~
 WRITE_SHORT 0x9C ~%c0athund%~
-
+*/
 COPY ~%MOD_FOLDER%/items/c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
 SAY NAME2 ~Create Sunshooter Arrows~
@@ -220,10 +220,10 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-- Create five Healing Arrows per day
+– Create five Healing Arrows per day
 
 Combat abilities:
-- Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 for 5 rounds
+– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 for 5 rounds
 
 THAC0: +1
 Speed Factor: 2
@@ -253,10 +253,10 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-- Create ten Healing Arrows per day
+– Create ten Healing Arrows per day
 
 Combat abilities:
-- Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
+– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
 
 THAC0: +2
 Speed Factor: 1
@@ -286,10 +286,10 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-- Create ten Healing Arrows and two Lightning Arrows per day
+– Create ten Healing Arrows and two Lightning Arrows per day
 
 Combat abilities:
-- Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
+– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
 
 THAC0: +2
 Speed Factor: 1
@@ -319,11 +319,11 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-- Create ten Healing Arrows, five Lightning Arrows and two Static Arrows per day
+– Create ten Healing Arrows, five Lightning Arrows and two Static Arrows per day
 
 Combat abilities:
-- Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
-- Rapid Fire: 1/2 bonus attack per round
+– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
+– Rapid Fire: 1/2 bonus attack per round
 
 THAC0: +3
 Speed Factor: 1
@@ -353,7 +353,7 @@ SAY DESC ~This unusual arrow, designed and crafted by Aura, deals no damage to i
 STATISTICS:
 
 Combat abilities:
-- Heals target for 1d6+1 hit points (does not apply Magnetism)
+– Heals target for 1d6+1 hit points (does not apply Magnetism)
 
 Damage: None
 Launcher: Bow
@@ -361,13 +361,6 @@ Launcher: Bow
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro1%~
 
-COPY ~%MOD_FOLDER%/items/c0auaro2.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0achain%~
-END
 COPY ~%MOD_FOLDER%/items/c0auaro2.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -382,12 +375,12 @@ COPY ~%MOD_FOLDER%/items/c0auaro2.itm~ ~override~
 END
 SAY NAME1 ~Lightning Arrow~
 SAY NAME2 ~Lightning Arrow~
-SAY DESC ~This unusual arrow, designed and crafted by Aura, is charged with a huge amount of electricity which is released when the arrow strikes at target, electrocuting them as well as all enemies around them.
+SAY DESC ~This unusual arrow, designed and crafted by Aura, is charged with a huge amount of electricity which is released when the arrow strikes at a target, electrocuting them as well as all enemies around them.
 
 STATISTICS:
 
 Combat abilities:
-- Deals electrical damage that chains to nearby enemies, applying Magnetism (-2 penalty to AC vs. missiles and -20% missile damage resistance) to all enemies struck for five rounds
+– Deals electrical damage that penetrates through all targets in its path, applying Magnetism (-2 penalty to AC vs. missiles and -20% missile damage resistance) to all creatures struck for five rounds
 
 Damage: 1d6+4 electrical
 Launcher: Bow
@@ -404,7 +397,7 @@ COPY ~%MOD_FOLDER%/items/c0auaro3.itm~ ~override~
       match_parameter1 = 0
  parameter1 = RESOLVE_STR_REF (~Paralyzed~)
 END
-COPY ~%MOD_FOLDER%/items/c0auaro2.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0auaro3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -423,7 +416,7 @@ SAY DESC ~This unusual arrow, designed and crafted by Aura, is charged with a hu
 STATISTICS:
 
 Combat abilities:
-- Target must make a save vs. death at -2 or be paralyzed and suffer from a -50% penalty to electrical resistance for five rounds.
+– Target must make a save vs. death at -2 or be paralyzed and suffer from a -50% penalty to electrical resistance for five rounds.
 
 THAC0: +2
 Damage: 1d6+4 electrical
@@ -440,7 +433,7 @@ SAY DESC ~This shimmering glass orb, roughly the size of a clenched fist, crackl
 STATISTICS:
 
 Charge abilities (one use):
-- When a Burst Orb is launched at the targeted area, it erupts into a mass of energy, dealing electrical damage and sending all targets away from the center of impact as well as knocking them unconscious for one round.
+– When a Burst Orb is launched at the targeted area, it erupts into a mass of energy, dealing electrical damage and sending all targets away from the center of impact as well as knocking them unconscious for one round.
   Damage: 4d6+2 electrical
   Range: 30 ft.
   Area of Effect: 10' radius
@@ -500,7 +493,7 @@ Unlike most magical wands, it is activated through pressing a button at the base
 STATISTICS:
 
 Charge abilities (once per day):
-- Launches a ray of extreme cold towards the target, dealing cold damage and freezing the target for one turn on a failed Save vs. Wands at -2. While frozen, the target suffers double damage from physical and fire damage but is immune to cold damage. After five rounds have passed or upon taking damage, the target will be Shattered, becoming unfrozen and suffering a -2 penalty to Armor Class and Strength for one turn.
+– Launches a ray of extreme cold towards the target, dealing cold damage and freezing the target for one turn on a failed Save vs. Wands at -2. While frozen, the target suffers double damage from physical and fire damage but is immune to cold damage. After five rounds have passed or upon taking damage, the target will be Shattered, becoming unfrozen and suffering a -2 penalty to Armor Class and Strength for one turn.
   Damage: 6d6 cold (Save vs. Wand at -2 for half)
   Range: 30 ft.
   Area of Effect: 1 creature
@@ -529,11 +522,11 @@ SAY DESC ~This experimental device is designed by Aura to amplify the abilities 
 STATISTICS:
 
 Charge abilities (once per day):
-- Rapid Surge: For the next round, the wearer may cast without delay and has casting time reduced by 4. However, every spell cast during this time will incur a wild surge.
+– Rapid Surge: For the next round, the wearer may cast without delay and has casting time reduced by 4. However, every spell cast during this time will incur a wild surge.
 
 Equipped abilities:
-- +10% probability that a wild surge will have positive effect
-- +2 bonus 1st level spells
+– +10% probability that a wild surge will have positive effect
+– +2 bonus 1st level spells
 
 Weight: 0~
 
@@ -545,7 +538,7 @@ SAY DESC ~This unusual looking metal device appears to function like a wand, exc
 STATISTICS:
 
 Charge abilities:
-- Causes all allied creatures within the radius to turn invisible
+– Causes all allied creatures within the radius to turn invisible
   Range: Self
   Radius: 30'
   Duration: 10 turns
@@ -833,10 +826,10 @@ SAY DESC ~This ceramic mask is a depiction of an oni, a terrifying demonic spiri
 STATISTICS:
 
 Equipped abilities:
-- Armor Class: +1
-- Wisdom: +1
-- Charisma: -2
-- All enemies within 5 ft of the wearer suffer a -1 penalty to THAC0, damage, armor class and all saving throws.
+– Armor Class: +1
+– Wisdom: +1
+– Charisma: -2
+– All enemies within 5 ft of the wearer suffer a -1 penalty to THAC0, damage, armor class and all saving throws.
 
 Weight: 1~
 
@@ -857,10 +850,10 @@ SAY DESC ~This heavy bludgeon is known as a kanabo, a spiked club wielded by war
 STATISTICS:
 
 Combat abilities:
-- Each hit has a 20% chance to inflict the target with Burning Thorns, dealing 1d6 immediate piercing damage and an additional point of fire damage every round for three rounds.
+– Each hit has a 20% chance to inflict the target with Burning Thorns, dealing 1d6 immediate piercing damage and an additional point of fire damage every round for three rounds.
 
 Equipped abilities:
-- When the wielder falls below 50% maximum hit points, <PRO_HESHE> gains a +2 bonus to damage but a -2 penalty to Armor Class.
+– When the wielder falls below 50% maximum hit points, <PRO_HESHE> gains a +2 bonus to damage but a -2 penalty to Armor Class.
 
 THAC0: +2
 Damage: 1d6+2, +1d4 fire damage
@@ -902,12 +895,12 @@ SAY DESC ~This masterwork katana, claimed to be blessed by a Kara-Turan deity, w
 STATISTICS:
 
 Combat abilities:
-- Returns to the wielder's hand when thrown
-- Disarm: 10% chance (40% chance in melee) to disarm opponent, reducing their attacks per round to 0 for 1 round (save vs. death to avoid)
-- Critical hits deal an additional 1d10+4 slashing damage
+– Returns to the wielder's hand when thrown
+– Disarm: 10% chance (40% chance in melee) to disarm opponent, reducing their attacks per round to 0 for 1 round (save vs. death to avoid)
+– Critical hits deal an additional 1d10+4 slashing damage
 
 Equipped abilities:
-- 1/2 extra attack per round
+– 1/2 extra attack per round
 
 THAC0: +2
 Damage (melee): 1d10+4
@@ -947,11 +940,11 @@ According to Aura, the sword's name roughly translates to 'Swift Wing'.
 STATISTICS:
 
 Combat abilities:
-- Critical Hit Chance: +5%
+– Critical Hit Chance: +5%
 
 Equipped abilities:
-- Dexterity: +1
-- Movement Rate: +2
+– Dexterity: +1
+– Movement Rate: +2
 
 THAC0: +1
 Damage: 1d8+3 (piercing)
@@ -962,7 +955,7 @@ Requires:
  5 Strength
 
 Weight: 2~
-
+/*
 COPY ~%MOD_FOLDER%/items/c0akat01.spl~ ~override~
 COPY ~%MOD_FOLDER%/items/c0akat02.spl~ ~override~
 COPY ~%MOD_FOLDER%/items/c0akat03.spl~ ~override~
@@ -985,13 +978,13 @@ SAY DESC ~This flawless katana is the epitome of Kara-Turan swordsmithing. Forge
 STATISTICS:
 
 Combat abilities:
-- Every third successful attack is a guaranteed critical hit (resets after one round of not attacking)
-- Wielder's weapon speed factor is decreased by one for two rounds on each successful hit
-- On a critical hit, disarms opponent unless a save vs. death at -2 is made. Disarmed opponents are unable to attack for one round.
-- 2% chance to slay target instantly on hit (chances are doubled on a critical hit) unless a save vs. death is made.
+– Every third successful attack is a guaranteed critical hit (resets after one round of not attacking)
+– Wielder's weapon speed factor is decreased by one for two rounds on each successful hit
+– On a critical hit, disarms opponent unless a save vs. death at -2 is made. Disarmed opponents are unable to attack for one round.
+– 2% chance to slay target instantly on hit (chances are doubled on a critical hit) unless a save vs. death is made.
 
 Equipped abilities:
-- Armor Class: +5 vs. melee weapons
+– Armor Class: +5 vs. melee weapons
 
 THAC0: +5
 Damage: 1d10+1 (slashing)
@@ -1004,7 +997,7 @@ Requires:
  15 Intelligence
 
 Weight: 4~
-
+*/
 COPY ~%MOD_FOLDER%/items/c0auim01.itm~ ~override~
 SAY NAME1 ~Two-handed Sword~
 SAY NAME2 ~Two-handed Sword, Cursed Berserking +3~
@@ -1015,8 +1008,8 @@ Aura's enhancements to the weapon were unsuccessful in removing the curse, but s
 STATISTICS:
 
 Equipped abilities:
-- May only be removed with a Remove Curse spell
-- When below 50% maximum health, the wielder must make a save vs. spell at -4 every round or go berserk, gaining +2 to Strength and +4 to damage rolls but reducing armor class by 2. Additionally, the wielder loses 1d4 hit points per round for as long as they remain enraged.
+– May only be removed with a Remove Curse spell
+– When below 50% maximum health, the wielder must make a save vs. spell at -4 every round or go berserk, gaining +2 to Strength and +4 to damage rolls but reducing armor class by 2. Additionally, the wielder loses 1d4 hit points per round for as long as they remain enraged.
 
 THAC0: +1
 Damage: 1d10+1 (slashing)
@@ -1039,12 +1032,12 @@ Aura's enhancements to the weapon include reshaping it into a composite weapon a
 STATISTICS:
 
 Combat abilities:
-- Sets attacks per round to 1
-- Critical Hit Chance: +10% (this weapon)
-- Armor Breaker: Critical hits deal an additional 1d10 piercing damage and reduces the target's Armor Class by 4 points for two rounds.
+– Sets attacks per round to 1
+– Critical Hit Chance: +10% (this weapon)
+– Armor Breaker: Critical hits deal an additional 1d10 piercing damage and reduces the target's Armor Class by 4 points for two rounds.
 
 Equipped ability:
-- Increased vision range
+– Increased vision range
 
 THAC0: +6
 Damage: +1 (plus Strength bonus)
@@ -1086,15 +1079,15 @@ Aura's tinkering has somehow awakened a part of the power that lingers within th
 STATISTICS:
 
 Charge abilities:
-- Call Lightning three times per day
-- Storm Shield once per day
+– Call Lightning three times per day
+– Storm Shield once per day
 
 Equipped abilities:
-- May only be removed with a Remove Curse spell
-- Wearer is immune to lightning strikes, Call Lightning and Lightning Bolt
-- Electricity Resistance: +20%
-- All electrical damage inflicted by the wearer is increased by 15%
-- Save vs. Spells: -3 penalty
+– May only be removed with a Remove Curse spell
+– Wearer is immune to lightning strikes, Call Lightning and Lightning Bolt
+– Electricity Resistance: +20%
+– All electrical damage inflicted by the wearer is increased by 15%
+– Save vs. Spells: -3 penalty
 
 Weight: 1~
 
@@ -1109,12 +1102,12 @@ Aura's enhancements have managed to turn the cursed weapon into something more b
 STATISTICS:
 
 Equipped abilities:
-- May only be removed by a Remove Curse spell
-- Stoneskin on user when equipped (five skins, re-applied upon re-equipping)
-- Barkskin (base AC set to 6)
+– May only be removed by a Remove Curse spell
+– Stoneskin on user when equipped (five skins, re-applied upon re-equipping)
+– Barkskin (base AC set to 6)
 
 Combat abilities:
-- 1% chance to petrify target on strike on a failed save vs. spell
+– 1% chance to petrify target on strike on a failed save vs. spell
 
 Damage: 1d6 (crushing)
 Speed Factor: 4
@@ -1136,8 +1129,8 @@ Aura's enhancements have somehow managed to reverse-engineer the weapon's enchan
 STATISTICS:
 
 Special:
-- Consumes 10 gold per successful hit
-- Upon killing a target, gain 100 gold and deal +4 melee damage for the next round.
+– Consumes 10 gold per successful hit
+– Upon killing a target, gain 100 gold and deal +4 melee damage for the next round.
 
 THAC0: +3
 Damage: 1d10+4 (slashing)
