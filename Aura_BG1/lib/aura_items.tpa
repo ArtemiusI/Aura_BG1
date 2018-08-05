@@ -83,7 +83,7 @@ COPY ~%MOD_FOLDER%/spells/c0asaku.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon_index + 4)
+        parameter2        = (icon + 3)
       END
 SAY NAME1 ~Amaterasu~
 SAY NAME2 ~Amaterasu~
@@ -102,7 +102,7 @@ COPY ~%MOD_FOLDER%/items/c0auiden.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon_index + 2)
+        parameter2        = (icon + 1)
       END
 SAY NAME1 ~Reveal Magic~
 COPY ~%MOD_FOLDER%/items/c0auiden.itm~ ~override~
@@ -474,7 +474,7 @@ COPY ~%MOD_FOLDER%/items/c0freeze.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon_index + 1)
+        parameter2        = (icon)
       END
   LPF ALTER_EFFECT
     INT_VAR
@@ -736,7 +736,7 @@ COPY ~%MOD_FOLDER%/items/c0aburn.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon_index + 3)
+        parameter2        = (icon + 2)
       END
   LPF ALTER_EFFECT
     INT_VAR
@@ -841,7 +841,7 @@ COPY ~%MOD_FOLDER%/items/c0aclub1.itm~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon_index + 3)
+        parameter2        = (icon + 2)
       END
 SAY NAME1 ~Onibi-no-kozuchi +2~
 SAY NAME2 ~Onibi-no-kozuchi +2~

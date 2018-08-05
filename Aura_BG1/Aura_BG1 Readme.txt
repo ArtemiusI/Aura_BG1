@@ -120,11 +120,15 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v1.5
+- Updated SoD banter script to hopefully eliminate cases of stuttering
+
 v1.4
-- Rebalanced the Advanced Alchemy innate: Alchemy is gained at level 1 and can be used at will. Stock is limited and replenishes after resting.
+- Alchemy rebalanced - now gained at level 1 and may access at will, stock replenishes after resting
 - Improved runecrafting dialogue
 - Cast time on runes reduced to 0
-- Lightning Arrow no longer chains, instead always hits and penetrates through targets in its path (not party-friendly)
+- Lightning Arrow no longer chains, instead always hits and penetrates through targets in its path (not party-friendly).
+- 
 
 v1.3
 - Updated qd_multiclass.tpa resource (no more abilities duplicating on multi-class kits)
