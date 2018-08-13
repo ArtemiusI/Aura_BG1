@@ -113,7 +113,7 @@ COPY ~%MOD_FOLDER%/items/SoD/c0auaro4.itm~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = icon
+        parameter2        = (icon - 1)
       END
   LPF ALTER_EFFECT
     INT_VAR

@@ -224,7 +224,7 @@ COPY ~%MOD_FOLDER%/spells/c0atrap5.spl~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       match_opcode = 142
-	  parameter2 = (icon + 2)
+	  parameter2 = (icon - 1)
 END
 COPY ~%MOD_FOLDER%/spells/c0auin1a.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Alchemist's Fire~

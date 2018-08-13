@@ -83,7 +83,7 @@ COPY ~%MOD_FOLDER%/spells/c0asaku.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon + 3)
+        parameter2        = (icon)
       END
 SAY NAME1 ~Amaterasu~
 SAY NAME2 ~Amaterasu~
@@ -102,7 +102,7 @@ COPY ~%MOD_FOLDER%/items/c0auiden.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon + 1)
+        parameter2        = (icon - 2)
       END
 SAY NAME1 ~Reveal Magic~
 COPY ~%MOD_FOLDER%/items/c0auiden.itm~ ~override~
@@ -200,6 +200,91 @@ WRITE_SHORT 0x9C ~%c0athund%~
 COPY ~%MOD_FOLDER%/items/c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
 SAY NAME2 ~Create Sunshooter Arrows~
+COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow2.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 214 // display string
+	STR_VAR
+	  resource = C0AUAR01
+END
+COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow3.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 214 // display string
+	STR_VAR
+	  resource = C0AUAR02
+END
+COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow4.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 214 // display string
+	STR_VAR
+	  resource = C0AUAR03
+END
+COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow5.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 214 // display string
+	STR_VAR
+	  resource = C0AUAR04
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1z.spl~
+  LPF DELETE_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+END
+COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2z.spl~
+  LPF DELETE_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+END
+COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3z.spl~
+  LPF DELETE_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1b.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+	STR_VAR
+	  resource = C0AUBOW2
+END
+COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2b.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+	STR_VAR
+	  resource = C0AUBOW2
+END
+COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3b.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+	STR_VAR
+	  resource = C0AUBOW2
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1c.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+	STR_VAR
+	  resource = C0AUBOW3
+END
+COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2c.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+	STR_VAR
+	  resource = C0AUBOW3
+END
+COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3c.spl~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 146 // display string
+	STR_VAR
+	  resource = C0AUBOW3
+END
 
 COPY ~%MOD_FOLDER%/items/c0aubow1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -220,10 +305,10 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-– Create five Healing Arrows per day
+– Create five Sunshooter Arrows (Healing)
 
 Combat abilities:
-– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 for 5 rounds
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
 
 THAC0: +1
 Speed Factor: 2
@@ -253,10 +338,10 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-– Create ten Healing Arrows per day
+– Create five Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
-– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +2
 Speed Factor: 1
@@ -286,12 +371,12 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-– Create ten Healing Arrows and two Lightning Arrows per day
+– Create ten Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
-– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
-THAC0: +2
+THAC0: +3
 Speed Factor: 1
 Proficiency Type: Shortbow
 Type: Two-handed
@@ -319,13 +404,13 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 STATISTICS:
 
 Charge abilities (1x/day):
-– Create ten Healing Arrows, five Lightning Arrows and two Static Arrows per day
+– Create ten Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
-– Magnetism: Each hit reduces target's armor class vs. ranged weapons by 1 and missile resistance by 3% for 5 rounds
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 – Rapid Fire: 1/2 bonus attack per round
 
-THAC0: +3
+THAC0: +4
 Speed Factor: 1
 Proficiency Type: Shortbow
 Type: Two-handed
@@ -474,7 +559,7 @@ COPY ~%MOD_FOLDER%/items/c0freeze.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon)
+        parameter2        = (icon - 3)
       END
   LPF ALTER_EFFECT
     INT_VAR
@@ -736,7 +821,7 @@ COPY ~%MOD_FOLDER%/items/c0aburn.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon + 2)
+        parameter2        = (icon - 1)
       END
   LPF ALTER_EFFECT
     INT_VAR
@@ -841,7 +926,7 @@ COPY ~%MOD_FOLDER%/items/c0aclub1.itm~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon + 2)
+        parameter2        = (icon - 1)
       END
 SAY NAME1 ~Onibi-no-kozuchi +2~
 SAY NAME2 ~Onibi-no-kozuchi +2~

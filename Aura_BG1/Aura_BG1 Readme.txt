@@ -120,6 +120,11 @@ If there are any issues, queries or suggestions you would like to make for this 
 6. Change Log
 ==============================================
 
+v1.6
+- Improved a few item icons
+- Fixed portrait icons
+- Create Sunshooter Arrows: player may choose type of arrow to create at mk. III and IV in stacks of five, maximum ten arrows
+
 v1.5
 - Updated SoD banter script to hopefully eliminate cases of stuttering
 
