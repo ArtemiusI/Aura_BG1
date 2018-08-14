@@ -286,7 +286,25 @@ COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3c.spl~
 	  resource = C0AUBOW3
 END
 
-COPY ~%MOD_FOLDER%/items/c0aubow1.itm~ ~override~
+OUTER_SET sunshooter = RESOLVE_STR_REF (~Configure~)
+APPEND ~ITEMDIAL.2da~ ~C0AUBO1A    %sunshooter%    C0AUBOW
+C0AUBO1B    %sunshooter%    C0AUBOW
+C0AUBO1C    %sunshooter%    C0AUBOW
+C0AUBO2A    %sunshooter%    C0AUBOW
+C0AUBO2B    %sunshooter%    C0AUBOW
+C0AUBO2C    %sunshooter%    C0AUBOW
+C0AUBO3A    %sunshooter%    C0AUBOW
+C0AUBO3B    %sunshooter%    C0AUBOW
+C0AUBO3C    %sunshooter%    C0AUBOW
+C0AUBO4A    %sunshooter%    C0AUBOW
+C0AUBO4B    %sunshooter%    C0AUBOW
+C0AUBO4C    %sunshooter%    C0AUBOW
+C0AUBO5A    %sunshooter%    C0AUBOW
+C0AUBO5B    %sunshooter%    C0AUBOW
+C0AUBO5C    %sunshooter%    C0AUBOW~
+
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/C0AUBOW.d~
+COPY ~%MOD_FOLDER%/items/c0aubo1a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -304,6 +322,9 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 
 STATISTICS:
 
+– Configuration: Rapid
+  +1/2 attacks per round, -2 damage
+
 Charge abilities (1x/day):
 – Create five Sunshooter Arrows (Healing)
 
@@ -319,7 +340,43 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubow2.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aubo1b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter I~
+SAY NAME2 ~Sunshooter I~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Precise
+  +5% Critical Hit Chance, -1/2 attacks per round
+
+Charge abilities (1x/day):
+– Create five Sunshooter Arrows (Healing)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
+
+THAC0: +3
+Speed Factor: 2
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo2a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -337,6 +394,9 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 
 STATISTICS:
 
+– Configuration: Rapid
+  +1/2 attack per round, -1 damage
+
 Charge abilities (1x/day):
 – Create five Sunshooter Arrows (Healing, Lightning)
 
@@ -352,7 +412,80 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubow3.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aubo2b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter II~
+SAY NAME2 ~Sunshooter II~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Precise
+  +5% Critical Hit Chance, -1/2 attacks per round
+
+Charge abilities (1x/day):
+– Create five Sunshooter Arrows (Healing, Lightning)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: +4
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo2c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter II~
+SAY NAME2 ~Sunshooter II~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Power
+  Attacks deal maximum damage
+
+Charge abilities (1x/day):
+– Create five Sunshooter Arrows (Healing, Lightning)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: -2
+Damage: +2
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo3a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -370,6 +503,9 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 
 STATISTICS:
 
+– Configuration: Rapid
+  +1 attack per round, -2 damage
+
 Charge abilities (1x/day):
 – Create ten Sunshooter Arrows (Healing, Lightning)
 
@@ -385,7 +521,80 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubow4.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0aubo3b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter III~
+SAY NAME2 ~Sunshooter III~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Precise
+  +10% Critical Hit Chance, -1/2 attacks per round
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: +5
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo3c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter III~
+SAY NAME2 ~Sunshooter III~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Power
+  Attacks deal maximum damage
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: -1
+Damage: +3
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo4a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -403,14 +612,196 @@ SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual de
 
 STATISTICS:
 
+– Configuration: Rapid
+  +1 attack per round, -1 damage
+
 Charge abilities (1x/day):
 – Create ten Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
-– Rapid Fire: 1/2 bonus attack per round
 
 THAC0: +4
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo4b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter IV~
+SAY NAME2 ~Sunshooter IV~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Precise
+  +10% Critical Hit Chance, -1/2 attacks per round
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning, Static)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: +6
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo4c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter IV~
+SAY NAME2 ~Sunshooter IV~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Power
+  Attacks deal maximum damage
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning, Static)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+Damage: +4
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo5a.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter V~
+SAY NAME2 ~Sunshooter V~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Rapid
+  +3/2 attacks per round, -1 damage
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning, Static, Disruptor)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: +5
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo5b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter V~
+SAY NAME2 ~Sunshooter V~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Precise
+  +15% Critical Hit Chance, -1/2 attacks per round
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning, Static, Disruptor)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: +8
+Speed Factor: 1
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0aubo5c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter V~
+SAY NAME2 ~Sunshooter V~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
+
+STATISTICS:
+
+– Configuration: Power
+  Attacks deal maximum damage
+
+Charge abilities (1x/day):
+– Create ten Sunshooter Arrows (Healing, Lightning, Static, Disruptor)
+
+Combat abilities:
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+Damage: +6
 Speed Factor: 1
 Proficiency Type: Shortbow
 Type: Two-handed

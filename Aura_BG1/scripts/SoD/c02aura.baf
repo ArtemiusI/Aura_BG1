@@ -636,31 +636,61 @@ END
 
 IF
 	LevelGT(Myself,5)
-	HasItemEquiped("c0aubow1",Myself)
+	OR(3)
+	HasItemEquiped("c0aubo1a",Myself)
+	HasItemEquiped("c0aubo1b",Myself)
+	HasItemEquiped("c0aubo1c",Myself)
 THEN
 RESPONSE #100
 	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter II.)~ [GAM_11])
-	TakeItemReplace("c0aubow2","c0aubow1",Myself)
+	TransformItem("c0aubo1a","c0aubo2a")
+	TransformItem("c0aubo1b","c0aubo2b")
+	TransformItem("c0aubo1c","c0aubo2c")
 	EquipRanged()
 END
 
 IF
 	LevelGT(Myself,8)
-	HasItemEquiped("c0aubow2",Myself)
+	OR(3)
+	HasItemEquiped("c0aubo2a",Myself)
+	HasItemEquiped("c0aubo2b",Myself)
+	HasItemEquiped("c0aubo2c",Myself)
 THEN
 RESPONSE #100
 	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter III.)~ [GAM_11])
-	TakeItemReplace("c0aubow3","c0aubow2",Myself)
+	TransformItem("c0aubo2a","c0aubo3a")
+	TransformItem("c0aubo2b","c0aubo3b")
+	TransformItem("c0aubo2c","c0aubo3c")
 	EquipRanged()
 END
 
 IF
 	LevelGT(Myself,11)
-	HasItemEquiped("c0aubow3",Myself)
+	OR(3)
+	HasItemEquiped("c0aubo3a",Myself)
+	HasItemEquiped("c0aubo3b",Myself)
+	HasItemEquiped("c0aubo3c",Myself)
 THEN
 RESPONSE #100
 	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter IV.)~ [GAM_11])
-	TakeItemReplace("c0aubow4","c0aubow3",Myself)
+	TransformItem("c0aubo3a","c0aubo4a")
+	TransformItem("c0aubo3b","c0aubo4b")
+	TransformItem("c0aubo3c","c0aubo4c")
+	EquipRanged()
+END
+
+IF
+	LevelGT(Myself,16)
+	OR(3)
+	HasItemEquiped("c0aubo4a",Myself)
+	HasItemEquiped("c0aubo4b",Myself)
+	HasItemEquiped("c0aubo4c",Myself)
+THEN
+RESPONSE #100
+	DisplayStringHead(Myself,~(Aura has upgraded her bow to Sunshooter V.)~ [GAM_11])
+	TransformItem("c0aubo4a","c0aubo5a")
+	TransformItem("c0aubo4b","c0aubo5b")
+	TransformItem("c0aubo4c","c0aubo5c")
 	EquipRanged()
 END
 

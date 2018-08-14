@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+    /*<![CDATA[*/
+    <!-- 
+      body {
+        margin: 0;
+        padding: 0;
+        cursor: default;
+        text-align: center;
+        color: #000;
+        background: #e3e3db url('http://spellholdstudios.net/images/sh_bg_main.jpg');
+      }
+      
+      #wrap {
+        text-align: left;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 88%;
+        font-family: Verdana, Tahoma, Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+      }
+      
+      #header {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        padding: 5px 0 13px 0;
+      }
+      
+      #header .about {
+        margin: 7px 0 0 0;
+        padding: 0;
+        font-style: italic;
+        color: #555;
+      }
+      
+      #header .menu {
+        font-weight: bold;
+        margin: 0;
+        color: #999;
+      }
+      
+      #header .menu a:link,
+      #header .menu a:visited {
+        color: #333;
+      }
+      
+      #maindiv {
+        margin: 0 auto;
+        margin-top: -20px;
+        width: 80%;
+      }
+      
+      #maindiv .content {
+        counter-increment: kman;
+        counter-reset: h2;
+        background-color: #e8e8e6;
+        padding: 0 0 25px 0;
+        margin: 50px auto;
+        border-width: 1px 1px 4px 10px;
+        border-style: solid;
+        border-color: #781808;
+        position: relative;
+        display: block;
+      }
+      
+      #maindiv .content::before {
+        content: counter(kman, lower-roman);
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        color: #eee;
+        background-color: #781808;
+        width: 35px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+      }
+      
+      h2 {
+        display: block;
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+        text-align: left;
+        text-indent: 30px;
+        padding: 0px;
+        margin: 20px 0 0 0;
+        border-bottom: dotted 2px #d0d0d0;
+        border-top: dotted 2px #d0d0d0;
+        background: #deded9;
+        font-size: 160%;
+      }
+      
+      h2::first-letter {
+        color: #781808;
+        background-color: transparent;
+      }
+      
+      #maindiv p {
+        font-size: 100%;
+        font-style: normal;
+        line-height: 150%;
+        padding: 0px;
+        margin: 10px auto;
+        width: 90%;
+        display: block;
+      }
+      
+      #maindiv address a:link,
+      #maindiv address a:visited {
+        font-weight: bold;
+        text-decoration: underline;
+        background-color: transparent;
+        color: #eaeaea !important;
+        padding-right: 5px;
+        padding-left: 6px;
+      }
+      
+      #maindiv address a:focus,
+      #maindiv address a:hover {
+        text-decoration: none;
+        color: #F1F1F1;
+        border: 0;
+      }
+      
+      #maindiv address a:active {
+        color: #fff;
+        text-decoration: line-through;
+        border: none;
+      }
+      
+      #maindiv address {
+        font-size: 95%;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        color: #BBB;
+        background-color: #781808;
+        padding: 3px 0px 0px;
+        margin: 0px;
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        display: block;
+        text-align: right;
+      }
+      
+      #maindiv .important {
+        font-size: 95%;
+        font-family: Verdana;
+        text-align: left;
+        background-color: #F1F1F1;
+        border-top: solid 1px #aaa;
+        border-bottom: solid 1px #aaa;
+        border-left: solid 6px #aaa;
+        border-right: solid 6px #aaa;
+        padding: 10px;
+        margin: 20px auto;
+        width: 80%;
+        line-height: 160%;
+      }
+      
+      #maindiv .important::before {
+        display: none;
+      }
+      
+      #maindiv .important p {
+        font-size: 100%;
+        text-indent: 0px;
+        margin: 5px 0 10px 0;
+      }
+      
+      #maindiv ul {
+        margin: -10px 0 0 30px;
+        *margin-left: 65px;
+      }
+      
+      #maindiv ol {
+        margin: -10px 0 0 35px;
+        *margin-left: 70px;
+      }
+      
+      #maindiv .important ul {
+        margin: -10px 0 0 15px;
+      }
+      
+      #maindiv .important ol {
+        margin: -10px 0 0 20px;
+      }
+      
+      #maindiv ul li {
+        list-style-type: square;
+        line-height: 150%;
+      }
+      
+      #maindiv ol li {
+        line-height: 150%;
+      }
+      
+      .t1 {
+        font-weight: bold;
+        width: 26%;
+        text-align: right;
+        clear: right;
+        float: left;
+        *float: none;
+        *margin-left: 65px;
+        line-height: 22px;
+      }
+      
+      .t2 {
+        text-align: left;
+        width: 73%;
+        float: right;
+        *float: none;
+        line-height: 22px;
+      }
+      
+      hr {
+        margin: 10px 0 10px 0;
+        padding: 0;
+        height: 1px;
+        border: 0;
+        color: #aaa;
+        background-color: #aaa;
+      }
+      
+      hr.floatfix {
+        clear: both;
+        color: #e8e8e6;
+        background-color: #e8e8e6;
+        *margin: 0;
+        *padding: 0;
+      }
+      
+      h1 {
+        font-size: 225%;
+        color: #444;
+        padding: 5px 0 5px 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      h3,
+      h4,
+      h5 {
+        margin: 10px 40px 10px 40px;
+        padding: 0;
+      }
+      
+      h3 {
+        font-size: 125%;
+        font-style: italic;
+      }
+      
+      h4 {
+        font-size: 125%;
+      }
+      
+      h5 {
+        font-size: 100%;
+      }
+      
+      h6 {
+        width: 100%;
+        margin: 10px 0 15px 0;
+        background-color: #ECECEC;
+        text-align: left;
+        text-indent: 30px;
+        font-size: 100%;
+        font-style: italic;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #bbb;
+        border-top: solid 1px #bbb;
+      }
+      
+      a:link,
+      a:visited {
+        color: #781808;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:active {
+        color: #222;
+        border-bottom: 1px solid black;
+      }
+
+    -->
+    /*]]>*/
+    </style>
+    <title>SPELLHOLD STUDIOS - Aura NPC for BG:EE</title>
+  </head>
+  <body>
+    <a name="top" id="top"></a>
+    <div id="wrap">
+      <div id="header">
+        <h1>Aura</h1>
+        <strong>A Spellhold Studios mod for Baldur's Gate: Enhanced Edition</strong>
+        <hr />
+        <p class="about">
+          Authors: Artemius_I
+        </p>
+        <p class="about">
+          <a href="http://www.shsforums.net/forum/661-aura-ee/">Mod Forum</a> &#8226;
+
+          <a href="https://forums.beamdog.com/discussion/65891/v1-6-aura-a-gnome-artificer-npc-for-bg-ee-sod">Beamdog Forum Thread</a> &#8226;
+          Version: 1.7
+        </p>
+        <hr />
+        <p class="menu">
+          <a href="#intro">Introduction</a> &middot;
+          <a href="#kit">Artificer Kit</a> &middot;
+          <a href="#installation">Installation</a> &middot;
+          <a href="#faq">FAQ</a> &middot;
+          <a href="#credits">Credits</a> &middot;
+          <a href="#version">Version History</a>
+        </p>
+      </div>
+      <div id="maindiv">
+
+        <!-- ================== I n t r o d u c t i o n ================== -->
+        <a name="intro" id="intro"></a>
+        <div class="content">
+          <h2>Introduction</h2>
+          <p>Aura Glimmershine is a young lawful good-aligned gnome artificer and inventor from the island nation of Lantan with a colorful past. Aura is kind and idealistic at heart. She can be rather shy and socially inept when interacting with strangers, but easily turns peppy and excitable when the topic strays into her fields of expertise. While she is rather weak in combat, her unique thief kit, Artificer, which grants her the ability to create a large assortment of potions, traps, arcane runes and magical items that become more versatile as she gains levels. She has the following attributes:</p>
+		  
+		  <p>– Strength: 8</p>
+		  <p>– Dexterity: 16</p>
+		  <p>– Constitution: 13</p>
+		  <p>– Intelligence: 19</p>
+		  <p>– Wisdom: 14</p>
+		  <p>– Charisma: 15</p>
+
+          <p>She joins with a small selection of personal items. If the PC is female, she may show hints of romantic attraction, though there is no full romance within BG1.</p>
+		  
+          <p>In Siege of Dragonspear, she can be found in the Coast Way Forest, after leaving Baldur's Gate.</p>
+		  
+          <p>Additionally, she has crossmod content with the mod NPCs Sirene, Drake, Verr'Sza and White.</p>
+
+          <p><i>"When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.</i></p>
+  
+          <p><i>Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, after which a certain course of events led her to leave on a journey towards the Sword Coast."</i></p>
+		  
+          <p>Visit the <a href="https://forums.beamdog.com/discussion/65891/v1-6-aura-a-gnome-artificer-npc-for-bg-ee-sod">Beamdog Forum</a> or <a href="http://www.shsforums.net/forum/661-aura-ee/">Spellhold Studios Forum</a> for all the latest updates.</p>
+          <address>
+            <span class="footer">Aura NPC &gt; Introduction</span> &#8226;<a href="#top">BACK TO TOP</a>
+          </address>
+        </div>
+
+        <!-- ================== A r t i f i c e r  K i t ================== -->
+        <a name="kit" id="kit"></a>
+        <div class="content">
+          <h2>Artificer Thief Kit</h2>
+		   <div class="important">
+          <p>ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.</p>
+		  
+          <p>Advantages:</p>
+          <p>– +15 bonus to Lore.</p>
+          <p>– +10% bonus to Find Traps, Open Locks and Set Traps.</p>
+          <p>– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.</p>
+          <p><i>Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.</i></p>
+          <p><i>ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.</p>
+          <p><i>RAPID FREEZING REAGENT: Slows the victim.</p>
+          <p><i>ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.</p>
+          <p><i>ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.</p>
+          <p>– May use the Craft Rune ability once per day.</p>
+          <p><i>CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.</p>
+          <p>– May use the Advanced Alchemy ability at will.</p>
+          <p><i>ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.</p>
+          <p>– From level 8 onwards, may use the Craft Automaton ability once per day.</p>
+          <p><i>CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.</p>
+          <p>Disadvantages:</p>
+          <p>– Hit Die: d4</p>
+          <p>– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.</p>
+          <p>– -1 penalty to THAC0 every 6 levels (starting at level 1).</p>
+          <p>– No backstab multiplier.</p>
+          <p>– May only distribute 20 skill points per level among thieving skills.</p>
+          </div>
+		  <p><b>OPTIONAL: Aura may be installed as either an Illusionist/Artificer or a Priestess/Artificer. The Priestess is a unique cleric kit:</b></p>
+		   <div class="important">
+		   <p>PRIESTESS: Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.</p>
+		   <p>Advantages:</p>
+		   <p>– May cast Protection from Evil as an innate ability.</p>
+		   <p>– From 6th level onwards, may cast Protection from Evil 10' Radius as an innate ability.</p>
+		   <p>– From 11th level onwards, may cast True Seeing as an innate ability.</p>
+		   <p>Disadvantages:</p>
+		   <p>– May only be proficient in clubs, quarterstaves, short bows and slings.</p>
+		   <p>– May not wear armor heavier than studded leather.</p>
+		   <p>– May not be chaotic or evil-aligned.</p>
+          </div>
+          <address>
+            <span class="footer">Aura NPC &gt; Artificer Kit</span> &#8226;<a href="#top">BACK TO TOP</a>
+          </address>
+        </div>
+		
+        <!-- ================== I n s t a l l a t i o n ================== -->
+        <a name="installation" id="installation"></a>
+        <div class="content">
+          <h2>Installation</h2>
+          <p>To install the mod, extract all the contents of the .zip folder into your game directory (example: "C:\Program Files (x86)\Baldur's Gate Enhanced Edition\Data\00766" for Baldur's Gate: Enhanced Edition or "C:\Program Files (x86)\Baldur's Gate Siege of Dragonspear\Data\00806" for Baldur's Gate with the Siege of Dragonspear expansion) and run the Setup-Aura_BG1.exe folder. Follow the instructions to complete the install.</p>
+          <div class="important">
+            <p>This mod was designed using resources from <i>v2.0+</i> of Baldur's Gate: Enhanced Edition and will not work for older versions (e.g. <i>v1.3</i>) or vanilla Baldur's Gate.</p>
+          </div>
+          <address>
+            <span class="footer">Aura NPC &gt; Installation</span> <a href="#top">BACK TO TOP</a>
+          </address>
+          <p>Aura should be compatible with all WeiDU mods for the Enhanced Edition, however, mods that affect vanilla spells (e.g. <i>Spell Revisions</i>) may cause gameplay inconsistencies with her abilities (e.g. Runes using vanilla spells instead of SR-modified ones). If there are any errors during installation, please contact me at either Beamdog Forums (https://forums.beamdog.com/profile/Artemius_I) or Spellhold Studios (http://www.shsforums.net/user/40982-artemius-i/)</p>
+        </div>
+
+        <!-- ================== F A Q ================== -->
+        <a name="faq" id="faq"></a>
+        <div class="content">
+          <h2>Frequently Asked Questions</h2>
+          <p><strong>Q: Why can't I remove Aura's bow or amulet?</strong><br />A: Aura's magatama necklace and Sunshooter carry immeasurable value to her and she will not remove them for anything.</p>
+          <p><strong>Q: Does the Sunshooter ever get upgraded?</strong><br />A: Yes. It upgrades at levels 5, 8 and 11.</p>
+          <p><strong>Q: What are the prerequisites to starting a romance with Aura?</strong><br />A: In BG1, there are no requirements besides being female as the romantic implications are little more than subtext. In SoD, the PC needs a minimum Charisma of 10 and Intelligence of 12, as well as being non-evil aligned. The PC may be of any race or class.</p>
+          <p><strong>Q: How well/badly does Aura get along with the original cast?</strong><br />A: While Aura will never become violent or leave due to another party member, she does get along with certain characters better than others, though most have plenty to talk about with her regardless. An overview of her relations are listed below:</p>
+		  <p><i>Likes: Dynaheir, Imoen, Kivan, Yeslick, Khalid, Edwin, Quayle, Ajantis, Garrick, Glint (SoD)</p>
+		  <p><i>Neutral/Unsure: Safana, Alora, Viconia, Minsc, Branwen, Skie, Rasaad, Corwin (SoD)</p>
+		  <p><i>Bemused: Tiax, Xzar, Baeloth, Coran, Xan, Neera, Voghiln (SoD)</p>
+		  <p><i>Afraid: Jaheira, Faldorn, Dorn, Shar-Teel, M'Khiin (SoD)</p>
+		  <p><i>Dislikes: Kagain, Montaron, Eldoth</p>
+          <p><strong>Q: When will Aura be able to create explosive weapons?</strong><br />A: After completing her personal quest, she will gain the option via her Advanced Alchemy ability.</p>
+          <p><strong>Q: Why is she frightened of bears?</strong><br />A: She just is. Bears are pretty terrifying for a small, timid gnome girl. Be careful not to let one get too close to her or she may lose morale and flee.</p>
+          <p><strong>Q: I insulted Aura too many times and made her angry. Now she won't talk to me. What do I do?</strong><br />A: Force-talk her and apologize. She will accept your apology ONCE only. If you insult her again, she will shut down her dialogue permanently.</p>
+          <p><strong>Q: Can I persuade Aura to keep the masterwork katana?</strong><br />A: Yes. You must be non-evil and have 14+ Charisma. Bear in mind Aura herself will refuse to wield it.</p>
+          <p><strong>Q: May I write crossmod with Aura?</strong><br />A: Yes, absolutely! I would very much appreciate it if you collaborated with me first before release, but if I don't respond to your messages then feel free to write your own crossmod and add it to your own mod.</p>
+          <address>
+            <span class="footer">Aura NPC &gt; FAQ</span> &#8226;<a href="#top">BACK TO TOP</a>
+          </address>
+        </div>
+
+        <!-- ================== C r e d i t s ================== -->
+        <a name="credits" id="credits"></a>
+        <div class="content">
+          <h2>Credits</h2>
+          <span class="t1">Writer:</span> <span class="t2">Artemius_I</span><br />
+          <span class="t1">Coder:</span> <span class="t2">Artemius_I</span><br />
+          <span class="t1">Portrait:</span> <span class="t2">Lava Del'Vortel</span><br />
+          <span class="t1">Alt. Portrait 1:</span> <span class="t2">Omar Diaz</span><br />
+          <span class="t1">Alt. Portrait 2:</span> <span class="t2">Pantalion</span><br />
+          <hr class="floatfix" /><!-- Don't remove the <hr /> unless you have text following the last "t2" in this <div>! -->
+          <h5>Programs/tools used in creation:</h5><br />
+          <ul>
+            <li><a href="http://www.weidu.org">WeiDU</a>, by Westley Weimer/Valerio Bigiani (the bigg)</li>
+            <li><a href="http://www.idi.ntnu.no/~joh/ni/">Near Infinity</a>, by Jon Olav Hauglid and argent77</li>
+            <li><a href="http://www.shsforums.net/topic/31285-infinity-explorer-v085/">Infinity Explorer</a>, by Dmitry Jemerov/bigmoshi</li>
+            <li><a href="http://www.rarlab.com/">WinRAR</a>, by Eugene Roshal/Alexander Roshal</li>
+            <li><a href="http://iesdp.gibberlings3.net">IESDP</a>, maintained by igi</li>
+          <h5>Copyright Notice:</h5>
+          <div class="important">
+            <p>Aura NPC for BG:EE was developed by Artemius_I, based on material from the game Baldur's Gate: Enhanced Edition and Baldur's Gate: Siege of Dragonspear.</p>
+
+            <p>All mod content is &copy; Artemius_I.</p>
+            <p>Baldur's Gate, Baldur's Gate II: Shadows of Amn, and Baldur's Gate II: Throne of Bhaal © TSR, Inc. The BioWare Infinity Engine is © BioWare Corp.</p>
+            <p>Please note that any and all redistribution and/or hosting of this mod is expressly unwanted without permission from the author(s).</p>
+          </div>
+
+          <address>
+            <span class="footer">Aura NPC &gt; Credits</span> &#8226;<a href="#top">BACK TO TOP</a>
+          </address>
+        </div>
+
+        <!-- ================== V e r s i o n   H i s t o r y ================== -->
+        <a name="version" id="version"></a>
+        <div class="content">
+          <h2>Version history</h2>
+          <h6>Version 1.7:</h6>
+          <ul>
+            <li>- Sunshooter: now configures between three modes: Rapid, Precise and Power</li>
+          </ul>
+		  
+          <h6>Version 1.6:</h6>
+          <ul>
+            <li>- Improved a few item icons</li>
+            <li>- Fixed portrait icons</li>
+            <li>- Create Sunshooter Arrows: player may choose type of arrow to create at mk. III and IV in stacks of five, maximum ten arrows</li>
+          </ul>
+
+          <h6>Version 1.5:</h6>
+          <ul>
+            <li>- Updated SoD banter script to hopefully eliminate cases of stuttering</li>
+          </ul>
+
+          <h6>Version 1.4:</h6>
+          <ul>
+            <li>- Alchemy rebalanced - now gained at level 1 and may access at will, stock replenishes after resting</li>
+            <li>- Improved runecrafting dialogue</li>
+            <li>- Cast time on runes reduced to 0</li>
+            <li>- Lightning Arrow no longer chains, instead always hits and penetrates through targets in its path (not party-friendly).</li>
+          </ul>
+
+          <h6>Version 1.3:</h6>
+          <ul>
+            <li>- Updated qd_multiclass.tpa resource (no more abilities duplicating on multi-class kits)</li>
+            <li>- Increased Alchemy stock to 99 of each potion</li>
+            <li>- Added item checks for Improved Idol of Kozah</li>
+          </ul>
+
+          <h6>Version 1.2:</h6>
+          <ul>
+            <li>- Added failsafe for cases where the automaton vanishes. Casting the ability again will spawn the automaton in your location.</li>
+            <li>- Improved arrow inventory icons</li>
+            <li>- Merged installation options: mod auto-detects and installs content for SoD</li>
+          </ul>
+
+          <h6>Version 1.1:</h6>
+          <ul>
+            <li>- Fixed repeating banter with Alora</li>
+            <li>- Fixed stutter bug in SoD</li>
+          </ul>
+
+          <h6>Version 1.0:</h6>
+          <ul>
+            <li>- Initial stable release</li>
+            <li>- Automaton changed to PST animation</li>
+          </ul>
+
+          <h6>Version 0.9:</h6>
+          <ul>
+            <li>- Reduced levels on ninjas to make them easier</li>
+          </ul>
+
+          <h6>Version 0.8.1:</h6>
+          <ul>
+            <li>- Fixed single-class Aura's loss of Set Snare</li>
+            <li>- Added alternate portrait by Pantalion</li>
+          </ul>
+
+          <h6>Version 0.8:</h6>
+          <ul>
+            <li>- Fixed Artificer-only item restrictions</li>
+          </ul>
+
+          <h6>Version 0.7:</h6>
+          <ul>
+            <li>- Added illusionist restrictions to mage/thief Aura</li>
+            <li>- Added learned spells for mage/thief Aura at higher levels</li>
+            <li>- Made the Undercellar battle easier again</li>
+            <li>- Fixed SoD-versions of Aura having too many skill points</li>
+            <li>- Fixed C/T Aura reverting to cleric animations in SoD</li>
+            <li>- Fixed erroneous scripts that caused dialogues to trigger too early</li>
+          </ul>
+
+          <h6>Version 0.6:</h6>
+          <ul>
+            <li>- Added extra bear-related dialogue</li>
+            <li>- Fixed repeating dialogue bug</li>
+            <li>- Fixed rank III Sunshooter creating five Lightning Arrows instead of two</li>
+            <li>- Added hard cap to number of runes per session</li>
+            <li>- Added optional mage/thief and cleric/thief alternates</li>
+            <li>- Added restrictions to upgraded Idol of Kozah</li>
+            <li>- Made the Undercellar battle easier</li>
+          </ul>
+
+          <h6>Version 0.5:</h6>
+          <ul>
+            <li>- Improved explosive visuals</li>
+            <li>- Improved icons</li>
+            <li>- Fixed banter timers</li>
+          </ul>
+
+          <h6>Version 0.4:</h6>
+          <ul>
+            <li>- Changed rune descriptions</li>
+            <li>- If installed after Spell Revisions, runes cast SR-versions of spells</li>
+            <li>- Fixed a few timers causing some SoD talks to fire too quickly</li>
+            <li>- Disabled banters in dungeons</li>
+            <li>- Added a few ambient comments in SoD</li>
+            <li>- Fixed kicking out dialogue in SoD</li>
+          </ul>
+
+          <h6>Version 0.3:</h6>
+          <ul>
+            <li>- Added banters and fixed installation bug</li>
+          </ul>
+
+          <h6>Version 0.2:</h6>
+          <ul>
+            <li>- Added BG:SoD content</li>
+          </ul>
+
+          <h6>Version 0.1:</h6>
+          <ul>
+            <li>- Initial release of BG:EE content</li>
+          </ul>
+          <address>
+            <span class="footer">Mod title &gt; Version History</span> &#8226;<a href="#top">BACK TO TOP</a>
+          </address>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
