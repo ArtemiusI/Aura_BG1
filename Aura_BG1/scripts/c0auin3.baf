@@ -3,6 +3,7 @@ IF
 THEN
   RESPONSE #100
 	SetInterrupt(FALSE)
+	RemoveFamiliar()
     SetGlobal("C0AutoCreated", "GLOBAL", 0)
     ApplySpellRES("c0autos3",Myself)
 	DestroyAllEquipment()
@@ -14,6 +15,7 @@ IF
 	!InParty("C0Aura")
 THEN
   RESPONSE #100
+	RemoveFamiliar()
 	ChangeEnemyAlly(Myself,NEUTRAL)
 	EscapeArea()
 END
@@ -24,26 +26,29 @@ IF
   !Allegiance(Myself,NEUTRAL)
 THEN
   RESPONSE #100
+  RemoveFamiliar()
   ChangeEnemyAlly(Myself,NEUTRAL)
-  Continue()
 END
 
 IF
   InParty("C0Aura")
   !Dead("C0Aura")
   !Allegiance(Myself,FAMILIAR)
+  !Global("Standby","LOCALS",1)
 THEN
   RESPONSE #100
+  AddFamiliar()
   ChangeEnemyAlly(Myself,FAMILIAR)
-  Continue()
 END
 
 IF
+  !InParty("C0Aura")
   Allegiance("C0Aura",ENEMY)
   !Allegiance(Myself,ENEMY)
 THEN
   RESPONSE #100
   Enemy()
+  RemoveFamiliar()
   Continue()
 END
 
@@ -156,7 +161,21 @@ THEN
 RESPONSE #100
 	SetGlobal("Upgrade","LOCALS",1)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
+	ChangeStat(Myself,MAXHITPOINTS,100,SET)
+	ChangeStat(Myself,STR,19,SET)
+	ChangeStat(Myself,DEX,18,SET)
+	ChangeStat(Myself,NUMBEROFATTACKS,6,SET)
+	ChangeStat(Myself,LEVEL,12,SET)
+	ChangeStat(Myself,THAC0,8,SET)
+	ChangeStat(Myself,RESISTSLASHING,25,SET)
+	ChangeStat(Myself,RESISTCRUSHING,25,SET)
+	ChangeStat(Myself,RESISTPIERCING,25,SET)
+	ChangeStat(Myself,RESISTMISSILE,25,SET)
+	ChangeStat(Myself,SAVEVSDEATH,6,SET)
+	ChangeStat(Myself,SAVEVSWANDS,8,SET)
+	ChangeStat(Myself,SAVEVSPOLY,7,SET)
+	ChangeStat(Myself,SAVEVSBREATH,7,SET)
+	ChangeStat(Myself,SAVEVSSPELL,9,SET)
 	AddSpecialAbility("c0autos4")
 END
 
@@ -168,8 +187,21 @@ THEN
 RESPONSE #100
 	SetGlobal("Upgrade","LOCALS",2)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
+	ChangeStat(Myself,MAXHITPOINTS,140,SET)
+	ChangeStat(Myself,STR,20,SET)
+	ChangeStat(Myself,DEX,20,SET)
+	ChangeStat(Myself,NUMBEROFATTACKS,2,SET)
+	ChangeStat(Myself,LEVEL,16,SET)
+	ChangeStat(Myself,THAC0,4,SET)
+	ChangeStat(Myself,RESISTSLASHING,35,SET)
+	ChangeStat(Myself,RESISTCRUSHING,35,SET)
+	ChangeStat(Myself,RESISTPIERCING,35,SET)
+	ChangeStat(Myself,RESISTMISSILE,35,SET)
+	ChangeStat(Myself,SAVEVSDEATH,4,SET)
+	ChangeStat(Myself,SAVEVSWANDS,6,SET)
+	ChangeStat(Myself,SAVEVSPOLY,5,SET)
+	ChangeStat(Myself,SAVEVSBREATH,5,SET)
+	ChangeStat(Myself,SAVEVSSPELL,7,SET)
 	ApplySpellRES("c0ajadel",Myself)
 	AddSpecialAbility("c0autos4")
 	AddSpecialAbility("c0autos8")
@@ -185,9 +217,21 @@ THEN
 RESPONSE #100
 	SetGlobal("Upgrade","LOCALS",3)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
+	ChangeStat(Myself,MAXHITPOINTS,180,SET)
+	ChangeStat(Myself,STR,24,SET)
+	ChangeStat(Myself,DEX,22,SET)
+	ChangeStat(Myself,NUMBEROFATTACKS,6,SET)
+	ChangeStat(Myself,LEVEL,20,SET)
+	ChangeStat(Myself,THAC0,0,SET)
+	ChangeStat(Myself,RESISTSLASHING,50,SET)
+	ChangeStat(Myself,RESISTCRUSHING,50,SET)
+	ChangeStat(Myself,RESISTPIERCING,50,SET)
+	ChangeStat(Myself,RESISTMISSILE,50,SET)
+	ChangeStat(Myself,SAVEVSDEATH,2,SET)
+	ChangeStat(Myself,SAVEVSWANDS,4,SET)
+	ChangeStat(Myself,SAVEVSPOLY,3,SET)
+	ChangeStat(Myself,SAVEVSBREATH,3,SET)
+	ChangeStat(Myself,SAVEVSSPELL,5,SET)
 	ApplySpellRES("c0ablacl",Myself)
 	AddSpecialAbility("c0autos4")
 	AddSpecialAbility("c0autos8")
@@ -204,7 +248,21 @@ THEN
 RESPONSE #100
 	SetGlobal("Upgrade","LOCALS",2)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
+	ChangeStat(Myself,MAXHITPOINTS,140,SET)
+	ChangeStat(Myself,STR,20,SET)
+	ChangeStat(Myself,DEX,20,SET)
+	ChangeStat(Myself,NUMBEROFATTACKS,2,SET)
+	ChangeStat(Myself,LEVEL,16,SET)
+	ChangeStat(Myself,THAC0,4,SET)
+	ChangeStat(Myself,RESISTSLASHING,35,SET)
+	ChangeStat(Myself,RESISTCRUSHING,35,SET)
+	ChangeStat(Myself,RESISTPIERCING,35,SET)
+	ChangeStat(Myself,RESISTMISSILE,35,SET)
+	ChangeStat(Myself,SAVEVSDEATH,4,SET)
+	ChangeStat(Myself,SAVEVSWANDS,6,SET)
+	ChangeStat(Myself,SAVEVSPOLY,5,SET)
+	ChangeStat(Myself,SAVEVSBREATH,5,SET)
+	ChangeStat(Myself,SAVEVSSPELL,7,SET)
 	ApplySpellRES("c0ajadel",Myself)
 	Polymorph(C0_AURA_AUTOMATON_JADE)
 	AddSpecialAbility("c0autos8")
@@ -219,7 +277,21 @@ THEN
 RESPONSE #100
 	SetGlobal("Upgrade","LOCALS",3)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ApplySpellRES("c0aupgd1",Myself)
+	ChangeStat(Myself,MAXHITPOINTS,180,SET)
+	ChangeStat(Myself,STR,24,SET)
+	ChangeStat(Myself,DEX,22,SET)
+	ChangeStat(Myself,NUMBEROFATTACKS,7,SET)
+	ChangeStat(Myself,LEVEL,20,SET)
+	ChangeStat(Myself,THAC0,0,SET)
+	ChangeStat(Myself,RESISTSLASHING,50,SET)
+	ChangeStat(Myself,RESISTCRUSHING,50,SET)
+	ChangeStat(Myself,RESISTPIERCING,50,SET)
+	ChangeStat(Myself,RESISTMISSILE,50,SET)
+	ChangeStat(Myself,SAVEVSDEATH,2,SET)
+	ChangeStat(Myself,SAVEVSWANDS,4,SET)
+	ChangeStat(Myself,SAVEVSPOLY,3,SET)
+	ChangeStat(Myself,SAVEVSBREATH,3,SET)
+	ChangeStat(Myself,SAVEVSSPELL,5,SET)
 	ApplySpellRES("c0ablacl",Myself)
 	Polymorph(C0_AURA_AUTOMATON_BLACK)
 	AddSpecialAbility("c0autosa")
@@ -227,7 +299,7 @@ RESPONSE #100
 END
 
 IF
-  !Global("C0MurasameAI","GLOBAL",1)
+  !Global("SelfDefense","LOCALS",1)
   !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
   ActionListEmpty()
@@ -238,7 +310,7 @@ THEN
 END
 
 IF
-  !Global("C0MurasameAI","GLOBAL",1)
+  !Global("SelfDefense","LOCALS",1)
   !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
   ActionListEmpty()
@@ -250,6 +322,7 @@ END
 
 IF
   !Global("Recharge","LOCALS",1)
+  !Global("Standby","LOCALS",1)
   !Global("Disabled","LOCALS",1)
 	!Global("Berserk","LOCALS",1)
 	ActionListEmpty()
@@ -260,6 +333,6 @@ IF
     !StateCheck("C0Aura",STATE_CONFUSED)
 	!Range("C0Aura",20)
 THEN
-  RESPONSE #50
+  RESPONSE #100
 	MoveToObjectOffset("C0Aura",[20.-20])
 END
