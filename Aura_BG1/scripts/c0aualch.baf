@@ -248,7 +248,6 @@ END
 IF
 	OnCreation()
 	ClassLevelGT(Lastsummonerof(Myself),ROGUE,26)
-	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,29)
 	Global("C0AlchemyRefreshStock","GLOBAL",1)
 THEN
   RESPONSE #100
@@ -327,7 +326,7 @@ IF
 THEN
   RESPONSE #100
     FaceObject(Lastsummonerof(Myself))
-	ApplySpellRES("c0aupot1",Lastsummonerof(Myself))
+	ApplySpellRES("c0aualc1",Lastsummonerof(Myself))
     StartDialogueNoSet(Lastsummonerof(Myself))
 	Continue()
 END
