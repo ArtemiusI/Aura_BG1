@@ -80,7 +80,7 @@ END
 
 // Small Automaton
 
-ACTION_IF (NOT GAME_IS_BGEE) BEGIN
+ACTION_IF (GAME_IS_BGEE) BEGIN
   LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
   ACTION_IF (slot <= 0) BEGIN
     FAIL ~No free creature animation slot found.~ // No free creature animation slot found.
@@ -97,7 +97,7 @@ ACTION_IF (NOT GAME_IS_BGEE) BEGIN
   END
 END
 
-ACTION_IF (NOT GAME_IS_BGEE) BEGIN
+ACTION_IF (GAME_IS_BGEE) BEGIN
   LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
   ACTION_IF (slot <= 0) BEGIN
     FAIL ~No free creature animation slot found.~ // No free creature animation slot found.
@@ -114,7 +114,7 @@ ACTION_IF (NOT GAME_IS_BGEE) BEGIN
   END
 END
 
-ACTION_IF (NOT GAME_IS_BGEE) BEGIN
+ACTION_IF (GAME_IS_BGEE) BEGIN
   LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
   ACTION_IF (slot <= 0) BEGIN
     FAIL ~No free creature animation slot found.~ // No free creature animation slot found.
