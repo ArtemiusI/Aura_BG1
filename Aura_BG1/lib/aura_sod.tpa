@@ -1,3 +1,5 @@
+COPY ~%MOD_FOLDER%/items/SoD~ ~override~
+
 // SCRIPTS
 
   EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~
@@ -72,7 +74,7 @@ COPY_EXISTING ~%MOD_FOLDER%/creatures/SoD/c02auto.cre~ ~override~
   WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
   WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
 
-COPY ~%MOD_FOLDER%/items/SoD/c0abomba.itm~ ~override~
+COPY_EXISTING ~c0abomba.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -95,7 +97,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0asvoid%~
 WRITE_LONG 0x34 2500
 
-COPY ~%MOD_FOLDER%/items/SoD/c02aucat.itm~ ~override~
+COPY_EXISTING ~c02aucat.itm~ ~override~
 SAY NAME1 ~Cat~
 SAY NAME2 ~"Koko-chan"~
 SAY DESC ~This small, grey cat is quite cute, yet it looks at you warily while you are within eyeshot. At the moment, it is contentedly taking a nap inside of Aura's backpack.
@@ -106,7 +108,7 @@ Weight: 0~
 OUTER_SET strref = RESOLVE_STR_REF (~The cat growls and hisses menacingly when you attempt to move it from its resting place.~ [FAMCAT01])
 APPEND item_use.2da ~c02aucat Aura %strref% 3~
 
-COPY ~%MOD_FOLDER%/items/SoD/c0auaro4.itm~ ~override~
+COPY_EXISTING ~c0auaro4.itm~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
@@ -140,7 +142,7 @@ Launcher: Bow
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro4%~
 
-COPY ~%MOD_FOLDER%/items/SoD/c02apotn.itm~ ~override~
+COPY_EXISTING ~c02apotn.itm~ ~override~
 SAY NAME1 ~Potion~
 SAY NAME2 ~Sleeping Potion~
 SAY DESC ~This phial contains a milky-white liquid with strong sedative properties. Even the scent of it is enough to make you feel drowsy. A few drops would be capable of putting any living creature to sleep.
@@ -149,7 +151,7 @@ STATISTICS:
 
 Weight: 0~
 
-COPY ~%MOD_FOLDER%/items/SoD/c02afish.itm~ ~override~
+COPY_EXISTING ~c02afish.itm~ ~override~
 SAY NAME1 ~Sardine~
 SAY NAME2 ~Sardine~
 SAY DESC ~Sardines, also known as pilchards, are small, oily fish that travel in large schools and feed on sea plankton. They are commonly consumed by both larger fish and mammals alike. Cats are known for being especially fond of sardines.
@@ -158,8 +160,8 @@ STATISTICS:
 
 Weight: 0~
 
-COPY ~%MOD_FOLDER%/items/SoD/c02aring.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/SoD/c02aring.itm~ ~override~
+COPY_EXISTING ~c02aring.spl~ ~override~
+COPY_EXISTING ~c02aring.itm~ ~override~
 SAY NAME1 ~Ring of Moon's Eye~
 SAY NAME2 ~Ring of Moon's Eye~
 SAY DESC ~This roughly crafted ring appears unremarkable at first glance aside from a small crescent-shaped carving on the inner side. When worn, the bearer's skin becomes faintly illuminated, as though bathed in moonlight.
@@ -172,7 +174,7 @@ Equipped abilities:
 
 Weight: 0~
 
-COPY ~%MOD_FOLDER%/items/SoD/c02asack.itm~ ~override~
+COPY_EXISTING ~c02asack.itm~ ~override~
 SAY NAME1 ~Bag~
 SAY NAME2 ~Bag of Seeds~
 SAY DESC ~This bag contains a small handful of fat, brown sunflower seeds.
@@ -181,7 +183,7 @@ STATISTICS:
 
 Weight: 1~
 
-COPY ~%MOD_FOLDER%/items/SoD/c02asunf.itm~ ~override~
+COPY_EXISTING ~c02asunf.itm~ ~override~
 SAY NAME1 ~Sunflowers~
 SAY NAME2 ~Sunflowers~
 SAY DESC ~These dried sunflowers are full of large seeds. They give off a pleasant aroma.

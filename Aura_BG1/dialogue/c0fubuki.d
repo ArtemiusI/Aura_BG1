@@ -23,7 +23,7 @@ CHAIN C0FUBUKI a1.2
 DO ~SetGlobal("C0AuraQuest","GLOBAL",2)
 AddJournalEntry(@10002,QUEST)
 Wait(1)
-DisplayString(Myself,@2000)
+DisplayString(Myself,%*hides in shadows*%)
 PlaySound("ACT_07")
 DestroySelf()~ EXIT
 
@@ -102,7 +102,7 @@ DO ~ChangeEnemyAlly(Myself,NEUTRAL) SetGlobal("C0AuraQuest","GLOBAL",5)~
 == C0FUBUKI ~There will be more. Remain alert, Konoe-sama. I will return to you once I have tracked down Tadahashi Saitō's location.~
 DO ~AddJournalEntry(@10003,QUEST)
 PlaySound("ACT_07")
-DisplayString(Myself,@2000)
+DisplayString(Myself,%*hides in shadows*%)
 DestroySelf()~
 == C0AURAJ ~I- I can't believe there were this many... I've put you in far too great of a danger, <CHARNAME>.~
 END
@@ -148,7 +148,7 @@ DO ~GiveItemCreate("c0ascrl1",Player1,1,0,0)~
 = ~Though you do not know me, <CHARNAME>-sama... I plead of you, aid her. She is the successor of Reika-sama's will... and for that, she must live. Farewell.~
 DO ~AddJournalEntry(@10007,QUEST)
 Wait(1)
-DisplayString(Myself,@2000)
+DisplayString(Myself,%*hides in shadows*%)
 PlaySound("ACT_07")
 DestroySelf()~ EXIT
 
@@ -168,7 +168,7 @@ DO ~GiveItemCreate("c0ascrl3","c0aura",1,0,0)~
 == C0AURAJ ~Thank you... arigato, Fubuki-san... for all of your help. I'm glad to know the sacred shrine will be in good hands.~
 == C0FUBUKI ~Farewell, Konoe-sama. May you find peace under the Way.~
 DO ~Wait(1)
-DisplayString(Myself,@2000)
+DisplayString(Myself,%*hides in shadows*%)
 PlaySound("ACT_07")
 DestroySelf()~ EXIT
 

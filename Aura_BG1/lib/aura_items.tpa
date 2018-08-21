@@ -73,8 +73,7 @@ Equipped abilities:
 
 Weight: 0~
 
-COPY_EXISTING ~ITEMSPEC.2da~ ~override~
-APPEND_FILE ~%MOD_FOLDER%/items/ITEMSPEC.txt~
+APPEND ~ITEMSPEC.2da~ ~C0AUIDEN  1~
 
 COPY ~%MOD_FOLDER%/spells/c0asaku.spl~ ~override~
       LPF ALTER_EFFECT

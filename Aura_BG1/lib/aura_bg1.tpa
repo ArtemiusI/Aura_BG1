@@ -136,7 +136,7 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 END
 
-COPY ~%MOD_FOLDER%/items/c0aule01.itm~ ~override~
+COPY_EXISTING ~c0aule01.itm~ ~override~
 SAY NAME1 ~Cherry-tinted Leather Armor~
 SAY NAME2 ~Cherry-tinted Leather Armor~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
@@ -154,7 +154,7 @@ Requires:
 
 Weight: 10~
 
-COPY ~%MOD_FOLDER%/items/c0aule02.itm~ ~override~
+COPY_EXISTING ~c0aule02.itm~ ~override~
 SAY NAME1 ~Cherry-tinted Leather Armor +3~
 SAY NAME2 ~Cherry-tinted Leather Armor +3~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
@@ -292,7 +292,7 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 END
 
-COPY ~%MOD_FOLDER%/items/c0auleMA.itm~ ~override/c0aule01.itm~
+COPY_EXISTING ~c0auleMA.itm~ ~override/c0aule01.itm~
 SAY NAME1 ~Cherry-tinted Leather Armor~
 SAY NAME2 ~Cherry-tinted Leather Armor~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
@@ -311,7 +311,7 @@ Requires:
 
 Weight: 10~
   
-COPY ~%MOD_FOLDER%/items/c02aulem.itm~ ~override/c0aule02.itm~
+COPY_EXISTING ~c02aulem.itm~ ~override/c0aule02.itm~
 SAY NAME1 ~Cherry-tinted Leather Armor +2~
 SAY NAME2 ~Cherry-tinted Leather Armor +2~
 SAY NAME2 ~Cherry-tinted Leather Armor +2~
@@ -322,9 +322,9 @@ Aura's custom-made leather armor is dyed a bright pinkish red color that is, acc
 STATISTICS:
 
 Equipped abilities:
-– Save vs. Breath Weapons: +3
-– Elemental Resistance: +20%
-– Spellcasting is not disabled
+â€“ Save vs. Breath Weapons: +3
+â€“ Elemental Resistance: +20%
+â€“ Spellcasting is not disabled
 
 Armor Class: 6 (8 vs. piercing and missile)
 Requires:
@@ -451,7 +451,7 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 END
 
-COPY ~%MOD_FOLDER%/items/c0aule01.itm~ ~override~
+COPY_EXISTING ~c0aule01.itm~ ~override~
 SAY NAME1 ~Cherry-tinted Leather Armor~
 SAY NAME2 ~Cherry-tinted Leather Armor~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
@@ -469,7 +469,7 @@ Requires:
 
 Weight: 10~
 
-COPY ~%MOD_FOLDER%/items/c0aule02.itm~ ~override~
+COPY_EXISTING ~c0aule02.itm~ ~override~
 SAY NAME1 ~Cherry-tinted Leather Armor +3~
 SAY NAME2 ~Cherry-tinted Leather Armor +3~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
@@ -492,7 +492,7 @@ END
 
 // JOURNAL
 
-ADD_JOURNAL TITLE (@10000) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 USING ~%MOD_FOLDER%/translations/english/setup.tra~
+ADD_JOURNAL TITLE (%Aura's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 USING ~%MOD_FOLDER%/translations/english/setup.tra~
 ADD_JOURNAL TITLE (@20000) @20001 @20002 USING ~%MOD_FOLDER%/translations/english/setup.tra~
 
 // DIALOGUE
@@ -564,7 +564,7 @@ END
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0aufade.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0ninja3.baf~
 
-COPY ~%MOD_FOLDER%/spells/c0aubear.spl~ ~override~
+COPY_EXISTING ~c0aubear.spl~ ~override~
 SAY NAME1 ~I Hate Bears!~
 SAY NAME2 ~I Hate Bears!~
 
