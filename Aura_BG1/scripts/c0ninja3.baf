@@ -1,4 +1,21 @@
 IF
+  StateCheck(Myself,STATE_HELPLESS)
+  Global("Helpless","LOCALS",0)
+THEN
+  RESPONSE #100
+  SetGlobal("Helpless","LOCALS",1)
+END
+
+IF
+  !StateCheck(Myself,STATE_HELPLESS)
+  Global("Helpless","LOCALS",1)
+THEN
+  RESPONSE #100
+  SetGlobal("Helpless","LOCALS",0)
+END
+
+IF
+  !Global("Helpless","LOCALS",1)
   Die()
 THEN
   RESPONSE #100

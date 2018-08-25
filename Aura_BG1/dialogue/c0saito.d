@@ -76,4 +76,5 @@ Enemy()
 ActionOverride("c0aukagu",Enemy())
 ActionOverride("c0auayak",Enemy())
 ActionOverride("c0aumizu",Enemy())
-ActionOverride("c0aukuon",Enemy())~ EXIT
+ActionOverride("c0aukuon",Enemy())
+SaveGame(0)~ EXIT

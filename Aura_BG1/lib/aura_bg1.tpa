@@ -135,44 +135,6 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 END
-
-COPY_EXISTING ~c0aule01.itm~ ~override~
-SAY NAME1 ~Cherry-tinted Leather Armor~
-SAY NAME2 ~Cherry-tinted Leather Armor~
-SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
-
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors.
-
-STATISTICS:
-
-Equipped abilities:
-- Save vs. Breath Weapons: +3
-
-Armor Class: 7 (9 vs. piercing and missile)
-Requires:
- 4 Strength
-
-Weight: 10~
-
-COPY_EXISTING ~c0aule02.itm~ ~override~
-SAY NAME1 ~Cherry-tinted Leather Armor +3~
-SAY NAME2 ~Cherry-tinted Leather Armor +3~
-SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
-
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors, as well as protect from the hazards of her experiments, such as extreme heat or cold, electrical shocks, and chemical burns.
-
-STATISTICS:
-
-Equipped abilities:
-- Save vs. Breath Weapons: +3
-- Elemental Resistance: +20%
-
-Armor Class: 5 (7 vs. piercing and missile)
-Requires:
- 4 Strength
-
-Weight: 10~
-
 END
 
 // ILLUSIONIST / ARTIFICER
@@ -292,7 +254,17 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 END
 
-COPY_EXISTING ~c0auleMA.itm~ ~override/c0aule01.itm~
+COPY_EXISTING ~c0aule01.itm~ ~override~
+  LPF DELETE_EFFECT
+    INT_VAR
+	  match_opcode = 145
+  END
+  LPF ALTER_EFFECT
+    INT_VAR
+	  match_opcode = 0
+	  match_parameter2 = 16
+	  parameter1 = 8
+  END
 SAY NAME1 ~Cherry-tinted Leather Armor~
 SAY NAME2 ~Cherry-tinted Leather Armor~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
@@ -311,9 +283,18 @@ Requires:
 
 Weight: 10~
   
-COPY_EXISTING ~c02aulem.itm~ ~override/c0aule02.itm~
+COPY_EXISTING ~c0aule02.itm~ ~override~
+  LPF DELETE_EFFECT
+    INT_VAR
+	  match_opcode = 145
+  END
+  LPF ALTER_EFFECT
+    INT_VAR
+	  match_opcode = 0
+	  match_parameter2 = 16
+	  parameter1 = 6
+  END
 SAY NAME1 ~Cherry-tinted Leather Armor +2~
-SAY NAME2 ~Cherry-tinted Leather Armor +2~
 SAY NAME2 ~Cherry-tinted Leather Armor +2~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
 
@@ -331,7 +312,6 @@ Requires:
  4 Strength
 
 Weight: 10~
-
 END
 
 // PRIESTESS / ARTIFICER
@@ -450,44 +430,6 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 END
-
-COPY_EXISTING ~c0aule01.itm~ ~override~
-SAY NAME1 ~Cherry-tinted Leather Armor~
-SAY NAME2 ~Cherry-tinted Leather Armor~
-SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
-
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors.
-
-STATISTICS:
-
-Equipped abilities:
-- Save vs. Breath Weapons: +3
-
-Armor Class: 7 (9 vs. piercing and missile)
-Requires:
- 4 Strength
-
-Weight: 10~
-
-COPY_EXISTING ~c0aule02.itm~ ~override~
-SAY NAME1 ~Cherry-tinted Leather Armor +3~
-SAY NAME2 ~Cherry-tinted Leather Armor +3~
-SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
-
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors, as well as protect from the hazards of her experiments, such as extreme heat or cold, electrical shocks, and chemical burns.
-
-STATISTICS:
-
-Equipped abilities:
-- Save vs. Breath Weapons: +3
-- Elemental Resistance: +20%
-
-Armor Class: 5 (7 vs. piercing and missile)
-Requires:
- 4 Strength
-
-Weight: 10~
-
 END
 
 // JOURNAL
