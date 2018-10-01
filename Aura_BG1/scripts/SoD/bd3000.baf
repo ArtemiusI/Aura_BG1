@@ -8,6 +8,28 @@ END
 
 IF
   Global("C0AuraMoveCamp","BD3000",0)
+  Global("C02AuraBegin","GLOBAL",0)
+  !Dead("C0Aura")
+  !InPartyAllowDead("C0Aura")
+THEN
+  RESPONSE #100
+    SetGlobal("C0AuraMoveCamp","BD3000",1)
+	SetGlobal("C02AuraBegin","GLOBAL",2)
+    CreateCreature("C02Aura",[1301.1635],SW)
+    ReallyForceSpellDeadRES("BDREJUVE","C0Aura")
+    ChangeEnemyAlly("C0Aura",NEUTRAL)
+    ChangeSpecifics("C0Aura",ALLIES)
+    ActionOverride("C0Aura",SetGlobal("bd_joined","LOCALS",0))
+    ActionOverride("C0Aura",SetGlobal("bd_retreat","LOCALS",0))
+    ActionOverride("C0Aura",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("C0Aura",ChangeAIScript("C02Aura",OVERRIDE))
+    ActionOverride("C0Aura",ChangeAIScript("BDTHIE01",GENERAL))
+    Continue()
+END
+
+IF
+  Global("C0AuraMoveCamp","BD3000",0)
+  !Global("C02AuraBegin","GLOBAL",0)
   !Dead("C0Aura")
   !InPartyAllowDead("C0Aura")
 THEN

@@ -30,6 +30,7 @@ THEN
 	DisplayStringHead("c0akoko",~*meow*~)
 	Wait(4)
 	CreateCreature("C02Aura",[2550.1683],W)
+	ActionOverride("C0Aura",MakeGlobal())
 	ActionOverride("C0Aura",MoveToPoint([2480.1697]))
 	Wait(4)
 	DisplayStringHead("C0Aura",~Great. First crusaders, now orcs... *sigh*~)

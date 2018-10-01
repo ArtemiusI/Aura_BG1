@@ -1386,6 +1386,11 @@ SAY DESC ~This katana was designed by Aura for her former friend, Tadahashi Sait
 Weight: 4~
 
 COPY ~%MOD_FOLDER%/items/c0ausw01.itm~ ~override~
+LPF ALTER_EFFECT
+	INT_VAR
+	match_opcode = 139
+	parameter1 = RESOLVE_STR_REF (~Disarmed~)
+END
 SAY NAME1 ~Katana~
 SAY NAME2 ~Blade of Howling Souls +2~
 SAY UNIDENTIFIED_DESC ~The katana is a single-edged, slightly curved sword that ends with a chisel point. The katana is perhaps one of the finest swords ever made, the steps to its creation a long and secret process that is more art form than anything else. This blade is an important facet of Kara-Turan culture. To touch or wield a samurai's katana is to insult the samurai and to incite his wrath. For a gaijin, or foreigner, to own such a blade is a rare occurrence. Either the gaijin is a greatly honored friend of an important minister, or the gaijin has murdered a samurai.
@@ -1465,6 +1470,48 @@ Proficiency Type: Scimitar/Wakizashi/Ninja-to
 Type: One-handed
 Requires:
  5 Strength
+
+Weight: 2~
+
+COPY ~%MOD_FOLDER%/items/c0ausw03.spl~ ~override~
+LPF ALTER_EFFECT
+	INT_VAR
+	match_opcode = 139
+	parameter1 = RESOLVE_STR_REF (~Bleeding~)
+END
+COPY ~%MOD_FOLDER%/items/c0ausw03.itm~ ~override~
+SAY NAME1 ~Ninja-to~
+SAY NAME2 ~Death's Razor +2~
+SAY UNIDENTIFIED_DESC ~The sword of the ninja, the ninjato, is of lower quality than other Kara-Turan blades such as the katana. The ninjato is short with a straight blade, making it ideal for subterfuge. The ninjato is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
+
+STATISTICS:
+
+Damage: 1d8 (slashing)
+Speed Factor: 4
+Proficiency Type: Scimitar/Wakizashi/Ninjato
+Type: One-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+SAY DESC ~While the outward trappings of this finely made bluesteel blade appear plain, its edge is sharp enough to cleave metal despite being as thin and delicate as parchment, to the point that one could almost see it as translucent. The blade of the ninja-to is unblemished, appearing wholly new despite the rather worn appearance of its handle and sheath. Whether from its exotic design or its thinness, the blade is lightweight and almost seems to move freely of its own will, dancing in one's hand while penetrating even the sturdiest of defenses with lethal strikes that often leave deep, lacerating cuts that bleed out, making it a perfect assassin's tool. Such a useful weapon requires a careful hand, however, as clumsy wielders may find the weapon more dangerous to themselves than their intended victims.
+
+The name 'Musou' is engraved in tiny, barely noticeable letters in the Kozakuran language on the hand guard. Whether it is the name of the weapon's creator or some form of code, you do not know.
+
+STATISTICS:
+
+Combat abilities:
+– Critical Hit Chance: +10%
+– Upon inflicting a critical hit with this weapon, the target bleeds for two points of piercing damage per round for six rounds (no save).
+
+THAC0: +4
+Damage: 1d8+2 (slashing)
+Speed Factor: 1
+Proficiency Type: Scimitar/Wakizashi/Ninjato
+Type: One-handed
+Requires:
+ 4 Strength
+ 16 Dexterity
 
 Weight: 2~
 /*

@@ -15,8 +15,8 @@ END
 ++ ~So you're the one who's been trying to kill us.~ + saito.1
 
 CHAIN C0SAITO saito.1
-~I have learned enough of you to recognize you as a worthy threat. But I have no quarrel with you, gaijin, for the matters of this land are nothing to me.~
-= ~Konoe chose to meet me here so that you would not be harmed. For your own sake, I hope you will value your own life and step aside. The feud between Konoe and I does not concern you.~
+~I have learned enough of you to recognize you as a worthy threat. Though normally the affairs of gaijin are of no concern of mine, several of my followers have fallen by your hands, and such an offense is not easily forgiven.~
+= ~However... Konoe chose to meet me here alone so that you would not be harmed, and my honor demands that I stay my blade... so long as you do not give me cause to draw it. For your own sake, I hope you will value your own life and step aside. The feud between Konoe and I does not concern you.~
 END
 ++ ~You threatened Aura. That's enough to make this concern me.~ + saito.2
 ++ ~Empty words, after the assassins you sent.~ + saito.2

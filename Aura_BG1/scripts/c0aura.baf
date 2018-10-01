@@ -521,11 +521,25 @@ IF
 	AreaCheck("AR1100")
 	AreaCheck("AR1200")
 	AreaCheck("AR1300")
+	Switch("C0AuraAttacked","GLOBAL")
+	Delay(1)
 THEN
-  RESPONSE #100
+  RESPONSE #1
 	IncrementGlobal("C0AuraAttacked","GLOBAL",1)
 	SetGlobalTimer("C0AuraAttackedTimer","GLOBAL",EIGHT_HOURS)
 	CreateCreatureObjectOffset("c0ninja3","C0Aura",[100.100])
+	CreateCreatureObjectOffset("c0ninja","C0Aura",[100.100])
+	CreateCreatureObjectOffset("c0ninja","C0Aura",[100.100])
+  RESPONSE #2
+	IncrementGlobal("C0AuraAttacked","GLOBAL",1)
+	SetGlobalTimer("C0AuraAttackedTimer","GLOBAL",EIGHT_HOURS)
+	CreateCreatureObjectOffset("c0ninja4","C0Aura",[100.100])
+	CreateCreatureObjectOffset("c0ninja","C0Aura",[100.100])
+	CreateCreatureObjectOffset("c0ninja","C0Aura",[100.100])
+  RESPONSE #3
+	IncrementGlobal("C0AuraAttacked","GLOBAL",1)
+	SetGlobalTimer("C0AuraAttackedTimer","GLOBAL",EIGHT_HOURS)
+	CreateCreatureObjectOffset("c0ninja5","C0Aura",[100.100])
 	CreateCreatureObjectOffset("c0ninja","C0Aura",[100.100])
 	CreateCreatureObjectOffset("c0ninja","C0Aura",[100.100])
 END
@@ -535,7 +549,7 @@ IF
 	InMyArea(Player1)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
-	Global("C0AuraEliteNinjaKilled","GLOBAL",1)
+	Dead("c0ninja3")
 	Global("C0AuraEliteNinjaEntry1","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -548,7 +562,7 @@ IF
 	InMyArea(Player1)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
-	Global("C0AuraEliteNinjaKilled","GLOBAL",2)
+	Dead("c0ninja4")
 	Global("C0AuraEliteNinjaEntry2","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -561,7 +575,7 @@ IF
 	InMyArea(Player1)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
-	Global("C0AuraEliteNinjaKilled","GLOBAL",3)
+	Dead("c0ninja5")
 	Global("C0AuraEliteNinjaEntry3","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -575,7 +589,7 @@ IF
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	CombatCounter(0)
-	GlobalGT("C0AuraEliteNinjaKilled","GLOBAL",2)
+	Dead("c0ninja5")
 	Global("C0AuraQuestLeave","GLOBAL",0)
 THEN
   RESPONSE #100

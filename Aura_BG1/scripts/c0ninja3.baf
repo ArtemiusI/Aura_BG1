@@ -1,4 +1,11 @@
 IF
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+	MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
   StateCheck(Myself,STATE_HELPLESS)
   Global("Helpless","LOCALS",0)
 THEN
@@ -19,7 +26,6 @@ IF
   Die()
 THEN
   RESPONSE #100
-	IncrementGlobal("C0AuraEliteNinjaKilled","GLOBAL",1)
 	DisplayString(Myself,~*drops potion of explosion*~)
 	Wait(2)
     ReallyForceSpellDead(Myself,TRAP_FIREBALL)

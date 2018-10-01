@@ -333,6 +333,12 @@ IF
     !StateCheck("C0Aura",STATE_CONFUSED)
 	!Range("C0Aura",20)
 THEN
-  RESPONSE #100
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[20.20])
+  RESPONSE #25
 	MoveToObjectOffset("C0Aura",[20.-20])
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[-20.20])
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[-20.-20])
 END
