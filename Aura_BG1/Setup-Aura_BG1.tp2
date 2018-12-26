@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~Artemius_I~
-VERSION ~1.9~
+VERSION ~1.8~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
@@ -28,11 +28,12 @@ PRINT ~Please choose one of the following:
 [1] BG1 Default by Lava Del'Vortel
 [2] BG2 Default by Artemius_I
 [3] Alternate 1 by Omar Diaz
-[4] Alternate 2 by Pantalion~
+[4] Alternate 2 by Pantalion
+[5] Alternate 3 (edited NWN)~
 
 OUTER_SPRINT ~portrait~ ~placeholder_value~
 OUTER_WHILE (!(IS_AN_INT ~portrait~) OR (~portrait~ > 0x5) OR (~portrait~ < 0x1)) BEGIN
-  PRINT ~Please select 1, 2, 3 or 4 and press Enter.~
+  PRINT ~Please select 1, 2, 3, 4 or 5 and press Enter.~
   ACTION_READLN ~portrait~
 END
       ACTION_IF ("portrait" = 1) THEN BEGIN
@@ -58,4 +59,9 @@ END
 		COPY ~%MOD_FOLDER%/alt-portrait/Aura2M.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/Aura2S.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Alternate 2 by Pantalion~
+      ACTION_IF ("portrait" = 5) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/Aura4L.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/Aura4M.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/Aura4S.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Alternate 3 (edited NWN)~
 	  END
