@@ -53,12 +53,12 @@ Requires:
 
 Weight: 10~
 
-COPY ~%MOD_FOLDER%/items/c0abadge.itm~ ~override~
+COPY_EXISTING ~c0abadge.itm~ ~override~
 SAY NAME1 ~Glimmershine Family Insignia~
 SAY NAME2 ~Glimmershine Family Insignia~
 SAY DESC ~This brass insignia is small enough to fit inside of your palm. Engraved upon it is the image of a vaguely sunflower-shaped emblem and letters of a strange language you can't understand. Along the edges are carved the words "Aurelia M. Glimmershine".~
 
-COPY ~%MOD_FOLDER%/items/c0amaga1.itm~ ~override~
+COPY_EXISTING ~c0amaga1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -95,7 +95,7 @@ Weight: 0~
 OUTER_SET strref = RESOLVE_STR_REF (~Aura bats your hand away with the hint of a frown on her face. "Hey, hands off!"~ [GAM_47])
 APPEND item_use.2da ~c0amaga1 Aura %strref% 3~
 
-COPY ~%MOD_FOLDER%/items/c0amaga2.itm~ ~override~
+COPY_EXISTING ~c0amaga2.itm~ ~override~
 SAY NAME1 ~Amulet~
 SAY NAME2 ~<CHARNAME>'s Magatama~
 SAY DESC ~This mysterious, curved stone is called a 'magatama'. Though you have never seen anything like it before, it is apparently a fairly common decorative design in its place of origin, Kara-Tur. These jewels are sometimes blessed by priestesses of the Way and carried as protective talismans against chaotic and malevolent spirits.
@@ -112,7 +112,7 @@ Weight: 0~
 
 APPEND ~ITEMSPEC.2da~ ~C0AUIDEN  1~
 
-COPY ~%MOD_FOLDER%/spells/c0asaku.spl~ ~override~
+COPY_EXISTING ~c0asaku.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
@@ -124,14 +124,14 @@ COPY ~%MOD_FOLDER%/spells/c0asaku.spl~ ~override~
 SAY NAME1 ~Amaterasu~
 SAY NAME2 ~Amaterasu~
 
-COPY ~%MOD_FOLDER%/items/c0auide2.spl~ ~override~
+COPY_EXISTING ~c0auide2.spl~ ~override~
 READ_LONG 0x64 "abil_off"
 READ_SHORT 0x68 "abil_num"
 SET "delta" = 0
 FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0aarea1%~
 END
-COPY ~%MOD_FOLDER%/items/c0auiden.spl~ ~override~
+COPY_EXISTING ~c0auiden.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
@@ -141,7 +141,7 @@ COPY ~%MOD_FOLDER%/items/c0auiden.spl~ ~override~
         parameter2        = (icon - 2)
       END
 SAY NAME1 ~Reveal Magic~
-COPY ~%MOD_FOLDER%/items/c0auiden.itm~ ~override~
+COPY_EXISTING ~c0auiden.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -169,7 +169,7 @@ Equipped abilities:
 – Protection from gaze attacks
 – Immunity to blindness~
 
-COPY ~%MOD_FOLDER%/items/c0muffy.itm~ ~override~
+COPY_EXISTING ~c0muffy.itm~ ~override~
 SAY NAME1 ~Muffy the Clockwork Squirrel~
 SAY NAME2 ~Muffy the Clockwork Squirrel~
 SAY DESC ~Muffy is a strange machine made of metal and clockwork that serves as Aura's pet. It has a strange degree of sentience, understanding human speech and exhibiting behaviour just like a real, living squirrel, to the point where its state as an animated construct is debatable. Aura claims to have crafted Muffy herself, though how she gave it life is a secret she keeps to herself.
@@ -183,10 +183,10 @@ Weight: 0~
 OUTER_SET strref = RESOLVE_STR_REF (~Muffy scurries away in fear of you, its contents clattering as it runs. "Hey, get back here!" Aura sighs. "Hope he hasn't broken anything this time..."~ [GAM_48])
 APPEND item_use.2da ~c0muffy Aura %strref% 3~
 
-COPY ~%MOD_FOLDER%/items/c0muffy.sto~ ~override~
+COPY_EXISTING ~c0muffy.sto~ ~override~
 SAY 0xc ~Muffy~
 
-COPY ~%MOD_FOLDER%/items/c0aubook.itm~ ~override~
+COPY_EXISTING ~c0aubook.itm~ ~override~
 SAY NAME1 ~Aura's Rune Book~
 SAY NAME2 ~Aura's Rune Book~
 SAY DESC ~This large metal-bound book is designed to hold runes and scrolls of all kind and protect them from all sorts of natural and magical hazards.
@@ -196,10 +196,10 @@ STATISTICS:
 Capacity: 100
 Weight: 0~
 
-COPY ~%MOD_FOLDER%/items/c0aubook.sto~ ~override~
+COPY_EXISTING ~c0aubook.sto~ ~override~
 SAY 0xc ~Aura's Rune Book~
 /*
-COPY ~%MOD_FOLDER%/items/c0axbow1.itm~ ~override~
+COPY_EXISTING ~c0axbow1.itm~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
@@ -233,7 +233,7 @@ Requires:
 Weight: 20~
 WRITE_SHORT 0x9C ~%c0athund%~
 */
-COPY ~%MOD_FOLDER%/items/c0aubow.spl~ ~override~
+COPY_EXISTING ~c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
 SAY NAME2 ~Create Sunshooter Arrows~
 COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow2.spl~
@@ -340,7 +340,7 @@ C0AUBO5B    %sunshooter%    C0AUBOW
 C0AUBO5C    %sunshooter%    C0AUBOW~
 
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/C0AUBOW.d~
-COPY ~%MOD_FOLDER%/items/c0aubo1a.itm~ ~override~
+COPY_EXISTING ~c0aubo1a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -376,7 +376,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo1b.itm~ ~override~
+COPY_EXISTING ~c0aubo1b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -412,7 +412,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo2a.itm~ ~override~
+COPY_EXISTING ~c0aubo2a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -448,7 +448,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo2b.itm~ ~override~
+COPY_EXISTING ~c0aubo2b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -484,7 +484,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo2c.itm~ ~override~
+COPY_EXISTING ~c0aubo2c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -521,7 +521,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo3a.itm~ ~override~
+COPY_EXISTING ~c0aubo3a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -557,7 +557,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo3b.itm~ ~override~
+COPY_EXISTING ~c0aubo3b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -593,7 +593,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo3c.itm~ ~override~
+COPY_EXISTING ~c0aubo3c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -630,7 +630,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo4a.itm~ ~override~
+COPY_EXISTING ~c0aubo4a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -666,7 +666,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo4b.itm~ ~override~
+COPY_EXISTING ~c0aubo4b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -702,7 +702,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo4c.itm~ ~override~
+COPY_EXISTING ~c0aubo4c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -738,7 +738,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo5a.itm~ ~override~
+COPY_EXISTING ~c0aubo5a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -774,7 +774,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo5b.itm~ ~override~
+COPY_EXISTING ~c0aubo5b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -810,7 +810,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0aubo5c.itm~ ~override~
+COPY_EXISTING ~c0aubo5c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -846,7 +846,7 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0auarow.itm~ ~override~
+COPY_EXISTING ~c0auarow.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -873,7 +873,7 @@ Launcher: Bow
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro1%~
 
-COPY ~%MOD_FOLDER%/items/c0auaro2.itm~ ~override~
+COPY_EXISTING ~c0auaro2.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -900,7 +900,7 @@ Launcher: Bow
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro2%~
 
-COPY ~%MOD_FOLDER%/items/c0auaro3.itm~ ~override~
+COPY_EXISTING ~c0auaro3.itm~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
@@ -909,7 +909,7 @@ COPY ~%MOD_FOLDER%/items/c0auaro3.itm~ ~override~
       match_parameter1 = 0
  parameter1 = RESOLVE_STR_REF (~Paralyzed~)
 END
-COPY ~%MOD_FOLDER%/items/c0auaro3.itm~ ~override~
+COPY_EXISTING ~c0auaro3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -937,7 +937,7 @@ Launcher: Bow
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro3%~
 
-COPY ~%MOD_FOLDER%/items/c0autt01.itm~ ~override~
+COPY_EXISTING ~c0autt01.itm~ ~override~
 SAY NAME1 ~Burst Orb~
 SAY NAME2 ~Burst Orb~
 SAY DESC ~This shimmering glass orb, roughly the size of a clenched fist, crackles with electricity.
@@ -956,7 +956,7 @@ Requires:
 Weight: 1~
 WRITE_SHORT 0x9C ~%c0aburst%~
 
-COPY ~%MOD_FOLDER%/items/c0agem1.itm~ ~override~
+COPY_EXISTING ~c0agem1.itm~ ~override~
 SAY NAME1 ~Ice Crystal~
 SAY NAME2 ~Ice Crystal~
 SAY DESC ~This crystal initially appears to be a normal shard of ice, though it does not melt even when held in hand. It seems to almost hum with latent magical energy.
@@ -971,7 +971,7 @@ COPY_EXISTING ~dezkie.cre~ ~override/dezkie.cre~
 	END
 BUT_ONLY_IF_IT_CHANGES
 
-COPY ~%MOD_FOLDER%/items/c0autt02.spl~ ~override~
+COPY_EXISTING ~c0autt02.spl~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
@@ -979,7 +979,7 @@ COPY ~%MOD_FOLDER%/items/c0autt02.spl~ ~override~
       match_opcode = 139 // display string
 	  parameter1 = RESOLVE_STR_REF (~Shattered~)
   END
-COPY ~%MOD_FOLDER%/items/c0freeze.spl~ ~override~
+COPY_EXISTING ~c0freeze.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
@@ -995,7 +995,7 @@ COPY ~%MOD_FOLDER%/items/c0freeze.spl~ ~override~
       match_opcode = 139 // display string
 	  parameter1 = RESOLVE_STR_REF (~Frozen~)
   END
-COPY ~%MOD_FOLDER%/items/c0autt02.itm~ ~override~
+COPY_EXISTING ~c0autt02.itm~ ~override~
 SAY NAME1 ~Cryonics Rod~
 SAY NAME2 ~Cryonics Rod~
 SAY DESC ~This thin metallic rod contains an essence of ice, a crystal developed in the Para-Elemental Plane of Ice which somehow found its way into the Prime Material Plane. Aura used the crystal as a power source for this rod, which focuses its energy into a weaponized beam of cold capable of freezing its targets solid.
@@ -1015,7 +1015,7 @@ Requires:
   
 Weight: 1~
 
-COPY ~%MOD_FOLDER%/items/c0autt03.itm~ ~override~
+COPY_EXISTING ~c0autt03.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1042,7 +1042,7 @@ Equipped abilities:
 
 Weight: 0~
 
-COPY ~%MOD_FOLDER%/items/c0autt04.itm~ ~override~
+COPY_EXISTING ~c0autt04.itm~ ~override~
 SAY NAME1 ~Aura's Invisibility Device~
 SAY NAME2 ~Aura's Invisibility Device~
 SAY DESC ~This unusual looking metal device appears to function like a wand, except that it is activated through the push of a button rather than a command word, allowing anyone to use it with ease. When activated, it releases a shimmering sphere of light which envelops the user and <PRO_HISHER> allies, turning them invisible. It has apparently seen frequent use, as Aura claimed to have used it to evade bandits during her travels.
@@ -1057,7 +1057,7 @@ Charge abilities:
  
 Weight: 1~
 
-COPY ~%MOD_FOLDER%/items/c0bandol.itm~ ~override~
+COPY_EXISTING ~c0bandol.itm~ ~override~
 SAY NAME1 ~Bandolier~
 SAY NAME2 ~Bandolier~
 SAY DESC ~This bandolier was designed by Aura to safely carry firebombs and explosives of all kinds.
@@ -1068,10 +1068,10 @@ Capacity: 100
 
 Weight: 0~
 
-COPY ~%MOD_FOLDER%/items/c0bandol.sto~ ~override~
+COPY_EXISTING ~c0bandol.sto~ ~override~
 SAY 0xc ~Bandolier~
 
-COPY ~%MOD_FOLDER%/items/c0abomb1.itm~ ~override~
+COPY_EXISTING ~c0abomb1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1096,7 +1096,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj2%~
 WRITE_LONG 0x34 250
 
-COPY ~%MOD_FOLDER%/items/c0abomb2.itm~ ~override~
+COPY_EXISTING ~c0abomb2.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1119,7 +1119,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj3%~
 WRITE_LONG 0x34 750
 
-COPY ~%MOD_FOLDER%/items/c0abomb3.itm~ ~override~
+COPY_EXISTING ~c0abomb3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1142,7 +1142,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj4%~
 WRITE_LONG 0x34 750
 
-COPY ~%MOD_FOLDER%/items/c0abomb4.itm~ ~override~
+COPY_EXISTING ~c0abomb4.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1165,7 +1165,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj5%~
 WRITE_LONG 0x34 1000
 
-COPY ~%MOD_FOLDER%/items/c0abomb5.itm~ ~override~
+COPY_EXISTING ~c0abomb5.itm~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
@@ -1195,7 +1195,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj6%~
 WRITE_LONG 0x34 1200
 
-COPY ~%MOD_FOLDER%/items/c0abomb6.itm~ ~override~
+COPY_EXISTING ~c0abomb6.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1218,7 +1218,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj7%~
 WRITE_LONG 0x34 1500
 
-COPY ~%MOD_FOLDER%/items/c0abomb7.itm~ ~override~
+COPY_EXISTING ~c0abomb7.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1241,7 +1241,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj8%~
 WRITE_LONG 0x34 2500
 
-COPY ~%MOD_FOLDER%/items/c0aburn.spl~ ~override~
+COPY_EXISTING ~c0aburn.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
@@ -1257,7 +1257,7 @@ COPY ~%MOD_FOLDER%/items/c0aburn.spl~ ~override~
       match_opcode = 139 // display string
 	  parameter1 = RESOLVE_STR_REF (~Burning~)
   END
-COPY ~%MOD_FOLDER%/items/c0abomb8.itm~ ~override~
+COPY_EXISTING ~c0abomb8.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1280,7 +1280,7 @@ Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj9%~
 WRITE_LONG 0x34 3500
 
-COPY ~%MOD_FOLDER%/items/c0abomb9.itm~ ~override~
+COPY_EXISTING ~c0abomb9.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1329,8 +1329,8 @@ SAY NAME1 ~Scroll~
 SAY NAME2 ~Fubuki's Records~
 SAY UNIDENTIFIED_DESC ~This heavy scroll's contents are written entirely in Kara-Turan. According to Aura, they contain several years' worth of Fubuki's gathered records and information on past events involving Tadahashi Saito's war against the holy temples of Kozakura.~
 
-COPY ~%MOD_FOLDER%/items/c0amask1.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/c0amask1.itm~ ~override~
+COPY_EXISTING ~c0amask1.spl~ ~override~
+COPY_EXISTING ~c0amask1.itm~ ~override~
 SAY NAME1 ~Oni Mask~
 SAY NAME2 ~Oni Mask~
 SAY DESC ~This ceramic mask is a depiction of an oni, a terrifying demonic spirit from Kozakura. Its mere appearance is capable of instilling dread within those who look upon it.
@@ -1345,8 +1345,8 @@ Equipped abilities:
 
 Weight: 1~
 
-COPY ~%MOD_FOLDER%/items/c0aclub1.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/c0aclub1.itm~ ~override~
+COPY_EXISTING ~c0aclub1.spl~ ~override~
+COPY_EXISTING ~c0aclub1.itm~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
@@ -1378,14 +1378,14 @@ Requires:
 
 Weight: 3~
 
-COPY ~%MOD_FOLDER%/items/c0auswfa.itm~ ~override~
+COPY_EXISTING ~c0auswfa.itm~ ~override~
 SAY NAME1 ~Katana~
 SAY NAME2 ~Masterwork Katana~
 SAY DESC ~This katana was designed by Aura for her former friend, Tadahashi Saito, an exiled Kozakuran samurai. With the samurai slain, what Aura intends to do with the sword is unknown.
 
 Weight: 4~
 
-COPY ~%MOD_FOLDER%/items/c0ausw01.itm~ ~override~
+COPY_EXISTING ~c0ausw01.itm~ ~override~
 LPF ALTER_EFFECT
 	INT_VAR
 	match_opcode = 139
@@ -1435,7 +1435,7 @@ Weight: 4~
 SAY 0x1D6 ~Disarmed~
 SAY 0x206 ~Disarmed~
 
-COPY ~%MOD_FOLDER%/items/c0ausw02.itm~ ~override~
+COPY_EXISTING ~c0ausw02.itm~ ~override~
 SAY NAME1 ~Wakizashi~
 SAY NAME2 ~Jin'u +1~
 SAY UNIDENTIFIED_DESC ~The wakizashi, or companion sword, is extremely important to samurai. It is worn at all times, even indoors, and is near the samurai when he sleeps at night. As finely made as the katana, the wakizashi, a shorter sword with a length between twelve and twenty-four inches, is a dangerous weapon in the hands of a skilled user.
@@ -1473,13 +1473,13 @@ Requires:
 
 Weight: 2~
 
-COPY ~%MOD_FOLDER%/items/c0ausw03.spl~ ~override~
+COPY_EXISTING ~c0ausw03.spl~ ~override~
 LPF ALTER_EFFECT
 	INT_VAR
 	match_opcode = 139
 	parameter1 = RESOLVE_STR_REF (~Bleeding~)
 END
-COPY ~%MOD_FOLDER%/items/c0ausw03.itm~ ~override~
+COPY_EXISTING ~c0ausw03.itm~ ~override~
 SAY NAME1 ~Ninja-to~
 SAY NAME2 ~Death's Razor +2~
 SAY UNIDENTIFIED_DESC ~The sword of the ninja, the ninjato, is of lower quality than other Kara-Turan blades such as the katana. The ninjato is short with a straight blade, making it ideal for subterfuge. The ninjato is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
@@ -1515,10 +1515,10 @@ Requires:
 
 Weight: 2~
 /*
-COPY ~%MOD_FOLDER%/items/c0akat01.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/c0akat02.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/c0akat03.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/c0ausw03.spl~ ~override~
+COPY_EXISTING ~c0akat01.spl~ ~override~
+COPY_EXISTING ~c0akat02.spl~ ~override~
+COPY_EXISTING ~c0akat03.spl~ ~override~
+COPY_EXISTING ~c0ausw03.spl~ ~override~
   LPF ADD_SPELL_EFFECT
     INT_VAR
       check_globals = 1
@@ -1529,7 +1529,7 @@ COPY ~%MOD_FOLDER%/items/c0ausw03.spl~ ~override~
 	  savingthrow = 4
 	  savebonus = %-2%
   END
-COPY ~%MOD_FOLDER%/items/c0ausw03.itm~ ~override~
+COPY_EXISTING ~c0ausw03.itm~ ~override~
 SAY NAME1 ~Katana~
 SAY NAME2 ~Han'men-Akatsuki +5~
 SAY DESC ~This flawless katana is the epitome of Kara-Turan swordsmithing. Forged out of a sheet of pure, red-colored steel folded upon itself a million times, its fine balance and a razor-sharp edge that never fades makes it a truly unparalleled weapon among its kind. The wielder of this katana can almost feel guided by its natural motions, guiding the blade as it weaves and flows, striking lethal blows over and over again.
@@ -1557,7 +1557,7 @@ Requires:
 
 Weight: 4~
 */
-COPY ~%MOD_FOLDER%/items/c0auim01.itm~ ~override~
+COPY_EXISTING ~c0auim01.itm~ ~override~
 SAY NAME1 ~Two-handed Sword~
 SAY NAME2 ~Two-handed Sword, Cursed Berserking +3~
 SAY DESC ~This is a cursed sword which performs perfectly under every test, save the heat of battle. Upon entering combat, the wielder will immediately go berserk, killing everything within reach until either calming down or falling unconscious. A very powerful sword, but one must decide whether or not it is worth the risk. Even once the battle fury has ended, this sword can only be removed via an exorcism using a Remove Curse spell.
@@ -1580,7 +1580,7 @@ Requires:
 
 Weight: 15~
 
-COPY ~%MOD_FOLDER%/items/c0auim02.itm~ ~override~
+COPY_EXISTING ~c0auim02.itm~ ~override~
 SAY NAME1 ~Longbow~
 SAY NAME2 ~The Killing Shot +3~
 SAY DESC ~Longbow of Marksmanship: The Killing Shot
@@ -1605,7 +1605,7 @@ Requires:
 
 Weight: 8~
 
-COPY ~%MOD_FOLDER%/items/c0auim03.itm~ ~override~
+COPY_EXISTING ~c0auim03.itm~ ~override~
 SAY NAME1 ~Quarterstaff~
 SAY NAME2 ~Silver Staff Mace +2~
 SAY DESC ~This weapon appears to be a normal large walking staff, but it has a faint aura of alteration magic. Uttering the command word causes the staff to assume the attributes of a mace, allowing it to be wielded with one hand. This was likely designed for Clerics or Druids, though that does not preclude use by most others.
@@ -1625,7 +1625,7 @@ Requires:
 
 Weight: 5~
 
-COPY ~%MOD_FOLDER%/items/c0auim04.itm~ ~override~
+COPY_EXISTING ~c0auim04.itm~ ~override~
 SAY NAME1 ~Idol~
 SAY NAME2 ~Idol of Kozah~
 SAY DESC ~This idol depicts Kozah the Stormstar, a long-extinct god who was venerated and feared among the less-powerful strata of ancient Netherese society. Worship of this god of storms, earthquakes, strife, and rebellion was outlawed by many of the civilization's powerful archwizards. Many Kozahyn shrines and temples were therefore built in secretive, underground locations where the devout were better able to escape detection.
@@ -1647,7 +1647,7 @@ Equipped abilities:
 
 Weight: 1~
 
-COPY ~%MOD_FOLDER%/items/c0auim05.itm~ ~override~
+COPY_EXISTING ~c0auim05.itm~ ~override~
 SAY NAME1 ~Quarterstaff~
 SAY NAME2 ~The Ossifier~
 SAY DESC ~Cursed Staff of Petrification: The Ossifier
@@ -1674,8 +1674,8 @@ Requires:
 
 Weight: 4~
 
-COPY ~%MOD_FOLDER%/items/c0auim06.spl~ ~override~
-COPY ~%MOD_FOLDER%/items/c0auim06.itm~ ~override~
+COPY_EXISTING ~c0auim06.spl~ ~override~
+COPY_EXISTING ~c0auim06.itm~ ~override~
 SAY NAME1 ~Two-handed Sword~
 SAY NAME2 ~Gold Miner +3~
 SAY DESC ~Crafted by dwarves in service to the temple of Waukeen in Amn, this two-handed sword draws power from the gold in its wielder's purse. For the wealthy it strikes mighty blows. For the impoverished, the Gold Digger is no better than a mundane greatsword.
