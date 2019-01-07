@@ -521,6 +521,10 @@ APPEND ~interdia.2da~
 ~C0Aura       BC0Aura C0AuraEE~
 UNLESS ~C0Aura~
 
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~bdcaelar.cre~ THEN BEGIN
+  COPY ~%MOD_FOLDER%/scripts/bgee~ ~override~
+END
+
 COPY ~%MOD_FOLDER%/creatures/c0ninja.cre~ ~override~
 WRITE_ASCII 0x248 ~c0ninja~  #8  // override
 WRITE_ASCII 0x2cc ~c0ninja~  #8  // dialogue
