@@ -5,3 +5,13 @@ THEN
   RESPONSE #100
 	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
 END
+
+IF
+	Global("C0AuraQuest","GLOBAL",9)
+	Global("C0AuraQuestSaveGame","MYAREA",0)
+	Allegiance("C0SAITO",Enemy())
+THEN
+  RESPONSE #100
+	SetGlobal("C0AuraQuestSaveGame","MYAREA",1)
+	SaveGame(0)
+END
