@@ -377,11 +377,11 @@ EXIT
 // Faldorn
 CHAIN IF ~InParty("C0Aura")
 See("C0Aura")
-!StateCheck("Alora",CD_STATE_NOTVALID)
+!StateCheck("Faldorn",CD_STATE_NOTVALID)
 !StateCheck("C0Aura",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
-Global("C0AuraFaldorn1","GLOBAL",0)~ THEN BFALDO C0AuraAlora1
+Global("C0AuraFaldorn1","GLOBAL",0)~ THEN BFALDO C0AuraFaldorn1
 ~Keep that metal beast away from me, gnome!~
 DO ~SetGlobal("C0AuraFaldorn1","GLOBAL",1)~
 == BC0AURA ~Huh? What's wrong with Muffy? Don't you like squirrels?~
@@ -393,13 +393,13 @@ EXIT
 
 CHAIN IF ~InParty("C0Aura")
 See("C0Aura")
-!StateCheck("Alora",CD_STATE_NOTVALID)
+!StateCheck("Faldorn",CD_STATE_NOTVALID)
 !StateCheck("C0Aura",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
 AreaType(CITY)
 ClassLevelGT("Faldorn",PRIEST,6)
-Global("C0AuraFaldorn2","GLOBAL",0)~ THEN BFALDO C0AuraAlora1
+Global("C0AuraFaldorn2","GLOBAL",0)~ THEN BFALDO C0AuraFaldorn1
 ~Grr! Wretched abominations, despoilers of nature! I despise them all.~
 DO ~SetGlobal("C0AuraFaldorn1","GLOBAL",1)~
 == BC0AURA ~You're looking mighty angry, Faldorn. Y-you're not about to turn into a bear, are you?~
@@ -837,7 +837,7 @@ EXIT
 // Montaron
 CHAIN IF ~InParty("C0Aura")
 See("C0Aura")
-!StateCheck("Alora",CD_STATE_NOTVALID)
+!StateCheck("Montaron",CD_STATE_NOTVALID)
 !StateCheck("C0Aura",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
@@ -1202,7 +1202,7 @@ See("C0Aura")
 CombatCounter(0)
 !See([ENEMY])
 AreaType(DUNGEON)
-Global("C0AuraYeslick1","GLOBAL",0)~ THEN BYESLI C0AuraAlora1
+Global("C0AuraYeslick1","GLOBAL",0)~ THEN BYESLI C0AuraYeslick1
 ~Stay close, lass. Ye can ne'er be certain of what beasts lurk in the dark.~
 DO ~SetGlobal("C0AuraYeslick1","GLOBAL",1)~
 == BC0AURA ~I've explored plenty of dungeons before, Yeslick. I'll be okay.~
