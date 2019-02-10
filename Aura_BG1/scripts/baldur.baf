@@ -9,7 +9,7 @@ END
 IF
 	Global("C0AuraQuest","GLOBAL",9)
 	Global("C0AuraQuestSaveGame","MYAREA",0)
-	Allegiance("C0SAITO",Enemy())
+	Allegiance("C0SAITO",ENEMY)
 THEN
   RESPONSE #100
 	SetGlobal("C0AuraQuestSaveGame","MYAREA",1)
