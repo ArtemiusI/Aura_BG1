@@ -1,0 +1,9 @@
+IF
+	Global("SOD_fromimport","global",1)
+	InMyArea("C0Aura")
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("C0Aura",SetDialog("C02AURAJ"))
+		ActionOverride("C0Aura",ChangeAIScript("C02AURA",OVERRIDE))
+END

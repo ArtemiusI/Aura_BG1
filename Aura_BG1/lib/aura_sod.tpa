@@ -18,6 +18,8 @@ COPY ~%MOD_FOLDER%/items/SoD~ ~override~
   EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~
   EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~
   EXTEND_TOP ~bdparty.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdparty.baf~
+  EXTEND_TOP ~BDBALDUR.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDBALDUR.baf~
+  EXTEND_TOP ~BDINTRO.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDINTRO.baf~
   EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~
 
 COPY_EXISTING ~bdfoods.bcs~ ~override~
