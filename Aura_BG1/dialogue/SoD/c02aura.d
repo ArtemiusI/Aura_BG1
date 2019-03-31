@@ -1,5 +1,5 @@
-BEGIN C02AURA
 BEGIN C02AKOKO
+BEGIN C02AURA
 
 CHAIN IF WEIGHT #-1 ~AreaCheck("bd4700")
 GlobalLT("bd_plot","global",570)~ THEN C02AURA end
@@ -245,6 +245,12 @@ CHAIN C02AURA voidstone.2
 DO ~SetGlobal("C02AuraVoidstone","GLOBAL",2)~ EXIT
 
 // Kicked Out
+
+CHAIN IF WEIGHT #-1 ~AreaCheck("bd4300")
+GlobalGT("bd_plot","global",585)~ THEN C02AURA endgame
+~I'm glad all the fighting's over.~
+EXIT
+
 
 CHAIN IF WEIGHT #-1 ~GlobalGT("bd_joined","locals",0)
 HappinessLT(Myself,-290)~ THEN C02AURA rep.break

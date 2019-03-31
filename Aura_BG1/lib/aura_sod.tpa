@@ -2,25 +2,25 @@ COPY ~%MOD_FOLDER%/items/SoD~ ~override~
 
 // SCRIPTS
 
-  EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~
-  EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~
-  EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
-  EXTEND_TOP ~bd0130.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~
-  EXTEND_TOP ~bd1000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd1000.baf~
-  EXTEND_TOP ~bd2000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd2000.baf~
-  EXTEND_TOP ~bd3000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd3000.baf~
-  EXTEND_TOP ~bd4100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4100.baf~
-  EXTEND_TOP ~bd4300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4300.baf~
-  EXTEND_TOP ~bd4400.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4400.baf~
-  EXTEND_TOP ~bd5300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd5300.baf~
-  EXTEND_TOP ~bd7000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7000.baf~
-  EXTEND_TOP ~bd7100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7100.baf~
-  EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~
-  EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~
-  EXTEND_TOP ~bdparty.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdparty.baf~
-  EXTEND_TOP ~BDBALDUR.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDBALDUR.baf~
-  EXTEND_TOP ~BDINTRO.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDINTRO.baf~
-  EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~
+  EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd0130.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd1000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd1000.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd2000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd2000.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd3000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd3000.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd4100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4100.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd4300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4300.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd4400.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4400.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd5300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd5300.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd7000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7000.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd7100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7100.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut59b.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bdparty.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdparty.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~BDINTRO.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDINTRO.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~ EVALUATE_BUFFER
 
 COPY_EXISTING ~bdfoods.bcs~ ~override~
 	DECOMPILE_AND_PATCH BEGIN

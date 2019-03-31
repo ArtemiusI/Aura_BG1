@@ -5,8 +5,11 @@ IF
   GlobalLT("BD_PLOT","GLOBAL",51)
 THEN
   RESPONSE #100
-    ActionOverride("C0Aura",LeaveParty())
+    ApplySpellRES("bdresurr","C0Aura")
+    SmallWait(1)
 	ActionOverride("PlayerChest00",TakeCreatureItems("C0Aura",BACKPACK))
+    SmallWait(1)
+    ActionOverride("C0Aura",LeaveParty())
     SmallWait(1)
     ActionOverride("C0Aura",DestroySelf())
     Continue()

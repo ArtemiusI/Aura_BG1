@@ -6,8 +6,7 @@ IF
   Switch("bd_npc_camp_chapter","global")
   OR(2)
     !Range("ff_camp",999)
-    NextTriggerObject("ff_camp")
-  !IsOverMe("C0Aura")
+    !TriggerOverride("ff_camp",IsOverMe("C0Aura"))
 THEN
   RESPONSE #2
 	EscapeAreaMove("BD1000",383,3604,E)
@@ -21,8 +20,7 @@ IF
   GlobalLT("bd_npc_camp","locals",2)
   Global("bd_joined","locals",0)
   Name("C0Aura",Myself)
-  NextTriggerObject("ff_camp")
-  IsOverMe("C0Aura")
+  TriggerOverride("ff_camp",IsOverMe("C0Aura"))
   Switch("bd_npc_camp_chapter","global")
 THEN
   RESPONSE #2

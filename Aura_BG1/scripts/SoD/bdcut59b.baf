@@ -1,0 +1,21 @@
+IF
+  Global("bd_c0aura_kicked_mdd1330","global",1)
+  !Dead("C0Aura")
+  !InParty("C0Aura")
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveGlobal("bd4300","C0Aura",[623.273])
+    ActionOverride("C0Aura",Face(S))
+END
+
+IF
+  Global("bd_c0aura_kicked_mdd1330","global",0)
+  !Dead("C0Aura")
+  !InParty("C0Aura")
+THEN
+  RESPONSE #100
+  CutSceneId(Player1)
+  MoveGlobal("bd4300","C0Aura",[1389.1283])
+  ActionOverride("C0Aura",Face(NW))
+END
