@@ -817,6 +817,19 @@ CHAIN C02AURAJ bdwynan7
 = ~It has to have been drawn through force by arcane magic. We'll need the original spell scroll to reverse-engineer the effects.~
 COPY_TRANS BDWYNAN 8
 
+EXTEND_BOTTOM BDWYNAN 14
++ ~IsValidForPartyDialogue("C0Aura") Class("C0Aura",MAGE_ALL)~ + ~That's right. Would you do the honors, Aura?~ EXTERN C02AURAJ bdwynan14
+END
+
+CHAIN C02AURAJ bdwynan14
+~I'll do my best. Stand back, everyone! You never know what could happen when evil magic is dispelled...~
+DO ~SetGlobal("BD_SDD200","GLOBAL",3)
+SetGlobal("BD2100GL","GLOBAL",3)
+SetGlobal("bd_sdd200_c0aura","bd2100",1)
+StartCutSceneMode()
+ClearAllActions()
+StartCutSceneEx("c0cutgl1",FALSE)~ EXIT
+
 // Clovista
 
 EXTEND_TOP BDCLOVIS 3 #4
@@ -961,6 +974,12 @@ END
 
 I_C_T BDISABEL 35 C0AuraBDISABEL35
 == C02AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~*giggle* It kind of is...~
+END
+
+// Kruntur
+
+I_C_T BDKRUNTU 8 C0AuraBDKRUNTU8
+== C02AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Whoa! Sentient armor? That's a new one.~
 END
 
 // Ladle

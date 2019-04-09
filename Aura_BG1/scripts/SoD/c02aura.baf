@@ -765,8 +765,8 @@ IF
 	Global("bd_voghiln_romanceactive","global",2)
 	Global("bd_viconia_romanceactive","global",2)
 	Global("bd_safana_romanceactive","global",2)
-	Global("C02SireneRomanceActive","GLOBAL",1)
-	Global("C02DrakeRomanceActive","GLOBAL",1)
+	Global("C02SireneRomanceActive","GLOBAL",2)
+	Global("C02DrakeRomanceActive","GLOBAL",2)
 THEN
   RESPONSE #100
 	SetGlobal("C02AuraRomanceActive","GLOBAL",3)
@@ -851,7 +851,7 @@ IF
 	Global("C02Drakeromanceactive","global",1)
 THEN
   RESPONSE #100
-	SetGlobal("C02Sireneromanceactive","global",3)
+	SetGlobal("C02Drakeromanceactive","global",3)
 END
 
 // I HATE BEARS
@@ -1936,4 +1936,160 @@ THEN
 		SetGlobal("C02AuraVoghiln","LOCALS",2)
 	    SetGlobal("C02AuraVoghiln1","MYAREA",1)
 		SetAreaScript("C02ABANT",GENERAL)
+END
+
+// Sirene
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("C0Sirene")
+	Global("C02AuraSirene","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("C02AuraSireneTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("C02AuraSirene","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("C0Sirene")
+	Global("C02AuraSirene","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C02AuraSirene","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("C02AuraSirene_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("C02AuraSireneTalk","LOCALS")
+	OR(2)
+		Global("C02AuraSirene_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("C02AuraSirene","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("C0Sirene")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("C02AuraSirene","LOCALS",2)
+	    SetGlobal("C02AuraSirene1","MYAREA",1)
+		SetAreaScript("C02ABANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("C02AuraSirene_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("C02AuraSireneTalk","LOCALS")
+	OR(2)
+		Global("C02AuraSirene_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("C02AuraSirene","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("C0Sirene")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("C02AuraSireneTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("C02AuraSirene","LOCALS",3)
+	    SetGlobal("C02AuraSirene2","MYAREA",1)
+		SetAreaScript("C02ABANT",GENERAL)
+END
+
+// Drake
+IF
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
+	InParty(Myself)
+	InParty("C0Drake")
+	Global("C02AuraDrake","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("C02AuraDrakeTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("C02AuraDrake","LOCALS",1)
+END
+
+IF
+	OR(2)
+		!InParty(Myself)
+		!InParty("C0Drake")
+	Global("C02AuraDrake","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C02AuraDrake","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("C02AuraDrake_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("C02AuraDrakeTalk","LOCALS")
+	OR(2)
+		Global("C02AuraDrake_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("C02AuraDrake","LOCALS",1)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("C0Drake")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("C02AuraDrake","LOCALS",2)
+	    SetGlobal("C02AuraDrake1","MYAREA",1)
+		SetAreaScript("C02ABANT",GENERAL)
+END
+
+IF
+	OR(2)
+		Global("C02AuraDrake_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("C02AuraDrakeTalk","LOCALS")
+	OR(2)
+		Global("C02AuraDrake_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("C02AuraDrake","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("C0Drake")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobalTimerRandom("C02AuraDrakeTalk","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		SetGlobal("C02AuraDrake","LOCALS",3)
+	    SetGlobal("C02AuraDrake2","MYAREA",1)
+		SetAreaScript("C02ABANT",GENERAL)
+END
+
+IF
+	!InParty(Myself)
+	CheckSpellState(Myself,STORY_MODE)
+THEN
+	RESPONSE #100
+		ReallyForceSpellDeadRES("OHSMODE3",Myself)  // No such index
+		Continue()
+END
+
+IF
+	!InParty(Myself)
+	Global("BD_SAFEHOUSE_DONE","GLOBAL",1)
+	Global("BD_POST_SAFEHOUSE_HEAL","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("BD_POST_SAFEHOUSE_HEAL","LOCALS",1)
+		ReallyForceSpellDeadRES("BDREJUVE",Myself)  // No such index
+		Continue()
 END

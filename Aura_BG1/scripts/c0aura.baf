@@ -1048,3 +1048,12 @@ THEN
 	SetGlobal("C0AuraLeaves","GLOBAL",1)
 	StartDialogueNoSet(Player1)
 END
+
+IF
+	!InParty(Myself)
+	CheckSpellState(Myself,STORY_MODE)
+THEN
+	RESPONSE #100
+		ReallyForceSpellDeadRES("OHSMODE3",Myself)  // No such index
+		Continue()
+END

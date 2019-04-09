@@ -9,8 +9,8 @@
 6                  AP_SPCL915         *                  *                  1                  99                 1                  *                  *                  *
 7                  AP_C0AUIN5         *                  *                  1                  99                 1	                 *                  AP_C0AUIN5         *
 8                  GA_SPCL917         *                  *                  1                  99                 16                 *                  *                  *
-9                  GA_C0AUIN4         *                  *                  1                  99                 1                  AP_SPCL915	        GA_C0AUIN4         *
-10                 GA_SPCL919         *                  *                  1                  99                 16                 AP_SPCL915         *                  *
+9                  GA_C0AUIN4         *                  *                  1                  99                 1                  AP_SPCL915	        GA_C0AUIN4         *        
+10      		   AP_C0AUIN6		  *         		 *       		    1       		   99     		      1	       		     AP_SPCL915 		*       	       *  
 11                 GA_SPPR721         *                  *                  16                 99                 1                  *                  *                  *
 12                 GA_SPPR722         *                  *                  16                 99                 1                  *                  *                  *
 13                 GA_SPPR723         *                  *                  16                 99                 1                  *                  *                  *

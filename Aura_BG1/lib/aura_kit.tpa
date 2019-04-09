@@ -1410,6 +1410,22 @@ SAY NAME2 ~Master Alchemist~
 SAY UNIDENTIFIED_DESC ~Master Alchemist
 The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
 
+COPY_EXISTING ~c0auin6.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        match_parameter2  = 82    // Called Shot icon
+        parameter2        = (icon - 4)
+      END
+SAY NAME1 ~Grand Artifice~
+SAY NAME2 ~Grand Artifice~
+SAY UNIDENTIFIED_DESC ~Grand Artifice
+The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+
+Requires: Use Any Item~
+
 COPY_EXISTING ~c0apoth1.itm~ ~override~
 SAY NAME1 ~Lantanese Elixir of Divine Might~
 SAY NAME2 ~Lantanese Elixir of Divine Might~

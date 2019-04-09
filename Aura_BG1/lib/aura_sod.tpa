@@ -47,6 +47,7 @@ BUT_ONLY
 		  ~%MOD_FOLDER%/scripts/SoD/c02acut1.baf~
 		  ~%MOD_FOLDER%/scripts/SoD/c02acut2.baf~
 		  ~%MOD_FOLDER%/scripts/SoD/c02abant.baf~
+		  ~%MOD_FOLDER%/scripts/SoD/c0cutgl1.baf~
   
 APPEND ~bddialog.2da~
 ~C0Aura        C02Aura	C02AuraJ	C02AuraD~

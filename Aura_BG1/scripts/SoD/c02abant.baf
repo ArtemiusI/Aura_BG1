@@ -969,6 +969,203 @@ RESPONSE #90
 	SetGlobal("C02AuraVoghiln1","MYAREA",-1)
 END
 
+// SIRENE
+
+IF
+	Global("C02AuraSirene1","MYAREA",40)
+	Global("C02AuraSirene1_40","MYAREA",0)
+	IsValidForPartyDialog("C0DRAKE")  // Drake
+THEN
+	RESPONSE #100
+		SetGlobal("C02AuraSirene1","MYAREA",41)
+		SetGlobal("C02AuraSirene1_40","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02AuraSirene1","MYAREA",0)
+	Switch("C02AuraSirene1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Aura",~You don't look too happy.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02AuraSirene1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Sirene",~*sigh* I am not. Too much blood has been shed over this misguided crusade.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Aura",~You're right. We're here because we're needed, but there's plenty of places I'd rather be.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Sirene",~Where would you rather be, Aura?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Aura",~Sitting on a nice, soft armchair with me feet dipped in rosewater and an open book in my lap. Maybe with some hot cocoa in hand.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
+	SetGlobal("C02AuraSirene1","MYAREA",50)
+RESPONSE #41
+	DisplayStringHead("C0Drake",~I've always been partial to a cup of mint tea, personally.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
+	SetGlobal("C02AuraSirene1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Aura",~Ooh, that sounds like a good idea. We should do that together after we're done here!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraSirene1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Sirene",~*laughs*~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02AuraSirene2","MYAREA",0)
+	Switch("C02AuraSirene2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Sirene",~Aura?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02AuraSirene2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Aura",~Yep?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Sirene",~I just wanted to ask... does my presence not unnerve you?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Aura",~Huh? Well, it's never crossed my mind... no, should it?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Sirene",~I know you have a gentle soul. Still... I have a history of not being well-liked.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene2","MYAREA",40)
+RESPONSE #50
+	DisplayStringHead("C0Aura",~I like you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene2","MYAREA",40)
+RESPONSE #60
+	DisplayStringHead("C0Sirene",~Truly? But... you know what I am.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
+	SetGlobal("C02AuraSirene2","MYAREA",50)
+RESPONSE #70
+	DisplayStringHead("C0Aura",~That doesn't matter. I know you're kind. I can see it in your eyes.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraSirene2","MYAREA",60)
+RESPONSE #80
+	DisplayStringHead("C0Sirene",~Thank you, Aura.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraSirene2","MYAREA",-1)
+END
+
+// DRAKE
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02AuraDrake1","MYAREA",0)
+	Switch("C02AuraDrake1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Aura",~"I once met a pixie down at the lake
+	With silver gossamer wings as bright as the day
+	Who bid me open my palm and shared me my fate
+	La-la-dee-do-la-dee-la-lay..."~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02AuraDrake1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Drake",~There's a tune I haven't heard in a long time.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraDrake1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Aura",~Oh, you know this one, Drake?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraDrake1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Drake",~My sister used to sing it. Where did it come from... that children's book? "The Faeries of Shallowdale Spring"?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Aura",~Ooh, yes, that's the one. I remember my mother reading it to me before bedtime.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
+	SetGlobal("C02AuraDrake1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Drake",~Claudia made me read it to her every night. Though she didn't care much for my singing voice.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Drake",~If I tried, I could likely recite most of it by memory.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraDrake1","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("C0Aura",~I don't suppose you'd be willing to tell it to *me* at bedtime...?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",8)
+	SetGlobal("C02AuraDrake1","MYAREA",80)
+RESPONSE #80
+	DisplayStringHead("C0Drake",~...No. Never again, not in a million years. *shudder* My manhood is quivering at the very thought.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake1","MYAREA",90)
+RESPONSE #90
+	DisplayStringHead("C0Aura",~Ha ha.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02AuraDrake2","MYAREA",0)
+	Switch("C02AuraDrake2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Drake",~Drafting your latest invention, little lady?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02AuraDrake2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Aura",~No, not this time. It's a letter to my family.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02AuraDrake2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Drake",~Is that so? We can pass our letters together to the next courier we meet.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Aura",~Oh, that'd be great. This is the fifty-fourth one I've written now. I've had to keep them in this box.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Drake",~...Ye gods. That is quite a pile.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
+	SetGlobal("C02AuraDrake2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Aura",~Yep. I've been writing for a while, but I haven't been able to send them since this crusade happened.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Drake",~*sigh* If the gods are good, this whole mess will be over soon.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake2","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("C0Aura",~I hope so too. I miss my family.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake2","MYAREA",80)
+RESPONSE #80
+	DisplayStringHead("C0Drake",~Let us fight for those awaiting our safe return, then.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02AuraDrake2","MYAREA",-1)
+END
+
 IF
   !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
 THEN

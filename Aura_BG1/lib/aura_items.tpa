@@ -1060,7 +1060,7 @@ Weight: 1~
 COPY_EXISTING ~c0bandol.itm~ ~override~
 SAY NAME1 ~Bandolier~
 SAY NAME2 ~Bandolier~
-SAY DESC ~This bandolier was designed by Aura to safely carry firebombs and explosives of all kinds.
+SAY DESC ~This bandolier was designed by Aura to safely carry fragile objects such as potion bottles, firebombs and explosives of all kinds.
 
 STATISTICS:
 
@@ -1281,6 +1281,18 @@ WRITE_SHORT 0x9C ~%c0aproj9%~
 WRITE_LONG 0x34 3500
 
 COPY_EXISTING ~c0abomb9.itm~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+		match_savingthrow = 0
+        parameter1 = RESOLVE_STR_REF (~Deafened~)
+      END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+		match_savingthrow = 4
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1292,21 +1304,16 @@ COPY_EXISTING ~c0abomb9.itm~ ~override~
 	  special = RESOLVE_STR_REF (~Artificer~)
 END
 SAY NAME1 ~Firebomb~
-SAY NAME2 ~Yin-Yang Bomb~
-SAY DESC ~This devastating explosive contains a special compound crafted from smokepowder, arcane magic, and Kozakuran divine incantations. The powerful magic within the explosive is somehow partially sentient, as it is intended to shift the world towards equilibrium. Those with discord in their hearts suffer extreme damage while those in perfect harmony will feel a mere shock.
+SAY NAME2 ~Divine Thunderclap Bomb~
+SAY DESC ~This devastating explosive contains a special compound crafted from Lantanese smokepowder and Shou explosive powder. The compound powder is so dangerous that only a small amount must be used, which must be contained within a vibration-resistant canister which is afterwards placed within a larger canister with considerable space inbetween both. When it detonates, the destructive force of the powder obliterates everything within its range.
 
-STATISTICS
+STATISTICS:
 
-When thrown, unleashes a multicolored explosion which deals 2d6 magical damage and an additional amount of variant damage depending on the target's alignment (save vs. breath weapons to take half additional damage) and apply an additional effect for five rounds:
-  vs. True Neutral: no bonus damage or effect
-  vs. Chaotic: +6d6 fire damage, -20% damage dealt
-  vs. Lawful: +6d6 cold damage, -2 Armor Class
-  vs. Good: +6d6 acid damage, +20% all resistances
-  vs. Evil: +6d6 electrical damage, -2 Saving Throws
+When thrown, unleashes a devastating explosion which deals 10d10 damage (half fire, half electrical), deafens all targets with no save for five rounds and stuns for three rounds on a failed save vs. death at -4. Targets take damage as though their fire and electrical resistances are halved (e.g. 100% resistance takes 50% damage)
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 4000
+WRITE_LONG 0x34 10000
 
 COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl1.itm~
 SAY NAME1 ~Strange Letter~
