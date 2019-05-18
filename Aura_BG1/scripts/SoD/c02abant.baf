@@ -386,6 +386,15 @@ END
 
 IF
 	InMyArea(Player1)
+	!PartyHasItem("c02aucat")
+	GlobalGT("C02AuraJaheira1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C02AuraJaheira1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
 	!ActuallyInCombat()
 	PartyHasItem("c02aucat")
 	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
@@ -584,6 +593,15 @@ END
 
 IF
 	InMyArea(Player1)
+	!PartyHasItem("c02aucat")
+	GlobalGT("C02AuraMinsc1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C02AuraMinsc1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
 	!ActuallyInCombat()
 	PartyHasItem("c02aucat")
 	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
@@ -650,6 +668,15 @@ RESPONSE #60
 END
 
 // NEERA
+
+IF
+	InMyArea(Player1)
+	!PartyHasItem("c02aucat")
+	GlobalGT("C02AuraNeera1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C02AuraNeera1","MYAREA",-1)
+END
 
 IF
 	InMyArea(Player1)

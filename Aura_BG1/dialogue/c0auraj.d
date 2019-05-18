@@ -1903,7 +1903,11 @@ END
  
 IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) Global("C0AuraInsulted","GLOBAL",0)~ THEN BEGIN pid
  SAY ~How's it going?~ [AURAf]
- + ~GlobalGT("C0AuraTalk","GLOBAL",6)~ + ~(Flirt)~ + flirt
+ + ~Gender(Player1,FEMALE)
+	!Alignment(Player1,MASK_EVIL)
+	CheckStatGT(Player1,9,CHR)
+	CheckStatGT(Player1,11,INT)
+	GlobalGT("C0AuraTalk","GLOBAL",6)~ + ~(Flirt)~ + flirt
  + ~!Global("C0AuraBurstOrb","GLOBAL",0)
 	GlobalTimerExpired("C0AuraBurstOrbTimer","GLOBAL")~ + ~Do you have any Burst Orbs for me?~ DO ~SetGlobalTimer("C0AuraBurstOrbTimer","GLOBAL",THREE_DAYS) GiveItemCreate("c0autt01",Player1,1,0,0)~ + makeburstorb
  + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal
@@ -1924,7 +1928,11 @@ END
 
 IF ~~ pid2
  SAY ~Sure. What else do you need?~
- + ~GlobalGT("C0AuraTalk","GLOBAL",6)~ + ~(Flirt)~ + flirt
+ + ~Gender(Player1,FEMALE)
+	!Alignment(Player1,MASK_EVIL)
+	CheckStatGT(Player1,9,CHR)
+	CheckStatGT(Player1,11,INT)
+	GlobalGT("C0AuraTalk","GLOBAL",6)~ + ~(Flirt)~ + flirt
  + ~!Global("C0AuraBurstOrb","GLOBAL",0)
 	GlobalTimerExpired("C0AuraBurstOrbTimer","GLOBAL")~ + ~Do you have any Burst Orbs for me?~ DO ~SetGlobalTimer("C0AuraBurstOrbTimer","GLOBAL",THREE_DAYS) GiveItemCreate("c0autt01",Player1,1,0,0)~ + makeburstorb
  + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal

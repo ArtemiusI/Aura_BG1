@@ -236,90 +236,222 @@ WRITE_SHORT 0x9C ~%c0athund%~
 COPY_EXISTING ~c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
 SAY NAME2 ~Create Sunshooter Arrows~
-COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow2.spl~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 214 // display string
-	STR_VAR
-	  resource = C0AUAR01
-END
-COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow3.spl~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 214 // display string
-	STR_VAR
-	  resource = C0AUAR02
-END
-COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow4.spl~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 214 // display string
-	STR_VAR
-	  resource = C0AUAR03
-END
-COPY_EXISTING ~c0aubow1.spl~ ~override/c0aubow5.spl~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 214 // display string
-	STR_VAR
-	  resource = C0AUAR04
-END
-COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1z.spl~
-  LPF DELETE_EFFECT
-    INT_VAR
-      match_opcode = 146 // display string
-END
-COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2z.spl~
-  LPF DELETE_EFFECT
-    INT_VAR
-      match_opcode = 146 // display string
-END
-COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3z.spl~
-  LPF DELETE_EFFECT
-    INT_VAR
-      match_opcode = 146 // display string
-END
+
 COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1b.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar1b
+	END
   LPF ALTER_EFFECT
     INT_VAR
-      match_opcode = 146 // display string
-	STR_VAR
-	  resource = C0AUBOW2
-END
-COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2b.spl~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 146 // display string
-	STR_VAR
-	  resource = C0AUBOW2
-END
-COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3b.spl~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 146 // display string
-	STR_VAR
-	  resource = C0AUBOW2
+      match_opcode = 122
+      parameter1 = 10
 END
 COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1c.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar1c
+	END
   LPF ALTER_EFFECT
     INT_VAR
-      match_opcode = 146 // display string
+      match_opcode = 122
+      parameter1 = 15
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1d.spl~
+  LPF ALTER_SPELL_HEADER
 	STR_VAR
-	  resource = C0AUBOW3
+		icon = c0auar1d
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 20
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar2a.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar2a
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+	STR_VAR
+      resource = c0auaro2
+END
+COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2b.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar2b
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 10
 END
 COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2c.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar2c
+	END
   LPF ALTER_EFFECT
     INT_VAR
-      match_opcode = 146 // display string
+      match_opcode = 122
+      parameter1 = 15
+END
+COPY_EXISTING ~c0auar2a.spl~ ~override/c0auar2d.spl~
+  LPF ALTER_SPELL_HEADER
 	STR_VAR
-	  resource = C0AUBOW3
+		icon = c0auar2d
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 20
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar3a.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar3a
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+	STR_VAR
+      resource = c0auaro3
+END
+COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3b.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar3b
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 10
 END
 COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3c.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar3c
+	END
   LPF ALTER_EFFECT
     INT_VAR
-      match_opcode = 146 // display string
+      match_opcode = 122
+      parameter1 = 15
+END
+COPY_EXISTING ~c0auar3a.spl~ ~override/c0auar3d.spl~
+  LPF ALTER_SPELL_HEADER
 	STR_VAR
-	  resource = C0AUBOW3
+		icon = c0auar3d
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 20
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar4a.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar4a
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+	STR_VAR
+      resource = c0auaro5
+END
+COPY_EXISTING ~c0auar4a.spl~ ~override/c0auar4b.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar4b
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 10
+END
+COPY_EXISTING ~c0auar4a.spl~ ~override/c0auar4c.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar4c
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 15
+END
+COPY_EXISTING ~c0auar4a.spl~ ~override/c0auar4d.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar4d
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 20
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar5a.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar5a
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+	STR_VAR
+      resource = c0auaro6
+END
+COPY_EXISTING ~c0auar5a.spl~ ~override/c0auar5b.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar5b
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 10
+END
+COPY_EXISTING ~c0auar5a.spl~ ~override/c0auar5c.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar5c
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 15
+END
+COPY_EXISTING ~c0auar5a.spl~ ~override/c0auar5d.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar5d
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 20
+END
+COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar6a.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar6a
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 2
+	STR_VAR
+      resource = c0auaro7
+END
+COPY_EXISTING ~c0auar6a.spl~ ~override/c0auar6b.spl~
+  LPF ALTER_SPELL_HEADER
+	STR_VAR
+		icon = c0auar6b
+	END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 122
+      parameter1 = 5
 END
 
 OUTER_SET sunshooter = RESOLVE_STR_REF (~Configure~)
@@ -362,7 +494,7 @@ STATISTICS:
   +1/2 attacks per round, -2 damage
 
 Charge abilities (1x/day):
-– Create five Sunshooter Arrows (Healing)
+– Create Sunshooter Arrows (Healing)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
@@ -398,7 +530,7 @@ STATISTICS:
   +5% Critical Hit Chance, -1/2 attacks per round
 
 Charge abilities (1x/day):
-– Create five Sunshooter Arrows (Healing)
+– Create Sunshooter Arrows (Healing)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
@@ -434,7 +566,7 @@ STATISTICS:
   +1/2 attack per round, -1 damage
 
 Charge abilities (1x/day):
-– Create five Sunshooter Arrows (Healing, Lightning)
+– Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -470,7 +602,7 @@ STATISTICS:
   +5% Critical Hit Chance, -1/2 attacks per round
 
 Charge abilities (1x/day):
-– Create five Sunshooter Arrows (Healing, Lightning)
+– Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -506,7 +638,7 @@ STATISTICS:
   Attacks deal maximum damage
 
 Charge abilities (1x/day):
-– Create five Sunshooter Arrows (Healing, Lightning)
+– Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -543,7 +675,7 @@ STATISTICS:
   +1 attack per round, -2 damage
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning)
+– Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -579,7 +711,7 @@ STATISTICS:
   +10% Critical Hit Chance, -1/2 attacks per round
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning)
+– Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -615,7 +747,7 @@ STATISTICS:
   Attacks deal maximum damage
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning)
+– Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -652,7 +784,7 @@ STATISTICS:
   +1 attack per round, -1 damage
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning, Static)
+– Create Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -688,7 +820,7 @@ STATISTICS:
   +10% Critical Hit Chance, -1/2 attacks per round
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning, Static)
+– Create Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -724,7 +856,7 @@ STATISTICS:
   Attacks deal maximum damage
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning, Static)
+– Create Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -760,7 +892,7 @@ STATISTICS:
   +3/2 attacks per round, -1 damage
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning, Static, Disruptor)
+– Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -796,7 +928,7 @@ STATISTICS:
   +15% Critical Hit Chance, -1/2 attacks per round
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning, Static, Disruptor)
+– Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
@@ -832,7 +964,7 @@ STATISTICS:
   Attacks deal maximum damage
 
 Charge abilities (1x/day):
-– Create ten Sunshooter Arrows (Healing, Lightning, Static, Disruptor)
+– Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp)
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds

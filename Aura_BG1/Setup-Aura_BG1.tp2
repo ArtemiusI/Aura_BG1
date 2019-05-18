@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
-AUTHOR ~Artemius_I~
-VERSION ~2.0~
+AUTHOR ~AionZ~
+VERSION ~2.1~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
@@ -25,50 +25,57 @@ END
 PRINT ~Choose a portrait for Aura (check mod folder for portraits):~
 
 PRINT ~Please choose one of the following:
-[1] New BG1 Default by Artemius_I
-[2] BG2 Default by Artemius_I
+[1] BG1 Default by Artemius_I/AionZ
+[2] BG2 Default by Artemius_I/AionZ
 [3] Alternate 1 by Omar Diaz
 [4] Alternate 2 by Pantalion
 [5] Alternate 3 (edited NWN)
-[6] Original BG1 Default by Lava Del'Vortel~
+[6] Original BG1 Default by Lava Del'Vortel
+[7] Original BG2 Default by Artemius_I/AionZ~
 
 OUTER_SPRINT ~portrait~ ~placeholder_value~
-OUTER_WHILE (!(IS_AN_INT ~portrait~) OR (~portrait~ > 0x6) OR (~portrait~ < 0x1)) BEGIN
+OUTER_WHILE (!(IS_AN_INT ~portrait~) OR (~portrait~ > 0x7) OR (~portrait~ < 0x1)) BEGIN
   ACTION_READLN ~portrait~
 END
       ACTION_IF ("portrait" = 1) THEN BEGIN
 		COPY ~%MOD_FOLDER%/portraits/AuraL.bmp~ ~override/AuraL.bmp~
 		COPY ~%MOD_FOLDER%/portraits/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/portraits/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: BG1 Default by Lava Del'Vortel~
+      PRINT ~Portrait: BG1 Default by Artemius_I/AionZ~
       END
       ACTION_IF ("portrait" = 2) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura3L.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura3M.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura3S.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: BG1 Default by Lava Del'Vortel~
+		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: BG2 Default by Artemius_I/AionZ~
       END
       ACTION_IF ("portrait" = 3) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/AuraS.bmp~ ~override/AuraS.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Alternate 1 by Omar Diaz~
       END
       ACTION_IF ("portrait" = 4) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura2L.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura2M.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura2S.bmp~ ~override/AuraS.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Alternate 2 by Pantalion~
       ACTION_IF ("portrait" = 5) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura4L.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura4M.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura4S.bmp~ ~override/AuraS.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Alternate 3 (edited NWN)~
 	  END
       ACTION_IF ("portrait" = 6) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura5L.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura5M.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/Aura5S.bmp~ ~override/AuraS.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Original BG1 Default by Lava Del'Vortel~
+	  END
+      ACTION_IF ("portrait" = 7) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Original BG2 Default by Artemius_I/AionZ~
 	  END
 	  END

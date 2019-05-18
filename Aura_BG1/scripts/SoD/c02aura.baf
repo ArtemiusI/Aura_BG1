@@ -240,6 +240,8 @@ END
 IF
 	InParty(Myself)
 	Global("C02AuraTalk","GLOBAL",0)
+	!AreaCheck("bd0120")
+	!AreaCheck("bd0130")
 THEN
   RESPONSE #100
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
@@ -249,7 +251,9 @@ END
 IF
 	InParty(Myself)
 	RealGlobalTimerExpired("C02AuraTalkTimer","GLOBAL")
-	GlobalTimerExpired("C02AuraTalkTimer2","GLOBAL")
+	OR(2)
+		Global("C02AuraTalk","GLOBAL",1)
+		GlobalTimerExpired("C02AuraTalkTimer2","GLOBAL")
 	Global("C0AuraTalkStopped","GLOBAL",0)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -262,40 +266,35 @@ IF
 THEN
   RESPONSE #1
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #2
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
-	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
+	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",ONE_DAY)
 	StartDialogueNoSet(Player1)
   RESPONSE #5
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #6
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #7
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #8
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #11
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #12
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
   RESPONSE #13
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #14
-	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
-	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
 	StartDialogueNoSet(Player1)
 END
 
 IF
 	InParty(Myself)
 	RealGlobalTimerExpired("C02AuraTalkTimer","GLOBAL")
+	GlobalTimerExpired("C02AuraTalkTimer2","GLOBAL")
 	Global("C0AuraTalkStopped","GLOBAL",0)
+	Global("C02AuraTalk","GLOBAL",3)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
@@ -303,13 +302,11 @@ IF
 	ReputationGT(Player1,8)
 	!See([ENEMY])
 	AreaType(DUNGEON)
-	Switch("C02AuraTalk","GLOBAL")
 THEN
-  RESPONSE #3
-	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #4
+  RESPONSE #100
 	RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",ONE_HOUR)
 	SetGlobalTimer("C02AuraTalkTimer2","GLOBAL",THREE_DAYS)
+	IncrementGlobal("C02AuraTalk","GLOBAL",1)
 	StartDialogueNoSet(Player1)
 END
 
@@ -324,11 +321,9 @@ IF
 	ReputationGT(Player1,8)
 	!See([ENEMY])
 	Global("bd_plot","global",495)
-	Switch("C02AuraTalk","GLOBAL")
 THEN
-  RESPONSE #15
+  RESPONSE #100
 	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-  RESPONSE #16
 	StartDialogueNoSet(Player1)
 END
 
