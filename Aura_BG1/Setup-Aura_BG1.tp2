@@ -1,9 +1,10 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~2.1~
+VERSION ~2.2~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
 END
 
 AUTO_TRA ~Aura_BG1/tra/%s~ //~%~
@@ -37,34 +38,11 @@ OUTER_SPRINT ~portrait~ ~placeholder_value~
 OUTER_WHILE (!(IS_AN_INT ~portrait~) OR (~portrait~ > 0x7) OR (~portrait~ < 0x1)) BEGIN
   ACTION_READLN ~portrait~
 END
-      ACTION_IF ("portrait" = 1) THEN BEGIN
-		COPY ~%MOD_FOLDER%/portraits/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/portraits/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/portraits/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: BG1 Default by Artemius_I/AionZ~
-      END
-      ACTION_IF ("portrait" = 2) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: BG2 Default by Artemius_I/AionZ~
-      END
-      ACTION_IF ("portrait" = 3) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: Alternate 1 by Omar Diaz~
-      END
-      ACTION_IF ("portrait" = 4) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: Alternate 2 by Pantalion~
-      ACTION_IF ("portrait" = 5) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: Alternate 3 (edited NWN)~
+      ACTION_IF ("portrait" = 7) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Original BG2 Default by Artemius_I/AionZ~
 	  END
       ACTION_IF ("portrait" = 6) THEN BEGIN
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraL.bmp~ ~override/AuraL.bmp~
@@ -72,10 +50,33 @@ END
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Original BG1 Default by Lava Del'Vortel~
 	  END
-      ACTION_IF ("portrait" = 7) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: Original BG2 Default by Artemius_I/AionZ~
+      ACTION_IF ("portrait" = 5) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Alternate 3 (edited NWN)~
 	  END
+      ACTION_IF ("portrait" = 4) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/pantalion/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Alternate 2 by Pantalion~
 	  END
+      ACTION_IF ("portrait" = 3) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/omardiaz/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: Alternate 1 by Omar Diaz~
+      END
+      ACTION_IF ("portrait" = 2) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: BG2 Default by Artemius_I/AionZ~
+      END
+      ACTION_IF ("portrait" = 1) THEN BEGIN
+		COPY ~%MOD_FOLDER%/portraits/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/portraits/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/portraits/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: BG1 Default by Artemius_I/AionZ~
+      END

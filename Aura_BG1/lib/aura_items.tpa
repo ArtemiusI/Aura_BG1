@@ -1203,6 +1203,18 @@ Weight: 0~
 COPY_EXISTING ~c0bandol.sto~ ~override~
 SAY 0xc ~Bandolier~
 
+COPY_EXISTING ~c0abomb1.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb1%~
+END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = (icon - 1)
+END
 COPY_EXISTING ~c0abomb1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1222,12 +1234,22 @@ Aura's flasks use a specially-made type of oil which releases a highly flammable
 
 STATISTICS:
 
-When thrown, releases a cloud which deals 2d3 fire damage per round to all creatures within it (save vs. breath weapons at -2 for half). The cloud lasts for five rounds.
+When thrown, releases a cloud which deals damage per round to all creatures within it (Save vs. Breath Weapons for half damage). Afflicted targets who leave the area of effect suffer damage for two additional rounds. The cloud lasts for five rounds.
+  1st level: 2d3 Fire Damage (Save vs. Breath)
+  10th level: 4d3 Fire Damage (Save vs. Breath at -1)
+  20th level: 4d6 Unmitigated Fire Damage (Save vs. Breath at -2)
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj2%~
-WRITE_LONG 0x34 250
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 500
 
+COPY_EXISTING ~c0abomb2.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb2%~
+END
 COPY_EXISTING ~c0abomb2.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1245,12 +1267,22 @@ SAY DESC ~This flask contains an alchemical compound which, when detonated, expl
 
 STATISTICS
 
-When thrown, deals 2d4 non-lethal damage and blinds all creatures within a 10' radius for five rounds on a failed save vs. breath weapons. Additionally, argets who fail a save vs. breath weapons at +2 are stunned for two rounds.
+When thrown, deals damage and Blinds all creatures within a 10' radius. Additionally, targets who fail Save vs. Breath Weapons are Stunned instead.
+  1st level: 2d4 Non-Lethal Damage, Blind (2 rounds), Stun (Save vs. Breath at +2)
+  10th level: 3d4 Non-Lethal Damage, Blind (3 rounds), Stun (Save vs. Breath at -1)
+  20th level: 4d4 Non-Lethal Damage, Blind (4 rounds), Stun (Save vs. Breath at -4)
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj3%~
-WRITE_LONG 0x34 750
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 1000
 
+COPY_EXISTING ~c0abomb3.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb3%~
+END
 COPY_EXISTING ~c0abomb3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1268,12 +1300,22 @@ SAY DESC ~This spiked metal object is an explosive which unleashes a fiery blast
 
 STATISTICS
 
-When thrown, deals 1d6+5 fire and 1d6+5 piercing damage within a 10' radius and causes targets to bleed for 2 points of piercing damage every round for five rounds on a failed save vs. breath weapons.
+When thrown, deals Fire and Piercing Damage within a 10' radius and causes targets to Bleed for 5% Maximum Hit Points every round on a failed Save vs. Breath Weapons.
+  1st level: 4d6+5 Fire, 1d6+2 Piercing Damage, Bleed (3 rounds)
+  10th level: 6d6+8 Fire, 2d6+4 Piercing Damage, Bleed (6 rounds)
+  20th level: 8d6+10 Fire, 3d6+6 Piercing Damage, Bleed (9 rounds)
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj4%~
-WRITE_LONG 0x34 750
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 1000
 
+COPY_EXISTING ~c0abomb4.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb4%~
+END
 COPY_EXISTING ~c0abomb4.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1291,20 +1333,30 @@ SAY DESC ~This explosive contains a huge amount of sulfur, which when released c
 
 STATISTICS
 
-When thrown, releases a cloud for three rounds which deals 2d6 poison damage per round and knocks all targets unconscious for five rounds on a failed save vs. breath weapons.
+When thrown, releases a cloud for three rounds which deals Poison Damage each round and knocks all targets unconscious for two rounds on a failed Save vs. Breath Weapons.
+  12th level: 2d6 Poison Damage, Unconsciousness (Save vs. Breath at -2)
+  18th level: 4d6 Poison Damage, Unconsciousness (Save vs. Breath at -4)
+  24th level: 8d6 Poison Damage, Unconsciousness (Save vs. Breath at -6)
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj5%~
-WRITE_LONG 0x34 1000
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 2000
 
-COPY_EXISTING ~c0abomb5.itm~ ~override~
+COPY_EXISTING ~c0abomb5.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb5%~
+END
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
       check_headers = 1
       match_opcode = 139 // display string
- parameter1 = RESOLVE_STR_REF (~Blinded~)
+ parameter1 = RESOLVE_STR_REF (~Weakened~)
 END
+COPY_EXISTING ~c0abomb5.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1321,12 +1373,29 @@ SAY DESC ~This round tube, when thrown, releases a thick cloud of crimson-colore
 
 STATISTICS
 
-When thrown, releases a cloud for one turn which deals 4 poison damage per round. Creatures standing in the cloud must make an initial save vs. breath weapons at -2 or become blinded. Creatures must additionally make a save vs. breath weapons each round at -4 or suffer a penalty of 2 points to Armor Class, THAC0 and Constitution for three rounds.
+When thrown, releases a cloud for one turn which deals Poison Damage each round. Creatures standing in the cloud have their field of vision greatly reduced and suffer a -4 penalty to THAC0. Creatures must additionally make a Save vs. Breath Weapons each round or suffer a penalty to Armor Class and Saving Throws for three rounds.
+  15th level: 4 Poison Damage, -2 to Armor Class and Saving Throws (Save vs. Breath at +2)
+  20th level: 7 Poison Damage, -3 to Armor Class and Saving Throws (Save vs. Breath)
+  25th level: 10 Poison Damage, -4 to Armor Class and Saving Throws (Save vs. Breath at -2)  
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj6%~
-WRITE_LONG 0x34 1200
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 2000
 
+COPY_EXISTING ~c0abomb6.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0aglue%~
+END
+COPY_EXISTING ~c0abom6a.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb6%~
+END
 COPY_EXISTING ~c0abomb6.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1344,12 +1413,22 @@ SAY DESC ~This canister contains a substance which rapidly congeals when exposed
 
 STATISTICS
 
-When thrown, deals 2d8 fire damage and slows all targets for three rounds on a failed save vs. breath weapons at -2. The glue remains on the ground for three rounds before dissolving.
+When thrown, deals Fire Damage and Slows for five rounds on a failed Save vs. Breath Weapons. The glue remains on the ground afterwards for three rounds, greatly reducing the movement rate of anyone standing in the area of effect.
+  18th level: 3d6 Fire Damage, Slow (Save vs. Breath at -4), -50% Movement Rate
+  24th level: 6d6 Fire Damage, Slow (Save vs. Breath at -6), -75% Movement Rate
+  30th level: 9d6 Fire Damage, Slow (Save vs. Breath at -8), -99% Movement Rate
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj7%~
-WRITE_LONG 0x34 1500
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 3500
 
+COPY_EXISTING ~c0abomb7.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb7%~
+END
 COPY_EXISTING ~c0abomb7.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1367,11 +1446,14 @@ SAY DESC ~This canister contains a heavily acidic substance which bursts into a 
 
 STATISTICS
 
-When thrown, releases an acidic cloud which deals 2d10 acid damage each turn. Enemies standing within the cloud suffer a -50% penalty to physical damage resistance. The cloud remains for five rounds.
+When thrown, releases an acidic cloud which deals Acid Damage each round. Enemies standing within the cloud suffer a cumulative penalty to Acid Resistance for one turn. The cloud remains for five rounds.
+  21st level: 4d4 Acid Damage, -10% Acid Resistance
+  26th level: 6d4 Acid Damage, -15% Acid Resistance
+  31st level: 8d4 Acid Damage, -20% Acid Resistance
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj8%~
-WRITE_LONG 0x34 2500
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 5000
 
 COPY_EXISTING ~c0aburn.spl~ ~override~
       LPF ALTER_EFFECT
@@ -1379,7 +1461,6 @@ COPY_EXISTING ~c0aburn.spl~ ~override~
         check_globals     = 0
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
-        match_parameter2  = 82    // Called Shot icon
         parameter2        = (icon - 1)
       END
   LPF ALTER_EFFECT
@@ -1389,6 +1470,13 @@ COPY_EXISTING ~c0aburn.spl~ ~override~
       match_opcode = 139 // display string
 	  parameter1 = RESOLVE_STR_REF (~Burning~)
   END
+COPY_EXISTING ~c0abomb8.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb8%~
+END
 COPY_EXISTING ~c0abomb8.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1406,13 +1494,16 @@ SAY DESC ~This canister contains a powder made from a hybrid of glow powder and 
 
 STATISTICS
 
-When thrown, unleashes a fireball that deals 8d8 fire damage. Victims have their total fire resistance halved for one turn and must make a save vs. breath weapons at -6 or become ignited, suffering 10% of their maximum hit points each round and fleeing in terror for five rounds.
+When thrown, unleashes a purple fireball that deals massive Fire Damage. Additionally, afflicted victims must make a Save vs. Breath Weapons or become Ignited, suffering 10% of their Maximum Hit Points each round and fleeing in terror for the duration.
+  24th level: 10d10 Fire Damage, Ignited (4 rounds, Save vs. Breath at -4)
+  30th level: 10d12 Fire Damage, Ignited (5 rounds, Save vs. Breath at -5)
+  36th level: 12d12 Fire Damage, Ignited (6 rounds, Save vs. Breath at -6)
 
 Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj9%~
-WRITE_LONG 0x34 3500
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 9000
 
-COPY_EXISTING ~c0abomb9.itm~ ~override~
+COPY_EXISTING ~c0abomb9.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139   // Display portrait icon
@@ -1425,6 +1516,13 @@ COPY_EXISTING ~c0abomb9.itm~ ~override~
 		match_savingthrow = 4
         parameter1 = RESOLVE_STR_REF (~Stunned~)
       END
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb9%~
+END
+COPY_EXISTING ~c0abomb9.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1441,11 +1539,14 @@ SAY DESC ~This devastating explosive contains a special compound crafted from La
 
 STATISTICS:
 
-When thrown, unleashes a devastating explosion which deals 10d10 damage (half fire, half electrical), deafens all targets with no save for five rounds and stuns for three rounds on a failed save vs. death at -4. Targets take damage as though their fire and electrical resistances are halved (e.g. 100% resistance takes 50% damage)
+When thrown, unleashes a devastating explosion which deals massive Fire and Electrical Damage, Deafens all targets and Stuns for five rounds on a failed Save vs. Death. Targets take damage as though their Fire and Electrical Resistances are halved (e.g. 100% Resistance takes 50% Damage)
+  27th level: 12d10 Fire/Electrical Damage, Deafness (3 rounds), Stun (Save vs. Death at -4)
+  33rd level: 16d10 Fire/Electrical Damage, Deafness (4 rounds), Stun (Save vs. Death at -5)
+  39th level: 20d10 Fire/Electrical Damage, Deafness (5 rounds), Stun (Save vs. Death at -6)
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 10000
+WRITE_LONG 0x34 12000
 
 COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl1.itm~
 SAY NAME1 ~Strange Letter~

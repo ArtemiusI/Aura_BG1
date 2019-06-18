@@ -48,18 +48,19 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Magatama~) STR_VAR ba
 
 // PROJECTILES
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj4.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj5.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj6.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj7.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj8.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj9.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj0.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb1.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb2.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb3.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb4.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb5.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb6.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb7.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb8.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb9.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abombb.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abombc.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aglue.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro1.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro2.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro3.PRO~
@@ -79,16 +80,6 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo1.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo2.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo3.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo4.PRO~
-
-COPY_EXISTING ~c0acuts2.spl~ ~override~
-SAY NAME1 ~Dragon Arrow~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0aproj1%~
-END
-SAY NAME2 ~Dragon Arrow~
 
 // SPELLS
 
@@ -1709,7 +1700,7 @@ ADD_KIT ~C0AURA~
   SAY ~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +15 bonus to Lore.
+– +30 bonus to Lore.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
@@ -1818,7 +1809,7 @@ Gnomes can choose this multi-class, but become Illusionist/Artificers by default
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +15 bonus to Lore.
+– +30 bonus to Lore.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
@@ -1931,7 +1922,7 @@ ADD_KIT ~C0AURA~
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +15 bonus to Lore.
+– +30 bonus to Lore.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 

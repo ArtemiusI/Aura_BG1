@@ -15,3 +15,14 @@ THEN
 	SetGlobal("C0AuraQuestSaveGame","MYAREA",1)
 	SaveGame(0)
 END
+
+IF
+	!InParty("C0Aura")
+	Dead("C0Aura")
+	GlobalGT("C0AuraQuest","GLOBAL",1)
+	GlobalLT("C0AuraQuest","GLOBAL",13)
+THEN
+  RESPONSE #100
+	SetGlobal("C0AuraQuest","GLOBAL",-1)
+	AddJournalEntry(@10009,QUEST_DONE)
+END
