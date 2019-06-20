@@ -741,6 +741,20 @@ RESPONSE #100
 	Continue()
 END
 
+// AUTOMATON - CREATED
+
+IF
+	See("c0auin3")
+	Exists("c0auin3")
+	InMyArea("c0auin3")
+	Global("C0AuraAutomaton","GLOBAL",0)
+THEN
+RESPONSE #100
+	Wait(1)
+	SetGlobal("C0AuraAutomaton","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
 // AUTOMATON - HELP
 
 IF

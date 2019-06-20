@@ -26,3 +26,17 @@ THEN
 	SetGlobal("C0AuraQuest","GLOBAL",-1)
 	AddJournalEntry(@10009,QUEST_DONE)
 END
+
+IF
+	Exists("C0AUIN3")
+	InParty("C0Aura")
+	!Dead("C0Aura")
+	InActiveArea("C0Aura")
+	!InActiveArea("C0AUIN3")
+	!See("C0AUIN3")
+	!Dead("C0AUIN3")
+THEN
+	RESPONSE #100
+		MoveGlobalObject("C0AUIN3","C0AURA")
+		MoveGlobalObject("C0AUIN3","C0AURA")
+END
