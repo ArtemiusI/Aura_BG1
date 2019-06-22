@@ -302,7 +302,6 @@ IF
   !Global("SelfDefense","LOCALS",1)
   !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
-  ActionListEmpty()
   See(Nearestenemyof(Myself))
 THEN
   RESPONSE #100
@@ -313,7 +312,6 @@ IF
   !Global("SelfDefense","LOCALS",1)
   !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
-  ActionListEmpty()
   AttackedBy([ENEMY],DEFAULT)
 THEN
   RESPONSE #100
@@ -331,14 +329,10 @@ IF
     !StateCheck("C0Aura",STATE_PANIC)
     !StateCheck("C0Aura",STATE_BERSERK)
     !StateCheck("C0Aura",STATE_CONFUSED)
+	CombatCounter(0)
+	Delay(6)
 	!Range("C0Aura",20)
 THEN
-  RESPONSE #25
-	MoveToObjectOffset("C0Aura",[20.20])
-  RESPONSE #25
-	MoveToObjectOffset("C0Aura",[20.-20])
-  RESPONSE #25
-	MoveToObjectOffset("C0Aura",[-20.20])
-  RESPONSE #25
-	MoveToObjectOffset("C0Aura",[-20.-20])
+	RESPONSE #100
+		MoveToObjectFollow("C0Aura")
 END
