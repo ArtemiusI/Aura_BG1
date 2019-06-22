@@ -2,7 +2,6 @@ COPY ~%MOD_FOLDER%/items/SoD~ ~override~
 
 // SCRIPTS
 
-  EXTEND_TOP ~bdbaldur.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~ EVALUATE_BUFFER
