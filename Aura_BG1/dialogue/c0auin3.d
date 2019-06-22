@@ -5,8 +5,8 @@ CHAIN IF WEIGHT #-1 ~IsGabber("C0Aura")~ THEN C0AUIN3 a0
 END 
 ++ ~Imbue Rune.~ DO ~RemoveFamiliar()~ + a0.1 
 ++ ~Open inventory.~ DO ~StartStore("C0AUTINV",Lasttalkedtoby(Myself))~ EXIT
-+ ~Global("Standby","LOCALS",0)~ + ~Standby.~ DO ~SetGlobal("Standby","LOCALS",1)~ EXIT
-+ ~Global("Standby","LOCALS",1)~ + ~Follow.~ DO ~SetGlobal("Standby","LOCALS",0)~ EXIT
++ ~Global("Standby","LOCALS",0)~ + ~Standby.~ DO ~SetGlobal("Standby","LOCALS",1) RemoveFamiliar()~ EXIT
++ ~Global("Standby","LOCALS",1)~ + ~Follow.~ DO ~SetGlobal("Standby","LOCALS",0) AddFamiliar()~ EXIT
 ++ ~Dismantle.~ DO ~Kill(Myself)~ EXIT
 + ~Global("SelfDefense","LOCALS",0)~ + ~Disable self-defense protocol.~ DO ~SetGlobal("SelfDefense","LOCALS",1)~ + disableAI
 + ~Global("SelfDefense","LOCALS",1)~ + ~Enable self-defense protocol.~ DO ~SetGlobal("SelfDefense","LOCALS",0)~ + enableAI

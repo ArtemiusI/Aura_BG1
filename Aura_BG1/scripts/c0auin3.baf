@@ -3,6 +3,7 @@ IF
 THEN
   RESPONSE #100
 	SetInterrupt(FALSE)
+	RemoveFamiliar()
     SetGlobal("C0AutoCreated", "GLOBAL", 0)
     ApplySpellRES("c0autos3",Myself)
 	DestroyAllEquipment()
@@ -14,19 +15,9 @@ IF
 	!InParty("C0Aura")
 THEN
   RESPONSE #100
-	MoveGlobalObject(Myself,Myself)
+	RemoveFamiliar()
 	ChangeEnemyAlly(Myself,NEUTRAL)
 	EscapeArea()
-END
-
-IF
-  Global("Standby","LOCALS",1)
-  !Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-  ClearAllActions()
-  MoveGlobalObject(Myself,Myself)
-  ChangeEnemyAlly(Myself,NEUTRAL)
 END
 
 IF
@@ -35,22 +26,19 @@ IF
   !Allegiance(Myself,NEUTRAL)
 THEN
   RESPONSE #100
-  ClearAllActions()
-  MoveGlobalObject(Myself,Myself)
+  RemoveFamiliar()
   ChangeEnemyAlly(Myself,NEUTRAL)
-  MoveToObjectFollow("C0Aura")
 END
 
 IF
   InParty("C0Aura")
   !Dead("C0Aura")
-  !Allegiance(Myself,CONTROLLED)
+  !Allegiance(Myself,FAMILIAR)
   !Global("Standby","LOCALS",1)
 THEN
   RESPONSE #100
-  ClearAllActions()
-  MoveGlobalObject(Myself,Myself)
-  ChangeEnemyAlly(Myself,CONTROLLED)
+  AddFamiliar()
+  ChangeEnemyAlly(Myself,FAMILIAR)
 END
 
 IF
@@ -60,6 +48,7 @@ IF
 THEN
   RESPONSE #100
   Enemy()
+  RemoveFamiliar()
   Continue()
 END
 
@@ -313,6 +302,7 @@ IF
   !Global("SelfDefense","LOCALS",1)
   !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
+  ActionListEmpty()
   See(Nearestenemyof(Myself))
 THEN
   RESPONSE #100
@@ -323,6 +313,7 @@ IF
   !Global("SelfDefense","LOCALS",1)
   !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
+  ActionListEmpty()
   AttackedBy([ENEMY],DEFAULT)
 THEN
   RESPONSE #100
@@ -340,10 +331,14 @@ IF
     !StateCheck("C0Aura",STATE_PANIC)
     !StateCheck("C0Aura",STATE_BERSERK)
     !StateCheck("C0Aura",STATE_CONFUSED)
-	CombatCounter(0)
-	Delay(6)
 	!Range("C0Aura",20)
 THEN
-	RESPONSE #100
-		MoveToObjectFollow("C0Aura")
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[20.20])
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[20.-20])
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[-20.20])
+  RESPONSE #25
+	MoveToObjectOffset("C0Aura",[-20.-20])
 END
