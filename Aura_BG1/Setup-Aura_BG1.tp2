@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~2.2~
+VERSION ~2.3~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
@@ -14,10 +14,11 @@ LANGUAGE
   ~%MOD_FOLDER%/tra/english/setup.tra~
 
 BEGIN ~Aura NPC for Baldur's Gate: Enhanced Edition~
+INCLUDE ~%MOD_FOLDER%/lib/aura_resources.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
-ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+ACTION_IF GAME_INCLUDES ~sod~
 THEN BEGIN
   PRINT ~Installing content for Siege of Dragonspear...~
 INCLUDE ~%MOD_FOLDER%/lib/aura_sod.tpa~

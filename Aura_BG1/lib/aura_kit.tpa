@@ -1,88 +1,420 @@
-COPY ~%MOD_FOLDER%/2da~ ~override~
-COPY ~%MOD_FOLDER%/audio~ ~override~
-COPY ~%MOD_FOLDER%/bams~ ~override~
-COPY ~%MOD_FOLDER%/items~ ~override~
-COPY ~%MOD_FOLDER%/portraits~ ~override~
-COPY ~%MOD_FOLDER%/eff~ ~override~
-COPY ~%MOD_FOLDER%/spells~ ~override~
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// KIT //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
-// AUTOMATON ANIMATIONS
+PRINT ~Choose a class for Aura:~
 
-ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
-    ~c0im~ => ~C0_AURA_AUTOMATON~
-    ~c0ij~ => ~C0_AURA_AUTOMATON_JADE~
-    ~c0ib~ => ~C0_AURA_AUTOMATON_BLACK~
-  END
-  ACTION_PHP_EACH anims AS folder => symbol BEGIN
-    ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ BEGIN
-      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+PRINT ~Please choose one of the following:
+[1] Artificer (Thief)
+[2] Illusionist / Artificer (Mage / Thief)
+[3] Priestess / Artificer (Cleric / Thief)~
+
+OUTER_SPRINT ~auraclass~ ~placeholder_value~
+OUTER_WHILE (!(IS_AN_INT ~auraclass~) OR (~auraclass~ > 0x5) OR (~auraclass~ < 0x1)) BEGIN
+  PRINT ~Please select 1, 2, or 3 and press Enter.~
+  ACTION_READLN ~auraclass~
+END
+      ACTION_IF ("auraclass" = 1) THEN BEGIN
+INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+ADD_KIT ~C0AURA~
+
+ // appended to CLASWEAP.2da
+ ~C0AURA		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0AURA				0      9	0	15	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0AURA				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0AURA                		0       0       0       0       0       0~
+
+ // appended to ABDCSCRQ.2da
+ ~C0AURA                 	0       0       0       0       0	0~
+
+ // appended to ALIGNMNT.2da
+ ~C0AURA                  	1       1       1       1      1	1       1       1       1~
+
+ // appended to DUALCLAS.2da
+ ~C0AURA                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/C0AURACL.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00004000     4~
+
+ // HLA table to use; see LUABBR.2da
+ ~C0AURA~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~artificer~
+  SAY ~Artificer~
+  SAY ~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+Advantages:
+– +30 bonus to Lore.
+– +10% bonus to Find Traps, Open Locks and Set Traps.
+– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZING REAGENT: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
+
+– May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+
+– May use the Advanced Alchemy ability at will.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+Disadvantages:
+– Hit Die: d4
+– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+– -1 penalty to THAC0 every 6 levels (starting at level 1).
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+    kit_name = C0AURA
+	backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+    clswpbon = ~0 0 5~
+	hpclass = ~HPWIZ~
+	thiefskl = ~40 20~
+END
+
+      PRINT ~Installed Aura as an Artificer~
+      END
+      ACTION_IF ("auraclass" = 2) THEN BEGIN
+INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
+COPY ~%MOD_FOLDER%/2da/mage~ ~override~
+ADD_KIT ~C0AURA~
+
+ // appended to CLASWEAP.2da
+ ~C0AURA		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0AURA				0      9	0	15	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0AURA				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0AURA                		0       0       0       0       0       0~
+
+ // appended to ABDCSCRQ.2da
+ ~C0AURA                 	0       0       0       0       0	0~
+
+ // appended to ALIGNMNT.2da
+ ~C0AURA                  	1       1       1       1      1	1       1       1       1~
+
+ // appended to DUALCLAS.2da
+ ~C0AURA                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/blankclab.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00000400     13~
+
+ // HLA table to use; see LUABBR.2da
+ ~C0AURA~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~illusionist / artificer~
+  SAY ~Illusionist / Artificer~
+  SAY ~ILLUSIONIST/ARTIFICER: This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
+  
+Gnomes can choose this multi-class, but become Illusionist/Artificers by default. Gnomes are the only race that can combine a specialist Mage class in a multi-class.
+  
+ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+Advantages:
+– +30 bonus to Lore.
+– +10% bonus to Find Traps, Open Locks and Set Traps.
+– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZING REAGENT: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
+
+– May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+
+– From level 4 onwards, may use the Advanced Alchemy ability at will.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+Disadvantages:
+– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+– -1 penalty to THAC0 every 6 levels (starting at level 1).
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+		kit_name = C0AURA
+		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+		clswpbon = ~0 0 3~
+		thiefskl = ~40 20~
+		hpclass = ~HPMT~
+END
+LAF qd_multiclass
+	STR_VAR
+		kit_name = c0aura
+		kit_clab = c0auracl
+		base_class = ~T~
+		mc_dir = ~%MOD_FOLDER%/2da/mage~
+END
+
+      PRINT ~Installed Aura as an Illusionist / Artificer~
+      END
+      ACTION_IF ("auraclass" = 3) THEN BEGIN	
+INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
+COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
+ADD_KIT ~C0AURA~
+
+ // appended to CLASWEAP.2da
+ ~C0AURA		1           1           1           1           1           1           1           1~
+
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0AURA	0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+    
+ // appended to ABCLASRQ.2da
+ ~C0AURA				0      9	0	15	0	0~
+
+ // appended to ABCLSMOD.2da
+ ~C0AURA				0	0	0	0	0	0~
+
+ // appended to ABDCDSRQ.2da
+ ~C0AURA                		0       0       0       0       0       0~
+
+ // appended to ABDCSCRQ.2da
+ ~C0AURA                 	0       0       0       0       0	0~
+
+ // appended to ALIGNMNT.2da
+ ~C0AURA                  	1       1       0       1      1	1       0       0       0~
+
+ // appended to DUALCLAS.2da
+ ~C0AURA                  	0       0       0       0       0       0~
+
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/blankclab.2da~
+
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00020000     15~
+
+ // HLA table to use; see LUABBR.2da
+ ~C0AURA~
+
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~priestess / artificer~
+  SAY ~Priestess / Artificer~
+  SAY ~PRIESTESS/ARTIFICER: This character can use the abilities of a Priestess and an Artificer, though weapons are restricted to only those allowed by the Priestess's ethos. Thieving skills cannot be used while wearing more than studded leather armor.
+  
+ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+Advantages:
+– +30 bonus to Lore.
+– +10% bonus to Find Traps, Open Locks and Set Traps.
+– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
+  RAPID FREEZING REAGENT: Slows the victim.
+  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
+  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
+
+– May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+
+– From level 4 onwards, may use the Advanced Alchemy ability at will.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+Disadvantages:
+– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+– -1 penalty to THAC0 every 6 levels (starting at level 1).
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.
+
+PRIESTESS: Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.
+
+Advantages:
+– May cast Protection from Evil as an innate ability.
+– From 6th level onwards, may cast Protection from Evil 10' Radius as an innate ability.
+– From 11th level onwards, may cast True Seeing as an innate ability.
+
+Disadvantages:
+– May only be proficient in clubs, quarterstaves, short bows and slings.
+– May not wear armor heavier than studded leather.
+– May not be chaotic or evil-aligned.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+		kit_name = C0AURA
+		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+		clswpbon = ~0 0 3~
+		thiefskl = ~40 20~
+		hpclass = ~HPCT~
+END
+LAF qd_multiclass
+	STR_VAR
+		kit_name = c0aura
+		kit_clab = c0auracl
+		base_class = ~T~
+		mc_dir = ~%MOD_FOLDER%/2da~
+END
+
+COPY_EXISTING ~sppr107.spl~ ~override/c0aupr1.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~sppr408.spl~ ~override/c0aupr2.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~sppr505.spl~ ~override/c0aupr3.spl~
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
+    READ_BYTE    0x20 thief //reads the byte containing the mage usability flag
+    PATCH_IF ((thief BAND 0b01000000) = 0b00000000) BEGIN // if it is usable by thieves
+      READ_BYTE    0x1F cthief //reads the byte containing cleric/thieves usability flag
+      READ_SHORT    0x1C type //reads the byte containing item type
+      PATCH_IF (type = 5) BEGIN // if it is arrows
+        WRITE_BYTE    0x1F (thief BAND 0b11111101)  // makes usable by cleric/thieves
+      END
     END
-    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7000 RET slot END
-    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-    COPY ~%MOD_FOLDER%/animations/%folder%/7xxx.ini~ ~override/%hexNumber%.ini~
-    OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
-    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
-END
+  END
+BUT_ONLY_IF_IT_CHANGES
 
-// Icons
+      PRINT ~Installed Aura as a Priestess / Artificer~
+      END
+	
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// SPELLS //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
-DEFINE_ACTION_FUNCTION cd_new_portrait_icon
-  INT_VAR string = 0
-  STR_VAR bam_file = "****"
-  RET     icon
-  BEGIN
-
-  COPY_EXISTING ~statdesc.2da~ ~override~
-    COUNT_2DA_ROWS 3 count
-    READ_2DA_ENTRY (count - 1) 0 3 icon
-    SET icon += 1
-
-  APPEND ~statdesc.2da~ ~%icon% %string% %bam_file%~
-
-END
-
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Frozen~) STR_VAR bam_file = c0aicon1 RET icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Detecting Magic~) STR_VAR bam_file = c0aicon2 RET icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Burning~) STR_VAR bam_file = c0aicon3 RET icon END
-LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Magatama~) STR_VAR bam_file = c0aicon4 RET icon END
-
-// PROJECTILES
-
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aproj0.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb4.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb5.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb6.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb7.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb8.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abomb9.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abombb.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0abombc.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aglue.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0auaro4.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aured6.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aured5.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aured4.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aured3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aured2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aured1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0achain.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0athund.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aburst.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0asvoid.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0aarea1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0promo4.PRO~
-
-// SPELLS
-
+COPY_EXISTING ~c0aubear.spl~ ~override~
+SAY NAME1 ~I Hate Bears!~
+SAY NAME2 ~I Hate Bears!~
+  
 COPY_EXISTING ~c0aukt1.spl~ ~override~
 COPY_EXISTING ~c0aukt2.spl~ ~override~
 
@@ -91,17 +423,21 @@ COPY_EXISTING ~c0auin1.spl~ ~override~
 SAY NAME1 ~Set Alchemical Snare~
 SAY NAME2 ~Set Alchemical Snare~
 SAY UNIDENTIFIED_DESC ~Set Alchemical Snare
-Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
+Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
 
   ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
   RAPID FREEZE: Slows the victim.
   ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
   ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0atrap4.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap1.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap2.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap3.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap4.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap5.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap6.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap7.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap8.PRO~
 
 COPY_EXISTING ~c0atrap1.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -111,6 +447,12 @@ FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap1%~
 END
 COPY_EXISTING ~c0atrap5.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap5%~
+END
   LPF ALTER_EFFECT
     INT_VAR
       match_opcode = 142
@@ -128,6 +470,12 @@ FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap2%~
 END
 COPY_EXISTING ~c0atrap6.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap6%~
+END
 COPY_EXISTING ~c0auin1b.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Rapid Freezing Reagent~
 SAY NAME2 ~Set Alchemical Trap: Rapid Freezing Reagent~
@@ -140,6 +488,12 @@ FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap3%~
 END
 COPY_EXISTING ~c0atrap7.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap7%~
+END
 COPY_EXISTING ~c0auin1c.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Corrosive Acidic Compound~
 SAY NAME2 ~Set Alchemical Trap: Corrosive Acidic Compound~
@@ -152,6 +506,12 @@ FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap4%~
 END
 COPY_EXISTING ~c0atrap8.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap8%~
+END
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 142   // Display portrait icon
@@ -181,7 +541,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -205,7 +565,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -230,7 +590,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -254,7 +614,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -278,7 +638,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -302,7 +662,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -326,7 +686,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -350,7 +710,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -374,7 +734,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -398,7 +758,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -422,7 +782,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -446,7 +806,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -470,7 +830,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -494,7 +854,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -518,7 +878,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -542,7 +902,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -566,7 +926,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -590,7 +950,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -614,7 +974,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -638,7 +998,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -662,7 +1022,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -686,7 +1046,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -710,7 +1070,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -734,7 +1094,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -758,7 +1118,7 @@ LPF ALTER_SPELL_HEADER
 INT_VAR
 speed = 0
 END
-WRITE_SHORT 0x1C 3 
+WRITE_SHORT 0x1C 4 
 WRITE_LONG 0x34 1 
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
@@ -781,6 +1141,350 @@ SAY DESC ~This perfect shield rune was crafted by an artificer. Arcane runes hav
 STATISTIC:
 – May cast Spell Immunity once
 – If used on an automaton, grants +8 to Armor Class against all weapons.~
+
+COPY_EXISTING ~spwi701.spl~ ~override/c0ru701.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru701.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = C0RU701
+	END
+SAY NAME1 ~Spell Turning Rune~
+SAY NAME2 ~Spell Turning Rune~
+SAY DESC #10872
+WRITE_EVALUATED_ASCII 0x3a ~SPWI701B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI701B~
+WRITE_BYTE 0x7e 5 // target
+WRITE_BYTE 0x80 0 // range
+
+COPY_EXISTING ~spwi702.spl~ ~override/c0ru702.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru702.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru702
+	END
+SAY NAME1 ~Protection from the Elements Rune~
+SAY NAME2 ~Protection from the Elements Rune~
+SAY DESC #7599
+WRITE_EVALUATED_ASCII 0x3a ~SPWI702B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI702B~
+WRITE_BYTE 0x7e 1 // target
+WRITE_BYTE 0x80 1 // range
+
+COPY_EXISTING ~spwi704.spl~ ~override/c0ru704.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru704.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru704
+	END
+SAY NAME1 ~Ruby Ray of Reversal Rune~
+SAY NAME2 ~Ruby Ray of Reversal Rune~
+SAY DESC #25946
+WRITE_EVALUATED_ASCII 0x3a ~SPWI704B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI704B~
+WRITE_BYTE 0x7e 1 // target
+WRITE_BYTE 0x80 40 // range
+
+COPY_EXISTING ~spwi714.spl~ ~override/c0ru714.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru714.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		opcode = 148
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru714
+	END
+SAY NAME1 ~Prismatic Spray Rune~
+SAY NAME2 ~Prismatic Spray Rune~
+SAY DESC #25961
+WRITE_EVALUATED_ASCII 0x3a ~SPWI714B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI714B~
+WRITE_BYTE 0x7e 4 // target
+WRITE_BYTE 0x80 15 // range
+
+COPY_EXISTING ~spwi716.spl~ ~override/c0ru716.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru716.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru716
+	END
+SAY NAME1 ~Mordenkainen's Sword Rune~
+SAY NAME2 ~Mordenkainen's Sword Rune~
+SAY DESC #7832
+WRITE_EVALUATED_ASCII 0x3a ~SPWI716B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI716B~
+WRITE_BYTE 0x7e 5 // target
+WRITE_BYTE 0x80 1 // range
+
+COPY_EXISTING ~spwi721.spl~ ~override/c0ru721.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru721.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		opcode = 148
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru721
+	END
+SAY NAME1 ~Mass Invisibility Rune~
+SAY NAME2 ~Mass Invisibility Rune~
+SAY DESC #32428
+WRITE_EVALUATED_ASCII 0x3a ~SPWI721B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI721B~
+WRITE_BYTE 0x7e 4 // target
+WRITE_BYTE 0x80 35 // range
+
+COPY_EXISTING ~spwi804.spl~ ~override/c0ru804.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru804.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru804
+	END
+SAY NAME1 ~Simulacrum Rune~
+SAY NAME2 ~Simulacrum Rune~
+SAY DESC #26235
+WRITE_EVALUATED_ASCII 0x3a ~SPWI804B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI804B~
+WRITE_BYTE 0x7e 5 // target
+WRITE_BYTE 0x80 1 // range
+
+COPY_EXISTING ~spwi805.spl~ ~override/c0ru805.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru805.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru805
+	END
+SAY NAME1 ~Pierce Shield Rune~
+SAY NAME2 ~Pierce Shield Rune~
+SAY DESC #26242
+WRITE_EVALUATED_ASCII 0x3a ~SPWI805B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI805B~
+WRITE_BYTE 0x7e 1 // target
+WRITE_BYTE 0x80 50 // range
+
+COPY_EXISTING ~spwi808.spl~ ~override/c0ru808.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru808.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru808
+	END
+SAY NAME1 ~Improved Mantle Rune~
+SAY NAME2 ~Improved Mantle Rune~
+SAY DESC #7618
+WRITE_EVALUATED_ASCII 0x3a ~SPWI808B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI808B~
+WRITE_BYTE 0x7e 5 // target
+WRITE_BYTE 0x80 1 // range
+
+COPY_EXISTING ~spwi810.spl~ ~override/c0ru810.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru810.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		opcode = 148
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru810
+	END
+SAY NAME1 ~Incendiary Cloud Rune~
+SAY NAME2 ~Incendiary Cloud Rune~
+SAY DESC #7664
+WRITE_EVALUATED_ASCII 0x3a ~SPWI810B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI810B~
+WRITE_BYTE 0x7e 4 // target
+WRITE_BYTE 0x80 40 // range
+
+COPY_EXISTING ~spwi813.spl~ ~override/c0ru813.spl~
+LPF ALTER_SPELL_HEADER
+INT_VAR
+speed = 0
+END
+WRITE_SHORT 0x1C 4 
+WRITE_LONG 0x34 1 
+READ_LONG 0x64 "offset_abil"
+READ_SHORT 0x68 "num_abil"
+READ_ASCII ("%offset_abil%" + 0x04) "bam" 
+WRITE_EVALUATED_ASCII 0x3A "%bam%" 
+WHILE (0 < "%num_abil%")
+BEGIN
+SET "num_abil" = ("%num_abil%" - 1)
+END
+COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru813.itm~
+	LPF ALTER_EFFECT
+	INT_VAR
+		match_opcode = 146
+		parameter2 = 0
+	STR_VAR
+		resource = c0ru813
+	END
+SAY NAME1 ~Maze Rune~
+SAY NAME2 ~Maze Rune~
+SAY DESC #18143
+WRITE_EVALUATED_ASCII 0x3a ~SPWI813B~
+WRITE_EVALUATED_ASCII 0x76 ~SPWI813B~
+WRITE_BYTE 0x7e 1 // target
+WRITE_BYTE 0x80 3 // range
 
 COPY_EXISTING ~c0aualc.spl~ ~override~
 SAY NAME1 ~Advanced Alchemy~
@@ -805,6 +1509,9 @@ COPY_EXISTING ~c0aualc1.spl~ ~override~
 COPY_EXISTING ~c0aualc2.spl~ ~override~
 COPY_EXISTING ~c0aualc3.spl~ ~override~
   
+COPY_EXISTING ~c0autinv.sto~ ~override~
+SAY 0xc ~Clockwork Servant Automaton~
+
 COPY_EXISTING ~c0aupot1.sto~ ~override/c0aupot1.sto~
 SAY 0xc ~Alchemy - Standard Potions~
   
@@ -826,7 +1533,371 @@ ACTION_IF FILE_EXISTS_IN_GAME ~baldur25.bcs~ THEN BEGIN
 EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~
 END
 
-// POTIONS
+COPY_EXISTING ~c0ausumm.cre~ ~override~
+COPY_EXISTING ~c0auin3.spl~ ~override~
+SAY NAME1 ~Craft Automaton~
+SAY NAME2 ~Craft Automaton~
+SAY UNIDENTIFIED_DESC ~Craft Automaton
+The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed and cannot be controlled but will defend their creators, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed.
+
+Only one automaton can be controlled at any given time.~
+
+COPY_EXISTING ~c0auin3a.cre~ ~override~
+  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
+SAY NAME1 ~Bronze Automaton~
+SAY NAME2 ~Bronze Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
+  SAY BATTLE_CRY1 ~~ [C0AUTOA]
+  SAY BATTLE_CRY2 ~~ [C0AUTOB]
+  SAY BATTLE_CRY3 ~~ [C0AUTO4]
+  SAY BATTLE_CRY4 ~~ [C0AUTO6]
+  SAY BATTLE_CRY5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON1 ~~ [C0AUTO1]
+  SAY SELECT_COMMON2 ~~ [C0AUTO2]
+  SAY SELECT_COMMON3 ~~ [C0AUTOD]
+  SAY SELECT_COMMON4 ~~ [C0AUTOE]
+  SAY SELECT_COMMON5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON6 ~~ [C0AUTOI]
+  SAY SELECT_ACTION1 ~~ [C0AUTO5]
+  SAY SELECT_ACTION2 ~~ [C0AUTO7]
+  SAY SELECT_ACTION3 ~~ [C0AUTOC]
+  SAY SELECT_ACTION4 ~~ [C0AUTO8]
+  SAY SELECT_ACTION5 ~~ [C0AUTOG]
+  SAY DAMAGE ~~ [C0AUTO3]
+  SAY DYING ~~ [C0AUTO9]
+  SAY HURT ~~ [C0AUTOH]
+
+COPY_EXISTING ~c0auin3b.cre~ ~override~
+  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
+SAY NAME1 ~Bronze Automaton~
+SAY NAME2 ~Bronze Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
+  SAY BATTLE_CRY1 ~~ [C0AUTOA]
+  SAY BATTLE_CRY2 ~~ [C0AUTOB]
+  SAY BATTLE_CRY3 ~~ [C0AUTO4]
+  SAY BATTLE_CRY4 ~~ [C0AUTO6]
+  SAY BATTLE_CRY5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON1 ~~ [C0AUTO1]
+  SAY SELECT_COMMON2 ~~ [C0AUTO2]
+  SAY SELECT_COMMON3 ~~ [C0AUTOD]
+  SAY SELECT_COMMON4 ~~ [C0AUTOE]
+  SAY SELECT_COMMON5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON6 ~~ [C0AUTOI]
+  SAY SELECT_ACTION1 ~~ [C0AUTO5]
+  SAY SELECT_ACTION2 ~~ [C0AUTO7]
+  SAY SELECT_ACTION3 ~~ [C0AUTOC]
+  SAY SELECT_ACTION4 ~~ [C0AUTO8]
+  SAY SELECT_ACTION5 ~~ [C0AUTOG]
+  SAY DAMAGE ~~ [C0AUTO3]
+  SAY DYING ~~ [C0AUTO9]
+  SAY HURT ~~ [C0AUTOH]
+
+COPY_EXISTING ~c0auin3c.cre~ ~override~
+  WRITE_ASCII 0X34 ~AJadeL~ #8   //small portrait
+SAY NAME1 ~Jade Automaton~
+SAY NAME2 ~Jade Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_JADE~))
+  SAY BATTLE_CRY1 ~~ [C0AUTOA]
+  SAY BATTLE_CRY2 ~~ [C0AUTOB]
+  SAY BATTLE_CRY3 ~~ [C0AUTO4]
+  SAY BATTLE_CRY4 ~~ [C0AUTO6]
+  SAY BATTLE_CRY5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON1 ~~ [C0AUTO1]
+  SAY SELECT_COMMON2 ~~ [C0AUTO2]
+  SAY SELECT_COMMON3 ~~ [C0AUTOD]
+  SAY SELECT_COMMON4 ~~ [C0AUTOE]
+  SAY SELECT_COMMON5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON6 ~~ [C0AUTOI]
+  SAY SELECT_ACTION1 ~~ [C0AUTO5]
+  SAY SELECT_ACTION2 ~~ [C0AUTO7]
+  SAY SELECT_ACTION3 ~~ [C0AUTOC]
+  SAY SELECT_ACTION4 ~~ [C0AUTO8]
+  SAY SELECT_ACTION5 ~~ [C0AUTOG]
+  SAY DAMAGE ~~ [C0AUTO3]
+  SAY DYING ~~ [C0AUTO9]
+  SAY HURT ~~ [C0AUTOH]
+
+COPY_EXISTING ~c0auin3d.cre~ ~override~
+  WRITE_ASCII 0X34 ~ABlackL~ #8   //small portrait
+SAY NAME1 ~Black Automaton~
+SAY NAME2 ~Black Automaton~
+WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
+  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_BLACK~))
+  SAY BATTLE_CRY1 ~~ [C0AUTOA]
+  SAY BATTLE_CRY2 ~~ [C0AUTOB]
+  SAY BATTLE_CRY3 ~~ [C0AUTO4]
+  SAY BATTLE_CRY4 ~~ [C0AUTO6]
+  SAY BATTLE_CRY5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON1 ~~ [C0AUTO1]
+  SAY SELECT_COMMON2 ~~ [C0AUTO2]
+  SAY SELECT_COMMON3 ~~ [C0AUTOD]
+  SAY SELECT_COMMON4 ~~ [C0AUTOE]
+  SAY SELECT_COMMON5 ~~ [C0AUTOF]
+  SAY SELECT_COMMON6 ~~ [C0AUTOI]
+  SAY SELECT_ACTION1 ~~ [C0AUTO5]
+  SAY SELECT_ACTION2 ~~ [C0AUTO7]
+  SAY SELECT_ACTION3 ~~ [C0AUTOC]
+  SAY SELECT_ACTION4 ~~ [C0AUTO8]
+  SAY SELECT_ACTION5 ~~ [C0AUTOG]
+  SAY DAMAGE ~~ [C0AUTO3]
+  SAY DYING ~~ [C0AUTO9]
+  SAY HURT ~~ [C0AUTOH]
+COPY_EXISTING ~c0auto3.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+ parameter1 = RESOLVE_STR_REF (~Stunned~)
+END
+COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3a.itm~
+  LPF ALTER_EFFECT
+    INT_VAR
+      savebonus = (0 - 3)
+END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 45 // display string
+	  probability1 = 30
+END
+COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3b.itm~
+  LPF ALTER_EFFECT
+    INT_VAR
+      savebonus = (0 - 4)
+END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 45 // display string
+	  probability1 = 35
+END
+COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3c.itm~
+  LPF ALTER_EFFECT
+    INT_VAR
+      savebonus = (0 - 5)
+END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 45 // display string
+	  probability1 = 40
+END
+COPY_EXISTING ~c0auto6a.itm~ ~override/c0auto6b.itm~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 18
+	  parameter1 = 20
+END
+COPY_EXISTING ~c0auto6a.itm~ ~override/c0auto6c.itm~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 18
+	  parameter1 = 30
+END
+
+COPY_EXISTING ~c0autos1.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+	  resist_dispel = 0
+      timing = 9
+  END
+COPY_EXISTING ~c0autos2.spl~ ~override~
+SAY NAME1 ~Activate: Barrier Sphere~
+SAY NAME2 ~Activate: Barrier Sphere~
+SAY UNIDENTIFIED_DESC ~Barrier Sphere
+With this ability, the automaton activates a device which causes it to surround the target with a protective Sphere of energy, rendering her unable to interact with the outside world and vice versa, as per the spell Otiluke's Resilient Sphere. Unlike the spell, this ability is not magical in nature and is thus not affected by magic resistance, but the automaton is unable to act so long as it continues to charge the Sphere. This ability may be deactivated at will.
+
+Enemies may make a save vs. breath at -3 to avoid being trapped by the Sphere.~
+COPY_EXISTING ~c0autos3.spl~ ~override~
+  LPF ADD_SPELL_CFEFFECT
+    INT_VAR
+      opcode = 139
+	  target = 1
+	  timing = 4
+	  duration = 24
+	  parameter1 = RESOLVE_STR_REF (~Barrier Sphere Ready~)
+END
+SAY NAME1 ~Deactivate: Barrier Sphere~
+SAY NAME2 ~Deactivate: Barrier Sphere~
+SAY UNIDENTIFIED_DESC ~Barrier Sphere
+Use this ability to deactivate Barrier Sphere.~
+COPY_EXISTING ~c0autos4.spl~ ~override~
+SAY NAME1 ~Activate: Empower~
+SAY NAME2 ~Activate: Empower~
+SAY UNIDENTIFIED_DESC ~Empower
+With this ability, the automaton activates an internal device which causes it to become magically empowered for one turn, altering its stats:
+  - +5 to THAC0
+  - +30% to Damage
+  - +40% Physical Resistance~
+COPY_EXISTING ~c0autos8.spl~ ~override~
+  LPF ADD_SPELL_CFEFFECT
+    INT_VAR
+      opcode = 139
+	  target = 1
+	  timing = 4
+	  duration = 120
+	  parameter1 = RESOLVE_STR_REF (~Static Burst Ready~)
+END
+SAY NAME1 ~Activate: Static Burst~
+SAY NAME2 ~Activate: Static Burst~
+SAY UNIDENTIFIED_DESC ~Static Burst
+With this ability, the automaton activates an internal device which releases a colossal burst of static electricity, dealing 12d6 electrical damage (Save vs. Breath Weapons at -4 for half damage)~
+COPY_EXISTING ~c0autos9.spl~ ~override~
+COPY_EXISTING ~c0autosa.spl~ ~override~
+SAY NAME1 ~Activate: Self-Destruct~
+SAY NAME2 ~Activate: Self-Destruct~
+SAY UNIDENTIFIED_DESC ~Self-Destruct
+With this ability, the automation activates an internal device which causes it to explode after one turn of channelling, dealing 24d6 damage (half fire, half electrical) and knocking all creatures unconscious and away from the automaton. This devastating explosion immediately destroys the automaton.~
+
+COPY_EXISTING ~c0afire1.spl~ ~override~
+SAY NAME1 ~Augment: Fire I~
+SAY NAME2 ~Augment: Fire I~
+COPY_EXISTING ~c0afire2.spl~ ~override~
+SAY NAME1 ~Augment: Fire II~
+SAY NAME2 ~Augment: Fire II~
+COPY_EXISTING ~c0afire3.spl~ ~override~
+SAY NAME1 ~Augment: Fire III~
+SAY NAME2 ~Augment: Fire III~
+COPY_EXISTING ~c0afire4.spl~ ~override~
+SAY NAME1 ~Augment: Fire IV~
+SAY NAME2 ~Augment: Fire IV~
+COPY_EXISTING ~c0afire5.spl~ ~override~
+SAY NAME1 ~Augment: Fire V~
+SAY NAME2 ~Augment: Fire V~
+COPY_EXISTING ~c0acold1.spl~ ~override~
+SAY NAME1 ~Augment: Frost I~
+SAY NAME2 ~Augment: Frost I~
+COPY_EXISTING ~c0acold2.spl~ ~override~
+SAY NAME1 ~Augment: Frost II~
+SAY NAME2 ~Augment: Frost II~
+COPY_EXISTING ~c0acold3.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Slowed~)
+  END
+COPY_EXISTING ~c0acold4.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Slowed~)
+  END
+COPY_EXISTING ~c0amagi1.spl~ ~override~
+SAY NAME1 ~Augment: Arcane I~
+SAY NAME2 ~Augment: Arcane I~
+COPY_EXISTING ~c0amagi2.spl~ ~override~
+SAY NAME1 ~Augment: Arcane II~
+SAY NAME2 ~Augment: Arcane II~
+COPY_EXISTING ~c0amagi3.spl~ ~override~
+SAY NAME1 ~Augment: Arcane III~
+SAY NAME2 ~Augment: Arcane III~
+COPY_EXISTING ~c0atime1.spl~ ~override~
+SAY NAME1 ~Augment: Time~
+SAY NAME2 ~Augment: Time~
+COPY_EXISTING ~c0astre1.spl~ ~override~
+SAY NAME1 ~Augment: Strength~
+SAY NAME2 ~Augment: Strength~
+COPY_EXISTING ~c0aligh1.spl~ ~override~
+SAY NAME1 ~Augment: Lightning I~
+SAY NAME2 ~Augment: Lightning I~
+COPY_EXISTING ~c0aligh2.spl~ ~override~
+SAY NAME1 ~Augment: Lightning II~
+SAY NAME2 ~Augment: Lightning II~
+COPY_EXISTING ~c0alight.itm~ ~override~
+SAY NAME1 ~Lightning Bolt~
+SAY NAME2 ~Lightning Bolt~
+COPY_EXISTING ~c0ashie1.spl~ ~override~
+SAY NAME1 ~Augment: Shield I~
+SAY NAME2 ~Augment: Shield I~
+COPY_EXISTING ~c0ashie2.spl~ ~override~
+SAY NAME1 ~Augment: Shield II~
+SAY NAME2 ~Augment: Shield II~
+COPY_EXISTING ~c0ashie3.spl~ ~override~
+SAY NAME1 ~Augment: Shield III~
+SAY NAME2 ~Augment: Shield III~
+COPY_EXISTING ~c0adust1.spl~ ~override~
+SAY NAME1 ~Augment: Dust~
+SAY NAME2 ~Augment: Dust~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0adust.pro~
+COPY_EXISTING ~c0adust2.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Blinded~)
+  END
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0adust%~
+END
+SAY NAME1 ~Dust Particle Breath~
+SAY NAME2 ~Dust Particle Breath~
+SAY UNIDENTIFIED_DESC ~Dust Particle Breath
+The automaton breathes a cloud of glittering dust, blinding all creatures in an area of effect and reducing their Armor Class and THAC0 by four points for five rounds. This ability may only be used once and can only be regained through using another Dust Rune.~
+COPY_EXISTING ~c0ascry1.spl~ ~override~
+SAY NAME1 ~Augment: Scrying I~
+SAY NAME2 ~Augment: Scrying I~
+COPY_EXISTING ~c0ascry2.spl~ ~override~
+SAY NAME1 ~Augment: Scrying II~
+SAY NAME2 ~Augment: Scrying II~
+COPY_EXISTING ~c0ascryi.spl~ ~override~
+SAY NAME1 ~Dispel Illusions~
+SAY NAME2 ~Dispel Illusions~
+COPY_EXISTING ~c0aupgd1.spl~ ~override~
+
+COPY_EXISTING ~c0auin4.spl~ ~override~
+SAY NAME1 ~Craft Wand~
+SAY NAME2 ~Craft Wand~
+SAY UNIDENTIFIED_DESC ~Craft Wand
+The master artificer may use this ability at will to craft a variety of magical wands at a cost.
+
+Requires: Use Any Item~
+COPY_EXISTING ~c0auin2.cre~ ~override/c0auin4.cre~
+SAY NAME1 ~Wandcrafting~
+SAY NAME2 ~Wandcrafting~
+  WRITE_ASCII 0x248 ~c0auin4~ #8  //override script
+  WRITE_ASCII 0x280 ~c0auin4~ #32  //DV
+  WRITE_ASCII 0x2cc ~c0auin4~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0x268 ~c0auin4~ #8   //default
+COPY_EXISTING ~c0auin5.spl~ ~override~
+SAY NAME1 ~Master Alchemist~
+SAY NAME2 ~Master Alchemist~
+SAY UNIDENTIFIED_DESC ~Master Alchemist
+The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
+
+COPY_EXISTING ~c0auin6.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        match_parameter2  = 82    // Called Shot icon
+        parameter2        = (icon - 4)
+      END
+SAY NAME1 ~Grand Artifice~
+SAY NAME2 ~Grand Artifice~
+SAY UNIDENTIFIED_DESC ~Grand Artifice
+The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+
+Additionally, the artificer gains the ability to craft Master level runes, creating one 7th and 8th level spell rune each respectively.
+
+Requires: Use Any Item~
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// POTIONS /////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 COPY_EXISTING ~c0apot01.spl~ ~override~
 SAY NAME1 ~Potion of Renewal~
@@ -1202,221 +2273,6 @@ Duration: 3 turns
 Weight: 1~
 WRITE_LONG 0x34 3000
 
-COPY_EXISTING ~c0ausumm.cre~ ~override~
-COPY_EXISTING ~c0auin3.spl~ ~override~
-SAY NAME1 ~Craft Automaton~
-SAY NAME2 ~Craft Automaton~
-SAY UNIDENTIFIED_DESC ~Craft Automaton
-The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed and cannot be controlled but will defend their creators, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed.
-
-Only one automaton can be controlled at any given time.~
-
-COPY_EXISTING ~c0auin3a.cre~ ~override~
-  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
-SAY NAME1 ~Bronze Automaton~
-SAY NAME2 ~Bronze Automaton~
-WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
-  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
-  SAY BATTLE_CRY1 ~~ [C0AUTOA]
-  SAY BATTLE_CRY2 ~~ [C0AUTOB]
-  SAY BATTLE_CRY3 ~~ [C0AUTO4]
-  SAY BATTLE_CRY4 ~~ [C0AUTO6]
-  SAY BATTLE_CRY5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON1 ~~ [C0AUTO1]
-  SAY SELECT_COMMON2 ~~ [C0AUTO2]
-  SAY SELECT_COMMON3 ~~ [C0AUTOD]
-  SAY SELECT_COMMON4 ~~ [C0AUTOE]
-  SAY SELECT_COMMON5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON6 ~~ [C0AUTOI]
-  SAY SELECT_ACTION1 ~~ [C0AUTO5]
-  SAY SELECT_ACTION2 ~~ [C0AUTO7]
-  SAY SELECT_ACTION3 ~~ [C0AUTOC]
-  SAY SELECT_ACTION4 ~~ [C0AUTO8]
-  SAY SELECT_ACTION5 ~~ [C0AUTOG]
-  SAY DAMAGE ~~ [C0AUTO3]
-  SAY DYING ~~ [C0AUTO9]
-  SAY HURT ~~ [C0AUTOH]
-
-COPY_EXISTING ~c0auin3b.cre~ ~override~
-  WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
-SAY NAME1 ~Bronze Automaton~
-SAY NAME2 ~Bronze Automaton~
-WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
-  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
-  SAY BATTLE_CRY1 ~~ [C0AUTOA]
-  SAY BATTLE_CRY2 ~~ [C0AUTOB]
-  SAY BATTLE_CRY3 ~~ [C0AUTO4]
-  SAY BATTLE_CRY4 ~~ [C0AUTO6]
-  SAY BATTLE_CRY5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON1 ~~ [C0AUTO1]
-  SAY SELECT_COMMON2 ~~ [C0AUTO2]
-  SAY SELECT_COMMON3 ~~ [C0AUTOD]
-  SAY SELECT_COMMON4 ~~ [C0AUTOE]
-  SAY SELECT_COMMON5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON6 ~~ [C0AUTOI]
-  SAY SELECT_ACTION1 ~~ [C0AUTO5]
-  SAY SELECT_ACTION2 ~~ [C0AUTO7]
-  SAY SELECT_ACTION3 ~~ [C0AUTOC]
-  SAY SELECT_ACTION4 ~~ [C0AUTO8]
-  SAY SELECT_ACTION5 ~~ [C0AUTOG]
-  SAY DAMAGE ~~ [C0AUTO3]
-  SAY DYING ~~ [C0AUTO9]
-  SAY HURT ~~ [C0AUTOH]
-
-COPY_EXISTING ~c0auin3c.cre~ ~override~
-  WRITE_ASCII 0X34 ~AJadeL~ #8   //small portrait
-SAY NAME1 ~Jade Automaton~
-SAY NAME2 ~Jade Automaton~
-WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
-  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_JADE~))
-  SAY BATTLE_CRY1 ~~ [C0AUTOA]
-  SAY BATTLE_CRY2 ~~ [C0AUTOB]
-  SAY BATTLE_CRY3 ~~ [C0AUTO4]
-  SAY BATTLE_CRY4 ~~ [C0AUTO6]
-  SAY BATTLE_CRY5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON1 ~~ [C0AUTO1]
-  SAY SELECT_COMMON2 ~~ [C0AUTO2]
-  SAY SELECT_COMMON3 ~~ [C0AUTOD]
-  SAY SELECT_COMMON4 ~~ [C0AUTOE]
-  SAY SELECT_COMMON5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON6 ~~ [C0AUTOI]
-  SAY SELECT_ACTION1 ~~ [C0AUTO5]
-  SAY SELECT_ACTION2 ~~ [C0AUTO7]
-  SAY SELECT_ACTION3 ~~ [C0AUTOC]
-  SAY SELECT_ACTION4 ~~ [C0AUTO8]
-  SAY SELECT_ACTION5 ~~ [C0AUTOG]
-  SAY DAMAGE ~~ [C0AUTO3]
-  SAY DYING ~~ [C0AUTO9]
-  SAY HURT ~~ [C0AUTOH]
-
-COPY_EXISTING ~c0auin3d.cre~ ~override~
-  WRITE_ASCII 0X34 ~ABlackL~ #8   //small portrait
-SAY NAME1 ~Black Automaton~
-SAY NAME2 ~Black Automaton~
-WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
-  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_BLACK~))
-  SAY BATTLE_CRY1 ~~ [C0AUTOA]
-  SAY BATTLE_CRY2 ~~ [C0AUTOB]
-  SAY BATTLE_CRY3 ~~ [C0AUTO4]
-  SAY BATTLE_CRY4 ~~ [C0AUTO6]
-  SAY BATTLE_CRY5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON1 ~~ [C0AUTO1]
-  SAY SELECT_COMMON2 ~~ [C0AUTO2]
-  SAY SELECT_COMMON3 ~~ [C0AUTOD]
-  SAY SELECT_COMMON4 ~~ [C0AUTOE]
-  SAY SELECT_COMMON5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON6 ~~ [C0AUTOI]
-  SAY SELECT_ACTION1 ~~ [C0AUTO5]
-  SAY SELECT_ACTION2 ~~ [C0AUTO7]
-  SAY SELECT_ACTION3 ~~ [C0AUTOC]
-  SAY SELECT_ACTION4 ~~ [C0AUTO8]
-  SAY SELECT_ACTION5 ~~ [C0AUTOG]
-  SAY DAMAGE ~~ [C0AUTO3]
-  SAY DYING ~~ [C0AUTO9]
-  SAY HURT ~~ [C0AUTOH]
-COPY_EXISTING ~c0auto3.itm~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
- parameter1 = RESOLVE_STR_REF (~Stunned~)
-END
-COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3a.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      savebonus = (0 - 3)
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 45 // display string
-	  probability1 = 30
-END
-COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3b.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      savebonus = (0 - 4)
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 45 // display string
-	  probability1 = 35
-END
-COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3c.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      savebonus = (0 - 5)
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 45 // display string
-	  probability1 = 40
-END
-COPY_EXISTING ~c0auto6a.itm~ ~override/c0auto6b.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 18
-	  parameter1 = 20
-END
-COPY_EXISTING ~c0auto6a.itm~ ~override/c0auto6c.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 18
-	  parameter1 = 30
-END
-COPY_EXISTING ~c0auin4.spl~ ~override~
-SAY NAME1 ~Craft Wand~
-SAY NAME2 ~Craft Wand~
-SAY UNIDENTIFIED_DESC ~Craft Wand
-The master artificer may use this ability to craft any of the following wands:
-
-– Wand of Fire
-– Wand of Frost
-– Wand of Lightning
-– Wand of Paralyzation
-– Wand of Polymorphing
-– Wand of the Heavens
-– Wand of Cloudkill
-– Wand of Spell Striking
-– Wand of Cursing
-– Wand of Wonder
-– Cryonics Rod
-– Rod of Resurrection
-
-Requires: Use Any Item~
-COPY_EXISTING ~c0auin2.cre~ ~override/c0auin4.cre~
-SAY NAME1 ~Wandcrafting~
-SAY NAME2 ~Wandcrafting~
-  WRITE_ASCII 0x248 ~c0auin4~ #8  //override script
-  WRITE_ASCII 0x280 ~c0auin4~ #32  //DV
-  WRITE_ASCII 0x2cc ~c0auin4~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0x268 ~c0auin4~ #8   //default
-COPY_EXISTING ~c0auin5.spl~ ~override~
-SAY NAME1 ~Master Alchemist~
-SAY NAME2 ~Master Alchemist~
-SAY UNIDENTIFIED_DESC ~Master Alchemist
-The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
-
-COPY_EXISTING ~c0auin6.spl~ ~override~
-      LPF ALTER_EFFECT
-      INT_VAR
-        check_globals     = 0
-        check_headers     = 1
-        match_opcode      = 142   // Display portrait icon
-        match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon - 4)
-      END
-SAY NAME1 ~Grand Artifice~
-SAY NAME2 ~Grand Artifice~
-SAY UNIDENTIFIED_DESC ~Grand Artifice
-The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
-
-Requires: Use Any Item~
-
 COPY_EXISTING ~c0apoth1.itm~ ~override~
 SAY NAME1 ~Lantanese Elixir of Divine Might~
 SAY NAME2 ~Lantanese Elixir of Divine Might~
@@ -1463,572 +2319,3 @@ SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills
    - Spellcasting classes take precedence over warrior classes.
    - Arcane classes take precedence over divine classes.~
 WRITE_LONG 0x34 15000
-
-// STORE
-
-COPY_EXISTING ~c0autinv.sto~ ~override~
-SAY 0xc ~Clockwork Servant Automaton~
-
-COPY_EXISTING ~c0autos1.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-	  resist_dispel = 0
-      timing = 9
-  END
-COPY_EXISTING ~c0autos2.spl~ ~override~
-SAY NAME1 ~Activate: Barrier Sphere~
-SAY NAME2 ~Activate: Barrier Sphere~
-SAY UNIDENTIFIED_DESC ~Barrier Sphere
-With this ability, the automaton activates a device which causes it to surround the target with a protective Sphere of energy, rendering her unable to interact with the outside world and vice versa, as per the spell Otiluke's Resilient Sphere. Unlike the spell, this ability is not magical in nature and is thus not affected by magic resistance, but the automaton is unable to act so long as it continues to charge the Sphere. This ability may be deactivated at will.
-
-Enemies may make a save vs. breath at -3 to avoid being trapped by the Sphere.~
-COPY_EXISTING ~c0autos3.spl~ ~override~
-  LPF ADD_SPELL_CFEFFECT
-    INT_VAR
-      opcode = 139
-	  target = 1
-	  timing = 4
-	  duration = 24
-	  parameter1 = RESOLVE_STR_REF (~Barrier Sphere Ready~)
-END
-SAY NAME1 ~Deactivate: Barrier Sphere~
-SAY NAME2 ~Deactivate: Barrier Sphere~
-SAY UNIDENTIFIED_DESC ~Barrier Sphere
-Use this ability to deactivate Barrier Sphere.~
-COPY_EXISTING ~c0autos4.spl~ ~override~
-SAY NAME1 ~Activate: Empower~
-SAY NAME2 ~Activate: Empower~
-SAY UNIDENTIFIED_DESC ~Empower
-With this ability, the automaton activates an internal device which causes it to become magically empowered for one turn, altering its stats:
-  - +5 to THAC0
-  - +30% to Damage
-  - +40% Physical Resistance~
-COPY_EXISTING ~c0autos8.spl~ ~override~
-  LPF ADD_SPELL_CFEFFECT
-    INT_VAR
-      opcode = 139
-	  target = 1
-	  timing = 4
-	  duration = 120
-	  parameter1 = RESOLVE_STR_REF (~Static Burst Ready~)
-END
-SAY NAME1 ~Activate: Static Burst~
-SAY NAME2 ~Activate: Static Burst~
-SAY UNIDENTIFIED_DESC ~Static Burst
-With this ability, the automaton activates an internal device which releases a colossal burst of static electricity, dealing 12d6 electrical damage (Save vs. Breath Weapons at -4 for half damage)~
-COPY_EXISTING ~c0autos9.spl~ ~override~
-COPY_EXISTING ~c0autosa.spl~ ~override~
-SAY NAME1 ~Activate: Self-Destruct~
-SAY NAME2 ~Activate: Self-Destruct~
-SAY UNIDENTIFIED_DESC ~Self-Destruct
-With this ability, the automation activates an internal device which causes it to explode after one turn of channelling, dealing 24d6 damage (half fire, half electrical) and knocking all creatures unconscious and away from the automaton. This devastating explosion immediately destroys the automaton.~
-
-COPY_EXISTING ~c0afire1.spl~ ~override~
-SAY NAME1 ~Augment: Fire I~
-SAY NAME2 ~Augment: Fire I~
-COPY_EXISTING ~c0afire2.spl~ ~override~
-SAY NAME1 ~Augment: Fire II~
-SAY NAME2 ~Augment: Fire II~
-COPY_EXISTING ~c0afire3.spl~ ~override~
-SAY NAME1 ~Augment: Fire III~
-SAY NAME2 ~Augment: Fire III~
-COPY_EXISTING ~c0afire4.spl~ ~override~
-SAY NAME1 ~Augment: Fire IV~
-SAY NAME2 ~Augment: Fire IV~
-COPY_EXISTING ~c0afire5.spl~ ~override~
-SAY NAME1 ~Augment: Fire V~
-SAY NAME2 ~Augment: Fire V~
-COPY_EXISTING ~c0acold1.spl~ ~override~
-SAY NAME1 ~Augment: Frost I~
-SAY NAME2 ~Augment: Frost I~
-COPY_EXISTING ~c0acold2.spl~ ~override~
-SAY NAME1 ~Augment: Frost II~
-SAY NAME2 ~Augment: Frost II~
-COPY_EXISTING ~c0acold3.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Slowed~)
-  END
-COPY_EXISTING ~c0acold4.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Slowed~)
-  END
-COPY_EXISTING ~c0amagi1.spl~ ~override~
-SAY NAME1 ~Augment: Arcane I~
-SAY NAME2 ~Augment: Arcane I~
-COPY_EXISTING ~c0amagi2.spl~ ~override~
-SAY NAME1 ~Augment: Arcane II~
-SAY NAME2 ~Augment: Arcane II~
-COPY_EXISTING ~c0amagi3.spl~ ~override~
-SAY NAME1 ~Augment: Arcane III~
-SAY NAME2 ~Augment: Arcane III~
-COPY_EXISTING ~c0atime1.spl~ ~override~
-SAY NAME1 ~Augment: Time~
-SAY NAME2 ~Augment: Time~
-COPY_EXISTING ~c0astre1.spl~ ~override~
-SAY NAME1 ~Augment: Strength~
-SAY NAME2 ~Augment: Strength~
-COPY_EXISTING ~c0aligh1.spl~ ~override~
-SAY NAME1 ~Augment: Lightning I~
-SAY NAME2 ~Augment: Lightning I~
-COPY_EXISTING ~c0aligh2.spl~ ~override~
-SAY NAME1 ~Augment: Lightning II~
-SAY NAME2 ~Augment: Lightning II~
-COPY_EXISTING ~c0alight.itm~ ~override~
-SAY NAME1 ~Lightning Bolt~
-SAY NAME2 ~Lightning Bolt~
-COPY_EXISTING ~c0ashie1.spl~ ~override~
-SAY NAME1 ~Augment: Shield I~
-SAY NAME2 ~Augment: Shield I~
-COPY_EXISTING ~c0ashie2.spl~ ~override~
-SAY NAME1 ~Augment: Shield II~
-SAY NAME2 ~Augment: Shield II~
-COPY_EXISTING ~c0ashie3.spl~ ~override~
-SAY NAME1 ~Augment: Shield III~
-SAY NAME2 ~Augment: Shield III~
-COPY_EXISTING ~c0adust1.spl~ ~override~
-SAY NAME1 ~Augment: Dust~
-SAY NAME2 ~Augment: Dust~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/c0adust.pro~
-COPY_EXISTING ~c0adust2.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Blinded~)
-  END
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0adust%~
-END
-SAY NAME1 ~Dust Particle Breath~
-SAY NAME2 ~Dust Particle Breath~
-SAY UNIDENTIFIED_DESC ~Dust Particle Breath
-The automaton breathes a cloud of glittering dust, blinding all creatures in an area of effect and reducing their Armor Class and THAC0 by four points for five rounds. This ability may only be used once and can only be regained through using another Dust Rune.~
-COPY_EXISTING ~c0ascry1.spl~ ~override~
-SAY NAME1 ~Augment: Scrying I~
-SAY NAME2 ~Augment: Scrying I~
-COPY_EXISTING ~c0ascry2.spl~ ~override~
-SAY NAME1 ~Augment: Scrying II~
-SAY NAME2 ~Augment: Scrying II~
-COPY_EXISTING ~c0ascryi.spl~ ~override~
-SAY NAME1 ~Dispel Illusions~
-SAY NAME2 ~Dispel Illusions~
-COPY_EXISTING ~c0aupgd1.spl~ ~override~
-
-// KIT
-
-PRINT ~Choose a class for Aura:~
-
-PRINT ~Please choose one of the following:
-[1] Artificer (Thief)
-[2] Illusionist / Artificer (Mage / Thief)
-[3] Priestess / Artificer (Cleric / Thief)~
-
-OUTER_SPRINT ~auraclass~ ~placeholder_value~
-OUTER_WHILE (!(IS_AN_INT ~auraclass~) OR (~auraclass~ > 0x5) OR (~auraclass~ < 0x1)) BEGIN
-  PRINT ~Please select 1, 2, or 3 and press Enter.~
-  ACTION_READLN ~auraclass~
-END
-      ACTION_IF ("auraclass" = 1) THEN BEGIN
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
-ADD_KIT ~C0AURA~
-
- // appended to CLASWEAP.2da
- ~C0AURA		1           1           1           1           1           1           1           1~
-
- // appended column-wise to WEAPPROF.2da
-//11                                T   S           F   Q             S S
-//10                                W   C           L   U             W I
-//9                         B L S   O   I   W       A   A             O N
-//8                         A O H   H   M   A       I   R C   S       R G
-//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
-//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
-//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
-//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
-//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
-//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
-//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-    
- // appended to ABCLASRQ.2da
- ~C0AURA				0      9	0	15	0	0~
-
- // appended to ABCLSMOD.2da
- ~C0AURA				0	0	0	0	0	0~
-
- // appended to ABDCDSRQ.2da
- ~C0AURA                		0       0       0       0       0       0~
-
- // appended to ABDCSCRQ.2da
- ~C0AURA                 	0       0       0       0       0	0~
-
- // appended to ALIGNMNT.2da
- ~C0AURA                  	1       1       1       1      1	1       1       1       1~
-
- // appended to DUALCLAS.2da
- ~C0AURA                  	0       0       0       0       0       0~
-
- // path to your CLAB-style 2da file 
- ~%MOD_FOLDER%/2da/C0AURACL.2da~
-
- // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
-
- // usability flags, added to the end of the KITLIST.2da entry
- ~0x00004000     4~
-
- // HLA table to use; see LUABBR.2da
- ~C0AURA~
-
- // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
- ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-
- // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~artificer~
-  SAY ~Artificer~
-  SAY ~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
-
-Advantages:
-– +30 bonus to Lore.
-– +10% bonus to Find Traps, Open Locks and Set Traps.
-– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
-
-Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
-
-  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
-  RAPID FREEZING REAGENT: Slows the victim.
-  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
-  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
-
-– May use the Craft Rune ability once per day.
-
-CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
-
-– May use the Advanced Alchemy ability at will.
-
-ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
-
-– From level 8 onwards, may use the Craft Automaton ability once per day.
-
-CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
-
-Disadvantages:
-– Hit Die: d4
-– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~
-
-LAF fl#add_kit_ee
-  STR_VAR
-    kit_name = C0AURA
-	backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
-	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-    clswpbon = ~0 0 5~
-	hpclass = ~HPWIZ~
-	thiefskl = ~40 20~
-END
-
-      PRINT ~Installed Aura as an Artificer~
-      END
-      ACTION_IF ("auraclass" = 2) THEN BEGIN
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
-INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
-COPY ~%MOD_FOLDER%/2da/mage~ ~override~
-ADD_KIT ~C0AURA~
-
- // appended to CLASWEAP.2da
- ~C0AURA		1           1           1           1           1           1           1           1~
-
- // appended column-wise to WEAPPROF.2da
-//11                                T   S           F   Q             S S
-//10                                W   C           L   U             W I
-//9                         B L S   O   I   W       A   A             O N
-//8                         A O H   H   M   A       I   R C   S       R G
-//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
-//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
-//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
-//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
-//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
-//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
-//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-    
- // appended to ABCLASRQ.2da
- ~C0AURA				0      9	0	15	0	0~
-
- // appended to ABCLSMOD.2da
- ~C0AURA				0	0	0	0	0	0~
-
- // appended to ABDCDSRQ.2da
- ~C0AURA                		0       0       0       0       0       0~
-
- // appended to ABDCSCRQ.2da
- ~C0AURA                 	0       0       0       0       0	0~
-
- // appended to ALIGNMNT.2da
- ~C0AURA                  	1       1       1       1      1	1       1       1       1~
-
- // appended to DUALCLAS.2da
- ~C0AURA                  	0       0       0       0       0       0~
-
- // path to your CLAB-style 2da file 
- ~%MOD_FOLDER%/2da/blankclab.2da~
-
- // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
-
- // usability flags, added to the end of the KITLIST.2da entry
- ~0x00000400     13~
-
- // HLA table to use; see LUABBR.2da
- ~C0AURA~
-
- // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
- ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-
- // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~illusionist / artificer~
-  SAY ~Illusionist / Artificer~
-  SAY ~ILLUSIONIST/ARTIFICER: This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
-  
-Gnomes can choose this multi-class, but become Illusionist/Artificers by default. Gnomes are the only race that can combine a specialist Mage class in a multi-class.
-  
-ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
-
-Advantages:
-– +30 bonus to Lore.
-– +10% bonus to Find Traps, Open Locks and Set Traps.
-– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
-
-Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
-
-  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
-  RAPID FREEZING REAGENT: Slows the victim.
-  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
-  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
-
-– May use the Craft Rune ability once per day.
-
-CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
-
-– From level 4 onwards, may use the Advanced Alchemy ability at will.
-
-ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
-
-– From level 8 onwards, may use the Craft Automaton ability once per day.
-
-CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
-
-Disadvantages:
-– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~
-
-LAF fl#add_kit_ee
-  STR_VAR
-		kit_name = C0AURA
-		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
-		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-		clswpbon = ~0 0 3~
-		thiefskl = ~40 20~
-		hpclass = ~HPMT~
-END
-LAF qd_multiclass
-	STR_VAR
-		kit_name = c0aura
-		kit_clab = c0auracl
-		base_class = ~T~
-		mc_dir = ~%MOD_FOLDER%/2da/mage~
-END
-
-      PRINT ~Installed Aura as an Illusionist / Artificer~
-      END
-      ACTION_IF ("auraclass" = 3) THEN BEGIN	
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
-INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
-COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
-ADD_KIT ~C0AURA~
-
- // appended to CLASWEAP.2da
- ~C0AURA		1           1           1           1           1           1           1           1~
-
- // appended column-wise to WEAPPROF.2da
-//11                                T   S           F   Q             S S
-//10                                W   C           L   U             W I
-//9                         B L S   O   I   W       A   A             O N
-//8                         A O H   H   M   A       I   R C   S       R G
-//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
-//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
-//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
-//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
-//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
-//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
-//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0AURA	0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-    
- // appended to ABCLASRQ.2da
- ~C0AURA				0      9	0	15	0	0~
-
- // appended to ABCLSMOD.2da
- ~C0AURA				0	0	0	0	0	0~
-
- // appended to ABDCDSRQ.2da
- ~C0AURA                		0       0       0       0       0       0~
-
- // appended to ABDCSCRQ.2da
- ~C0AURA                 	0       0       0       0       0	0~
-
- // appended to ALIGNMNT.2da
- ~C0AURA                  	1       1       0       1      1	1       0       0       0~
-
- // appended to DUALCLAS.2da
- ~C0AURA                  	0       0       0       0       0       0~
-
- // path to your CLAB-style 2da file 
- ~%MOD_FOLDER%/2da/blankclab.2da~
-
- // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
-
- // usability flags, added to the end of the KITLIST.2da entry
- ~0x00020000     15~
-
- // HLA table to use; see LUABBR.2da
- ~C0AURA~
-
- // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
- ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-
- // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~priestess / artificer~
-  SAY ~Priestess / Artificer~
-  SAY ~PRIESTESS/ARTIFICER: This character can use the abilities of a Priestess and an Artificer, though weapons are restricted to only those allowed by the Priestess's ethos. Thieving skills cannot be used while wearing more than studded leather armor.
-  
-ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
-
-Advantages:
-– +30 bonus to Lore.
-– +10% bonus to Find Traps, Open Locks and Set Traps.
-– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
-
-Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can be set at a distance but can be set off by both allies and enemies.
-
-  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
-  RAPID FREEZING REAGENT: Slows the victim.
-  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
-  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.
-
-– May use the Craft Rune ability once per day.
-
-CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
-
-– From level 4 onwards, may use the Advanced Alchemy ability at will.
-
-ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
-
-– From level 8 onwards, may use the Craft Automaton ability once per day.
-
-CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
-
-Disadvantages:
-– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.
-
-PRIESTESS: Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.
-
-Advantages:
-– May cast Protection from Evil as an innate ability.
-– From 6th level onwards, may cast Protection from Evil 10' Radius as an innate ability.
-– From 11th level onwards, may cast True Seeing as an innate ability.
-
-Disadvantages:
-– May only be proficient in clubs, quarterstaves, short bows and slings.
-– May not wear armor heavier than studded leather.
-– May not be chaotic or evil-aligned.~
-
-LAF fl#add_kit_ee
-  STR_VAR
-		kit_name = C0AURA
-		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
-		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-		clswpbon = ~0 0 3~
-		thiefskl = ~40 20~
-		hpclass = ~HPCT~
-END
-LAF qd_multiclass
-	STR_VAR
-		kit_name = c0aura
-		kit_clab = c0auracl
-		base_class = ~T~
-		mc_dir = ~%MOD_FOLDER%/2da~
-END
-
-COPY_EXISTING ~sppr107.spl~ ~override/c0aupr1.spl~
-WRITE_SHORT 0x1C 3 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~sppr408.spl~ ~override/c0aupr2.spl~
-WRITE_SHORT 0x1C 3 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~sppr505.spl~ ~override/c0aupr3.spl~
-WRITE_SHORT 0x1C 3 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
-  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-    READ_BYTE    0x20 thief //reads the byte containing the mage usability flag
-    PATCH_IF ((thief BAND 0b01000000) = 0b00000000) BEGIN // if it is usable by thieves
-      READ_BYTE    0x1F cthief //reads the byte containing cleric/thieves usability flag
-      READ_SHORT    0x1C type //reads the byte containing item type
-      PATCH_IF (type = 5) BEGIN // if it is arrows
-        WRITE_BYTE    0x1F (thief BAND 0b11111101)  // makes usable by cleric/thieves
-      END
-    END
-  END
-BUT_ONLY_IF_IT_CHANGES
-
-      PRINT ~Installed Aura as a Priestess / Artificer~
-      END

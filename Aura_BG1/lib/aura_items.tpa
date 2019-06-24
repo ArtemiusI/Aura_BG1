@@ -997,10 +997,11 @@ SAY DESC ~This unusual arrow, designed and crafted by Aura, deals no damage to i
 STATISTICS:
 
 Combat abilities:
-– Heals target for 1d6+1 hit points (does not apply Magnetism)
+– Target regenerates 1d2 hit points per second for (2 + Aura's level) seconds
+– This arrow does not apply Magnetism
 
 Damage: None
-Launcher: Bow
+Launcher: Sunshooter Bow
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro1%~
