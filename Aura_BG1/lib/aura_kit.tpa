@@ -423,12 +423,12 @@ COPY_EXISTING ~c0auin1.spl~ ~override~
 SAY NAME1 ~Set Alchemical Snare~
 SAY NAME2 ~Set Alchemical Snare~
 SAY UNIDENTIFIED_DESC ~Set Alchemical Snare
-Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 1d4 (+1 extra damage per level) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
 
-  ALCHEMIST'S FIRE: Ignites the victim, dealing 1d4 damage per round.
-  RAPID FREEZE: Slows the victim.
-  ACIDIC COMPOUND: Corrodes the victim's armor, reducing their AC by 4 and physical resistance by 20%.
-  ELECTRIC CHARGE: Afflicts the victim with a 50% chance to miscast magic.~
+  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
+  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
+  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
+  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap1.PRO~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap2.PRO~
@@ -453,11 +453,26 @@ SET "delta" = 0
 FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap5%~
 END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = FIRE
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
   LPF ALTER_EFFECT
     INT_VAR
       match_opcode = 142
-	  parameter2 = (icon - 1)
+	  parameter2 = c0aicon3
 END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Aflame~)
+      END
 COPY_EXISTING ~c0auin1a.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Alchemist's Fire~
 SAY NAME2 ~Set Alchemical Trap: Alchemist's Fire~
@@ -476,6 +491,21 @@ SET "delta" = 0
 FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap6%~
 END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = COLD
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Slowed~)
+      END
 COPY_EXISTING ~c0auin1b.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Rapid Freezing Reagent~
 SAY NAME2 ~Set Alchemical Trap: Rapid Freezing Reagent~
@@ -494,6 +524,21 @@ SET "delta" = 0
 FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap7%~
 END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = ACID
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Corroded~)
+      END
 COPY_EXISTING ~c0auin1c.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Corrosive Acidic Compound~
 SAY NAME2 ~Set Alchemical Trap: Corrosive Acidic Compound~
@@ -512,11 +557,31 @@ SET "delta" = 0
 FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap8%~
 END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = ELEC
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 142   // Display portrait icon
-        match_parameter2  = 1    // Called Shot icon
-        parameter2        = 105
+        parameter2        = c0aicon6
+      END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Shocked~)
+      END
+COPY_EXISTING ~c0aparal.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Paralyzed~)
       END
 COPY_EXISTING ~c0auin1d.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
@@ -1884,7 +1949,7 @@ COPY_EXISTING ~c0auin6.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon - 4)
+        parameter2        = c0aicon5
       END
 SAY NAME1 ~Grand Artifice~
 SAY NAME2 ~Grand Artifice~

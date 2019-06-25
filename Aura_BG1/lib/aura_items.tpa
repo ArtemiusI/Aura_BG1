@@ -119,7 +119,7 @@ COPY_EXISTING ~c0asaku.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon)
+        parameter2        = c0aicon4
       END
 SAY NAME1 ~Amaterasu~
 SAY NAME2 ~Amaterasu~
@@ -138,7 +138,7 @@ COPY_EXISTING ~c0auiden.spl~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon - 2)
+        parameter2        = c0aicon2
       END
 SAY NAME1 ~Reveal Magic~
 COPY_EXISTING ~c0auiden.itm~ ~override~
@@ -1113,13 +1113,23 @@ COPY_EXISTING ~c0autt02.spl~ ~override~
 	  parameter1 = RESOLVE_STR_REF (~Shattered~)
   END
 COPY_EXISTING ~c0freeze.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = COLD
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon - 3)
+        parameter2        = c0aicon1
       END
   LPF ALTER_EFFECT
     INT_VAR
@@ -1211,10 +1221,20 @@ SET "delta" = 0
 FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb1%~
 END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = FIRE
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
   LPF ALTER_EFFECT
     INT_VAR
       match_opcode = 142
-	  parameter2 = (icon - 1)
+	  parameter2 = c0aicon3
 END
 COPY_EXISTING ~c0abomb1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -1311,6 +1331,16 @@ WRITE_SHORT 0x9C ~%c0aproj0%~
 WRITE_LONG 0x34 1000
 
 COPY_EXISTING ~c0abomb4.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = POISN
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
 READ_LONG 0x64 "abil_off"
 READ_SHORT 0x68 "abil_num"
 SET "delta" = 0
@@ -1344,6 +1374,16 @@ WRITE_SHORT 0x9C ~%c0aproj0%~
 WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0abomb5.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = POISN
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
 READ_LONG 0x64 "abil_off"
 READ_SHORT 0x68 "abil_num"
 SET "delta" = 0
@@ -1431,6 +1471,16 @@ FOR (index = 0; index < abil_num; index = index + 1) BEGIN
 WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb7%~
 END
 COPY_EXISTING ~c0abomb7.itm~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = ACID
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1457,12 +1507,22 @@ WRITE_SHORT 0x9C ~%c0aproj0%~
 WRITE_LONG 0x34 5000
 
 COPY_EXISTING ~c0aburn.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = FIRE
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
       LPF ALTER_EFFECT
       INT_VAR
         check_globals     = 0
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
-        parameter2        = (icon - 1)
+        parameter2        = c0aicon3
       END
   LPF ALTER_EFFECT
     INT_VAR
@@ -1594,7 +1654,7 @@ COPY_EXISTING ~c0aclub1.itm~ ~override~
         check_headers     = 1
         match_opcode      = 142   // Display portrait icon
         match_parameter2  = 82    // Called Shot icon
-        parameter2        = (icon - 1)
+        parameter2        = c0aicon3
       END
 SAY NAME1 ~Onibi-no-kozuchi +2~
 SAY NAME2 ~Onibi-no-kozuchi +2~
