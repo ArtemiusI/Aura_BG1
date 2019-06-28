@@ -85,9 +85,9 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day.
+– May use the Craft Rune ability twice per day, gaining an additional use every five levels.
 
-CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
 – May use the Advanced Alchemy ability at will.
 
@@ -196,7 +196,7 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
 
 – May use the Craft Rune ability once per day.
 
-CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
 – From level 4 onwards, may use the Advanced Alchemy ability at will.
 
@@ -309,7 +309,7 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
 
 – May use the Craft Rune ability once per day.
 
-CRAFT RUNE: Artificers can inscribe runes with arcane magic, which may be used to temporarily enhance weapons or to cast spells. The amount and strength of runes created depend on the artificer's level. Runes may not be crafted during combat.
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
 – From level 4 onwards, may use the Advanced Alchemy ability at will.
 
@@ -591,965 +591,119 @@ COPY_EXISTING ~c0auin2.spl~ ~override~
 SAY NAME1 ~Craft Rune~
 SAY NAME2 ~Craft Rune~
 SAY UNIDENTIFIED_DESC ~Craft Rune
-Artificers can inscribe runes with arcane magic, allowing them to use a limited variety of spells. The amount and strength of runes created depend on the artificer's level.
+Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
-Runes may not be crafted during combat.~
+1st level: Igneus Blaze, Cryoshock, Energy Barrage
+10th level: Lunar Butterfly
+12th level: Aerial Judgment
 
-COPY_EXISTING ~c0auin2.cre~ ~override~
-SAY NAME1 ~Runecrafting~
-SAY NAME2 ~Runecrafting~
-  WRITE_ASCII 0x2cc ~c0auin2~ #8   //pre-joining dialogue file
-  WRITE_ASCII 0X34 ~c0aurune~ #8   //small portrait
+Runes may not be crafted during combat, and lose their potency if not used within 24 hours. From 20th level onward, two runes are created per use of the ability.~
 
-COPY_EXISTING ~spwi103.spl~ ~override/c0rune1a.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override~
-SAY NAME1 ~Minor Fire Rune~
-SAY NAME2 ~Minor Fire Rune~
-SAY DESC ~This minor fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune2.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune2 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune2 END
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune3.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune3 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune3 END
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune4.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune4 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune4 END
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune5.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune5 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune5 END
 
-STATISTIC:
-– May cast Burning Hands once
-– If used on an automaton, grants +1 enchantment bonus and +1d2 fire damage to attacks.~
-  
-COPY_EXISTING ~spwi117.spl~ ~override/c0rune1b.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
+COPY_EXISTING ~c0arune1.itm~ ~override~
+SAY NAME1 ~Igneus Rune~
+SAY NAME2 ~Igneus Rune~
+SAY DESC ~The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round for 5 rounds. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
 
-COPY_EXISTING ~c0rune1b.itm~ ~override~
-SAY NAME1 ~Minor Ice Rune~
-SAY NAME2 ~Minor Ice Rune~
-SAY DESC ~This minor ice rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
 
-STATISTIC:
-– May cast Chill Touch once
-– If used on an automaton, grants a cold aura that lowers nearby enemies' Armor Class, THAC0 and damage by one point each.~
+COPY_EXISTING ~c0arune2.itm~ ~override~
+SAY NAME1 ~Cryon Rune~
+SAY NAME2 ~Cryon Rune~
+SAY DESC ~The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
 
-COPY_EXISTING ~spwi112.spl~ ~override/c0rune1c.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1c.itm~ ~override~
-SAY NAME1 ~Minor Arcane Rune~
-SAY NAME2 ~Minor Arcane Rune~
-SAY DESC ~This minor arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+COPY_EXISTING ~c0arune3.itm~ ~override~
+SAY NAME1 ~Arcana Rune~
+SAY NAME2 ~Arcana Rune~
+SAY DESC ~The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
 
-STATISTIC:
-– May cast Magic Missile once
-– If used on an automaton, grants +10% magic resistance and absorption of one spell of 2nd level or lower.~
-  
-COPY_EXISTING ~spwi120.spl~ ~override/c0rune1d.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1d.itm~ ~override~
-SAY NAME1 ~Minor Illusion Rune~
-SAY NAME2 ~Minor Illusion Rune~
-SAY DESC ~This minor illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+COPY_EXISTING ~c0arune4.itm~ ~override~
+SAY NAME1 ~Lunacy Rune~
+SAY NAME2 ~Lunacy Rune~
+SAY DESC ~The Lunacy Rune allows the user to cast Lunar Butterfly. Lunar Butterfly launches a bolt of moonlight towards a target. The effects of the bolt vary depending on whether the target is an ally or an enemy.
 
-STATISTIC:
-– May cast Reflected Image once
-– If used on an automaton, grants the effects of Reflected Image.~
+Ally cast: Target gains the effects of Mirror Image for 3 rounds + 1 round/user level.
+Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicated for one turn.
 
-COPY_EXISTING ~spwi115.spl~ ~override/c0rune1e.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1e.itm~ ~override~
-SAY NAME1 ~Minor Lightning Rune~
-SAY NAME2 ~Minor Lightning Rune~
-SAY DESC ~This minor lightning rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+From 15th level onwards, the bolt of moonlight spreads to all nearby creatures around the target, inflicting the spell's effects on each target.~
 
-STATISTIC:
-– May cast Shocking Grasp once
-– If used on an automaton, restores 30% of its maximum hit points and grants it a lightning bolt for its next attack dealing 3d6+3 electrical damage to all targets in a line.~
-  
-COPY_EXISTING ~spwi114.spl~ ~override/c0rune1f.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1f.itm~ ~override~
-SAY NAME1 ~Minor Shield Rune~
-SAY NAME2 ~Minor Shield Rune~
-SAY DESC ~This minor shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+COPY_EXISTING ~c0arune5.itm~ ~override~
+SAY NAME1 ~Aether Rune~
+SAY NAME2 ~Aether Rune~
+SAY DESC ~The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
 
-STATISTIC:
-– May cast Shield once
-– If used on an automaton, grants +2 to Armor Class against all weapons.~
+From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
 
-COPY_EXISTING ~spwi217.spl~ ~override/c0rune2a.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2a.itm~ ~override~
-SAY NAME1 ~Lesser Fire Rune~
-SAY NAME2 ~Lesser Fire Rune~
-SAY DESC ~This lesser fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+// Igneus Blaze
 
-STATISTIC:
-– May cast Agannazar's Scorcher once
-– If used on an automaton, grants +2 enchantment bonus and +1d4 fire damage to attacks.~
+COPY_EXISTING ~c0arune1.spl~ ~override~
+	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = FIRE duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicon3 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Aflame~) END
+SAY NAME1 ~Igneus Blaze~
+	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0acone1 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0acone1 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 3 projectile = c0acone1 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 4 projectile = c0acone1 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 5 projectile = c0acone2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 6 projectile = c0acone2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 7 projectile = c0acone2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 8 projectile = c0acone2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 9 projectile = c0acone2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 10 projectile = c0acone2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 11 projectile = c0acone3 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 12 projectile = c0acone3 END
 
-COPY_EXISTING ~spwi214.spl~ ~override/c0rune2b.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2b.itm~ ~override~
-SAY NAME1 ~Lesser Strength Rune~
-SAY NAME2 ~Lesser Strength Rune~
-SAY DESC ~This lesser strength rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+// Cryoshock
 
-STATISTIC:
-– May cast Strength once
-– If used on an automaton, grants +2 to THAC0 and damage.~
+COPY_EXISTING ~c0arune2.spl~ ~override~
+	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = COLD duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
+SAY NAME1 ~Cryoshock~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0acryo1 END
 
-COPY_EXISTING ~spwi201.spl~ ~override/c0rune2c.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2c.itm~ ~override~
-SAY NAME1 ~Lesser Illusion Rune~
-SAY NAME2 ~Lesser Illusion Rune~
-SAY DESC ~This lesser illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+// Energy Barrage
 
-STATISTIC:
-– May cast Blur once
-– If used on an automaton, grants the effects of Blur.~
+COPY_EXISTING ~c0arune3.spl~ ~override~
+SAY NAME1 ~Energy Barrage~
+	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0amiss2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0amiss3 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 3 projectile = c0amiss4 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 4 projectile = c0amiss5 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 5 projectile = c0amiss6 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 6 projectile = c0amiss7 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 7 projectile = c0amiss8 END
 
-COPY_EXISTING ~spwi224.spl~ ~override/c0rune2d.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2d.itm~ ~override~
-SAY NAME1 ~Lesser Dust Rune~
-SAY NAME2 ~Lesser Dust Rune~
-SAY DESC ~This lesser dust rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+// LUNAR BUTTERFLY
 
-STATISTIC:
-– May cast Glitterdust once
-– If used on an automaton, grants one use of Dust Particle Breath, reducing all nearby creatures' Armor Class and THAC0 by four points.~
+COPY_EXISTING ~c0arune4.spl~ ~override~
+SAY NAME1 ~Lunar Butterfly~
+COPY_EXISTING ~c0rune4a.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Confused~) END
+COPY_EXISTING ~c0rune4b.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Mirror Imaged~) END
 
-COPY_EXISTING ~spwi304.spl~ ~override/c0rune2e.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2e.itm~ ~override~
-SAY NAME1 ~Fire Rune~
-SAY NAME2 ~Fire Rune~
-SAY DESC ~This fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
+// AERIAL JUDGMENT
+COPY_EXISTING ~c0arune5.spl~ ~override~
+	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = ELEC duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
+	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0albolt END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Stunned~) END
+SAY NAME1 ~Aerial Judgment~
+COPY_EXISTING ~c0rune5a.spl~ ~override~
+	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = ELEC duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
+	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0albol2 END
 
-STATISTIC:
-– May cast Fireball once
-– If used on an automaton, grants +3 enchantment bonus and +1d6 fire damage to attacks.~
-
-COPY_EXISTING ~spwi308.spl~ ~override/c0rune2f.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2f.itm~ ~override~
-SAY NAME1 ~Lightning Rune~
-SAY NAME2 ~Lightning Rune~
-SAY DESC ~This lightning rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Lightning Bolt once
-– If used on an automaton, restores +50% of its maximum hit points and grants it lightning bolts for its next three attacks dealing 3d6+3 electrical damage to all targets in a line.~
-
-COPY_EXISTING ~spwi312.spl~ ~override/c0rune2g.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2g.itm~ ~override~
-SAY NAME1 ~Time Rune~
-SAY NAME2 ~Time Rune~
-SAY DESC ~This time rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Slow once
-– If used on an automaton, grants the effects of Haste.~
-
-COPY_EXISTING ~spwi307.spl~ ~override/c0rune2h.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune2h.itm~ ~override~
-SAY NAME1 ~Illusion Rune~
-SAY NAME2 ~Illusion Rune~
-SAY DESC ~This illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Invisibility 10' Radius once
-– If used on an automaton, grants the effects of Mirror Image.~
-
-COPY_EXISTING ~spwi418.spl~ ~override/c0rune3a.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune3a.itm~ ~override~
-SAY NAME1 ~Greater Fire Rune~
-SAY NAME2 ~Greater Fire Rune~
-SAY DESC ~This greater fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Fireshield (Red) once
-– If used on an automaton, grants +4 enchantment bonus and +1d8 fire damage to attacks.~
-
-COPY_EXISTING ~spwi408.spl~ ~override/c0rune3b.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune3b.itm~ ~override~
-SAY NAME1 ~Greater Earth Rune~
-SAY NAME2 ~Greater Earth Rune~
-SAY DESC ~This greater earth rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Stoneskin once
-– If used on an automaton, grants +30% physical resistance.~
-
-COPY_EXISTING ~spwi406.spl~ ~override/c0rune3c.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune3c.itm~ ~override~
-SAY NAME1 ~Greater Arcane Rune~
-SAY NAME2 ~Greater Arcane Rune~
-SAY DESC ~This greater arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Minor Globe of Invulnerability once
-– If used on an automaton, grants +30% magic resistance and absorption of two spells of 4th level or lower.~
-
-COPY_EXISTING ~spwi405.spl~ ~override/c0rune3d.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune3d.itm~ ~override~
-SAY NAME1 ~Greater Illusion Rune~
-SAY NAME2 ~Greater Illusion Rune~
-SAY DESC ~This greater illusion rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Improved Invisibility once
-– If used on an automaton, grants the effects of Improved Invisibility.~
-
-COPY_EXISTING ~spwi424.spl~ ~override/c0rune3e.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune3e.itm~ ~override~
-SAY NAME1 ~Greater Scrying Rune~
-SAY NAME2 ~Greater Scrying Rune~
-SAY DESC ~This greater scrying rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Farsight once
-– If used on an automaton, grants increased vision range and ability to attack invisible creatures.~
-
-COPY_EXISTING ~spwi414.spl~ ~override/c0rune3f.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune3f.itm~ ~override~
-SAY NAME1 ~Greater Shield Rune~
-SAY NAME2 ~Greater Shield Rune~
-SAY DESC ~This greater shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Spirit Armor once
-– If used on an automaton, grants +4 to Armor Class against all weapons.~
-
-COPY_EXISTING ~spwi523.spl~ ~override/c0rune4a.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune4a.itm~ ~override~
-SAY NAME1 ~Perfect Fire Rune~
-SAY NAME2 ~Perfect Fire Rune~
-SAY DESC ~This perfect fire rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Sunfire once
-– If used on an automaton, grants +5 enchantment bonus and +1d10 fire damage to attacks.~
-
-COPY_EXISTING ~spwi503.spl~ ~override/c0rune4b.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune4b.itm~ ~override~
-SAY NAME1 ~Perfect Ice Rune~
-SAY NAME2 ~Perfect Ice Rune~
-SAY DESC ~This perfect ice rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Cone of Cold once
-– If used on an automaton, grants a cold aura that lowers nearby enemies' Armor Class, THAC0 and damage by three points each.~
-
-COPY_EXISTING ~spwi513.spl~ ~override/c0rune4c.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune4c.itm~ ~override~
-SAY NAME1 ~Perfect Arcane Rune~
-SAY NAME2 ~Perfect Arcane Rune~
-SAY DESC ~This perfect arcane rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Breach once
-– If used on an automaton, grants +40% magic resistance and absorption of three spells of 6th level or lower.~
-
-COPY_EXISTING ~spwi515.spl~ ~override/c0rune4d.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune4d.itm~ ~override~
-SAY NAME1 ~Perfect Scrying Rune~
-SAY NAME2 ~Perfect Scrying Rune~
-SAY DESC ~This perfect scrying rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Oracle once
-– If used on an automaton, grants increased vision range and ability to attack invisible creatures. Attacks dispel illusions on hit.~
-
-COPY_EXISTING ~spwi510.spl~ ~override/c0rune4e.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune4e.itm~ ~override~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	END
-SAY NAME1 ~Perfect Shield Rune~
-SAY NAME2 ~Perfect Shield Rune~
-SAY DESC ~This perfect shield rune was crafted by an artificer. Arcane runes have the ability to cast a specific stored spell or provide temporary enhancements to an automaton.
-
-STATISTIC:
-– May cast Spell Immunity once
-– If used on an automaton, grants +8 to Armor Class against all weapons.~
-
-COPY_EXISTING ~spwi701.spl~ ~override/c0ru701.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru701.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = C0RU701
-	END
-SAY NAME1 ~Spell Turning Rune~
-SAY NAME2 ~Spell Turning Rune~
-SAY DESC #10872
-WRITE_EVALUATED_ASCII 0x3a ~SPWI701B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI701B~
-WRITE_BYTE 0x7e 5 // target
-WRITE_BYTE 0x80 0 // range
-
-COPY_EXISTING ~spwi702.spl~ ~override/c0ru702.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru702.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru702
-	END
-SAY NAME1 ~Protection from the Elements Rune~
-SAY NAME2 ~Protection from the Elements Rune~
-SAY DESC #7599
-WRITE_EVALUATED_ASCII 0x3a ~SPWI702B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI702B~
-WRITE_BYTE 0x7e 1 // target
-WRITE_BYTE 0x80 1 // range
-
-COPY_EXISTING ~spwi704.spl~ ~override/c0ru704.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru704.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru704
-	END
-SAY NAME1 ~Ruby Ray of Reversal Rune~
-SAY NAME2 ~Ruby Ray of Reversal Rune~
-SAY DESC #25946
-WRITE_EVALUATED_ASCII 0x3a ~SPWI704B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI704B~
-WRITE_BYTE 0x7e 1 // target
-WRITE_BYTE 0x80 40 // range
-
-COPY_EXISTING ~spwi714.spl~ ~override/c0ru714.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru714.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		opcode = 148
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru714
-	END
-SAY NAME1 ~Prismatic Spray Rune~
-SAY NAME2 ~Prismatic Spray Rune~
-SAY DESC #25961
-WRITE_EVALUATED_ASCII 0x3a ~SPWI714B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI714B~
-WRITE_BYTE 0x7e 4 // target
-WRITE_BYTE 0x80 15 // range
-
-COPY_EXISTING ~spwi716.spl~ ~override/c0ru716.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru716.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru716
-	END
-SAY NAME1 ~Mordenkainen's Sword Rune~
-SAY NAME2 ~Mordenkainen's Sword Rune~
-SAY DESC #7832
-WRITE_EVALUATED_ASCII 0x3a ~SPWI716B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI716B~
-WRITE_BYTE 0x7e 5 // target
-WRITE_BYTE 0x80 1 // range
-
-COPY_EXISTING ~spwi721.spl~ ~override/c0ru721.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru721.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		opcode = 148
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru721
-	END
-SAY NAME1 ~Mass Invisibility Rune~
-SAY NAME2 ~Mass Invisibility Rune~
-SAY DESC #32428
-WRITE_EVALUATED_ASCII 0x3a ~SPWI721B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI721B~
-WRITE_BYTE 0x7e 4 // target
-WRITE_BYTE 0x80 35 // range
-
-COPY_EXISTING ~spwi804.spl~ ~override/c0ru804.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru804.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru804
-	END
-SAY NAME1 ~Simulacrum Rune~
-SAY NAME2 ~Simulacrum Rune~
-SAY DESC #26235
-WRITE_EVALUATED_ASCII 0x3a ~SPWI804B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI804B~
-WRITE_BYTE 0x7e 5 // target
-WRITE_BYTE 0x80 1 // range
-
-COPY_EXISTING ~spwi805.spl~ ~override/c0ru805.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru805.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru805
-	END
-SAY NAME1 ~Pierce Shield Rune~
-SAY NAME2 ~Pierce Shield Rune~
-SAY DESC #26242
-WRITE_EVALUATED_ASCII 0x3a ~SPWI805B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI805B~
-WRITE_BYTE 0x7e 1 // target
-WRITE_BYTE 0x80 50 // range
-
-COPY_EXISTING ~spwi808.spl~ ~override/c0ru808.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru808.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru808
-	END
-SAY NAME1 ~Improved Mantle Rune~
-SAY NAME2 ~Improved Mantle Rune~
-SAY DESC #7618
-WRITE_EVALUATED_ASCII 0x3a ~SPWI808B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI808B~
-WRITE_BYTE 0x7e 5 // target
-WRITE_BYTE 0x80 1 // range
-
-COPY_EXISTING ~spwi810.spl~ ~override/c0ru810.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru810.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		opcode = 148
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru810
-	END
-SAY NAME1 ~Incendiary Cloud Rune~
-SAY NAME2 ~Incendiary Cloud Rune~
-SAY DESC #7664
-WRITE_EVALUATED_ASCII 0x3a ~SPWI810B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI810B~
-WRITE_BYTE 0x7e 4 // target
-WRITE_BYTE 0x80 40 // range
-
-COPY_EXISTING ~spwi813.spl~ ~override/c0ru813.spl~
-LPF ALTER_SPELL_HEADER
-INT_VAR
-speed = 0
-END
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-SET "num_abil" = ("%num_abil%" - 1)
-END
-COPY_EXISTING ~c0rune1a.itm~ ~override/c0ru813.itm~
-	LPF ALTER_EFFECT
-	INT_VAR
-		match_opcode = 146
-		parameter2 = 0
-	STR_VAR
-		resource = c0ru813
-	END
-SAY NAME1 ~Maze Rune~
-SAY NAME2 ~Maze Rune~
-SAY DESC #18143
-WRITE_EVALUATED_ASCII 0x3a ~SPWI813B~
-WRITE_EVALUATED_ASCII 0x76 ~SPWI813B~
-WRITE_BYTE 0x7e 1 // target
-WRITE_BYTE 0x80 3 // range
 
 COPY_EXISTING ~c0aualc.spl~ ~override~
 SAY NAME1 ~Advanced Alchemy~
@@ -1559,7 +713,7 @@ Lantanese artificers are exceptionally skilled in chemistry and potion-making. T
 
 This ability may be used an unlimited times per day, but the artificer's stock only refreshes after resting. Alchemy may not be performed while in combat.~
 
-COPY_EXISTING ~c0auin2.cre~ ~override/c0aualch.cre~
+COPY_EXISTING ~c0aualch.cre~ ~override~
 SAY NAME1 ~Alchemy~
 SAY NAME2 ~Alchemy~
   WRITE_ASCII 0x248 ~c0aualch~ #8  //override script
@@ -1819,109 +973,6 @@ SAY NAME2 ~Activate: Self-Destruct~
 SAY UNIDENTIFIED_DESC ~Self-Destruct
 With this ability, the automation activates an internal device which causes it to explode after one turn of channelling, dealing 24d6 damage (half fire, half electrical) and knocking all creatures unconscious and away from the automaton. This devastating explosion immediately destroys the automaton.~
 
-COPY_EXISTING ~c0afire1.spl~ ~override~
-SAY NAME1 ~Augment: Fire I~
-SAY NAME2 ~Augment: Fire I~
-COPY_EXISTING ~c0afire2.spl~ ~override~
-SAY NAME1 ~Augment: Fire II~
-SAY NAME2 ~Augment: Fire II~
-COPY_EXISTING ~c0afire3.spl~ ~override~
-SAY NAME1 ~Augment: Fire III~
-SAY NAME2 ~Augment: Fire III~
-COPY_EXISTING ~c0afire4.spl~ ~override~
-SAY NAME1 ~Augment: Fire IV~
-SAY NAME2 ~Augment: Fire IV~
-COPY_EXISTING ~c0afire5.spl~ ~override~
-SAY NAME1 ~Augment: Fire V~
-SAY NAME2 ~Augment: Fire V~
-COPY_EXISTING ~c0acold1.spl~ ~override~
-SAY NAME1 ~Augment: Frost I~
-SAY NAME2 ~Augment: Frost I~
-COPY_EXISTING ~c0acold2.spl~ ~override~
-SAY NAME1 ~Augment: Frost II~
-SAY NAME2 ~Augment: Frost II~
-COPY_EXISTING ~c0acold3.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Slowed~)
-  END
-COPY_EXISTING ~c0acold4.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Slowed~)
-  END
-COPY_EXISTING ~c0amagi1.spl~ ~override~
-SAY NAME1 ~Augment: Arcane I~
-SAY NAME2 ~Augment: Arcane I~
-COPY_EXISTING ~c0amagi2.spl~ ~override~
-SAY NAME1 ~Augment: Arcane II~
-SAY NAME2 ~Augment: Arcane II~
-COPY_EXISTING ~c0amagi3.spl~ ~override~
-SAY NAME1 ~Augment: Arcane III~
-SAY NAME2 ~Augment: Arcane III~
-COPY_EXISTING ~c0atime1.spl~ ~override~
-SAY NAME1 ~Augment: Time~
-SAY NAME2 ~Augment: Time~
-COPY_EXISTING ~c0astre1.spl~ ~override~
-SAY NAME1 ~Augment: Strength~
-SAY NAME2 ~Augment: Strength~
-COPY_EXISTING ~c0aligh1.spl~ ~override~
-SAY NAME1 ~Augment: Lightning I~
-SAY NAME2 ~Augment: Lightning I~
-COPY_EXISTING ~c0aligh2.spl~ ~override~
-SAY NAME1 ~Augment: Lightning II~
-SAY NAME2 ~Augment: Lightning II~
-COPY_EXISTING ~c0alight.itm~ ~override~
-SAY NAME1 ~Lightning Bolt~
-SAY NAME2 ~Lightning Bolt~
-COPY_EXISTING ~c0ashie1.spl~ ~override~
-SAY NAME1 ~Augment: Shield I~
-SAY NAME2 ~Augment: Shield I~
-COPY_EXISTING ~c0ashie2.spl~ ~override~
-SAY NAME1 ~Augment: Shield II~
-SAY NAME2 ~Augment: Shield II~
-COPY_EXISTING ~c0ashie3.spl~ ~override~
-SAY NAME1 ~Augment: Shield III~
-SAY NAME2 ~Augment: Shield III~
-COPY_EXISTING ~c0adust1.spl~ ~override~
-SAY NAME1 ~Augment: Dust~
-SAY NAME2 ~Augment: Dust~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0adust.pro~
-COPY_EXISTING ~c0adust2.spl~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Blinded~)
-  END
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0adust%~
-END
-SAY NAME1 ~Dust Particle Breath~
-SAY NAME2 ~Dust Particle Breath~
-SAY UNIDENTIFIED_DESC ~Dust Particle Breath
-The automaton breathes a cloud of glittering dust, blinding all creatures in an area of effect and reducing their Armor Class and THAC0 by four points for five rounds. This ability may only be used once and can only be regained through using another Dust Rune.~
-COPY_EXISTING ~c0ascry1.spl~ ~override~
-SAY NAME1 ~Augment: Scrying I~
-SAY NAME2 ~Augment: Scrying I~
-COPY_EXISTING ~c0ascry2.spl~ ~override~
-SAY NAME1 ~Augment: Scrying II~
-SAY NAME2 ~Augment: Scrying II~
-COPY_EXISTING ~c0ascryi.spl~ ~override~
-SAY NAME1 ~Dispel Illusions~
-SAY NAME2 ~Dispel Illusions~
-COPY_EXISTING ~c0aupgd1.spl~ ~override~
-
 COPY_EXISTING ~c0auin4.spl~ ~override~
 SAY NAME1 ~Craft Wand~
 SAY NAME2 ~Craft Wand~
@@ -1929,7 +980,7 @@ SAY UNIDENTIFIED_DESC ~Craft Wand
 The master artificer may use this ability at will to craft a variety of magical wands at a cost.
 
 Requires: Use Any Item~
-COPY_EXISTING ~c0auin2.cre~ ~override/c0auin4.cre~
+COPY_EXISTING ~c0aualch.cre~ ~override/c0auin4.cre~
 SAY NAME1 ~Wandcrafting~
 SAY NAME2 ~Wandcrafting~
   WRITE_ASCII 0x248 ~c0auin4~ #8  //override script

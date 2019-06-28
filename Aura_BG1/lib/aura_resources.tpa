@@ -128,3 +128,31 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aarea1.PRO~ ~C0 Reveal Magic~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aglue.PRO~ ~C0 Glue Bomb~
 
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acone1.PRO~ ~C0 Igneus Blaze 1~
+COPY_EXISTING ~c0acone1.pro~ ~override/c0acone2.pro~
+WRITE_BYTE 0x224 60
+COPY_EXISTING ~c0acone1.pro~ ~override/c0acone3.pro~
+WRITE_BYTE 0x224 90
+ADD_PROJECTILE ~override/c0acone2.PRO~ ~C0 Igneus Blaze 2~
+ADD_PROJECTILE ~override/c0acone3.PRO~ ~C0 Igneus Blaze 3~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acryo1.PRO~ ~C0 Cryoshock~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0amiss1.PRO~ ~C0 Energy Barrage 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0amiss2.PRO~ ~C0 Energy Barrage 2~
+COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss3.pro~
+COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss4.pro~
+COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss5.pro~
+COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss6.pro~
+COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss7.pro~
+COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss8.pro~
+ADD_PROJECTILE ~override/c0amiss3.PRO~ ~C0 Energy Barrage 3~
+ADD_PROJECTILE ~override/c0amiss4.PRO~ ~C0 Energy Barrage 4~
+ADD_PROJECTILE ~override/c0amiss5.PRO~ ~C0 Energy Barrage 5~
+ADD_PROJECTILE ~override/c0amiss6.PRO~ ~C0 Energy Barrage 6~
+ADD_PROJECTILE ~override/c0amiss7.PRO~ ~C0 Energy Barrage 7~
+ADD_PROJECTILE ~override/c0amiss8.PRO~ ~C0 Energy Barrage 8~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albolt.PRO~ ~C0 Aerial Judgment~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albol2.PRO~ ~C0 Aerial Judgment 2~
+
