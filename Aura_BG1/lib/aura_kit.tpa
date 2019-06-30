@@ -85,7 +85,7 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability twice per day, gaining an additional use every five levels.
+– May use the Craft Rune ability once per day.
 
 CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
@@ -587,6 +587,115 @@ COPY_EXISTING ~c0auin1d.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
 SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
 
+COPY_EXISTING ~c0rune1.spl~ ~override~
+SAY NAME1 ~Igneus Rune~
+SAY UNIDENTIFIED_DESC ~Igneus Blaze
+(Evocation)
+
+Range: 40-ft.
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: 1/2
+
+The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
+
+From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune2.spl~
+SAY NAME1 ~Cryon Rune~
+SAY UNIDENTIFIED_DESC ~Cryoshock
+(Evocation)
+
+Range: Visual range of the caster
+Duration: 1 round
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune2 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune2 END
+	WRITE_ASCII 0x3a ~c0arune2~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune3.spl~
+SAY NAME1 ~Arcana Rune~
+SAY UNIDENTIFIED_DESC ~Energy Barrage
+(Evocation)
+
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None 
+
+The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune3 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune3 END
+	WRITE_ASCII 0x3a ~c0arune3~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune4.spl~
+SAY NAME1 ~Lunacy Rune~
+SAY UNIDENTIFIED_DESC ~Lunar Butterfly
+(Illusion/Phantasm)
+
+Range: 40 ft.
+Duration: Special
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: Neg.
+
+The Lunacy Rune allows the user to cast Lunar Butterfly. Lunar Butterfly launches a bolt of moonlight towards a target. The effects of the bolt vary depending on whether the target is an ally or an enemy.
+
+Ally cast: Target gains the effects of Mirror Image for 3 rounds + 1 round/user level.
+Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicated for one turn.
+
+From 15th level onwards, the bolt of moonlight spreads to all nearby creatures around the target, inflicting the spell's effects on each target.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune4 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune4 END
+	WRITE_ASCII 0x3a ~c0arune4~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune5.spl~
+SAY NAME1 ~Aether Rune~
+SAY UNIDENTIFIED_DESC ~Aerial Judgment
+(Alteration)
+
+Range: Visual range of the caster
+Duration: 4 rounds
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: 1/2, Neg.
+
+The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
+
+From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune5 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune5 END
+	WRITE_ASCII 0x3a ~c0arune5~
+
+OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
+LAF	CREATE_SEQUENCER_MENU
+	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1	tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+	
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
+	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2A~ resref = ~C0AIN2A~	icon = ~C0AUIN2~	title	action
+END
+
+OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
+LAF	CREATE_SEQUENCER_MENU
+	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1	tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+	
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
+	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2B~ resref = ~C0AIN2B~	icon = ~C0AUIN2~	title	action
+END
+
+OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
+LAF	CREATE_SEQUENCER_MENU
+	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
+	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2C~ resref = ~C0AIN2C~	icon = ~C0AUIN2~	title	action
+END
+
 COPY_EXISTING ~c0auin2.spl~ ~override~
 SAY NAME1 ~Craft Rune~
 SAY NAME2 ~Craft Rune~
@@ -597,42 +706,67 @@ Artificers that have knowledge of magic are capable of creating and using runes 
 10th level: Lunar Butterfly
 12th level: Aerial Judgment
 
-Runes may not be crafted during combat, and lose their potency if not used within 24 hours. From 20th level onward, two runes are created per use of the ability.~
-
-COPY_EXISTING ~c0rune1.spl~ ~override/c0rune2.spl~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune2 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune2 END
-COPY_EXISTING ~c0rune1.spl~ ~override/c0rune3.spl~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune3 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune3 END
-COPY_EXISTING ~c0rune1.spl~ ~override/c0rune4.spl~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune4 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune4 END
-COPY_EXISTING ~c0rune1.spl~ ~override/c0rune5.spl~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune5 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune5 END
+Runes may not be crafted during combat, and lose their potency if not used within 24 hours.
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection.~
 
 COPY_EXISTING ~c0arune1.itm~ ~override~
 SAY NAME1 ~Igneus Rune~
 SAY NAME2 ~Igneus Rune~
-SAY DESC ~The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round for 5 rounds. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
+SAY DESC ~Igneus Blaze
+(Evocation)
+
+Range: 40-ft.
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: 1/2
+
+The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
 
 From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
 
 COPY_EXISTING ~c0arune2.itm~ ~override~
 SAY NAME1 ~Cryon Rune~
 SAY NAME2 ~Cryon Rune~
-SAY DESC ~The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
+SAY DESC ~Cryoshock
+(Evocation)
+
+Range: Visual range of the caster
+Duration: 1 round
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
 
 COPY_EXISTING ~c0arune3.itm~ ~override~
 SAY NAME1 ~Arcana Rune~
 SAY NAME2 ~Arcana Rune~
-SAY DESC ~The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
+SAY DESC ~Energy Barrage
+(Evocation)
+
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None 
+
+The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
 
 COPY_EXISTING ~c0arune4.itm~ ~override~
 SAY NAME1 ~Lunacy Rune~
 SAY NAME2 ~Lunacy Rune~
-SAY DESC ~The Lunacy Rune allows the user to cast Lunar Butterfly. Lunar Butterfly launches a bolt of moonlight towards a target. The effects of the bolt vary depending on whether the target is an ally or an enemy.
+SAY DESC ~Lunar Butterfly
+(Illusion/Phantasm)
+
+Range: 40 ft.
+Duration: Special
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: Neg.
+
+The Lunacy Rune allows the user to cast Lunar Butterfly. Lunar Butterfly launches a bolt of moonlight towards a target. The effects of the bolt vary depending on whether the target is an ally or an enemy.
 
 Ally cast: Target gains the effects of Mirror Image for 3 rounds + 1 round/user level.
 Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicated for one turn.
@@ -642,7 +776,16 @@ From 15th level onwards, the bolt of moonlight spreads to all nearby creatures a
 COPY_EXISTING ~c0arune5.itm~ ~override~
 SAY NAME1 ~Aether Rune~
 SAY NAME2 ~Aether Rune~
-SAY DESC ~The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
+SAY DESC ~Aerial Judgment
+(Alteration)
+
+Range: Visual range of the caster
+Duration: 4 rounds
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: 1/2, Neg.
+
+The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
 
 From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
 
@@ -653,6 +796,18 @@ COPY_EXISTING ~c0arune1.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicon3 END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Aflame~) END
 SAY NAME1 ~Igneus Blaze~
+SAY UNIDENTIFIED_DESC ~Igneus Blaze
+(Evocation)
+
+Range: 40-ft.
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: 1/2
+
+The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
+
+From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
 	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0acone1 END
 	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0acone1 END
 	LPF ALTER_SPELL_HEADER INT_VAR header = 3 projectile = c0acone1 END
@@ -671,12 +826,32 @@ SAY NAME1 ~Igneus Blaze~
 COPY_EXISTING ~c0arune2.spl~ ~override~
 	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = COLD duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 SAY NAME1 ~Cryoshock~
+SAY UNIDENTIFIED_DESC ~Cryoshock
+(Evocation)
+
+Range: Visual range of the caster
+Duration: 1 round
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0acryo1 END
 
 // Energy Barrage
 
 COPY_EXISTING ~c0arune3.spl~ ~override~
 SAY NAME1 ~Energy Barrage~
+SAY UNIDENTIFIED_DESC ~Energy Barrage
+(Evocation)
+
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None 
+
+The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
 	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0amiss2 END
 	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0amiss3 END
 	LPF ALTER_SPELL_HEADER INT_VAR header = 3 projectile = c0amiss4 END
@@ -689,6 +864,21 @@ SAY NAME1 ~Energy Barrage~
 
 COPY_EXISTING ~c0arune4.spl~ ~override~
 SAY NAME1 ~Lunar Butterfly~
+SAY UNIDENTIFIED_DESC ~Lunar Butterfly
+(Illusion/Phantasm)
+
+Range: 40 ft.
+Duration: Special
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: Neg.
+
+The Lunacy Rune allows the user to cast Lunar Butterfly. Lunar Butterfly launches a bolt of moonlight towards a target. The effects of the bolt vary depending on whether the target is an ally or an enemy.
+
+Ally cast: Target gains the effects of Mirror Image for 3 rounds + 1 round/user level.
+Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicated for one turn.
+
+From 15th level onwards, the bolt of moonlight spreads to all nearby creatures around the target, inflicting the spell's effects on each target.~
 COPY_EXISTING ~c0rune4a.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Confused~) END
 COPY_EXISTING ~c0rune4b.spl~ ~override~
@@ -700,6 +890,18 @@ COPY_EXISTING ~c0arune5.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0albolt END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Stunned~) END
 SAY NAME1 ~Aerial Judgment~
+SAY UNIDENTIFIED_DESC ~Aerial Judgment
+(Alteration)
+
+Range: Visual range of the caster
+Duration: 4 rounds
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: 1/2, Neg.
+
+The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
+
+From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
 COPY_EXISTING ~c0rune5a.spl~ ~override~
 	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = ELEC duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0albol2 END

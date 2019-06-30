@@ -236,7 +236,7 @@ CombatCounter(0)
 !See([ENEMY])
 Global("C0AuraDorn1","GLOBAL",0)~ THEN BDORN C0AuraDorn1
 ~Out of my way, runt.~
-DO ~SetGlobal("C0AuraAura1","GLOBAL",1)~
+DO ~SetGlobal("C0AuraDorn1","GLOBAL",1)~
 == BC0AURA ~Eep!~
 == BDORN ~If you must hang by our coattails, then at least make sure to make your presence as minor as possible. I have no patience for playing with little girls with no stomach for blood.~
 == BC0AURA ~I-I don't think I like you...~
@@ -251,7 +251,7 @@ CombatCounter(0)
 GlobalGT("C0AuraQuest","GLOBAL",8)
 Global("C0AuraDorn2","GLOBAL",0)~ THEN BDORN C0AuraDorn2
 ~I was mistaken. To think that one so tiny as you had such great potential for carnage... why would you restrict yourself from such magnificent power?~
-DO ~SetGlobal("C0AuraAura2","GLOBAL",1)~
+DO ~SetGlobal("C0AuraDorn2","GLOBAL",1)~
 == BC0AURA ~I'm not like you. I don't find thrill in destruction, I only do it because there's no alternative.~
 == BDORN ~Your lack of ambition sickens me. If you made proper use of your explosive weaponry, you could conquer a kingdom! Yet you are satisfied with living such a meaningless life?~
 == BC0AURA ~Only you'd think that creating would be worth less than destroying. There's no arguing with people like you.~
