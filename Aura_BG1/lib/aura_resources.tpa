@@ -106,6 +106,10 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Shocked~) STR_VAR bam
 ////////////////////////////// PROJECTILES ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////
+////////////////////////////// PROJECTILES ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aproj0.PRO~ ~C0 Grenade~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb1.PRO~ ~C0 Green Flaming Oil~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb2.PRO~ ~C0 Flashbomb~
@@ -120,13 +124,24 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro1.PRO~ ~C0 Healing Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro2.PRO~ ~C0 Lightning Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro3.PRO~ ~C0 Static Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro4.PRO~ ~C0 Trollbane Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro5.PRO~ ~C0 Disruptor Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro6.PRO~ ~C0 Warp Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro7.PRO~ ~C0 Detonator Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro8.PRO~ ~C0 Energy Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro9.PRO~ ~C0 Ice Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0arain.PRO~ ~C0 Arrow Volley~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0achain.PRO~ ~C0 Chain Lightning~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0athund.PRO~ ~C0 Thunderbolt~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aburst.PRO~ ~C0 Burst Orb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0asvoid.PRO~ ~C0 Screaming Void~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aarea1.PRO~ ~C0 Reveal Magic~
 
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abombb.PRO~ ~C0 EMP Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abombc.PRO~ ~C0 Phaser Bomb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aglue.PRO~ ~C0 Glue Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0akeg1.PRO~ ~C0 Exploding Keg~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0ausp02.PRO~ ~C0 Poison Haze~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0ausp03.PRO~ ~C0 Poison Blast~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acone1.PRO~ ~C0 Igneus Blaze 1~
 COPY_EXISTING ~c0acone1.pro~ ~override/c0acone2.pro~
@@ -156,3 +171,6 @@ ADD_PROJECTILE ~override/c0amiss8.PRO~ ~C0 Energy Barrage 8~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albolt.PRO~ ~C0 Aerial Judgment~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albol2.PRO~ ~C0 Aerial Judgment 2~
 
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0pring.PRO~ ~C0 Panacea Circle~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acomet.PRO~ ~C0 Red Meteor~

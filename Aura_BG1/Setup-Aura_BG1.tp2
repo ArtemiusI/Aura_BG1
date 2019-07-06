@@ -1,7 +1,9 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~2.51~
+VERSION ~2.6~
 ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
   INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~

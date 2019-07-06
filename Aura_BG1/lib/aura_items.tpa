@@ -678,6 +678,7 @@ Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +1 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +3
@@ -714,6 +715,7 @@ Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +1 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +5
@@ -750,6 +752,7 @@ Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +1 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: -1
@@ -782,11 +785,16 @@ STATISTICS:
 
 – Configuration: Rapid
   +1 attack per round, -1 damage
+  
+  May use 'Rain of Arrows' once per day
+  Special: Fires 5 volleys of +5 arrows in a cone briefly reducing movement rate by 30%, 10 attacks per round for the duration
+  Damage: 1d6+5 missile
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +2 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +4
@@ -818,11 +826,16 @@ STATISTICS:
 
 – Configuration: Precise
   +10% Critical Hit Chance, -1/2 attacks per round
+  
+  May use 'Sniper Shot' once per day
+  Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 50% for 5 rounds
+  Damage: 1d6+10 piercing
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +2 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +6
@@ -854,11 +867,16 @@ STATISTICS:
 
 – Configuration: Power
   Attacks deal maximum damage
+  
+  May use 'Blazing Shot' once per day
+  Special: Launch a +5 arrow, stunning for 5 rounds on a failed Save vs. Death
+  Damage: 1d6+5 piercing, 6d10 fire (Save vs. Death for half)
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +2 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 Damage: +4
@@ -890,11 +908,16 @@ STATISTICS:
 
 – Configuration: Rapid
   +3/2 attacks per round, -1 damage
+  
+  May use 'Rain of Arrows' once per day
+  Special: Fires 10 volleys of +5 arrows in a cone briefly reducing movement rate by 50%, 10 attacks per round for the duration
+  Damage: 1d6+5 missile
 
-Charge abilities (1x/day):
-– Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp)
+Charge abilities:
+– Create Sunshooter Arrows (1x/day) (Healing, Lightning, Static, Disruptor, Warp)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +3 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +5
@@ -926,11 +949,16 @@ STATISTICS:
 
 – Configuration: Precise
   +15% Critical Hit Chance, -1/2 attacks per round
+  
+  May use 'Piercing Shot' once per day
+  Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 75% for 5 rounds
+  Damage: 1d6+15 piercing
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +3 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +8
@@ -962,11 +990,16 @@ STATISTICS:
 
 – Configuration: Power
   Attacks deal maximum damage
+  
+  May use 'Blazing Shot' once per day
+  Special: Launch a +5 arrow, stunning for 5 rounds on a failed Save vs. Death at -2
+  Damage: 1d6+5 piercing, 10d10 fire (Save vs. Death at -2 for half)
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp)
 
 Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +3 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 Damage: +6

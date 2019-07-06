@@ -22,26 +22,18 @@ COPY ~%MOD_FOLDER%/items/SoD~ ~override~
   EXTEND_TOP ~BDINTRO.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDINTRO.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~ EVALUATE_BUFFER
 
-LAF CLONE_SCRIPT_BLOCK
+LAF ALTER_SCRIPT_BLOCK
       STR_VAR script=bdfoods
               match=~"bdpotn01"~
-              swap_out=~!PartyHasItem("bdpotn01")~
-              swap_in=~!PartyHasItem("bdpotn01")!PartyHasItem("c02apotn")~
-              swap_out1=~"sarevnd"~
-              swap_in1=~"sarevnd2"~
-              original_swap_out=~!PartyHasItem("bdpotn01")~
-              original_swap_in=~!PartyHasItem("bdpotn01")!PartyHasItem("c02apotn")~
+			  swap_out=~PartyHasItem("bdpotn01")~
+			  swap_in=~PartyHasItem("bdpotn01")!PartyHasItem("c02apotn")~
 END
 
-LAF CLONE_SCRIPT_BLOCK
+LAF ALTER_SCRIPT_BLOCK
       STR_VAR script=bdwaters
               match=~"bdpotn01"~
-              swap_out=~!PartyHasItem("bdpotn01")~
-              swap_in=~!PartyHasItem("bdpotn01")!PartyHasItem("c02apotn")~
-              swap_out1=~"sarevnd"~
-              swap_in1=~"sarevnd2"~
-              original_swap_out=~!PartyHasItem("bdpotn01")~
-              original_swap_in=~!PartyHasItem("bdpotn01")!PartyHasItem("c02apotn")~
+			  swap_out=~PartyHasItem("bdpotn01")~
+			  swap_in=~PartyHasItem("bdpotn01")!PartyHasItem("c02apotn")~
 END
 
   EXTEND_BOTTOM ~bdfoods.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdfoods.baf~

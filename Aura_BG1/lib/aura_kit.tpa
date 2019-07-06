@@ -15,7 +15,6 @@ OUTER_WHILE (!(IS_AN_INT ~auraclass~) OR (~auraclass~ > 0x5) OR (~auraclass~ < 0
   ACTION_READLN ~auraclass~
 END
       ACTION_IF ("auraclass" = 1) THEN BEGIN
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
 ADD_KIT ~C0AURA~
 
  // appended to CLASWEAP.2da
@@ -110,6 +109,7 @@ LAF fl#add_kit_ee
 	backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
 	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+	clasiskl = ~-10 10 10 -10 -10 0 10~
     clswpbon = ~0 0 5~
 	hpclass = ~HPWIZ~
 	thiefskl = ~40 20~
@@ -118,8 +118,6 @@ END
       PRINT ~Installed Aura as an Artificer~
       END
       ACTION_IF ("auraclass" = 2) THEN BEGIN
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
-INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
 COPY ~%MOD_FOLDER%/2da/mage~ ~override~
 ADD_KIT ~C0AURA~
 
@@ -218,6 +216,7 @@ LAF fl#add_kit_ee
 		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
 		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+		clasiskl = ~-10 10 10 -10 -10 0 10~
 		clswpbon = ~0 0 3~
 		thiefskl = ~40 20~
 		hpclass = ~HPMT~
@@ -230,11 +229,12 @@ LAF qd_multiclass
 		mc_dir = ~%MOD_FOLDER%/2da/mage~
 END
 
+COPY_EXISTING ~c0aukt1.spl~ ~override~
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
+
       PRINT ~Installed Aura as an Illusionist / Artificer~
       END
       ACTION_IF ("auraclass" = 3) THEN BEGIN	
-INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
-INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
 COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
 ADD_KIT ~C0AURA~
 
@@ -343,6 +343,7 @@ LAF fl#add_kit_ee
 		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
 		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+		clasiskl = ~-10 10 10 -10 -10 0 10~
 		clswpbon = ~0 0 3~
 		thiefskl = ~40 20~
 		hpclass = ~HPCT~
@@ -354,10 +355,18 @@ LAF qd_multiclass
 		base_class = ~T~
 		mc_dir = ~%MOD_FOLDER%/2da~
 END
+LAF qd_multiclass
+	STR_VAR
+		kit_name = c0aura
+		kit_clab = c0aurapr
+		base_class = ~P~
+		mc_dir = ~%MOD_FOLDER%/2da~
+END
 
 COPY_EXISTING ~sppr107.spl~ ~override/c0aupr1.spl~
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
+WRITE_SHORT 0x1C 0
+WRITE_LONG 0x34 0 
+WRITE_LONG 0x84 1
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
 READ_ASCII ("%offset_abil%" + 0x04) "bam" 
@@ -368,8 +377,9 @@ WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4
 SET "num_abil" = ("%num_abil%" - 1)
 END
 COPY_EXISTING ~sppr408.spl~ ~override/c0aupr2.spl~
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
+WRITE_SHORT 0x1C 0
+WRITE_LONG 0x34 0 
+WRITE_LONG 0x84 1
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
 READ_ASCII ("%offset_abil%" + 0x04) "bam" 
@@ -380,8 +390,9 @@ WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4
 SET "num_abil" = ("%num_abil%" - 1)
 END
 COPY_EXISTING ~sppr505.spl~ ~override/c0aupr3.spl~
-WRITE_SHORT 0x1C 4 
-WRITE_LONG 0x34 1 
+WRITE_SHORT 0x1C 0
+WRITE_LONG 0x34 0 
+WRITE_LONG 0x84 1
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
 READ_ASCII ("%offset_abil%" + 0x04) "bam" 
@@ -391,6 +402,10 @@ BEGIN
 WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
 SET "num_abil" = ("%num_abil%" - 1)
 END
+
+COPY_EXISTING ~c0aukt1.spl~ ~override~
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
+
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
     READ_BYTE    0x20 thief //reads the byte containing the mage usability flag
@@ -414,9 +429,6 @@ BUT_ONLY_IF_IT_CHANGES
 COPY_EXISTING ~c0aubear.spl~ ~override~
 SAY NAME1 ~I Hate Bears!~
 SAY NAME2 ~I Hate Bears!~
-  
-COPY_EXISTING ~c0aukt1.spl~ ~override~
-COPY_EXISTING ~c0aukt2.spl~ ~override~
 
 COPY_EXISTING ~c0auin1.2da~ ~override~
 COPY_EXISTING ~c0auin1.spl~ ~override~
@@ -588,7 +600,7 @@ SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
 SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
 
 COPY_EXISTING ~c0rune1.spl~ ~override~
-SAY NAME1 ~Igneus Rune~
+SAY NAME1 ~Igneus Blaze~
 SAY UNIDENTIFIED_DESC ~Igneus Blaze
 (Evocation)
 
@@ -598,11 +610,11 @@ Casting Time: 1
 Area of Effect: Special
 Saving Throw: 1/2
 
-The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
+The Ignus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
 
 From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune2.spl~
-SAY NAME1 ~Cryon Rune~
+SAY NAME1 ~Cryoshock~
 SAY UNIDENTIFIED_DESC ~Cryoshock
 (Evocation)
 
@@ -613,11 +625,11 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune2 END
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune2c END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune2 END
-	WRITE_ASCII 0x3a ~c0arune2~
+	WRITE_ASCII 0x3a ~c0rune2c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune3.spl~
-SAY NAME1 ~Arcana Rune~
+SAY NAME1 ~Energy Barrage~
 SAY UNIDENTIFIED_DESC ~Energy Barrage
 (Evocation)
 
@@ -628,11 +640,11 @@ Area of Effect: 1 creature
 Saving Throw: None 
 
 The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune3 END
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune3c END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune3 END
-	WRITE_ASCII 0x3a ~c0arune3~
+	WRITE_ASCII 0x3a ~c0rune3c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune4.spl~
-SAY NAME1 ~Lunacy Rune~
+SAY NAME1 ~Lunar Butterfly~
 SAY UNIDENTIFIED_DESC ~Lunar Butterfly
 (Illusion/Phantasm)
 
@@ -648,11 +660,11 @@ Ally cast: Target gains the effects of Mirror Image for 3 rounds + 1 round/user 
 Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicated for one turn.
 
 From 15th level onwards, the bolt of moonlight spreads to all nearby creatures around the target, inflicting the spell's effects on each target.~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune4 END
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune4c END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune4 END
-	WRITE_ASCII 0x3a ~c0arune4~
+	WRITE_ASCII 0x3a ~c0rune4c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune5.spl~
-SAY NAME1 ~Aether Rune~
+SAY NAME1 ~Aerial Judgment~
 SAY UNIDENTIFIED_DESC ~Aerial Judgment
 (Alteration)
 
@@ -665,9 +677,74 @@ Saving Throw: 1/2, Neg.
 The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
 
 From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arune5 END
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune5c END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune5 END
-	WRITE_ASCII 0x3a ~c0arune5~
+	WRITE_ASCII 0x3a ~c0rune5c~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune6.spl~
+SAY NAME1 ~Gaia Shield~
+SAY UNIDENTIFIED_DESC ~Gaia Shield
+(Alteration)
+
+Range: 0
+Duration: 1 turn
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: None
+
+The Adamant Rune allows the user to cast Gaia Shield. This powerful spell grants five protective layers of stone and iron to the caster, protecting them from the damage of one physical damage per skin. Additionally, as long as at least one skin is active, the caster gains a +6 bonus to Armor Class.
+
+From 20th level onwards, Gaia Shield also bestows protective skins to all allies around the caster.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune6c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune6 END
+	WRITE_ASCII 0x3a ~c0rune6c~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune7.spl~
+SAY NAME1 ~Chronos Warp~
+SAY UNIDENTIFIED_DESC ~Chronos Warp
+(Alteration)
+
+Range: 40 ft.
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: One creature
+Saving Throw: None
+
+The Chrono Rune allows the user to cast Chronos Warp. For 5 rounds, the target creature moves with increased movement rate, has doubled attacks per round, and increased casting speed of 4. However, in order to negate the side-effects of hastening time, the effects reverse after the duration has expired, slowing the target and reducing their Armor Class, THAC0 and casting speed by 4 for another 5 rounds.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune7c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune7 END
+	WRITE_ASCII 0x3a ~c0rune7c~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune8.spl~
+SAY NAME1 ~Panacea Circle~
+SAY UNIDENTIFIED_DESC ~Panacea Circle
+(Necromancy)
+
+Range: 15 ft.
+Duration: Instant
+Casting Time: 1
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-ft. radius are healed for 50% of their maximum hit points and are cured of diseases, poisons, blindness, feeblemind, deafness and intoxication.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune8c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune8 END
+	WRITE_ASCII 0x3a ~c0rune8c~
+COPY_EXISTING ~c0rune1.spl~ ~override/c0rune9.spl~
+SAY NAME1 ~Red Meteor~
+SAY UNIDENTIFIED_DESC ~Red Meteor
+(Evocation)
+
+Range: 270 ft.
+Duration: Instant
+Casting Time: 1
+Area of Effect: 15-ft. radius
+Saving Throw: Special
+
+The Calamity Rune allows the user to cast Red Meteor. A crimson-colored mass of magical energy is shaped several hundred feet above the caster and their target and strikes down with massive speed and force, dealing 10d10 damage (half magic, half fire) with no save. Targets are knocked away from the center of impact by the shockwave and must make a Saving Throw vs. Paralysis or be stunned for 3 rounds.
+
+This spell will not harm party members.~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune9c END
+	LPF DELETE_SPELL_HEADER STR_VAR min_level = 20 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune9 END
+	WRITE_ASCII 0x3a ~c0rune9c~
 
 OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
 LAF	CREATE_SEQUENCER_MENU
@@ -696,6 +773,33 @@ From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	des
 	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2C~ resref = ~C0AIN2C~	icon = ~C0AUIN2~	title	action
 END
 
+OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
+LAF	CREATE_SEQUENCER_MENU
+	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
+	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2D~ resref = ~C0AIN2D~	icon = ~C0AUIN2~	title	action
+END
+
+OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
+LAF	CREATE_SEQUENCER_MENU
+	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
+	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2E~ resref = ~C0AIN2E~	icon = ~C0AUIN2~	title	action
+END
+
+OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
+LAF	CREATE_SEQUENCER_MENU
+	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+
+The artificer may create one more rune per cast at levels 7 and 12.
+From 20th level onwards, two runes are created per selection (with the exception of Red Meteor).~)	name = 0 - 1	desc = 0 - 1	global = 0
+	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2F~ resref = ~C0AIN2F~	icon = ~C0AUIN2~	title	action
+END
+
 COPY_EXISTING ~c0auin2.spl~ ~override~
 SAY NAME1 ~Craft Rune~
 SAY NAME2 ~Craft Rune~
@@ -705,14 +809,17 @@ Artificers that have knowledge of magic are capable of creating and using runes 
 1st level: Igneus Blaze, Cryoshock, Energy Barrage
 10th level: Lunar Butterfly
 12th level: Aerial Judgment
+16th level: Gaia Shield
+20th level: Chronos Warp, Panacea Circle
+24th level: Red Meteor
 
 Runes may not be crafted during combat, and lose their potency if not used within 24 hours.
 The artificer may create one more rune per cast at levels 7 and 12.
 From 20th level onwards, two runes are created per selection.~
 
 COPY_EXISTING ~c0arune1.itm~ ~override~
-SAY NAME1 ~Igneus Rune~
-SAY NAME2 ~Igneus Rune~
+SAY NAME1 ~Ignus Rune~
+SAY NAME2 ~Ignus Rune~
 SAY DESC ~Igneus Blaze
 (Evocation)
 
@@ -722,7 +829,7 @@ Casting Time: 1
 Area of Effect: Special
 Saving Throw: 1/2
 
-The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
+The Ignus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
 
 From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
 
@@ -788,6 +895,78 @@ Saving Throw: 1/2, Neg.
 The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning from the sky strikes a chosen target, dealing 6d8 electrical damage + 1d8 per level past user level 10 and Stunning the target for four rounds. A successful Saving Throw vs. Spells halves the damage dealt and negates the stun.
 
 From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
+	
+COPY_EXISTING ~c0arune6.itm~ ~override~
+SAY NAME1 ~Adamant Rune~
+SAY NAME2 ~Adamant Rune~
+SAY DESC ~Gaia Shield
+(Alteration)
+
+Range: 0
+Duration: 1 turn
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: None
+
+The Adamant Rune allows the user to cast Gaia Shield. This powerful spell grants five protective layers of stone and iron to the caster, protecting them from the damage of one physical damage per skin. Additionally, as long as at least one skin is active, the caster gains a +6 bonus to Armor Class.
+
+From 20th level onwards, Gaia Shield also bestows protective skins to all allies around the caster.~
+	
+COPY_EXISTING ~c0arune7.itm~ ~override~
+SAY NAME1 ~Chrono Rune~
+SAY NAME2 ~Chrono Rune~
+SAY DESC ~Chronos Warp
+(Alteration)
+
+Range: 40 ft.
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: One creature
+Saving Throw: None
+
+The Chrono Rune allows the user to cast Chronos Warp. For 5 rounds, the target creature moves with increased movement rate, has doubled attacks per round, and increased casting speed of 4. However, in order to negate the side-effects of hastening time, the effects reverse after the duration has expired, slowing the target and reducing their Armor Class, THAC0 and casting speed by 4 for another 5 rounds.~
+	
+COPY_EXISTING ~c0arune8.itm~ ~override~
+SAY NAME1 ~Mederi Rune~
+SAY NAME2 ~Mederi Rune~
+SAY DESC ~Panacea Circle
+(Necromancy)
+
+Range: 15 ft.
+Duration: Instant
+Casting Time: 1
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-ft. radius are healed for 50% of their maximum hit points and are cured of diseases, poisons, blindness, feeblemind, deafness and intoxication.~
+	
+COPY_EXISTING ~c0arune9.itm~ ~override~
+SAY NAME1 ~Calamity Rune~
+SAY NAME2 ~Calamity Rune~
+SAY DESC ~Red Meteor
+(Evocation)
+
+Range: 270 ft.
+Duration: Instant
+Casting Time: 1
+Area of Effect: 15-ft. radius
+Saving Throw: Special
+
+The Calamity Rune allows the user to cast Red Meteor. A crimson-colored mass of magical energy is shaped several hundred feet above the caster and their target and strikes down with massive speed and force, dealing 10d10 damage (half magic, half fire) with no save. Targets are knocked away from the center of impact by the shockwave and must make a Saving Throw vs. Paralysis or be stunned for 3 rounds.
+
+This spell will not harm party members.~
+	
+// STONESKINS
+APPEND ~splprot.2da~ ~C0STSKIN%TAB%88%TAB%-1%TAB%1~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~C0STSKIN~ BEGIN
+	    SET C0STSKIN = %row%
+	  END
+	END
 
 // Igneus Blaze
 
@@ -805,7 +984,7 @@ Casting Time: 1
 Area of Effect: Special
 Saving Throw: 1/2
 
-The Igneus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
+The Ignus Rune allows the user to cast Igneus Blaze. A 45-degree cone of fire erupts from the user's hands, pushing away all enemies in its range and dealing 1d6 fire damage per level of the user. Additionally, all creatures struck by the cone are set Aflame, suffering an additional 1d4 fire damage per round. A successful Saving Throw vs. Spell halves the initial fire damage dealt.
 
 From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree angle from 20th level onwards.~
 	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0acone1 END
@@ -906,6 +1085,69 @@ COPY_EXISTING ~c0rune5a.spl~ ~override~
 	LPF	ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 324 target = 2 parameter2 = ELEC duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
 	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0albol2 END
 
+// GAIA SHIELD
+COPY_EXISTING ~c0arune6.spl~ ~override~
+SAY NAME1 ~Gaia Shield~
+SAY UNIDENTIFIED_DESC ~Gaia Shield
+(Alteration)
+
+Range: 0
+Duration: 1 turn
+Casting Time: 1
+Area of Effect: Special
+Saving Throw: None
+
+The Adamant Rune allows the user to cast Gaia Shield. This powerful spell grants five protective layers of stone and iron to the caster, protecting them from the damage of one physical damage per skin. Additionally, as long as at least one skin is active, the caster gains a +6 bonus to Armor Class.
+
+From 20th level onwards, Gaia Shield also bestows protective skins to all allies around the caster.~
+COPY_EXISTING ~c0rune6a.eff~ ~override~
+  WRITE_SHORT 0x20 ~C0STSKIN~
+
+// CHRONOS WARP
+COPY_EXISTING ~c0arune7.spl~ ~override~
+SAY NAME1 ~Chronos Warp~
+SAY UNIDENTIFIED_DESC ~Chronos Warp
+(Alteration)
+
+Range: 40 ft.
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: One creature
+Saving Throw: None
+
+The Chrono Rune allows the user to cast Chronos Warp. For 5 rounds, the target creature moves with increased movement rate, has doubled attacks per round, and increased casting speed of 4. However, in order to negate the side-effects of hastening time, the effects reverse after the duration has expired, slowing the target and reducing their Armor Class, THAC0 and casting speed by 4 for another 5 rounds.~
+
+// PANACEA CIRCLE
+COPY_EXISTING ~c0arune8.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0pring END
+SAY NAME1 ~Panacea Circle~
+SAY UNIDENTIFIED_DESC ~Panacea Circle
+(Necromancy)
+
+Range: 15 ft.
+Duration: Instant
+Casting Time: 1
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-ft. radius are healed for 50% of their maximum hit points and are cured of diseases, poisons, blindness, feeblemind, deafness and intoxication.~
+
+// RED METEOR
+COPY_EXISTING ~c0arune9.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile = c0acomet END
+SAY NAME1 ~Red Meteor~
+SAY UNIDENTIFIED_DESC ~Red Meteor
+(Evocation)
+
+Range: 270 ft.
+Duration: Instant
+Casting Time: 1
+Area of Effect: 15-ft. radius
+Saving Throw: Special
+
+The Calamity Rune allows the user to cast Red Meteor. A crimson-colored mass of magical energy is shaped several hundred feet above the caster and their target and strikes down with massive speed and force, dealing 10d10 damage (half magic, half fire) with no save. Targets are knocked away from the center of impact by the shockwave and must make a Saving Throw vs. Paralysis or be stunned for 3 rounds.
+
+This spell will not harm party members.~
 
 COPY_EXISTING ~c0aualc.spl~ ~override~
 SAY NAME1 ~Advanced Alchemy~
@@ -1208,8 +1450,6 @@ SAY NAME1 ~Grand Artifice~
 SAY NAME2 ~Grand Artifice~
 SAY UNIDENTIFIED_DESC ~Grand Artifice
 The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
-
-Additionally, the artificer gains the ability to craft Master level runes, creating one 7th and 8th level spell rune each respectively.
 
 Requires: Use Any Item~
 
