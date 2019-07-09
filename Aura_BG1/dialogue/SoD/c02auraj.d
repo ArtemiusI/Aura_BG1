@@ -359,9 +359,9 @@ DestroyItem("c02asack")
 GiveItemCreate("c02asunf",Player1,1,0,0)~
 == C02AURAJ ~It— it worked! You're amazing, Jaheira! And you too, <CHARNAME>! Thank you, thank you so much!~
 END
-++ ~You're welcome.~ + t4.11
-++ ~Now you can add them to your medicine, right?~ + t4.11
-++ ~Don't look so excited. This is nothing.~ + t4.11
+++ ~You're welcome.~ EXTERN C02AURAJ t4.11
+++ ~Now you can add them to your medicine, right?~ EXTERN C02AURAJ t4.11
+++ ~Don't look so excited. This is nothing.~ EXTERN C02AURAJ t4.11
 
 CHAIN C02AURAJ t4.9
 ~Still, if we come across anybody, I hope it'll cross your mind to ask. Thanks in advance, <CHARNAME>.~
