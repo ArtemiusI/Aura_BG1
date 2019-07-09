@@ -4,9 +4,9 @@ See("L#1Verr")
 !StateCheck("L#1Verr",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
-Global("C0AuraVerr","GLOBAL",0)~ THEN BC0Aura C0AuraVerr1
+Global("C0AuraVerr1","GLOBAL",0)~ THEN BC0Aura C0AuraVerr1
 ~Hey, hey, Verr'Sza, I have something to ask you.~
-DO ~SetGlobal("C0AuraVerr","GLOBAL",1)~
+DO ~SetGlobal("C0AuraVerr1","GLOBAL",1)~
 == L#1VerrB ~It'd better be something interesting. I don't answer boring questions.~
 == BC0Aura ~How much like a cat are you exactly? Do you groom your own fur? Drink milk? Play with balls of yarn?~
 == L#1VerrB ~Don't be absurd. I bathe like everyone else does. I drink milk when I have to. And I do *not* play with yarn.~
@@ -23,9 +23,9 @@ See("C0Aura")
 !StateCheck("L#1Verr",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
-Global("C0AuraVerr","GLOBAL",1)~ THEN L#1VerrB C0AuraVerr2
+Global("C0AuraVerr2","GLOBAL",1)~ THEN L#1VerrB C0AuraVerr2
 ~W-w-WHAT do you think you're doing?!~
-DO ~SetGlobal("C0AuraVerr","GLOBAL",2)~
+DO ~SetGlobal("C0AuraVerr2","GLOBAL",2)~
 == BC0Aura ~Eep! You're supposed to hold still!~
 == L#1Verr ~You'd better have a good explanation for why you were trying to shove that metal stick into my ear, and quickly!~
 == BC0Aura ~Well, *you* said you weren't going to answer my questions, and then *I* replied that I'd find out myself. I was just probing for results, that's all.~

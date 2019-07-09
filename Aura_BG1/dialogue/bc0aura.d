@@ -269,8 +269,10 @@ Global("C0AuraDynaheir1","GLOBAL",0)~ THEN BDYNAH C0AuraDynaheir1
 ~Thy ability to use magic is unlike any other skill I hath seen, Aura. How hath you developed this ability?~
 DO ~SetGlobal("C0AuraDynaheir1","GLOBAL",1)~
 == BC0AURA ~My runes? It's a simple trick, really. I'm no mage. I just... taught myself a thing or two.~
-== BDYNAH ~But thou hath talent, and thy interest in the arcane arts is clear. How is it that thou hath no training?~
-== BC0AURA ~I wish I did... but Lantan didn't have any real academies for training in magic. There were arcanists that lived in distant parts of the island, but my family never allowed me to travel that far to study with them.~
+== BDYNAH IF ~!Class("C0Aura",MAGE_ALL)~ THEN ~But thou hath talent, and thy interest in the arcane arts is clear. How is it that thou hath no training?~
+== BDYNAH IF ~Class("C0Aura",MAGE_ALL)~ THEN ~But thou hath talent, and thy interest in the arcane arts is clear. Thou hast an affinity to illusion magic, like many of your kin, yet I sense thy training is incomplete.~
+== BC0AURA IF ~!Class("C0Aura",MAGE_ALL)~ THEN ~I wish I did... but Lantan didn't have any real academies for training in magic. There were arcanists that lived in distant parts of the island, but my family never allowed me to travel that far to study with them.~
+== BC0AURA IF ~Class("C0Aura",MAGE_ALL)~ THEN ~Ahaha... you're right on the mark, sadly. Lantan doesn't have any real academies for training in magic. There were arcanists that lived in distant parts of the island, but my family never allowed me to travel that far to apprentice myself. Aside from a few things I learned from my uncle, everything I know is self-taught... and even that's not much.~
 == BDYNAH ~I see. That is a shame... though fear not, Aura. Now that we are companions, I am willing to educate thee, if that is thy desire. Perhaps in the meantime, thou wouldst educate me in the sciences of Lantan, of which I am most curious.~
 == BC0AURA ~Oh, you'd really do that, miss Dynaheir? I... I'd love to! There are so many things I'd like to learn from a real mage...~
 EXIT
@@ -507,7 +509,7 @@ Tossing their heads in sprightly dance.'~
 Outdid the sparkling waves in glee:
 A poet could not but be gay,
 In such a jocund company:
-I gazed—and gazed—but little thought
+I gazedâ€”and gazedâ€”but little thought
 What wealth the show to me had brought:'~
 == BGARRI ~For oft, when on my couch I lie
 In vacant or in pensive mood,
@@ -566,7 +568,7 @@ Global("C0AuraImoen3","GLOBAL",0)~ THEN BC0AURA C0AuraImoen3
 ~You're a mage now, huh, Imoen? That must be nice.~
 DO ~SetGlobal("C0AuraImoen3","GLOBAL",1)~
 == BIMOEN ~Yep, it's great... wait, hang on, you're not jealous, are you?~
-== BC0AURA ~What? Nah, I-- well, okay. I would really like to know what it's like. It's like it was only yesterday that you were pilfering candy from my pockets, and then suddenly- *BAM*! magic. You make it look so easy.~
+== BC0AURA ~What? Nah, Iâ€” well, okay. I would really like to know what it's like. It's like it was only yesterday that you were pilfering candy from my pockets, and then suddenly- *BAM*! magic. You make it look so easy.~
 == BIMOEN ~Really? Hmm. I guess it's not the same for everyone. But I thought you could use magic... can't you?~
 == BC0AURA IF ~Class("C0Aura",CLERIC_ALL)~ THEN ~Not in the way you can. Rune inscription is... different. And, well, the prayers I've learned to use divine magic isn't quite the same. You do far more than I ever could with your bare hands alone.~
 == BC0AURA IF ~!Class("C0Aura",CLERIC_ALL)~ THEN ~Not in the way you can. Rune inscription is... different. You do far more than I ever could with your bare hands alone.~

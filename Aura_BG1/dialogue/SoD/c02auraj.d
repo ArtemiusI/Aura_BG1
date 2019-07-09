@@ -22,7 +22,7 @@ IF ~!Alignment(Player1,MASK_EVIL)~ EXTERN C02AURAJ t1a.4
 IF ~Alignment(Player1,MASK_EVIL)~ EXTERN C02AURAJ t1a.5
 
 CHAIN C02AURAJ t1a.3
-~Y-yes, I understand clearly. It-- it's just that...~
+~Y–yes, I understand clearly. It— it's just that...~
 END
 IF ~!Alignment(Player1,MASK_EVIL)~ EXTERN C02AURAJ t1a.4
 IF ~Alignment(Player1,MASK_EVIL)~ EXTERN C02AURAJ t1a.5
@@ -52,7 +52,7 @@ CHAIN C02AURAJ t1a.8
 EXIT
 
 CHAIN C02AURAJ t1a.9
-~T-there's no need for that. I may not be as competent as you might require me to be, but I'll do my best regardless.~
+~T–there's no need for that. I may not be as competent as you might require me to be, but I'll do my best regardless.~
 EXIT
 
 CHAIN IF ~Global("C02AuraWasInBG1","GLOBAL",1)
@@ -93,7 +93,7 @@ CHAIN C02AURAJ t1b.4
 EXTERN C02AURAJ t1b.3
 
 CHAIN C02AURAJ t1b.5
-~Wh-- what? So--sonna, that... that's awful. I... I would never have expected it, given the Shining Lady's reputation... I mean, she's our enemy right now, but...~
+~Wh— what? So—sonna, that... that's awful. I... I would never have expected it, given the Shining Lady's reputation... I mean, she's our enemy right now, but...~
 = ~Now I'm even more sorry for leaving. You could have used my help, still. I thought you'd be safe, but I was wrong.~
 END
 ++ ~Nowhere's safe for a Bhaalspawn.~ + t1b.6
@@ -113,7 +113,7 @@ CHAIN C02AURAJ t1b.8
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",4)~ THEN C02AURAJ t2
-~Th-this place is creepy... I'm not sure if you can see it given how dark it is, but I'm quivering in my boots here.~
+~Th–this place is creepy... I'm not sure if you can see it given how dark it is, but I'm quivering in my boots here.~
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~Calm down. I'm right here with you.~ + t2.1
@@ -122,7 +122,7 @@ END
 ++ ~There's no time for your fears. Try and deal with it.~ + t2.x
 
 CHAIN C02AURAJ t2.x
-~O-okay... I'll try...~
+~O–okay... I'll try...~
 EXIT
 
 CHAIN C02AURAJ t2.1
@@ -130,15 +130,15 @@ CHAIN C02AURAJ t2.1
 EXTERN C02AURAJ t2.4
 
 CHAIN C02AURAJ t2.2
-~It-- it does? I, um, don't know if that's supposed to be reassuring. I mean, if something scares you, how am I supposed to feel?~
+~It— it does? I, um, don't know if that's supposed to be reassuring. I mean, if something scares you, how am I supposed to feel?~
 EXTERN C02AURAJ t2.4
 
 CHAIN C02AURAJ t2.3
-~I-- I'm not THAT scared, <CHARNAME>, but I can't help but be a little twitchy in dark places such as this.~
+~I— I'm not THAT scared, <CHARNAME>, but I can't help but be a little twitchy in dark places such as this.~
 EXTERN C02AURAJ t2.4
 
 CHAIN C02AURAJ t2.4
-~Look at that monstrous shadow there-- aah! It moved!~
+~Look at that monstrous shadow there— aah! It moved!~
 END
 ++ ~It was probably just a rat or something.~ + t2.5
 ++ ~Where? Where?~ + t2.6
@@ -146,11 +146,11 @@ END
 ++ ~*sigh* Whatever...~ + t2.8
 
 CHAIN C02AURAJ t2.5
-~R-really? Maybe you're right.~
+~R–really? Maybe you're right.~
 EXTERN C02AURAJ t2.8
 
 CHAIN C02AURAJ t2.6
-~T-there! Don't you see... oh. It's gone. It's gone!~
+~T–there! Don't you see... oh. It's gone. It's gone!~
 EXTERN C02AURAJ t2.8
 
 CHAIN C02AURAJ t2.7
@@ -208,7 +208,7 @@ END
 ++ ~Whatever. I'm not interested in your praise, or anything else you have to say.~ + t2.18
 
 CHAIN C02AURAJ t2.16
-~You-- you mean... *blush* what exactly do you mean, <CHARNAME>?~
+~You— you mean... *blush* what exactly do you mean, <CHARNAME>?~
 END
 ++ ~I mean what I asked. Is it mere admiration you feel, or something else?~ + t2.19
 ++ ~What else do you like about me? Be honest now.~ + t2.19
@@ -219,7 +219,7 @@ CHAIN C02AURAJ t2.17
 EXIT
 
 CHAIN C02AURAJ t2.18
-~Oh... I-- I see.~
+~Oh... I— I see.~
 DO ~SetGlobal("C02AuraTalk","GLOBAL",-1)~ EXIT
 
 CHAIN C02AURAJ t2.19
@@ -250,7 +250,7 @@ CHAIN C02AURAJ t3.2
 EXTERN C02AURAJ t3.1
 
 CHAIN C02AURAJ t3.3
-~But you're diff-- no, that's not what I mean to say. You're not quite... mortal, right? Or does that not make a difference?~
+~But you're diff— no, that's not what I mean to say. You're not quite... mortal, right? Or does that not make a difference?~
 END
 ++ ~I've believed myself to be an ordinary <PRO_RACE> for most of my life. My divine blood didn't change that.~ + t3.5
 ++ ~Yes, it does. It does give me a sense of confidence that others lack.~ + t3.4
@@ -323,7 +323,7 @@ CHAIN C02AURAJ t4.5
 = ~I don't like discussing it, but my family's had a... history, let's just say, of suffering from poor health. Perhaps it's hereditary, but I've known many relatives who've been frail since birth. Migraines, weak bodies, difficult breathing...~
 = ~My brother, Eridanus, got the worst of it... he was born as a sorcerer, and had frequent fainting spells when he was young from overusing his magic... even as an adult, he's still rather delicate.~
 = ~When I was young, I was rather sickly as well, but thanks to early attention from my family and the priests of Gond, I was able to mostly recover, though I've never been as strong or hardy as my sisters. My parents wrote this prescription for me, hoping it may improve my health.~
-= ~I'm still missing something crucial, though - sunflower petals. I can find substitutes for everything else, but without sunflowers, I'm not sure how useful this tea will be at all.~
+= ~I'm still missing something crucial, though—sunflower petals. I can find substitutes for everything else, but without sunflowers, I'm not sure how useful this tea will be at all.~
 END
 ++ ~Why sunflowers? What's so special about them?~ + t4.6
 ++ ~Perhaps I can help you somehow.~ + t4.7
@@ -339,6 +339,7 @@ END
 + ~CheckStatGT(Player1,15,WIS)
 !Class(Player1,SHAMAN)
 Class(Player1,DRUID_ALL)~ + ~I can call upon nature's aid to develop these seeds magically. It'll only take a while.~ + t4.10
++ ~InParty("Jaheira")~ + ~Jaheira, do you think you could develop these seeds with your magic?~ EXTERN BDJAHEIJ t4.jah1
 + ~!Dead("Jaheira")
 Global("bd_jaheira_join","global",1)~ + ~Perhaps Jaheira may be able to help. I'll ask her.~ DO ~GiveItemCreate("c02asack",Player1,1,0,0)~ + t4.8
 ++ ~I'll do what I can.~ DO ~GiveItemCreate("c02asack",Player1,1,0,0)~ + t4.8
@@ -347,6 +348,20 @@ Global("bd_jaheira_join","global",1)~ + ~Perhaps Jaheira may be able to help. I'
 CHAIN C02AURAJ t4.8
 ~Thank you, <CHARNAME>.~
 EXIT
+
+CHAIN BDJAHEIJ t4.jah1
+~Growing these seeds with nature's will is simple enough. Give me but a moment.~
+DO ~FadeFromColor([30.0],0)
+PlaySound("EFF_P18")
+CreateVisualEffectObject("icraisei",Myself)
+TakePartyItem("c02asack")
+DestroyItem("c02asack")
+GiveItemCreate("c02asunf",Player1,1,0,0)~
+== C02AURAJ ~It— it worked! You're amazing, Jaheira! And you too, <CHARNAME>! Thank you, thank you so much!~
+END
+++ ~You're welcome.~ + t4.11
+++ ~Now you can add them to your medicine, right?~ + t4.11
+++ ~Don't look so excited. This is nothing.~ + t4.11
 
 CHAIN C02AURAJ t4.9
 ~Still, if we come across anybody, I hope it'll cross your mind to ask. Thanks in advance, <CHARNAME>.~
@@ -360,14 +375,14 @@ CreateVisualEffectObject("icraisei",Myself)
 TakePartyItem("c02asack")
 DestroyItem("c02asack")
 GiveItemCreate("c02asunf",Player1,1,0,0)~
-= ~It-- it worked! You're amazing, <CHARNAME>! Thank you, thank you so much!~
+= ~It— it worked! You're amazing, <CHARNAME>! Thank you, thank you so much!~
 END
 ++ ~You're welcome.~ + t4.11
 ++ ~Now you can add them to your medicine, right?~ + t4.11
 ++ ~Don't look so excited. This is nothing to me.~ + t4.11
 
 CHAIN C02AURAJ t4.11
-~They-- they're perfect. I'll just take a moment to add them to my medicine...~
+~They— they're perfect. I'll just take a moment to add them to my medicine...~
 DO ~ClearAllActions()
 StartCutsceneMode()
 StartCutscene("c0aufade")~ EXIT
@@ -391,7 +406,7 @@ EXTERN C02AURAJ t5.2
 
 CHAIN C02AURAJ t5.2
 ~I love sunflowers. Their petals can make tea, their leaves and stems have medicinal properties, their seeds are nutritious snacks... but more than anything, I just think they're beautiful. Something about their bright colors and warmth just... makes me happy.~
-= ~Oh-- what am I saying? You must think I'm being really foolish here, talking about flowers when we've got a war to fight.~
+= ~Oh— what am I saying? You must think I'm being really foolish here, talking about flowers when we've got a war to fight.~
 END
 ++ ~I don't think it's foolish at all. These flowers obviously carry a great meaning to you.~ + t5.3
 ++ ~It is rather silly, but I don't mind it.~ + t5.4
@@ -442,7 +457,7 @@ CHAIN C02AURAJ t6.2
 EXTERN C02AURAJ t6.1
 
 CHAIN C02AURAJ t6.3
-~Ah, I-- I forgot about your situation with your own family. I guess talking about mine comes across as insensitive.~
+~Ah, I— I forgot about your situation with your own family. I guess talking about mine comes across as insensitive.~
 = ~If you'd rather I stop talking, I won't begrudge you.~
 END
 ++ ~No, continue. I apologize for the harsh words.~ + t6.4
@@ -474,7 +489,7 @@ CHAIN C02AURAJ t6.5
 EXTERN C02AURAJ t6.7
 
 CHAIN C02AURAJ t6.6
-~I-- now that we've talked about it, I really do want to. Perhaps I'd even be able to live in peace awhile, with my family and my inventions... I'd like nothing more.~
+~I— now that we've talked about it, I really do want to. Perhaps I'd even be able to live in peace awhile, with my family and my inventions... I'd like nothing more.~
 EXTERN C02AURAJ t6.7
 
 CHAIN C02AURAJ t6.7
@@ -490,14 +505,14 @@ END
 ++ ~I'm not discussing this with you. Not today, not ever.~ + t6.3b
 
 CHAIN C02AURAJ t6.8
-~...I'm so sorry. I-- (she hugs you tightly)~
+~...I'm so sorry. I— (she hugs you tightly)~
 END
 ++ ~Hey... hey, that's too much, Aura.~ + t6.8a
 ++ ~Thank you.~ + t6.8b
 ++ ~Don't touch me!~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ + t6.8c
 
 CHAIN C02AURAJ t6.8a
-~I-- I'm sorry. I think I must have felt your sadness, and I was overwhelmed. I can still tell it hurts, but... still. I shouldn't do that.~
+~I— I'm sorry. I think I must have felt your sadness, and I was overwhelmed. I can still tell it hurts, but... still. I shouldn't do that.~
 END
 ++ ~It's okay. Just don't surprise me like that.~ + t6.8d
 ++ ~You meant well. I just don't feel comfortable with that sort of attention.~ + t6.8d
@@ -505,7 +520,7 @@ END
 ++ ~Never do that again.~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ + t6.8d
 
 CHAIN C02AURAJ t6.8b
-~You-- *sniff* you don't need to thank me, <CHARNAME>. Not for trying to comfort someone I care about.~
+~You— *sniff* you don't need to thank me, <CHARNAME>. Not for trying to comfort someone I care about.~
 EXTERN C02AURAJ t6.11
 
 CHAIN C02AURAJ t6.8c
@@ -521,7 +536,7 @@ CHAIN C02AURAJ t6.9
 EXTERN C02AURAJ t6.11
 
 CHAIN C02AURAJ t6.10
-~Why-- no. I shouldn't ask. You probably have your reasons.~
+~Why— no. I shouldn't ask. You probably have your reasons.~
 EXTERN C02AURAJ t6.11
 
 CHAIN C02AURAJ t6.11
@@ -541,7 +556,7 @@ CHAIN C02AURAJ t6.13
 EXIT
 
 CHAIN C02AURAJ t6.14
-~A-alright, <CHARNAME>. Thanks for keeping this conversation going for this long.~
+~A–alright, <CHARNAME>. Thanks for keeping this conversation going for this long.~
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",14)~ THEN C02AURAJ t7
@@ -583,11 +598,11 @@ END
 IF ~!Global("C02AuraRomanceActive","GLOBAL",1)~ EXIT
 
 CHAIN C02AURAJ t7.5
-~No-- well, maybe if the our adventure reaches its end sooner than I expect, or if one of us doesn't make it... though I probably shouldn't be mentioning that possibility...~
+~No— well, maybe if the our adventure reaches its end sooner than I expect, or if one of us doesn't make it... though I probably shouldn't be mentioning that possibility...~
 EXTERN C02AURAJ t7.4
 
 CHAIN C02AURAJ t7.6
-~I-- um, I didn't think you thought of me that way...~
+~I— um, I didn't think you thought of me that way...~
 = ~No, that's a lie. I think part of me always knew. That's why I've become so attached to you... I just didn't dare to admit it. Not to you, nor to myself...~
 = ~Before this day, I would've considered myself too meek and unworthy of you, but since I've learned to accept the blessings that fate gives me... haha, I have no reason to pretend any longer.~
 = ~I really, really like you, <CHARNAME>. You're not just beautiful, you're strong, brave, passionate... everything I wish I were.~
@@ -683,26 +698,7 @@ END
 IF ~Global("C02AuraRomanceActive","GLOBAL",2)~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ EXIT
 IF ~!Global("C02AuraRomanceActive","GLOBAL",2)~ EXIT
 
-CHAIN IF WEIGHT #-1 ~IsGabber(Player1)
-Global("C02AuraTalk","GLOBAL",9)
-PartyHasItem("c02asack")~ THEN BDJAHEIJ jaheira.sunflower
-~What do you need, <CHARNAME>?~
-END
-++ ~I got these sunflower seeds from Aura. She needs sunflower petals to make a medicinal tea for her health. Can you help out?~ + jaheira.sunflower1
-++ ~Nothing.~ EXIT
-
-CHAIN BDJAHEIJ jaheira.sunflower1
-~Hmph. It would have made more sense for her to come to me herself, but... I suspect she is likely still frightened of me for my ability to shapeshift. Very well, I will use druidic magic to grow and nurture these seeds quickly. This will only take a moment...~
-DO ~FadeFromColor([30.0],0)
-PlaySound("EFF_P18")
-CreateVisualEffectObject("icraisei",Myself)
-TakePartyItem("c02asack")
-DestroyItem("c02asack")
-GiveItemCreate("c02asunf",Player1,1,0,0)~
-= ~...there. It is done. They are in a slightly withered state from the process, but they will serve for medical needs.~
-EXIT
-
-EXTEND_TOP BDJAHEIR 85
+EXTEND_TOP BDJAHEIR 86
 + ~Global("C02AuraTalk","GLOBAL",9)
 PartyHasItem("c02asack")~ + ~I got these sunflower seeds from Aura. She needs sunflower petals to make a medicinal tea for her health. Can you help out?~ + jaheira.sunflower1
 END
@@ -805,7 +801,7 @@ END
 // Bridgefort
 
 I_C_T BDBF1 1 C0AuraBDBF11
-== C02AURAJ IF ~IsValidForPartyDialogue("C0Aura")~ THEN ~N-negative energy... whatever the crusaders threw at us, it's draining our life force. This is bad...~
+== C02AURAJ IF ~IsValidForPartyDialogue("C0Aura")~ THEN ~N–negative energy... whatever the crusaders threw at us, it's draining our life force. This is bad...~
 END
 
 EXTEND_TOP BDWYNAN 7 #4
@@ -869,7 +865,7 @@ CHAIN C02AURAJ coldhearth.2
 EXIT
 
 CHAIN C02AURAJ coldhearth.3
-~S-sorry, <CHARNAME>, I'll be with you shortly.~
+~S–sorry, <CHARNAME>, I'll be with you shortly.~
 EXIT
 
 // Dog
@@ -887,7 +883,7 @@ END
 
 // Dosia
 
-EXTEND_TOP BDDOSIA 11 #4
+EXTEND_TOP BDDOSIA 13 #4
 + ~IsValidForPartyDialogue("C0Aura")~ + ~You have some knowledge of medicine, don't you, Aura? Is there any advice you can give?~ EXTERN C02AURAJ bddosia11
 END
 
@@ -1127,7 +1123,7 @@ END
 // Strunk
 
 INTERJECT BDSTRUNK 3 C0AuraBDSTRUNK3
-== C02AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Th-that's cruel! You've forcibly drawn elemental spirits from their home plane and bound them here? They despise that!~
+== C02AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Th–that's cruel! You've forcibly drawn elemental spirits from their home plane and bound them here? They despise that!~
 EXTERN BDSTRUNK 5
 
 // Takos
@@ -1724,24 +1720,24 @@ SAY ~Aaiiiee!~
 END
 
 IF ~~ ihatebears2
-SAY ~B-b-BEAR! I-it's a bear! Oh, no, it's spotted us! Eek, let's run as fast as we can, <CHARNAME>!~
+SAY ~B–b—BEAR! I–it's a bear! Oh, no, it's spotted us! Eek, let's run as fast as we can, <CHARNAME>!~
 + ~OR(2) Class(Player1,DRUID_ALL) Class(Player1,RANGER_ALL)~ + ~That's the quickest way of making sure the bear catches you, Aura. You're not supposed to run away from a bear, or else it'll think of you as prey.~ + ihatebears5
 ++ ~You're afraid of a *bear*?~ + ihatebears3
 ++ ~I don't like bears myself. You're right, let's run!~ + ihatebears4
 END
 
 IF ~~ ihatebears3
-SAY ~D-don't joke about it. You have no idea... in Kozakura, they say there are bears in the mountains that eat people. And I'm so tiny, it'd swallow me in one gulp! Oh, curse it, why did I have to say it out loud? Now I'll be picturing it all day...~
+SAY ~D–don't joke about it. You have no idea... in Kozakura, they say there are bears in the mountains that eat people. And I'm so tiny, it'd swallow me in one gulp! Oh, curse it, why did I have to say it out loud? Now I'll be picturing it all day...~
 IF ~~ + ihatebears4
 END
 
 IF ~~ ihatebears4
-SAY ~Ooh, too late, I think it's coming at us. Y-you stay at the front, <CHARNAME>, I'll stand behind you. To shoot arrows at it, n-not to run away, of course!~
+SAY ~Ooh, too late, I think it's coming at us. Y–you stay at the front, <CHARNAME>, I'll stand behind you. To shoot arrows at it, n–not to run away, of course!~
 IF ~~ EXIT
 END
 
 IF ~~ ihatebears5
-SAY ~E-easy for you to say, no bear would ever go after you! I'm sure I already look like a nice, delicious snack for any bear that sees me... *shudder*~
+SAY ~E–easy for you to say, no bear would ever go after you! I'm sure I already look like a nice, delicious snack for any bear that sees me... *shudder*~
 IF ~~ + ihatebears4
 END
 
@@ -1751,14 +1747,14 @@ SAY ~Aaiiiee!~
 END
 
 IF ~~ ihatebearsagain2
-SAY ~B-b-b... it's a b--~
+SAY ~B–b–b... it's a b—~
 ++ ~Bear?~ + ihatebearsagain3
 ++ ~Don't tell me you're STILL afraid of bears?!~ + ihatebearsagain3
 ++ ~*sigh*~ + ihatebearsagain3
 END
 
 IF ~~ ihatebearsagain3
-SAY ~W-why must there always be big, scary bears wherever we go?!~
+SAY ~W–why must there always be big, scary bears wherever we go?!~
 IF ~~ EXIT
 END
 
@@ -1767,6 +1763,48 @@ END
 IF ~Global("C0AuraSummonedBears","GLOBAL",1)~ spiritbear
 SAY ~Eep! Ghosts and bear were bad enough! Now it's a ghost of a bear? Couldn't you have summoned something nicer?~
 IF ~~ DO ~SetGlobal("C0AuraSummonedBears","GLOBAL",2)~ EXIT
+END
+
+// DRAGON
+
+IF ~Global("C02AuraMorenthene","GLOBAL",2)~ dragontalk
+SAY ~Phew! That dragon was way, way, waaaay scarier than Ceri. Oh, I miss her...~
+++ ~Ceri?~ DO ~SetGlobal("C02AuraMorenthene","GLOBAL",3)~ + dragontalk1
+++ ~Whatever...~ EXIT
+END
+
+IF ~~ dragontalk1
+SAY ~Oh, Ceri's a copper dragon. Her full name was Ce'rithalairixen—we all called her Ceri for short. She was one of my best friends back in Lantan. We went to school together!~
+++ ~You went to school with a dragon?~ + dragontalk2
++ ~!CheckStatGT(Player1,16,INT)~ + ~Ce-ri-tha... what?~ + dragontalk3
++ ~CheckStatGT(Player1,16,INT)~ + ~"Shining Light of Stars and Flame"?~ + dragontalk4
+++ ~I'm not even going to try and pronounce that.~ + dragontalk5
+END
+
+IF ~~ dragontalk2
+SAY ~Actually, we first met outside of school. I came across her home one day, and if you know how copper dragons keep their homes... well, anyway, I told her about the academy, and she thought it'd be fun to join.~
+IF ~~ + dragontalk6
+END
+
+IF ~~ dragontalk3
+SAY ~Ce'rithalairixen! It's a little hard to say at first, but once you get the hang of it, it rolls off the tongue quite nicely.~
+IF ~~ + dragontalk6
+END
+
+IF ~~ dragontalk4
+SAY ~That's right! I guess you must know your Draconic really well, <CHARNAME>.~
+IF ~~ + dragontalk6
+END
+
+IF ~~ dragontalk5
+SAY ~I don't blame you. But I like saying it. It's just such an exquisite name!~
+IF ~~ EXIT
+END
+
+IF ~~ dragontalk6
+SAY ~I really wonder how Ceri's been doing over the years. Considering how clever she is, I bet she's completely remodeled her home using the skills she learned at the academy. I don't think I'll be able to get through her puzzles without help the next time I visit her...~
+= ~Oops, I think I talked for a bit too long there. This isn't really the time or place for me to reminisce, is it?~
+IF ~~ EXIT
 END
 
 // THRIX
@@ -1890,7 +1928,7 @@ IF ~~ pid.2
 END
 
 IF ~~ sunflowers
-SAY ~Oh... thank you! They-- they're perfect. I'll just take a moment to add them to my medicine...~
+SAY ~Oh... thank you! They— they're perfect. I'll just take a moment to add them to my medicine...~
 IF ~~ DO ~ClearAllActions()
 StartCutsceneMode()
 StartCutscene("c0aufade")~ EXIT
@@ -1951,7 +1989,7 @@ SAY ~Sure... about what?~
 END
 
 IF ~~ pid.breakrom1
-SAY ~I-- okay, if you're sure. You mean what you say... right?~
+SAY ~I— okay, if you're sure. You mean what you say... right?~
 ++ ~Yes. I mean it.~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ + pid.breakrom1.1
 ++ ~No, never mind. I don't know what I was thinking.~ + pid.nobreakrom
 END
@@ -1962,19 +2000,19 @@ IF ~~ EXIT
 END
 
 IF ~~ pid.breakrom2
-SAY ~You-- even after everything you said?~
+SAY ~You— even after everything you said?~
 ++ ~Yes. I mean it.~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ + pid.breakrom2.1
 ++ ~No... I've changed my mind. I can't.~ + pid.nobreakrom
 END
 
 IF ~~ pid.breakrom2.1
 SAY ~...~
-= ~F-fine. Your... your happiness comes first.~
+= ~F–fine. Your... your happiness comes first.~
 IF ~~ EXIT
 END
 
 IF ~~ pid.nobreakrom
-SAY ~D-don't scare me by saying stuff like that, <CHARNAME>.~
+SAY ~D–don't scare me by saying stuff like that, <CHARNAME>.~
 IF ~~ EXIT
 END
 
@@ -1999,7 +2037,7 @@ SAY ~Yep. I mean, squirrels are still my favorites, like little Muffy-boo here, 
 END
 
 IF ~~ pid2
-SAY ~The Sunshooter? Yep-- well, it was a collaborative effort more than anything. I sketched the original design, but my parents helped me with most of the more complex parts.~
+SAY ~The Sunshooter? Yep— well, it was a collaborative effort more than anything. I sketched the original design, but my parents helped me with most of the more complex parts.~
 = ~See this little ring around eye level? That's to help me focus on the target. And the separate joints reduce the strain on my arm when drawing and allow me to fold the bow into something a little easier to carry when I'm not fighting.~
 = ~In Lantan, we call it a mechanical compound bow. It's usually not a very practical weapon on the field because having so many parts makes it fragile and more likely for your shots to go wrong, but the flexibility and toughness of mithral circumvents that. Mithral's not cheap, though, so building this bow was costly.~
 = ~My parents gave a lot to make sure I'd be safe... so I practice with this bow every day, until I can make every shot count.~
@@ -2081,7 +2119,7 @@ SAY ~Sure... which one?~
 + ~InParty("Khalid")~ + ~What do you think about Khalid?~ + pid4.khalid
 + ~InParty("Mkhiin")~ + ~What do you think about M'khiin?~ + pid4.mkhiin
 + ~InParty("Minsc")~ + ~What do you think about Minsc?~ + pid4.minsc
-+ ~InParty("Neera")~ + ~What do you think about Neera?~ + pid4.minsc
++ ~InParty("Neera")~ + ~What do you think about Neera?~ + pid4.neera
 + ~InParty("Rasaad")~ + ~What do you think about Rasaad?~ + pid4.rasaad
 + ~InParty("Safana")~ + ~What do you think about Safana?~ + pid4.safana
 + ~InParty("C0Sirene")~ + ~What do you think about Sirene?~ + pid4.sirene
@@ -2133,7 +2171,7 @@ SAY ~Ooh, I like his sense of fashion. Blue hair reminds me of my adorable young
 END
 
 IF ~~ pid4.jaheira
-SAY ~I-- I respect her, but I have trouble approaching her because... well, you know... she turns into a bear.~
+SAY ~I— I respect her, but I have trouble approaching her because... well, you know... she turns into a bear.~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
 ++ ~That's all for now.~ + pid.end
 END
@@ -2145,7 +2183,7 @@ SAY ~Khalid's saved me more times than I can count ever since I met him. I would
 END
 
 IF ~~ pid4.mkhiin
-SAY ~I-- I'm sorry, but she creeps me out a little. It's not because she's a goblin, it's her ability to talk with spirits. It unnerves me.~
+SAY ~I— I'm sorry, but she creeps me out a little. It's not because she's a goblin, it's her ability to talk with spirits. It unnerves me.~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
 ++ ~That's all for now.~ + pid.end
 END
@@ -2199,7 +2237,7 @@ SAY ~Um, he's a little strange, but I guess he's nice enough. I can't figure out
 END
 
 IF ~~ pid5
-SAY ~W... what? Th-- that's... that's a hard question to answer, <CHARNAME>, especially when you spring it on me like that...~
+SAY ~W... what? Th— that's... that's a hard question to answer, <CHARNAME>, especially when you spring it on me like that...~
 ++ ~I don't hear a 'no'...~ + pid5.1
 ++ ~So I guess you do like me?~ + pid5.1
 ++ ~I have no patience for this. If you aren't confident in your feelings, then I'm not interested.~ + pid5.x
@@ -2213,7 +2251,7 @@ END
 IF ~~ pid5.1
 SAY ~*sigh* You're really laying it thick on me, aren't you, <CHARNAME>...~
 = ~I suppose there's no point trying to deny it entirely, if it's so obvious that you'd ask me like this. But...~
-= ~Th-- the question I'd ask in return is... what if I were? Would you be interested in me?~
+= ~Th— the question I'd ask in return is... what if I were? Would you be interested in me?~
 ++ ~Of course. I really like you, Aura.~ + pid5.2
 ++ ~I'm sorry, but... I'm not. I'd still have your friendship, though.~ + pid5.3
 ++ ~You think I'd be interested in someone like you? Don't flatter yourself.~ + pid5.x
@@ -2230,8 +2268,8 @@ IF ~~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ EXIT
 END
 
 IF ~~ pid6
-SAY ~I-- wait, what? *gasp*~
-= ~Oh my-- I must have dropped it... eep!~
+SAY ~I— wait, what? *gasp*~
+= ~Oh my— I must have dropped it... eep!~
 = ~You weren't meant to see that! It's terrible, I scribbled it on a whim while we were travelling, and... um, I usually write way better than that, I swear.~
 ++ ~Calm down, I liked it. I didn't think you had it in you.~ + pid6.1
 ++ ~So you did write this love poem for me? I'm flattered.~ + pid6.2
@@ -2240,22 +2278,22 @@ SAY ~I-- wait, what? *gasp*~
 END
 
 IF ~~ pid6.x
-SAY ~I-- okay. I apologize.~
+SAY ~I— okay. I apologize.~
 IF ~~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ EXIT
 END
 
 IF ~~ pid6.1
-SAY ~I'm an amateur when it comes to haiku, it's definitely not something I'm proud of. I'd rather you never saw--~
+SAY ~I'm an amateur when it comes to haiku, it's definitely not something I'm proud of. I'd rather you never saw—~
 IF ~~ + pid6.3
 END
 
 IF ~~ pid6.2
-SAY ~I-- it's not a love poem, who said--~
+SAY ~I— it's not a love poem, who said—~
 IF ~~ + pid6.3
 END
 
 IF ~~ pid6.3
-SAY ~--ooh, this is embarrassing. Give it here!~
+SAY ~—ooh, this is embarrassing. Give it here!~
 ++ ~Nope. I'm going to frame it and put it on my wall.~ + pid6.4
 ++ ~I'll keep it, if you don't mind. It's a sweet reminder of your thoughts towards me.~ + pid6.4
 ++ ~Okay, here you go.~ DO ~TakePartyItem("c02apoem") DestroyItem("c02apoem")~ + pid6.5
@@ -2341,7 +2379,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f2.1
-SAY ~Wh-hey! Put me down! I don't like heeeeights!~
+SAY ~Wh–hey! Put me down! I don't like heeeeights!~
 IF ~~ EXIT
 END
 
@@ -2383,7 +2421,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f4.3
-SAY ~C-c-careful... I'm about to sneeze!~
+SAY ~C–c–careful... I'm about to sneeze!~
 IF ~~ EXIT
 END
 
@@ -2433,7 +2471,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f8.1
-SAY ~H-hey-hey-hey! You'll damage the roots! Stoooop!~
+SAY ~H–hey–hey–hey! You'll damage the roots! Stoooop!~
 IF ~~ EXIT
 END
 
@@ -2466,7 +2504,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f10.1
-SAY ~No-no-no-nononono! Stop! *giggle*~
+SAY ~No–no–no–nononono! Stop! *giggle*~
 IF ~~ EXIT
 END
 
@@ -2476,7 +2514,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f10.3
-SAY ~Eek, not the armpits, anywhere but- ahahaha!~
+SAY ~Eek, not the armpits, anywhere but—ahahaha!~
 IF ~~ EXIT
 END
 
@@ -2486,7 +2524,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f11.2
-SAY ~Oh--! That's very sweet of you to say, <CHARNAME>.~
+SAY ~Oh—! That's very sweet of you to say, <CHARNAME>.~
 IF ~~ EXIT
 END
 
@@ -2516,7 +2554,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f13.2
-SAY ~(She blinks - you can sense her tension, as though she was instinctively about to step back, but instead closes her eyes to accept your affection.)~
+SAY ~(She blinks—you can sense her tension, as though she was instinctively about to step back, but instead closes her eyes to accept your affection.)~
 IF ~~ EXIT
 END
 

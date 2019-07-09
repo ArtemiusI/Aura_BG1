@@ -1,0 +1,11 @@
+// Morenthene
+
+IF
+    InParty("C0Aura")
+	Global("bd_dragon_ot","bd7210",1)
+    Global("C02AuraMorenthene","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraMorenthene","GLOBAL",1)
+	DisplayStringHead("C0Aura",~*barely audible* Oh no, oh no, oh no, oh no, oh no no no...~)
+END

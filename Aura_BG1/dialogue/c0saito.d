@@ -58,7 +58,7 @@ END
 
 CHAIN C0AURAP saito2.1
 ~I'm sorry, Saitō-san... I see there really is no other way...~
-== C0AURAP ~..."Igneous ferrum".~
+== C0AURAP ~...Genesis, Flamma, Purgo. Igneus Blaze!~
 DO ~ClearAllActions() 
       StartCutSceneMode() 
       StartCutScene("c0acuts4")~ EXIT

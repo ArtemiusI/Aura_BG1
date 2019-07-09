@@ -2,12 +2,12 @@ IF
   Global("bd_plot","global",586)
   !GlobalTimerNotExpired("bd_mdd1341a_ot_timer","bd4300")
   Global("bd_ot2_C0Aura","bd4300",0)
-  IfValidForPartyDialog("C0Aura")
+  InParty("C0Aura")
 THEN
   RESPONSE #100
-    SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",3)
+    SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",4)
     SetGlobal("bd_ot2_C0Aura","bd4300",1)
-    DisplayStringHead("C0Aura",~Phew, we did it. Let's hope we never have to do something like this again.~)
+    DisplayStringHead("C0Aura",~We're alive? Yes! We're alive! <CHARNAME>, we did it!~)
 END
 
 IF

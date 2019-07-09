@@ -1,0 +1,11 @@
+IF
+  Global("bd_hellevator_ot_C0Aura","bd4601",0)
+  InParty("C0Aura")
+  !GlobalTimerNotExpired("bd_hellevator_timer","bd4601")
+  !ActuallyInCombat()
+THEN
+  RESPONSE #100
+    SetGlobal("bd_hellevator_ot_C0Aura","bd4601",1)
+    SetGlobalTimer("bd_hellevator_timer","bd4601",7)
+    DisplayStringHead("C0Aura",~Is it a bad time to mention I'm deadly terrified of heights...?~)
+END

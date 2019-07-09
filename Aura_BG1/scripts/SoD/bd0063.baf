@@ -1,0 +1,10 @@
+IF
+	Global("BD_NPC01","MYAREA",0)
+	IsValidForPartyDialogue("C0Aura")
+	RandomNum(4,2)
+	Delay(3)
+THEN
+	RESPONSE #100
+		SetGlobal("BD_NPC01","MYAREA",1)
+		DisplayStringHead("C0Aura",~Uh oh. Dead magic zone. I thought something was off about the air here when we walked in.~)
+END

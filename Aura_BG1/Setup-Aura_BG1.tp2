@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~2.6~
+VERSION ~2.7~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
@@ -17,6 +17,7 @@ LANGUAGE
   ~%MOD_FOLDER%/tra/english/setup.tra~
 
 BEGIN ~Aura NPC for Baldur's Gate: Enhanced Edition~
+  REQUIRE_PREDICATE (GAME_IS ~bgee~) ~This mod must be installed on BG:EE.~
 INCLUDE ~%MOD_FOLDER%/lib/aura_resources.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~

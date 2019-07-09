@@ -2,6 +2,8 @@ COPY ~%MOD_FOLDER%/items/SoD~ ~override~
 
 // SCRIPTS
 
+  EXTEND_TOP ~bd0063.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0063.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd0066.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0066.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd0103.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0103.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd0104.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0104.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd0120.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd0120.baf~ EVALUATE_BUFFER
@@ -12,15 +14,19 @@ COPY ~%MOD_FOLDER%/items/SoD~ ~override~
   EXTEND_TOP ~bd4100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4100.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd4300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4300.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd4400.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4400.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd4400.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd4601.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd5300.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd5300.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd7000.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7000.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bd7100.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7100.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~bd7210.bcs~ ~%MOD_FOLDER%/scripts/SoD/bd7210.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut58.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bdcut58.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut59b.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bdcut61.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdcut61.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bdparty.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdparty.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~BDINTRO.bcs~ ~%MOD_FOLDER%/scripts/SoD/BDINTRO.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~bddsc.bcs~ ~%MOD_FOLDER%/scripts/SoD/bddsc.baf~ EVALUATE_BUFFER
+  
+  EXTEND_BOTTOM ~bdvaultd.bcs~ ~%MOD_FOLDER%/scripts/SoD/bdvaultd.baf~ EVALUATE_BUFFER
 
 LAF ALTER_SCRIPT_BLOCK
       STR_VAR script=bdfoods

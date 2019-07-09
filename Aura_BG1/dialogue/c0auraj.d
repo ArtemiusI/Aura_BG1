@@ -165,7 +165,7 @@ END
 
 CHAIN C0AURAJ t3.0
 ~Aw, that's too bad... I really wanted to hear about it...~
-END
+EXIT
 
 CHAIN C0AURAJ t3.a
 ~Oh, come on! I'm not asking you about your deepest secrets. I just wanted to know a few details.~
@@ -1994,7 +1994,7 @@ END
 
 IF ~~ runes.2
 SAY ~Well... the difference is in the method, I suppose. Like two formulae that result in the same answer... that sort of thing.~
-= ~Rune magic has its own power. I can use it to empower my artificial creations, and their power is lasting. But it is... limited, in what it's capable of. I can understand why most mages don't practice it, but... for those like me, it's a skill worth having.~
+= ~Rune magic is... different. I can reshape the energies, and turn them into magic of my own making. But it is... limited, in what it's capable of. I can understand why most mages don't practice it, but... for those like me, it's a skill worth having.~
 ++ ~Let's talk about something else.~ + pid2
 ++ ~That's all I wanted to ask.~ + end
 END
@@ -2424,7 +2424,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f11.2
-SAY ~Oh--! That's very sweet of you to say, <CHARNAME>.~
+SAY ~Oh—! That's very sweet of you to say, <CHARNAME>.~
 IF ~~ EXIT
 END
 

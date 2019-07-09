@@ -27,3 +27,22 @@ THEN
     SetGlobal("C0AuraRestTalk","GLOBAL",2)
 	StartDialogueNoSet(Player1)
 END
+
+// CROSSMOD - VERR TALK 2
+
+IF
+    InParty(Myself)
+    InParty("L#1VERR")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C0AuraVerr1","GLOBAL",1)
+	Global("C0AuraVerr2","GLOBAL",0)
+	TimeOfDay(NIGHT)
+	!AreaType("DUNGEON")
+THEN
+  RESPONSE #40
+    SetGlobal("C0AuraVerr2","GLOBAL",1)
+	ActionOverride("L#1VERR",Interact("C0Aura"))
+  RESPONSE #60
+	NoAction()
+END

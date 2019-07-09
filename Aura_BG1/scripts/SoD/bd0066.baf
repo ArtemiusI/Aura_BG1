@@ -1,0 +1,10 @@
+IF
+	Global("BD_NPC02","MYAREA",0)
+	IsValidForPartyDialogue("C0Aura")
+	RandomNum(3,1)
+	Delay(2)
+THEN
+	RESPONSE #100
+		SetGlobal("BD_NPC02","MYAREA",1)
+		DisplayStringHead("C0Aura",~Wow, what a mess. There's few forces other than magic that could do this much damage.~)
+END

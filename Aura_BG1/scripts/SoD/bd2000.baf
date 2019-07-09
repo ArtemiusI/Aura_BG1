@@ -9,5 +9,5 @@ THEN
   RESPONSE #100
     SetGlobalTimer("bd_mdd410z_ot_timer","bd2000",THREE_MINUTES)
     SetGlobal("bd_ot_c0aura","bd2000",1)
-    DisplayStringHead("C0Aura",~I-- I didn't want this, but we're not going to lose!~)
+    DisplayStringHead("C0Aura",~I– I didn't want this, but we're not going to lose!~)
 END

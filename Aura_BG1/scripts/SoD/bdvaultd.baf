@@ -1,0 +1,12 @@
+IF
+	Global("bd_MDD893a_ot","bd4300",0)
+	GlobalLT("bd_plot","global",400)
+	CombatCounter(0)
+	Range("C0Aura",25)
+THEN
+	RESPONSE #100
+		SetGlobal("bd_MDD893a_ot","bd4300",1)
+		DisplayStringHead("C0Aura",~Look at that door... talk about creepy.~)
+		Wait(2)
+		DisplayStringHead("C0Aura",~My arcane sensors are going haywire too. That doesn't help.~)
+END

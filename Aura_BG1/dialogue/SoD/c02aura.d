@@ -3,7 +3,7 @@ BEGIN C02AURA
 
 CHAIN IF WEIGHT #-1 ~AreaCheck("bd4700")
 GlobalLT("bd_plot","global",570)~ THEN C02AURA end
-~I-- I won't back down, <CHARNAME>, not now!~
+~I— I won't back down, <CHARNAME>, not now!~
 DO ~SetGlobal("bd_c0aura_kicked_mdd1330","global",1)
 SetGlobal("bd_joined","locals",0)~
 EXIT
@@ -136,7 +136,10 @@ END
 ++ ~I don't think so. Beat it, gnome.~ + k.3
 
 CHAIN C02AURA k.7
-~I'm not that great at fighting, like I said. I have other useful skills, though. There's no one in Faerun who can beat a Lantanese artificer at alchemy or invention. I'm also good with locks and traps, and I've a slight grasp on arcane magic, even if I'm not a mage myself.~
+~I'm not that great at fighting, like I said. I have other useful skills, though. There's no one in Faerun who can beat a Lantanese artificer at alchemy or invention.~
+= IF ~!Class(Myself,MAGE_ALL) !Class(Myself,CLERIC_ALL)~ THEN ~I'm also good with locks and traps, and I've a slight grasp on arcane magic, even if I'm not a mage myself.~
+= IF ~Class(Myself,MAGE_ALL)~ THEN ~I'm also good with locks and traps, and I've got a slight grasp on arcane magic too. I'm not an expert, but I know enough to get by!~
+= IF ~Class(Myself,CLERIC_ALL)~ THEN ~I'm also good with locks and traps, and I'm... a priestess-in-training of sorts. Well, I was, anyway. I know a few healing chants that are useful in a pinch.~
 = ~I can also concoct... weapons. Explosive weapons, to be precise. I'm not too fond of doing so, but when faced with danger, it's something I've had to resort to. If you allow me to join you, I'll offer that to you as well, so long as you don't abuse them.~
 END
 ++ ~Very well, then, you've convinced me. Welcome aboard.~ + k.8
@@ -144,7 +147,7 @@ END
 ++ ~I don't think you're what I'm looking for.~ + k.3
 
 CHAIN C02AURA k.8
-~Y-you'll let me join! Thank you! I won't let you down.~
+~Y–you'll let me join! Thank you! I won't let you down.~
 = ~Just give me a moment to pack up here and I'll be ready to leave. Come on, Koko-chan! It's time to go!~
 DO ~SetGlobal("C02AuraBegin","GLOBAL",-1)
 ClearAllActions() StartCutsceneMode() StartCutscene("c0aufade")
@@ -324,17 +327,29 @@ EXIT
 CHAIN IF ~GlobalGT("bd_joined","locals",0)~ THEN C02AURA n
 ~Aww. You sure you want me to go, <CHARNAME>?~
 END
-+ ~GlobalGT("bd_npc_camp_chapter","global",1)
++ ~PartyHasItem("c02akoko")
+GlobalGT("bd_npc_camp_chapter","global",1)
 GlobalLT("bd_npc_camp_chapter","global",5)
 OR(2)
 !Range("ff_camp",999)
 NextTriggerObject("ff_camp")
-!IsOverMe("C0Aura")~ + ~Go back to camp. Your skills will be put to better use there.~ DO ~SetGlobal("bd_npc_camp","locals",1)~ + n.1
+!IsOverMe("C0Aura")~ + ~Go back to camp. Your skills will be put to better use there.~ DO ~SetGlobal("bd_npc_camp","locals",1)~ + n.1a
++ ~!PartyHasItem("c02akoko")
+GlobalGT("bd_npc_camp_chapter","global",1)
+GlobalLT("bd_npc_camp_chapter","global",5)
+OR(2)
+!Range("ff_camp",999)
+NextTriggerObject("ff_camp")
+!IsOverMe("C0Aura")~ + ~Go back to camp. Your skills will be put to better use there.~ DO ~SetGlobal("bd_npc_camp","locals",1)~ + n.1b
 ++ ~Wait here for the moment. I will return for you promptly.~ + n.2
 ++ ~Actually, never mind. Stay with me.~ + n.3
 
-CHAIN C02AURA n.1
+CHAIN C02AURA n.1a
 ~If you say so. Come on, Koko-chan. We're going back.~
+DO ~SetGlobal("bd_joined","locals",0)~ EXIT
+
+CHAIN C02AURA n.1b
+~If you say so. See you around, <CHARNAME>.~
 DO ~SetGlobal("bd_joined","locals",0)~ EXIT
 
 CHAIN C02AURA n.2
@@ -368,7 +383,7 @@ IF WEIGHT #-1 ~AreaCheck("bd0104")
 Global("chapter","global",13)
 Global("bd_jail_visitors","bd0104",5)
 Global("C02AuraRomanceActive","global",2)~ postgame
-SAY ~H-hey there, <CHARNAME>.~
+SAY ~H–hey there, <CHARNAME>.~
 + ~Global("bd_player_exiled","global",0)~ + ~Hey there, Aura.~ DO ~SetGlobal("bd_jail_visitors","bd0104",6) SetGlobal("bd_visit_player","locals",1)~ + postgamebad
 + ~!Global("bd_player_exiled","global",0)~ + ~Hey there, Aura.~ DO ~SetGlobal("bd_jail_visitors","bd0104",6) SetGlobal("bd_visit_player","locals",1)~ + postgamegood
 + ~Global("bd_player_exiled","global",0)~ + ~Aura. You've got to get me out of here.~ DO ~SetGlobal("bd_jail_visitors","bd0104",6) SetGlobal("bd_visit_player","locals",1)~ + postgamebad
@@ -403,7 +418,7 @@ IF ~~ DO ~EscapeArea()~ EXIT
 END
 
 IF ~~ postgamegood1
-SAY ~W-wait, <CHARNAME>! I didn't come to admonish you like everyone else, I promise. Would I do that to you?~
+SAY ~W–wait, <CHARNAME>! I didn't come to admonish you like everyone else, I promise. Would I do that to you?~
 IF ~~ + postgamegood
 END
 
@@ -414,7 +429,7 @@ END
 
 IF ~~ postgamegood
 SAY ~I, um, brought you gifts. See? Warmer blankets, slippers, cakes, some books, a nice soft pillow... anything that might make your time here easier...~
-= ~Oh, who am I kidding? This isn't going to make anything better. I- I didn't want to see you like this, <CHARNAME>. This hurts...~
+= ~Oh, who am I kidding? This isn't going to make anything better. I– I didn't want to see you like this, <CHARNAME>. This hurts...~
 ++ ~Your eyes are all red. Have you been crying?~ + postgamegood.1
 ++ ~Gods, Aura, don't break down on me right now. I don't think I can stand it.~ + postgamegood.2
 ++ ~Thank you. I'm glad you care, at least.~ + postgamegood.3

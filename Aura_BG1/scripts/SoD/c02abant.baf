@@ -107,7 +107,7 @@ RESPONSE #1
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraDorn1","MYAREA",10)
 RESPONSE #10
-	DisplayStringHead("C0Aura",~I-- I'm not sure what you mean by that.~)
+	DisplayStringHead("C0Aura",~I— I'm not sure what you mean by that.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraDorn1","MYAREA",20)
 RESPONSE #20
@@ -167,7 +167,7 @@ RESPONSE #1
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraDynaheir1","MYAREA",10)
 RESPONSE #10
-	DisplayStringHead("C0Aura",~I-- thank you, miss Dynaheir, but I wouldn't go so far as to say that.~)
+	DisplayStringHead("C0Aura",~I— thank you, miss Dynaheir, but I wouldn't go so far as to say that.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraDynaheir1","MYAREA",20)
 RESPONSE #20
@@ -200,7 +200,7 @@ RESPONSE #20
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraDynaheir2","MYAREA",30)
 RESPONSE #30
-	DisplayStringHead("C0Aura",~It won't. We know all too well what would happen. I'd defend the secret with my life-- any of us would.~)
+	DisplayStringHead("C0Aura",~It won't. We know all too well what would happen. I'd defend the secret with my life— any of us would.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraDynaheir2","MYAREA",-1)
 END
@@ -524,6 +524,15 @@ END
 
 IF
 	InMyArea(Player1)
+	!PartyHasItem("c02aucat")
+	GlobalGT("C02AuraMkhiin1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C02AuraMkhiin1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
 	!ActuallyInCombat()
 	PartyHasItem("c02aucat")
 	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
@@ -543,7 +552,7 @@ RESPONSE #20
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraMkhiin1","MYAREA",30)
 RESPONSE #30
-	DisplayStringHead("C0Aura",~I-- oh, ugh. I wish I hadn't heard that.~)
+	DisplayStringHead("C0Aura",~I— oh, ugh. I wish I hadn't heard that.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraMkhiin1","MYAREA",40)
 RESPONSE #40
@@ -564,7 +573,7 @@ RESPONSE #1
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraMkhiin2","MYAREA",10)
 RESPONSE #10
-	DisplayStringHead("C0Aura",~I-- I beg your pardon?~)
+	DisplayStringHead("C0Aura",~I— I beg your pardon?~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraMkhiin2","MYAREA",20)
 RESPONSE #20
@@ -899,7 +908,7 @@ RESPONSE #1
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraViconia1","MYAREA",10)
 RESPONSE #10
-	DisplayStringHead("C0Aura",~I-- I would? It doesn't seem like you to say something like that.~)
+	DisplayStringHead("C0Aura",~I— I would? It doesn't seem like you to say something like that.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraViconia1","MYAREA",20)
 RESPONSE #20
@@ -936,7 +945,7 @@ RESPONSE #20
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraViconia2","MYAREA",30)
 RESPONSE #30
-	DisplayStringHead("C0Aura",~I-- I don't know. But I do know that <HESHE>'s given me no reason to doubt <PRO_HIMHER>, not yet.~)
+	DisplayStringHead("C0Aura",~I— I don't know. But I do know that <HESHE>'s given me no reason to doubt <PRO_HIMHER>, not yet.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02AuraViconia2","MYAREA",40)
 RESPONSE #40

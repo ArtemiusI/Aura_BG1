@@ -511,23 +511,6 @@ THEN
 	DisplayStringHead(Myself,~Yow! Someone cooked this place real good.~)
 END
 
-// MORENTHERENE
-
-IF
-    InParty(Myself)
-    See("BDMORENT")
-	!Dead("BDMORENT")
-    !StateCheck(Myself,CD_STATE_NOTVALID)
-    !StateCheck(Player1,CD_STATE_NOTVALID)
-    CombatCounter(0)
-    !Detect([ENEMY])
-    Global("C02AuraMorenthene","MYAREA",0)
-THEN
-  RESPONSE #100
-	SetGlobal("C02AuraMorenthene","MYAREA",1)
-	DisplayStringHead(Myself,~*gasp* Don't scream, don't breathe... it'll hear me breathe...~)
-END
-
 // NEOTHELID
 
 IF
@@ -557,32 +540,6 @@ THEN
   RESPONSE #100
 	Wait(1)
 	StartDialogueNoSet(Player1)
-END
-
-// HELLEVATOR
-
-IF
-  Global("bd_hellevator_ot_C0Aura","bd4601",0)
-  InParty("C0Aura")
-  !GlobalTimerNotExpired("bd_hellevator_timer","bd4601")
-  !ActuallyInCombat()
-THEN
-  RESPONSE #100
-    SetGlobal("bd_hellevator_ot_C0Aura","bd4601",1)
-    SetGlobalTimer("bd_hellevator_timer","bd4601",7)
-    DisplayStringHead("C0Aura",~Creepy... I've been on elevators back home, but none of them were this scary.~)
-END
-
-IF
-  Global("bd_plot","global",586)
-  !GlobalTimerNotExpired("bd_mdd1341a_ot_timer","bd4300")
-  Global("bd_ot2_C0Aura","bd4300",0)
-  InParty("C0Aura")
-THEN
-  RESPONSE #100
-    SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",4)
-    SetGlobal("bd_ot2_C0Aura","bd4300",1)
-    DisplayStringHead("C0Aura",~We're alive? Yes! We're alive! <CHARNAME>, we did it!~)
 END
 
 // SLEEPING POTION
@@ -847,6 +804,24 @@ IF
 THEN
   RESPONSE #100
 	SetGlobal("C02Drakeromanceactive","global",3)
+END
+
+// Post-Dragon
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !See([ENEMY])
+    CombatCounter(0)
+	!AreaCheck("BD7210")
+	Global("C02AuraMorenthene","GLOBAL",1)
+    !Global("C0AuraTalkStopped","GLOBAL",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C02AuraMorenthene","GLOBAL",2)
+	StartDialogueNoSet(Player1)
 END
 
 // I HATE BEARS

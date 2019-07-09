@@ -2,13 +2,13 @@
 
 IF
     InParty("C0Aura")
-    Global("C02AuraCryptComment","GLOBAL",0)
+    Global("C02AuraCryptComment","bd0120",0)
 	Global("BDSH_Imoen_Floor","GLOBAL",3)
 	Global("BDSH_Rope","GLOBAL",1)
 THEN
   RESPONSE #100
-    SetGlobal("C02AuraCryptComment","GLOBAL",1)
-    RealSetGlobalTimer("C02AuraCryptCommentTimer","GLOBAL",6)
+    SetGlobal("C02AuraCryptComment","bd0120",1)
+    RealSetGlobalTimer("C02AuraCryptCommentTimer","bd0120",6)
 END
 
 IF
@@ -17,10 +17,10 @@ IF
     !StateCheck(Player1,CD_STATE_NOTVALID)
     CombatCounter(0)
     !Detect([ENEMY])
-    RealGlobalTimerExpired("C02AuraCryptCommentTimer","GLOBAL")
-    Global("C02AuraCryptComment","GLOBAL",1)
+    RealGlobalTimerExpired("C02AuraCryptCommentTimer","bd0120")
+    Global("C02AuraCryptComment","bd0120",1)
 THEN
   RESPONSE #100
-    SetGlobal("C02AuraCryptComment","GLOBAL",2)
+    SetGlobal("C02AuraCryptComment","bd0120",2)
 	DisplayStringHead("C0Aura",~Ugh. Glad that's over. I could really do with a cup of tea to warm up right now. Or maybe some hot cocoa. Mmm...~)
 END
