@@ -16,10 +16,8 @@ OUTER_WHILE (!(IS_AN_INT ~auraclass~) OR (~auraclass~ > 0x5) OR (~auraclass~ < 0
 END
       ACTION_IF ("auraclass" = 1) THEN BEGIN
 ADD_KIT ~C0AURA~
-
  // appended to CLASWEAP.2da
  ~C0AURA		1           1           1           1           1           1           1           1~
-
  // appended column-wise to WEAPPROF.2da
 //11                                T   S           F   Q             S S
 //10                                W   C           L   U             W I
@@ -33,40 +31,28 @@ ADD_KIT ~C0AURA~
 //2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
 //1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
  ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-    
  // appended to ABCLASRQ.2da
  ~C0AURA				0      9	0	15	0	0~
-
  // appended to ABCLSMOD.2da
  ~C0AURA				0	0	0	0	0	0~
-
  // appended to ABDCDSRQ.2da
  ~C0AURA                		0       0       0       0       0       0~
-
  // appended to ABDCSCRQ.2da
  ~C0AURA                 	0       0       0       0       0	0~
-
  // appended to ALIGNMNT.2da
  ~C0AURA                  	1       1       1       1      1	1       1       1       1~
-
  // appended to DUALCLAS.2da
  ~C0AURA                  	0       0       0       0       0       0~
-
  // path to your CLAB-style 2da file 
  ~%MOD_FOLDER%/2da/C0AURACL.2da~
-
  // PC races and classes allowed to use this kit, from KITTABLE.2da
  ~~
-
  // usability flags, added to the end of the KITLIST.2da entry
  ~0x00004000     4~
-
  // HLA table to use; see LUABBR.2da
  ~C0AURA~
-
  // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
  ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-
  // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
   SAY ~artificer~
   SAY ~Artificer~
@@ -106,10 +92,8 @@ Disadvantages:
 LAF fl#add_kit_ee
   STR_VAR
     kit_name = C0AURA
-	backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
 	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-	clasiskl = ~-10 10 10 -10 -10 0 10~
     clswpbon = ~0 0 5~
 	hpclass = ~HPWIZ~
 	thiefskl = ~40 20~
@@ -120,10 +104,8 @@ END
       ACTION_IF ("auraclass" = 2) THEN BEGIN
 COPY ~%MOD_FOLDER%/2da/mage~ ~override~
 ADD_KIT ~C0AURA~
-
  // appended to CLASWEAP.2da
  ~C0AURA		1           1           1           1           1           1           1           1~
-
  // appended column-wise to WEAPPROF.2da
 //11                                T   S           F   Q             S S
 //10                                W   C           L   U             W I
@@ -137,40 +119,28 @@ ADD_KIT ~C0AURA~
 //2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
 //1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
  ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-    
  // appended to ABCLASRQ.2da
  ~C0AURA				0      9	0	15	0	0~
-
  // appended to ABCLSMOD.2da
  ~C0AURA				0	0	0	0	0	0~
-
  // appended to ABDCDSRQ.2da
  ~C0AURA                		0       0       0       0       0       0~
-
  // appended to ABDCSCRQ.2da
  ~C0AURA                 	0       0       0       0       0	0~
-
  // appended to ALIGNMNT.2da
  ~C0AURA                  	1       1       1       1      1	1       1       1       1~
-
  // appended to DUALCLAS.2da
  ~C0AURA                  	0       0       0       0       0       0~
-
  // path to your CLAB-style 2da file 
  ~%MOD_FOLDER%/2da/blankclab.2da~
-
  // PC races and classes allowed to use this kit, from KITTABLE.2da
  ~~
-
  // usability flags, added to the end of the KITLIST.2da entry
  ~0x00000400     13~
-
  // HLA table to use; see LUABBR.2da
  ~C0AURA~
-
  // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
  ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-
  // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
   SAY ~illusionist / artificer~
   SAY ~Illusionist / Artificer~
@@ -213,10 +183,8 @@ Disadvantages:
 LAF fl#add_kit_ee
   STR_VAR
 		kit_name = C0AURA
-		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
 		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-		clasiskl = ~-10 10 10 -10 -10 0 10~
 		clswpbon = ~0 0 3~
 		thiefskl = ~40 20~
 		hpclass = ~HPMT~
@@ -237,10 +205,8 @@ LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RES
       ACTION_IF ("auraclass" = 3) THEN BEGIN	
 COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
 ADD_KIT ~C0AURA~
-
  // appended to CLASWEAP.2da
  ~C0AURA		1           1           1           1           1           1           1           1~
-
  // appended column-wise to WEAPPROF.2da
 //11                                T   S           F   Q             S S
 //10                                W   C           L   U             W I
@@ -254,40 +220,28 @@ ADD_KIT ~C0AURA~
 //2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
 //1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
  ~C0AURA	0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-    
  // appended to ABCLASRQ.2da
  ~C0AURA				0      9	0	15	0	0~
-
  // appended to ABCLSMOD.2da
  ~C0AURA				0	0	0	0	0	0~
-
  // appended to ABDCDSRQ.2da
  ~C0AURA                		0       0       0       0       0       0~
-
  // appended to ABDCSCRQ.2da
  ~C0AURA                 	0       0       0       0       0	0~
-
  // appended to ALIGNMNT.2da
  ~C0AURA                  	1       1       0       1      1	1       0       0       0~
-
  // appended to DUALCLAS.2da
  ~C0AURA                  	0       0       0       0       0       0~
-
  // path to your CLAB-style 2da file 
  ~%MOD_FOLDER%/2da/blankclab.2da~
-
  // PC races and classes allowed to use this kit, from KITTABLE.2da
  ~~
-
  // usability flags, added to the end of the KITLIST.2da entry
  ~0x00020000     15~
-
  // HLA table to use; see LUABBR.2da
  ~C0AURA~
-
  // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
  ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-
  // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
   SAY ~priestess / artificer~
   SAY ~Priestess / Artificer~
@@ -340,10 +294,8 @@ Disadvantages:
 LAF fl#add_kit_ee
   STR_VAR
 		kit_name = C0AURA
-		backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
 		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-		clasiskl = ~-10 10 10 -10 -10 0 10~
 		clswpbon = ~0 0 3~
 		thiefskl = ~40 20~
 		hpclass = ~HPCT~
@@ -408,7 +360,7 @@ LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RES
 
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-    READ_BYTE    0x20 thief //reads the byte containing the mage usability flag
+    READ_BYTE    0x20 thief //reads the byte containing the thief usability flag
     PATCH_IF ((thief BAND 0b01000000) = 0b00000000) BEGIN // if it is usable by thieves
       READ_BYTE    0x1F cthief //reads the byte containing cleric/thieves usability flag
       READ_SHORT    0x1C type //reads the byte containing item type
