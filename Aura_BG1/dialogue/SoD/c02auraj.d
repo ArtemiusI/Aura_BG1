@@ -592,7 +592,7 @@ EXTERN C02AURAJ t7.1
 CHAIN C02AURAJ t7.4
 ~I don't know when this will end, but when we part, I'll miss you most of all. And if we meet again after that, I hope I'll have become someone even more worthy of your friendship.~
 END
-+ ~Global("C02AuraRomanceActive","GLOBAL",1)~ + ~You're already more than worthy of being my friend... and more.~ + t7.6
++ ~Global("C02AuraRomanceActive","GLOBAL",1)~ + ~You're already more than worthy of being my friend... and more.~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",2)~ + t7.6
 + ~Global("C02AuraRomanceActive","GLOBAL",1)~ + ~That's good enough for me, then.~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ EXIT
 + ~Global("C02AuraRomanceActive","GLOBAL",1)~ + ~Stow it. You've already said enough.~ DO ~SetGlobal("C02AuraRomanceActive","GLOBAL",3)~ EXIT
 IF ~!Global("C02AuraRomanceActive","GLOBAL",1)~ EXIT

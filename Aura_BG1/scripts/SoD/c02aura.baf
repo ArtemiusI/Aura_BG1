@@ -312,6 +312,22 @@ END
 
 IF
 	InParty(Myself)
+	Global("bd_plot","global",495)
+	Global("C0AuraTalkStopped","GLOBAL",0)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	GlobalLT("C0AuraTalk","GLOBAL",16)
+	CombatCounter(0)
+	ReputationGT(Player1,8)
+THEN
+	RESPONSE #100
+		SetGlobal("C0AuraTalk","GLOBAL",16)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
 	RealGlobalTimerExpired("C02AuraTalkTimer","GLOBAL")
 	Global("C0AuraTalkStopped","GLOBAL",0)
 	See(Player1)
