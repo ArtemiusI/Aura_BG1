@@ -1,3 +1,5 @@
+LOAD_TRA ~%MOD_FOLDER%/tra/english/BG1/setup.tra~
+
 APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
   ~0x80101FEF CD_STATE_NOTVALID~
   UNLESS ~CD_STATE_NOTVALID~
@@ -76,7 +78,7 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 
-ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+ACTION_IF GAME_INCLUDES ~sod~
 THEN BEGIN
 COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
   SAY NAME1 ~Aura~
@@ -194,7 +196,7 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 
-ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+ACTION_IF GAME_INCLUDES ~sod~
 THEN BEGIN
 COPY ~%MOD_FOLDER%/creatures/SoD/c02AuraM.cre~ ~override/C02Aura.cre~
   SAY NAME1 ~Aura~
@@ -371,7 +373,7 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY PICKED_POCKET ~Whoa, check this out!~ [AURA4]
   WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
 
-ACTION_IF FILE_EXISTS_IN_GAME ~bdcaelar.cre~
+ACTION_IF GAME_INCLUDES ~sod~
 THEN BEGIN
 COPY ~%MOD_FOLDER%/creatures/SoD/c02AuraP.cre~ ~override/C02Aura.cre~
   SAY NAME1 ~Aura~
@@ -434,77 +436,43 @@ END
 
 // JOURNAL
 
-ADD_JOURNAL TITLE (%Aura's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 @10009 USING ~%MOD_FOLDER%/translations/english/setup.tra~
-ADD_JOURNAL TITLE (%Amanokagami Reika%) @20001 @20002 USING ~%MOD_FOLDER%/translations/english/setup.tra~
+ADD_JOURNAL TITLE (%Aura's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 @10009 USING ~%MOD_FOLDER%/tra/english/BG1/setup.tra~
+ADD_JOURNAL TITLE (%Amanokagami Reika%) @20001 @20002 USING ~%MOD_FOLDER%/tra/english/BG1/setup.tra~
 
 // DIALOGUE
-
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0auin3.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0auin4.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0aualch.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/bc0aura.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0aura.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0auraj.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0aurap.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0saito.d~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0fubuki.d~
+  
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/bc0aura.d~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/c0aura.d~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/c0auraj.d~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/c0aurap.d~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/c0saito.d~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/c0fubuki.d~
 
 COPY_EXISTING_REGEXP GLOB ~.*\.dlg~ ~override~
   DECOMPILE_AND_PATCH BEGIN
     REPLACE_TEXTUALLY ~PartyHasItem("MISC48")~ ~OR(2) PartyHasItem("MISC48") PartyHasItem("C0AUIM04")~
   END
   BUT_ONLY
-  
-// Aura-Sirene
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~bc0siren.dlg~
-THEN BEGIN
-  PRINT ~Adding crossmod banters between Aura and Sirene~
-COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/crossmod/sirene.d~
-END
-  
-// Aura-Drake
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~bc0drake.dlg~
-THEN BEGIN
-  PRINT ~Adding crossmod banters between Aura and Drake~
-COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/crossmod/drake.d~
-END
-
-// Aura-Verr
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~l#1verrb.dlg~
-THEN BEGIN
-  PRINT ~Adding crossmod banters between Aura and Verr'Sza~
-COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/crossmod/verrsza.d~
-END
-
-// Aura-White
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~V#1WHIB.dlg~
-THEN BEGIN
-  PRINT ~Adding crossmod banters between Aura and White~
-COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/crossmod/white.d~
-END
+ 
 
 // SCRIPTS
 
-  EXTEND_TOP ~ar0112.bcs~ ~%MOD_FOLDER%/scripts/ar0112.baf~
-  EXTEND_TOP ~ar0900.bcs~ ~%MOD_FOLDER%/scripts/ar0900.baf~
-  EXTEND_TOP ~ar3300.bcs~ ~%MOD_FOLDER%/scripts/ar3300.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0aura.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0aurad.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0ausumm.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin2.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin3.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin4.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0aualch.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0acuts0.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0acuts1.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0acuts2.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0acuts3.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0acuts4.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0aangry.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0areset.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0aufade.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0ninja.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0ninja3.baf~
+  EXTEND_TOP ~%bg1_eet_symbol%0112.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar0112.baf~ EVAL
+  EXTEND_TOP ~%bg1_eet_symbol%0900.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar0900.baf~ EVAL
+  EXTEND_TOP ~%bg1_eet_symbol%3300.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar3300.baf~ EVAL
+  
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/baldur.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aura.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aurad.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts0.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts1.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts2.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts3.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts4.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aangry.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aufade.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0ninja.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0ninja3.baf~
 
 COPY_EXISTING ~c0aubear.spl~ ~override~
 SAY NAME1 ~I Hate Bears!~
@@ -521,7 +489,7 @@ APPEND ~interdia.2da~
 UNLESS ~C0Aura~
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~bdcaelar.cre~ THEN BEGIN
-  COPY ~%MOD_FOLDER%/scripts/bgee~ ~override~
+  COPY ~%MOD_FOLDER%/scripts/BGEE/nonsod~ ~override~
 END
 
 COPY ~%MOD_FOLDER%/creatures/c0ninja.cre~ ~override~
@@ -600,3 +568,20 @@ WRITE_ASCII 0x2cc ~c0aukuon~  #8  // dialogue
 WRITE_ASCII 0x280 ~c0aukuon~ #32 // death variable
 SAY NAME1 ~Ku'on Myodo~
 SAY NAME2 ~Ku'on Myodo~
+
+// ITEMS
+
+COPY_EXISTING ~c0agem1.itm~ ~override~
+SAY NAME1 ~Ice Crystal~
+SAY NAME2 ~Ice Crystal~
+SAY DESC ~This crystal initially appears to be a normal shard of ice, though it does not melt even when held in hand. It seems to almost hum with latent magical energy.
+
+STATISTICS:
+
+Weight: 0~
+
+COPY_EXISTING ~dezkie.cre~ ~override/dezkie.cre~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
+		ADD_CRE_ITEM ~c0agem1~ #0 #0 #0 ~NONE~ ~inv~
+	END
+BUT_ONLY_IF_IT_CHANGES

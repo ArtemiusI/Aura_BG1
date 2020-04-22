@@ -1,8 +1,0 @@
-IF
-	Global("C0AuraSpawn","ar3300",0)
-THEN
-RESPONSE #100
-	SetGlobal("C0AuraSpawn","ar3300",1)
-	CreateCreature("c0aura",[2200.2425],SE)
-	Continue()
-END

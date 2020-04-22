@@ -1,446 +1,467 @@
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),1)
+	TriggerOverride(Lastsummonerof(Myself),GLOBAL("C0AUIN6","LOCALS",1))
+THEN
+  RESPONSE #100
+    SetGlobal("C0MASTERRUNE","LOCALS",1)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,1)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",1)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),2)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,2)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",2)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),3)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,3)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",3)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),4)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,4)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",4)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),5)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,5)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",5)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),6)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,6)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",6)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),7)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,7)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",7)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),8)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,8)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",8)
-	SetGlobal("RuneLimit","LOCALS",5)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),9)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,9)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",9)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),10)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,10)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",10)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),11)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,11)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",11)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),12)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,12)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",12)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),13)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,13)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",13)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),14)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,14)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",14)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),15)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,15)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",15)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),16)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,16)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",16)
-	SetGlobal("RuneLimit","LOCALS",6)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),17)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,17)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",17)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),18)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,18)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",18)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),19)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,19)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",19)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),20)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,20)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",20)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),21)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,21)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",21)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),22)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,22)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",22)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),23)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,23)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",23)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),24)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,24)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",24)
-	SetGlobal("RuneLimit","LOCALS",7)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),25)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,25)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",25)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),26)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,26)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",26)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),27)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,27)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",27)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),28)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,28)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",28)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),29)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,29)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",29)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),30)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,30)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",30)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),31)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,31)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",31)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),32)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,32)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",32)
-	SetGlobal("RuneLimit","LOCALS",8)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),33)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,33)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",33)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),34)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,34)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",34)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),35)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,35)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",35)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),36)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,36)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",36)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),37)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,37)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",37)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),38)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,38)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",38)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	Level(Lastsummonerof(Myself),39)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,39)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",39)
-	SetGlobal("RuneLimit","LOCALS",9)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
 END
 
 IF
 	OnCreation()
-	LevelGT(Lastsummonerof(Myself),39)
+	ClassLevel(Lastsummonerof(Myself),ROGUE,40)
 THEN
   RESPONSE #100
     SetGlobal("C0ArtificerRuneCount","LOCALS",40)
-	SetGlobal("RuneLimit","LOCALS",10)
 	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
-	SetTokenGlobal("RuneLimit", "LOCALS", "C0AU_LIMIT")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,41)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",41)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,42)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",42)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,43)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",43)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,44)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",44)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,45)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",45)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,46)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",46)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,47)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",47)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,48)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",48)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevel(Lastsummonerof(Myself),ROGUE,49)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",49)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,49)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ArtificerRuneCount","LOCALS",50)
+	SetTokenGlobal("C0ArtificerRuneCount", "LOCALS", "C0AU_RUNE")
 END
 
 IF
   Detect(Lastsummonerof(Myself))
+  OR(2)
   !Global("C0ArtificerRuneCount","LOCALS",0)
+  Global("C0MasterRune","LOCALS",1)
 THEN
   RESPONSE #100
     FaceObject(Lastsummonerof(Myself))
@@ -449,9 +470,8 @@ END
 
 IF
   Detect(Lastsummonerof(Myself))
-  OR(2)
   Global("C0ArtificerRuneCount","LOCALS",0)
-  Global("RuneLimit","LOCALS",0)
+  !Global("C0MasterRune","LOCALS",1)
 THEN
   RESPONSE #100
     DestroySelf()

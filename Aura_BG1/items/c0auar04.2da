@@ -1,6 +1,8 @@
 2DA V1.0
 ****
-           ResRef     Type       
-HEALING    C0AUAR1b   3          
-LIGHTNING  C0AUAR2b   3          
-STATIC     C0AUAR3b   3
+				ResRef     Type       
+HEALING-15		C0AUAR1C   3          
+LIGHTNING-15	C0AUAR2C   3
+STATIC-10		C0AUAR3B   3
+DISRUPTOR-5		C0AUAR4A   3
+WARP-5			C0AUAR5A   3

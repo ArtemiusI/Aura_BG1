@@ -1,7 +1,17 @@
 IF
 	OnCreation()
-  Detect(Lastsummonerof(Myself))
+	Global("Wandcrafting","LOCALS",0)
 THEN
   RESPONSE #100
-    StartDialogueNoSet(Lastsummonerof(Myself))
+	SetGlobal("Wandcrafting","LOCALS",1)
+	ApplySpellRES("c0aualc1",Lastsummonerof(Myself))
+    StartStore("c0auwand",Lastsummonerof(Myself))
+END
+
+IF
+	Global("Wandcrafting","LOCALS",1)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0aualc2",Lastsummonerof(Myself))
+	DestroySelf()
 END

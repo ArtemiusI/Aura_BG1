@@ -1,9 +1,300 @@
+// UPGRADES
+
+IF
+  Global("Creation","LOCALS",0)
+THEN
+  RESPONSE #100
+  SetGlobal("Creation","LOCALS",1)
+  MakeGlobalOverride()
+  AddFamiliar()
+  ChangeEnemyAlly(Myself,FAMILIAR)
+END
+
+IF
+	Global("C0ACIRC1","LOCALS",0)
+	HasItemEquiped("C0ACIRC1","C0Aura")
+THEN
+	RESPONSE #100
+		SetGlobal("C0ACIRC1","LOCALS",1)
+		ChangeStat(Myself,STR,4,ADD)
+		ChangeStat(Myself,DEX,4,ADD)
+		ChangeStat(Myself,MAXHITPOINTS,60,ADD)
+END
+
+IF
+	Global("C0ACIRC1","LOCALS",1)
+	!HasItemEquiped("C0ACIRC1","C0Aura")
+THEN
+	RESPONSE #100
+		SetGlobal("C0ACIRC1","LOCALS",0)
+		ChangeStat(Myself,STR,-4,ADD)
+		ChangeStat(Myself,DEX,-4,ADD)
+		ChangeStat(Myself,MAXHITPOINTS,-60,ADD)
+END
+
+IF
+  Global("Upgraded","LOCALS",1)
+  !Global("Standby","LOCALS",1)
+THEN
+  RESPONSE #100
+  AddFamiliar()
+  MakeGlobalOverride()
+  SetGlobal("Upgraded","LOCALS",0)
+END
+
+IF
+  Global("Upgraded","LOCALS",1)
+  Global("Standby","LOCALS",1)
+THEN
+  RESPONSE #100
+  SetGlobal("Upgraded","LOCALS",0)
+END
+
+IF
+  GlobalLT("C0AutoUpgradeOffense1","GLOBAL",1)
+  Global("AugmentedBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto1a",Myself)
+	SetGlobal("AugmentedBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense1","GLOBAL",1)
+  Global("AugmentedBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto1b",Myself)
+	SetGlobal("AugmentedBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense1","GLOBAL",2)
+  Global("AugmentedBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto1c",Myself)
+	SetGlobal("AugmentedBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense1","GLOBAL",3)
+  Global("AugmentedBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto1D",Myself)
+	SetGlobal("AugmentedBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense2","GLOBAL",1)
+  Global("WeaponImpact","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto2a",Myself)
+	SetGlobal("WeaponImpact","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense2","GLOBAL",2)
+  Global("WeaponImpact","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto2b",Myself)
+	SetGlobal("WeaponImpact","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense2","GLOBAL",3)
+  Global("WeaponImpact","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto2c",Myself)
+	SetGlobal("WeaponImpact","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense3","GLOBAL",1)
+  Global("KeenEdge","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto3a",Myself)
+	SetGlobal("KeenEdge","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense3","GLOBAL",2)
+  Global("KeenEdge","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto3b",Myself)
+	SetGlobal("KeenEdge","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeOffense3","GLOBAL",3)
+  Global("KeenEdge","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto3c",Myself)
+	SetGlobal("KeenEdge","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense1","GLOBAL",1)
+  Global("ReinforcedPlating","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto4a",Myself)
+	SetGlobal("ReinforcedPlating","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense1","GLOBAL",2)
+  Global("ReinforcedPlating","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto4b",Myself)
+	SetGlobal("ReinforcedPlating","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense1","GLOBAL",3)
+  Global("ReinforcedPlating","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto4c",Myself)
+	SetGlobal("ReinforcedPlating","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense2","GLOBAL",1)
+  Global("AntimagicShielding","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto5a",Myself)
+	SetGlobal("AntimagicShielding","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense2","GLOBAL",2)
+  Global("AntimagicShielding","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto5b",Myself)
+	SetGlobal("AntimagicShielding","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense2","GLOBAL",3)
+  Global("AntimagicShielding","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto5c",Myself)
+	SetGlobal("AntimagicShielding","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense3","GLOBAL",1)
+  Global("SelfRepairThaumaturgy","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto6a",Myself)
+	SetGlobal("SelfRepairThaumaturgy","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense3","GLOBAL",2)
+  Global("SelfRepairThaumaturgy","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto6b",Myself)
+	SetGlobal("SelfRepairThaumaturgy","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense3","GLOBAL",3)
+  Global("SelfRepairThaumaturgy","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto6c",Myself)
+	SetGlobal("SelfRepairThaumaturgy","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeDefense3","GLOBAL",1)
+  Global("SelfRepairThaumaturgy","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto6a",Myself)
+	SetGlobal("SelfRepairThaumaturgy","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial1","GLOBAL",1)
+  Global("Teleportation","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto7a",Myself)
+	SetGlobal("Teleportation","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial2","GLOBAL",1)
+  Global("GolemSlow","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto8a",Myself)
+	SetGlobal("GolemSlow","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial3","GLOBAL",1)
+  Global("GolemHaste","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto9a",Myself)
+	SetGlobal("GolemHaste","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial4","GLOBAL",1)
+  Global("GasCloud","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0auto0a",Myself)
+	SetGlobal("GasCloud","LOCALS",1)
+	Continue()
+END
+
 IF
   Die()
 THEN
   RESPONSE #100
 	SetInterrupt(FALSE)
-	RemoveFamiliar()
     SetGlobal("C0AutoCreated", "GLOBAL", 0)
     ApplySpellRES("c0autos3",Myself)
 	DestroyAllEquipment()
@@ -15,7 +306,6 @@ IF
 	!InParty("C0Aura")
 THEN
   RESPONSE #100
-	RemoveFamiliar()
 	ChangeEnemyAlly(Myself,NEUTRAL)
 	EscapeArea()
 END
@@ -26,18 +316,29 @@ IF
   !Allegiance(Myself,NEUTRAL)
 THEN
   RESPONSE #100
+  SetGlobal("Standby","LOCALS",0)
   RemoveFamiliar()
   ChangeEnemyAlly(Myself,NEUTRAL)
 END
 
 IF
   InParty("C0Aura")
-  !Dead("C0Aura")
+  Global("Standby","LOCALS",1)
+  !Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+  RemoveFamiliar()
+  ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  InParty("C0Aura")
   !Allegiance(Myself,FAMILIAR)
   !Global("Standby","LOCALS",1)
 THEN
   RESPONSE #100
   AddFamiliar()
+  MakeGlobalOverride()
   ChangeEnemyAlly(Myself,FAMILIAR)
 END
 
@@ -47,9 +348,9 @@ IF
   !Allegiance(Myself,ENEMY)
 THEN
   RESPONSE #100
+  SetGlobal("Standby","LOCALS",0)
   Enemy()
   RemoveFamiliar()
-  Continue()
 END
 
 IF

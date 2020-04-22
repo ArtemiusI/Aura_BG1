@@ -1,0 +1,8 @@
+IF
+	Global("C0AuraSpawn","%bg1_eet_symbol%3300",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraSpawn","%bg1_eet_symbol%3300",1)
+	CreateCreature("c0aura",[2200.2425],SE)
+	Continue()
+END

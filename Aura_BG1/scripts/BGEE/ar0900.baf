@@ -1,0 +1,13 @@
+IF
+	Global("C0AuraQuest","GLOBAL",7)
+	!InParty("C0Aura")
+	!Dead("C0Aura")
+THEN
+RESPONSE #100
+	DayNight(MIDNIGHT)
+	MoveGlobal("%bg1_eet_symbol%0900","C0Aura",[3117.2523])
+	CreateCreature("cutspy",[3117.2523],N)
+	ClearAllActions() 
+    StartCutSceneMode()
+    StartCutScene("c0acuts0")
+END

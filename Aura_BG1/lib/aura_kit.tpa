@@ -61,6 +61,7 @@ ADD_KIT ~C0AURA~
 Advantages:
 – +30 bonus to Lore.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
+– Analytical Archery: The artificer gains Intelligence bonuses to ranged THAC0 in addition to Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -70,7 +71,7 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day.
+– May use the Craft Rune ability once per day. Extra uses are gained at levels 9 and 13.
 
 CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
@@ -85,7 +86,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 Disadvantages:
 – Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
+– -4 penalty to base THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 
@@ -153,6 +154,7 @@ ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up f
 Advantages:
 – +30 bonus to Lore.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
+– Analytical Archery: The artificer gains Intelligence bonuses to ranged THAC0 in addition to Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -162,7 +164,7 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day.
+– May use the Craft Rune ability once per day. Extra uses are gained at levels 9 and 13.
 
 CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
@@ -175,8 +177,9 @@ ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-makin
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
 
 Disadvantages:
+– Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
+– -4 penalty to base THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 
@@ -252,6 +255,7 @@ ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up f
 Advantages:
 – +30 bonus to Lore.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
+– Analytical Archery: The artificer gains Intelligence bonuses to ranged THAC0 in addition to Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -261,7 +265,7 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day.
+– May use the Craft Rune ability once per day. Extra uses are gained at levels 9 and 13.
 
 CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
 
@@ -275,18 +279,22 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 
 Disadvantages:
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -1 penalty to THAC0 every 6 levels (starting at level 1).
+– -4 penalty to base THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.
 
 PRIESTESS: Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.
 
 Advantages:
-– May cast Protection from Evil as an innate ability.
-– From 6th level onwards, may cast Protection from Evil 10' Radius as an innate ability.
-– From 11th level onwards, may cast True Seeing as an innate ability.
+– May use the Spiritual Blessing innate ability once per day.
+
+SPIRITUAL BLESSING: The priestess invokes a prayer to heavenly spirits, bestowing a random blessing upon the target. There is a 25% chance of gaining +2 THAC0 and +10% increased damage, a 25% chance of gaining +2 to Luck and Saving Throws, and a 25% chance of gaining +2 to Armor Class and +10% resistance to all damage. Regardless of the blessing, the target is also healed for ten hit points and cured of all diseases and poisons. However, the fickle nature of spirits means there is a 25% chance that no blessing is granted at all. From 12th level onwards, Spiritual Blessing is cast in a 15-ft. radius around the priestess, affecting all allies.
+
+– May cast Protection from Evil 10' Radius once per day. Gains one use at level 1 and an additional use every 10 levels thereafter.
+– From 6th level onwards, may cast True Seeing as an innate ability once per day.
 
 Disadvantages:
+– Hit Die: d4
 – May only be proficient in clubs, quarterstaves, short bows and slings.
 – May not wear armor heavier than studded leather.
 – May not be chaotic or evil-aligned.~
@@ -315,10 +323,59 @@ LAF qd_multiclass
 		mc_dir = ~%MOD_FOLDER%/2da~
 END
 
-COPY_EXISTING ~sppr107.spl~ ~override/c0aupr1.spl~
-WRITE_SHORT 0x1C 0
-WRITE_LONG 0x34 0 
-WRITE_LONG 0x84 1
+COPY_EXISTING ~c0aucl1.spl~ OVERRIDE
+SAY NAME1 ~Spiritual Blessing~
+SAY UNIDENTIFIED_DESC ~Spiritual Blessing
+The priestess invokes a prayer to heavenly spirits, bestowing a random blessing upon the target. There is a 25% chance of gaining +2 THAC0 and +10% increased damage, a 25% chance of gaining +2 to Luck and Saving Throws, and a 25% chance of gaining +2 to Armor Class and +10% resistance to all damage. Regardless of the blessing, the target is also healed for ten hit points and cured of all diseases and poisons. However, the fickle nature of spirits means there is a 25% chance that no blessing is granted at all. From 12th level onwards, Spiritual Blessing is cast in a 15-ft. radius around the priestess, affecting all allies.~
+  LPF ADD_SPELL_EFFECT
+    INT_VAR
+      opcode = 139
+	  target = 2
+	  timing = 1
+	  probability1 = 100
+	  probability2 = 76
+	  parameter1 = RESOLVE_STR_REF (~Spirit's Whim: no blessing~)
+END
+
+COPY_EXISTING ~c0aucl1a.spl~ OVERRIDE
+  LPF ADD_SPELL_EFFECT
+    INT_VAR
+      opcode = 139
+	  target = 2
+	  timing = 1
+	  parameter1 = RESOLVE_STR_REF (~Good Fortune: +2 to Luck and Saving Throws~)
+END
+
+COPY_EXISTING ~c0aucl1b.spl~ OVERRIDE
+  LPF ADD_SPELL_EFFECT
+    INT_VAR
+      opcode = 139
+	  target = 2
+	  timing = 1
+	  parameter1 = RESOLVE_STR_REF (~Strength of Many: +2 to THAC0, +10% to all damage~)
+END
+
+COPY_EXISTING ~c0aucl1c.spl~ OVERRIDE
+  LPF ADD_SPELL_EFFECT
+    INT_VAR
+      opcode = 139
+	  target = 2
+	  timing = 1
+	  parameter1 = RESOLVE_STR_REF (~Spirit's Guard: +2 to Armor Class, +10% to all resistances~)
+END
+
+COPY_EXISTING ~c0aucl1d.spl~ OVERRIDE
+  LPF ADD_SPELL_EFFECT
+    INT_VAR
+      opcode = 139
+	  target = 2
+	  timing = 1
+	  parameter1 = RESOLVE_STR_REF (~Cured of all poisons and diseases~)
+END
+
+COPY_EXISTING ~sppr408.spl~ ~override/c0aupr2.spl~
+WRITE_SHORT 0x1C 4
+WRITE_LONG 0x34 1
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
 READ_ASCII ("%offset_abil%" + 0x04) "bam" 
@@ -328,23 +385,13 @@ BEGIN
 WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
 SET "num_abil" = ("%num_abil%" - 1)
 END
-COPY_EXISTING ~sppr408.spl~ ~override/c0aupr2.spl~
-WRITE_SHORT 0x1C 0
-WRITE_LONG 0x34 0 
-WRITE_LONG 0x84 1
-READ_LONG 0x64 "offset_abil"
-READ_SHORT 0x68 "num_abil"
-READ_ASCII ("%offset_abil%" + 0x04) "bam" 
-WRITE_EVALUATED_ASCII 0x3A "%bam%" 
-WHILE (0 < "%num_abil%")
-BEGIN
-WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
-SET "num_abil" = ("%num_abil%" - 1)
+  LPF ALTER_SPELL_HEADER
+	INT_VAR
+		speed = 1
 END
 COPY_EXISTING ~sppr505.spl~ ~override/c0aupr3.spl~
-WRITE_SHORT 0x1C 0
-WRITE_LONG 0x34 0 
-WRITE_LONG 0x84 1
+WRITE_SHORT 0x1C 4
+WRITE_LONG 0x34 1
 READ_LONG 0x64 "offset_abil"
 READ_SHORT 0x68 "num_abil"
 READ_ASCII ("%offset_abil%" + 0x04) "bam" 
@@ -353,6 +400,10 @@ WHILE (0 < "%num_abil%")
 BEGIN
 WRITE_SHORT (("%offset_abil%" + 0x02) + (("%num_abil%" - 1) * 0x28)) 4 
 SET "num_abil" = ("%num_abil%" - 1)
+END
+  LPF ALTER_SPELL_HEADER
+	INT_VAR
+		speed = 1
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
@@ -578,7 +629,7 @@ Saving Throw: None
 
 The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune2c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune2 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune2 END
 	WRITE_ASCII 0x3a ~c0rune2c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune3.spl~
 SAY NAME1 ~Energy Barrage~
@@ -593,7 +644,7 @@ Saving Throw: None
 
 The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune3c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune3 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune3 END
 	WRITE_ASCII 0x3a ~c0rune3c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune4.spl~
 SAY NAME1 ~Lunar Butterfly~
@@ -613,7 +664,7 @@ Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicate
 
 From 15th level onwards, the bolt of moonlight spreads to all nearby creatures around the target, inflicting the spell's effects on each target.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune4c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune4 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune4 END
 	WRITE_ASCII 0x3a ~c0rune4c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune5.spl~
 SAY NAME1 ~Aerial Judgment~
@@ -630,7 +681,7 @@ The Aether Rune allows the user to cast Aerial Judgment. A bolt of lightning fro
 
 From 15th level onwards, enemies around the target suffer half regular damage with no save or stun.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune5c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune5 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune5 END
 	WRITE_ASCII 0x3a ~c0rune5c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune6.spl~
 SAY NAME1 ~Gaia Shield~
@@ -647,7 +698,7 @@ The Adamant Rune allows the user to cast Gaia Shield. This powerful spell grants
 
 From 20th level onwards, Gaia Shield also bestows protective skins to all allies around the caster.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune6c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune6 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune6 END
 	WRITE_ASCII 0x3a ~c0rune6c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune7.spl~
 SAY NAME1 ~Chronos Warp~
@@ -662,7 +713,7 @@ Saving Throw: None
 
 The Chrono Rune allows the user to cast Chronos Warp. For 5 rounds, the target creature moves with increased movement rate, has doubled attacks per round, and increased casting speed of 4. However, in order to negate the side-effects of hastening time, the effects reverse after the duration has expired, slowing the target and reducing their Armor Class, THAC0 and casting speed by 4 for another 5 rounds.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune7c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune7 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune7 END
 	WRITE_ASCII 0x3a ~c0rune7c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune8.spl~
 SAY NAME1 ~Panacea Circle~
@@ -677,7 +728,7 @@ Saving Throw: None
 
 The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-ft. radius are healed for 50% of their maximum hit points and are cured of diseases, poisons, blindness, feeblemind, deafness and intoxication.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune8c END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune8 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune8 END
 	WRITE_ASCII 0x3a ~c0rune8c~
 COPY_EXISTING ~c0rune1.spl~ ~override/c0rune9.spl~
 SAY NAME1 ~Red Meteor~
@@ -695,62 +746,8 @@ The Calamity Rune allows the user to cast Red Meteor. A crimson-colored mass of 
 This spell will not harm party members.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune9c END
 	LPF DELETE_SPELL_HEADER STR_VAR min_level = 20 END
-	LPF ALTER_EFFECT INT_VAR match_opcode = 255 STR_VAR resource = c0arune9 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune9 END
 	WRITE_ASCII 0x3a ~c0rune9c~
-
-OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
-LAF	CREATE_SEQUENCER_MENU
-	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1	tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
-	
-The artificer may create one more rune per cast at levels 7 and 12.
-From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
-	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2A~ resref = ~C0AIN2A~	icon = ~C0AUIN2~	title	action
-END
-
-OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
-LAF	CREATE_SEQUENCER_MENU
-	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1	tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
-	
-The artificer may create one more rune per cast at levels 7 and 12.
-From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
-	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2B~ resref = ~C0AIN2B~	icon = ~C0AUIN2~	title	action
-END
-
-OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
-LAF	CREATE_SEQUENCER_MENU
-	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
-
-The artificer may create one more rune per cast at levels 7 and 12.
-From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
-	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2C~ resref = ~C0AIN2C~	icon = ~C0AUIN2~	title	action
-END
-
-OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
-LAF	CREATE_SEQUENCER_MENU
-	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
-
-The artificer may create one more rune per cast at levels 7 and 12.
-From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
-	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2D~ resref = ~C0AIN2D~	icon = ~C0AUIN2~	title	action
-END
-
-OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
-LAF	CREATE_SEQUENCER_MENU
-	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
-
-The artificer may create one more rune per cast at levels 7 and 12.
-From 20th level onwards, two runes are created per selection.~)	name = 0 - 1	desc = 0 - 1	global = 0
-	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2E~ resref = ~C0AIN2E~	icon = ~C0AUIN2~	title	action
-END
-
-OUTER_SPRINT	title ~Runecrafting~	OUTER_SPRINT	action ~Select a Rune~
-LAF	CREATE_SEQUENCER_MENU
-	INT_VAR	class = 1	maxlevel = 1	exclude = 0x00004000 column = 1 tip = RESOLVE_STR_REF	(~Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
-
-The artificer may create one more rune per cast at levels 7 and 12.
-From 20th level onwards, two runes are created per selection (with the exception of Red Meteor).~)	name = 0 - 1	desc = 0 - 1	global = 0
-	STR_VAR	spelltable = ~C0AUIN2~ spelllist = ~C0AIN2F~ resref = ~C0AIN2F~	icon = ~C0AUIN2~	title	action
-END
 
 COPY_EXISTING ~c0auin2.spl~ ~override~
 SAY NAME1 ~Craft Rune~
@@ -766,7 +763,6 @@ Artificers that have knowledge of magic are capable of creating and using runes 
 24th level: Red Meteor
 
 Runes may not be crafted during combat, and lose their potency if not used within 24 hours.
-The artificer may create one more rune per cast at levels 7 and 12.
 From 20th level onwards, two runes are created per selection.~
 
 COPY_EXISTING ~c0arune1.itm~ ~override~
@@ -1149,6 +1145,7 @@ EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~
 END
 
 COPY_EXISTING ~c0ausumm.cre~ ~override~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0auin3.d~
 COPY_EXISTING ~c0auin3.spl~ ~override~
 SAY NAME1 ~Craft Automaton~
 SAY NAME2 ~Craft Automaton~
@@ -1376,6 +1373,7 @@ SAY UNIDENTIFIED_DESC ~Craft Wand
 The master artificer may use this ability at will to craft a variety of magical wands at a cost.
 
 Requires: Use Any Item~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0auin4.d~
 COPY_EXISTING ~c0aualch.cre~ ~override/c0auin4.cre~
 SAY NAME1 ~Wandcrafting~
 SAY NAME2 ~Wandcrafting~
@@ -1409,6 +1407,10 @@ Requires: Use Any Item~
 ///////////////////////////////// POTIONS /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// POTIONS /////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 COPY_EXISTING ~c0apot01.spl~ ~override~
 SAY NAME1 ~Potion of Renewal~
 SAY NAME2 ~Potion of Renewal~
@@ -1422,7 +1424,7 @@ STATISTICS:
 Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
 
 Weight: 1~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 200
  
 COPY_EXISTING ~c0apot02.spl~ ~override~
 SAY NAME1 ~Potion of Fire Resistance~
@@ -1439,7 +1441,7 @@ Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 
 Duration: 2 hours
 
 Weight: 1~
-WRITE_LONG 0x34 550
+WRITE_LONG 0x34 250
 
 COPY_EXISTING ~c0apot03.spl~ ~override~
 SAY NAME1 ~Potion of Cold Resistance~
@@ -1456,7 +1458,7 @@ Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 
 Duration: 2 hours
 
 Weight: 1~
-WRITE_LONG 0x34 550
+WRITE_LONG 0x34 250
 
 COPY_EXISTING ~c0apot04.spl~ ~override~
 SAY NAME1 ~Philter of Health~
@@ -1473,7 +1475,7 @@ Special: Removes fatigue
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 600
+WRITE_LONG 0x34 160
 
 COPY_EXISTING ~c0apot05.spl~ ~override~
 SAY NAME1 ~Potion of Invisibility~
@@ -1489,7 +1491,7 @@ Special: Invisibility and Non-Detection
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 750
+WRITE_LONG 0x34 180
 
 COPY_EXISTING ~c0apot06.spl~ ~override~
 SAY NAME1 ~Trollblood Extract~
@@ -1507,7 +1509,7 @@ Special: Regenerate two hit points per second
 Duration: 5 rounds
 
 Weight: 1~
-WRITE_LONG 0x34 1000
+WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot07.spl~ ~override~
 SAY NAME1 ~Tonic of Alertness~
@@ -1526,7 +1528,7 @@ Special: Immunity to backstab
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 1000
+WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot08.spl~ ~override~
 SAY NAME1 ~Elixir of Harmony~
@@ -1544,7 +1546,7 @@ Special: Damage output is reduced by 50%
 Duration: 5 rounds
 
 Weight: 1~
-WRITE_LONG 0x34 1200
+WRITE_LONG 0x34 600
 
 COPY_EXISTING ~c0apot09.spl~ ~override~
 SAY NAME1 ~Potion of Antimagic~
@@ -1561,7 +1563,7 @@ Special: Immunity to spells of 5th level and below, all spell effects are remove
 Duration: 2 rounds
 
 Weight: 1~
-WRITE_LONG 0x34 1350
+WRITE_LONG 0x34 1000
 
 COPY_EXISTING ~c0apot10.spl~ ~override~
 SAY NAME1 ~Potion of Equanimity~
@@ -1579,7 +1581,7 @@ Dexterity: +4
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 1200
+WRITE_LONG 0x34 900
 
 COPY_EXISTING ~c0apot11.spl~ ~override~
 SAY NAME1 ~Oil of Speed~
@@ -1595,7 +1597,7 @@ Special: Doubles movement and attack rates
 Duration: 1 turn
 
 Weight: 1~
-WRITE_LONG 0x34 400
+WRITE_LONG 0x34 300
 
 COPY_EXISTING ~c0apot12.spl~ ~override~
 SAY NAME1 ~Potion of Invulnerability~
@@ -1612,7 +1614,7 @@ Saving Throws: +5
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 1400
+WRITE_LONG 0x34 700
 
 COPY_EXISTING ~c0apot13.spl~ ~override~
 SAY NAME1 ~Philter of Luck~
@@ -1635,7 +1637,7 @@ Luck: +2
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 1500
+WRITE_LONG 0x34 1000
 
 COPY_EXISTING ~c0apot14.spl~ ~override~
 SAY NAME1 ~Elixir of Restoration~
@@ -1651,7 +1653,7 @@ Special: Restores lost levels
 Duration: Permanent
 
 Weight: 1~
-WRITE_LONG 0x34 250
+WRITE_LONG 0x34 150
 
 COPY_EXISTING ~c0apot15.spl~ ~override~
 SAY NAME1 ~Potion of Freedom~
@@ -1667,7 +1669,7 @@ Special: Free Action
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 750
+WRITE_LONG 0x34 450
 
 COPY_EXISTING ~c0apot16.spl~ ~override~
 SAY NAME1 ~Elixir of Lifeshield~
@@ -1683,7 +1685,7 @@ Special: Death Ward
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 900
+WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot17.spl~ ~override~
 SAY NAME1 ~Elixir of Might~
@@ -1699,7 +1701,7 @@ Strength: +2
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 1000
+WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot18.spl~ ~override~
 SAY NAME1 ~Thrym Extract~
@@ -1715,7 +1717,7 @@ Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in
 Duration: 1 turn
 
 Weight: 1~
-WRITE_LONG 0x34 1200
+WRITE_LONG 0x34 600
 
 COPY_EXISTING ~c0apot19.spl~ ~override~
 SAY NAME1 ~Potion of Etherealness~
@@ -1731,7 +1733,7 @@ Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> 
 Duration: 1 turn
 
 Weight: 1~
-WRITE_LONG 0x34 1500
+WRITE_LONG 0x34 700
 
 COPY_EXISTING ~c0apot20.spl~ ~override~
 SAY NAME1 ~Elixir of Focus~
@@ -1747,7 +1749,7 @@ Special: Imbiber may move freely for one round while others are frozen in time. 
 Duration: 1 round
 
 Weight: 1~
-WRITE_LONG 0x34 1500
+WRITE_LONG 0x34 700
 
 COPY_EXISTING ~c0apot21.spl~ ~override~
 SAY NAME1 ~Potion of Life Transference~
@@ -1764,7 +1766,7 @@ Maximum Hit Points: -50%
 Duration: 8 hours
 
 Weight: 1~
-WRITE_LONG 0x34 3000
+WRITE_LONG 0x34 1200
 
 COPY_EXISTING ~c0apot22.spl~ ~override~
 SAY NAME1 ~Philter of Arcane Barrier~
@@ -1781,31 +1783,31 @@ Special: All Saving Throws are automatically successful
 Duration: 3 turns
 
 Weight: 1~
-WRITE_LONG 0x34 3000
+WRITE_LONG 0x34 1500
 
 COPY_EXISTING ~c0apoth1.itm~ ~override~
 SAY NAME1 ~Lantanese Elixir of Divine Might~
 SAY NAME2 ~Lantanese Elixir of Divine Might~
 SAY DESC ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
-WRITE_LONG 0x34 7500
+WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth2.itm~ ~override~
 SAY NAME1 ~Lantanese Potion of Complete Healing~
 SAY NAME2 ~Lantanese Potion of Complete Healing~
 SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
-WRITE_LONG 0x34 7500
+WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth3.itm~ ~override~
 SAY NAME1 ~Lantanese Philter of Truth~
 SAY NAME2 ~Lantanese Philter of Truth~
 SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
-WRITE_LONG 0x34 7500
+WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth4.itm~ ~override~
 SAY NAME1 ~Lantanese Tonic of Hardiness~
 SAY NAME2 ~Lantanese Tonic of Hardiness~
 SAY DESC ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
-WRITE_LONG 0x34 7500
+WRITE_LONG 0x34 2000
 
 COPY_EXISTING ~c0apoth5.spl~ ~override~
   LPF ALTER_EFFECT
@@ -1821,11 +1823,414 @@ SAY NAME1 ~Lantanese Potion of Ultimate Mastery~
 SAY NAME2 ~Lantanese Potion of Ultimate Mastery~
 SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
 
-   - Mages and Bards gain +1 to Intelligence.
-   - Clerics and Druids gain +1 to Wisdom.
-   - Thieves and Monks gain +1 to Dexterity.
-   - Fighters, Rangers and Paladins gain +1 to Strength.
-   - Sorcerers and Shamans gain +1 to Constitution.
+   - Mages and Bards gain +2 to Intelligence.
+   - Clerics and Druids gain +2 to Wisdom.
+   - Thieves and Monks gain +2 to Dexterity.
+   - Fighters, Rangers and Paladins gain +2 to Strength.
+   - Sorcerers and Shamans gain +2 to Constitution.
    - Spellcasting classes take precedence over warrior classes.
    - Arcane classes take precedence over divine classes.~
 WRITE_LONG 0x34 15000
+
+COPY_EXISTING ~c0abomb1.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb1%~
+END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = FIRE
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0aicon3
+END
+COPY_EXISTING ~c0abomb1.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Green Flaming Oil~
+SAY DESC ~Inside of this glass pot is an expensive mixture of oil and other chemicals. When this mixture is set ablaze, it burns for several seconds at a very hot temperature.  Flaming oil is sometimes difficult to use because it takes a long time for the user to properly throw it. Adventurers often carry oil with them to deal with trolls in the unfortunate event that they are encountered.
+
+Minerva's flasks use a specially-made type of oil which releases a highly flammable gas. The flames are emerald green, just like the oil itself.
+
+STATISTICS:
+
+When thrown, releases a cloud which deals damage per round to all creatures within it (Save vs. Breath Weapons for half damage). Afflicted targets who leave the area of effect suffer damage for two additional rounds. The cloud lasts for five rounds.
+  1st level: 2d3 Fire Damage (Save vs. Breath)
+  10th level: 4d3 Fire Damage (Save vs. Breath at -1)
+  20th level: 4d6 Unmitigated Fire Damage (Save vs. Breath at -2)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 250
+
+COPY_EXISTING ~c0abomb2.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb2%~
+END
+COPY_EXISTING ~c0abomb2.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~White Flashbomb~
+SAY DESC ~This flask contains an alchemical compound which, when detonated, explodes with a flash of light that stuns and blinds all within the vicinity.
+
+STATISTICS
+
+When thrown, deals damage and Blinds all creatures within a 10' radius. Additionally, targets who fail Save vs. Breath Weapons are Stunned instead.
+  1st level: 2d4 Non-Lethal Damage, Blind (2 rounds), Stun (Save vs. Breath at +2)
+  10th level: 3d4 Non-Lethal Damage, Blind (3 rounds), Stun (Save vs. Breath at -1)
+  20th level: 4d4 Non-Lethal Damage, Blind (4 rounds), Stun (Save vs. Breath at -4)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 500
+
+COPY_EXISTING ~c0abomb3.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb3%~
+END
+COPY_EXISTING ~c0abomb3.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Spiked Firebomb~
+SAY DESC ~This spiked metal object is an explosive which unleashes a fiery blast while launching sharp metal shrapnel at anyone within a certain range of it.
+
+STATISTICS
+
+When thrown, deals Fire and Piercing Damage within a 10' radius and causes targets to Bleed for 5% Maximum Hit Points every round on a failed Save vs. Breath Weapons.
+  1st level: 4d6+5 Fire, 1d6+2 Piercing Damage, Bleed (3 rounds)
+  10th level: 6d6+8 Fire, 2d6+4 Piercing Damage, Bleed (6 rounds)
+  20th level: 8d6+10 Fire, 3d6+6 Piercing Damage, Bleed (9 rounds)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 500
+
+COPY_EXISTING ~c0abomb4.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = POISN
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb4%~
+END
+COPY_EXISTING ~c0abomb4.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Sulfide Bomb~
+SAY DESC ~This explosive contains a huge amount of sulfur, which when released creates a cloud of foul-smelling and toxic fumes that can knock out a man within seconds.
+
+STATISTICS
+
+When thrown, releases a cloud for three rounds which deals Poison Damage each round and knocks all targets unconscious for two rounds on a failed Save vs. Breath Weapons.
+  12th level: 2d6 Poison Damage, Unconsciousness (Save vs. Breath at -2)
+  18th level: 4d6 Poison Damage, Unconsciousness (Save vs. Breath at -4)
+  24th level: 8d6 Poison Damage, Unconsciousness (Save vs. Breath at -6)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 600
+
+COPY_EXISTING ~c0abomb5.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = POISN
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb5%~
+END
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+ parameter1 = RESOLVE_STR_REF (~Weakened~)
+END
+COPY_EXISTING ~c0abomb5.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Crimson Smoke Canister~
+SAY DESC ~This round tube, when thrown, releases a thick cloud of crimson-colored toxic smoke which impairs vision and physically weakens all creatures that breathe it.
+
+STATISTICS
+
+When thrown, releases a cloud for one turn which deals Poison Damage each round. Creatures standing in the cloud have their field of vision greatly reduced and suffer a -4 penalty to THAC0. Creatures must additionally make a Save vs. Breath Weapons each round or suffer a penalty to Armor Class and Saving Throws for three rounds.
+  15th level: 4 Poison Damage, -2 to Armor Class and Saving Throws (Save vs. Breath at +2)
+  20th level: 7 Poison Damage, -3 to Armor Class and Saving Throws (Save vs. Breath)
+  25th level: 10 Poison Damage, -4 to Armor Class and Saving Throws (Save vs. Breath at -2)  
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 1000
+
+COPY_EXISTING ~c0abomb6.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0aglue%~
+END
+COPY_EXISTING ~c0abom6a.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb6%~
+END
+COPY_EXISTING ~c0abomb6.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Adhesive Bomb~
+SAY DESC ~This canister contains a substance which rapidly congeals when exposed to air, becoming a burning hot and sticky glue which impairs the movements of those within its vicinity.
+
+STATISTICS
+
+When thrown, deals Fire Damage and Slows for five rounds on a failed Save vs. Breath Weapons. The glue remains on the ground afterwards for three rounds, greatly reducing the movement rate of anyone standing in the area of effect.
+  18th level: 3d6 Fire Damage, Slow (Save vs. Breath at -4), -50% Movement Rate
+  24th level: 6d6 Fire Damage, Slow (Save vs. Breath at -6), -75% Movement Rate
+  30th level: 9d6 Fire Damage, Slow (Save vs. Breath at -8), -99% Movement Rate
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 2500
+
+COPY_EXISTING ~c0abomb7.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb7%~
+END
+COPY_EXISTING ~c0abomb7.itm~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = ACID
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Corrosive Bomb~
+SAY DESC ~This canister contains a heavily acidic substance which bursts into a cloud of corrosive acid when detonated, dealing severe injury to anyone unfortunate enough to stand within the vicinity.
+
+STATISTICS
+
+When thrown, releases an acidic cloud which deals Acid Damage each round. Enemies standing within the cloud suffer a cumulative penalty to Acid Resistance for one turn. The cloud remains for five rounds.
+  21st level: 4d4 Acid Damage, -10% Acid Resistance
+  26th level: 6d4 Acid Damage, -15% Acid Resistance
+  31st level: 8d4 Acid Damage, -20% Acid Resistance
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 3000
+
+COPY_EXISTING ~c0aburn.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = FIRE
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        parameter2        = c0aicon3
+      END
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Burning~)
+  END
+COPY_EXISTING ~c0abomb8.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb8%~
+END
+COPY_EXISTING ~c0abomb8.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Dread Flame Bomb~
+SAY DESC ~This canister contains a powder made from a hybrid of glow powder and Shou explosive powder. The purple flames that burst from the explosive deal horrifying damage and inflict terror in any survivors.
+
+STATISTICS
+
+When thrown, unleashes a purple fireball that deals massive Fire Damage. Additionally, afflicted victims must make a Save vs. Breath Weapons or become Ignited, suffering 10% of their Maximum Hit Points each round and fleeing in terror for the duration.
+  24th level: 10d10 Fire Damage, Ignited (4 rounds, Save vs. Breath at -4)
+  30th level: 10d12 Fire Damage, Ignited (5 rounds, Save vs. Breath at -5)
+  36th level: 12d12 Fire Damage, Ignited (6 rounds, Save vs. Breath at -6)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 5000
+
+COPY_EXISTING ~c0abomb9.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+		match_savingthrow = 0
+        parameter1 = RESOLVE_STR_REF (~Deafened~)
+      END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+		match_savingthrow = 4
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb9%~
+END
+COPY_EXISTING ~c0abomb9.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Divine Thunderclap Bomb~
+SAY DESC ~This devastating explosive contains a special compound crafted from Lantanese smokepowder and Shou explosive powder. The compound powder is so dangerous that only a small amount must be used, which must be contained within a vibration-resistant canister which is afterwards placed within a larger canister with considerable space inbetween both. When it detonates, the destructive force of the powder obliterates everything within its range.
+
+STATISTICS:
+
+When thrown, unleashes a devastating explosion which deals massive Fire and Electrical Damage, Deafens all targets and Stuns for five rounds on a failed Save vs. Death. Targets take damage as though their Fire and Electrical Resistances are halved (e.g. 100% Resistance takes 50% Damage)
+  27th level: 12d10 Fire/Electrical Damage, Deafness (3 rounds), Stun (Save vs. Death at -4)
+  33rd level: 16d10 Fire/Electrical Damage, Deafness (4 rounds), Stun (Save vs. Death at -5)
+  39th level: 20d10 Fire/Electrical Damage, Deafness (5 rounds), Stun (Save vs. Death at -6)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 7000
+
+// SCRIPTS
+
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0areset.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0ausumm.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin2.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin3.baf~
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin4.baf~

@@ -1,77 +1,10 @@
 IF
   Global("C0AutoCreated", "GLOBAL", 0)
-  !ClassLevelGT("C0Aura",ROGUE,11)
 THEN RESPONSE #100
   SetInterrupt(FALSE)
   SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
   SetGlobal("C0AutoCreated", "GLOBAL", 1)
-  CreateCreatureObject("c0auin3a","c0aura",1,0,0)
-  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  Wait(1)
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  ActionOverride("C0Auin3",AddFamiliar())
-  SetInterrupt(TRUE)
-  DestroySelf()
-END
-
-IF
-  Global("C0AutoCreated", "GLOBAL", 0)
-  ClassLevelGT("C0Aura",ROGUE,11)
-  !ClassLevelGT("C0Aura",ROGUE,15)
-THEN RESPONSE #100
-  SetInterrupt(FALSE)
-  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
-  SetGlobal("C0AutoCreated", "GLOBAL", 1)
-  CreateCreatureObject("c0auin3b","c0aura",1,0,0)
-  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  Wait(1)
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  ActionOverride("C0Auin3",AddFamiliar())
-  SetInterrupt(TRUE)
-  DestroySelf()
-END
-
-IF
-  Global("C0AutoCreated", "GLOBAL", 0)
-  ClassLevelGT("C0Aura",ROGUE,15)
-  !ClassLevelGT("C0Aura",ROGUE,19)
-THEN RESPONSE #100
-  SetInterrupt(FALSE)
-  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
-  SetGlobal("C0AutoCreated", "GLOBAL", 1)
-  CreateCreatureObject("c0auin3c","c0aura",1,0,0)
-  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  Wait(1)
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  ActionOverride("C0Auin3",AddFamiliar())
-  SetInterrupt(TRUE)
-  DestroySelf()
-END
-
-IF
-  Global("C0AutoCreated", "GLOBAL", 0)
-  ClassLevelGT("C0Aura",ROGUE,19)
-THEN RESPONSE #100
-  SetInterrupt(FALSE)
-  SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
-  SetGlobal("C0AutoCreated", "GLOBAL", 1)
-  CreateCreatureObject("c0auin3d","c0aura",1,0,0)
-  ActionOverride("C0Auin3",PlayDeadInterruptible(1))
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  Wait(1)
-  ActionOverride("C0Auin3",ChangeEnemyAlly(Myself,FAMILIAR))
-  ActionOverride("C0Auin3",MakeGlobalOverride())
-  ActionOverride("C0Auin3",AddFamiliar())
+  ActionOverride(LastSummonerOf(Myself),ApplySpellRES("c0auin3a",Myself))
   SetInterrupt(TRUE)
   DestroySelf()
 END

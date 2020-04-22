@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~2.8~
+VERSION ~3.0~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
@@ -17,9 +17,20 @@ LANGUAGE
   ~%MOD_FOLDER%/tra/english/setup.tra~
 
 BEGIN ~Aura NPC for Baldur's Gate: Enhanced Edition~
-  REQUIRE_PREDICATE (GAME_IS ~bgee~) ~This mod must be installed on BG:EE.~
+  REQUIRE_PREDICATE (GAME_IS ~BGEE EET~) ~This mod must be installed on BG:EE or EET.~
+
+ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" AR
+END
+
+ACTION_IF GAME_IS ~EET~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" BG
+END
+
 INCLUDE ~%MOD_FOLDER%/lib/aura_resources.tpa~
+
 INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
+
 INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
 ACTION_IF GAME_INCLUDES ~sod~
@@ -74,9 +85,9 @@ END
       PRINT ~Portrait: Alternate 1 by Omar Diaz~
       END
       ACTION_IF ("portrait" = 2) THEN BEGIN
-		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraL.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraM.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/alt-portrait/newbg2/AuraS.bmp~ ~override/AuraS.bmp~
+		COPY ~%MOD_FOLDER%/portraits/Aura2L.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/portraits/Aura2M.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/portraits/Aura2S.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: BG2 Default by Artemius_I/AionZ~
       END
       ACTION_IF ("portrait" = 1) THEN BEGIN

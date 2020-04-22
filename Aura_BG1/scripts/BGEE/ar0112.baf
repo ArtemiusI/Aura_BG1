@@ -1,0 +1,46 @@
+IF
+	Global("C0AuraQuest","GLOBAL",2)
+	Global("C0FubukiSpawn","%bg1_eet_symbol%0112",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0FubukiSpawn","%bg1_eet_symbol%0112",1)
+	CreateCreature("c0fubuki",[852.220],SW)
+	Continue()
+END
+
+IF
+	Global("C0AuraQuest","GLOBAL",3)
+	Global("C0NinjaSpawn","%bg1_eet_symbol%0112",0)
+THEN
+RESPONSE #100
+	Wait(10)
+	IncrementGlobal("C0NinjaSpawn","%bg1_eet_symbol%0112",1)
+	CreateCreatureObjectOffScreen("c0ninja",Player1,0,0,0)
+	CreateCreatureObjectOffScreen("c0ninja",Player1,0,0,0)
+	CreateCreatureObjectOffScreen("c0ninja",Player1,0,0,0)
+	RealSetGlobalTimer("C0NinjaSpawnTimer","%bg1_eet_symbol%0112",SIX_ROUNDS)
+END
+
+IF
+	Global("C0AuraQuest","GLOBAL",3)
+	GlobalGT("C0NinjaSpawn","%bg1_eet_symbol%0112",0)
+	GlobalLT("C0NinjaSpawn","%bg1_eet_symbol%0112",4)
+	RealGlobalTimerExpired("C0NinjaSpawnTimer","%bg1_eet_symbol%0112")
+THEN
+RESPONSE #100
+	IncrementGlobal("C0NinjaSpawn","%bg1_eet_symbol%0112",1)
+	CreateCreatureObjectOffScreen("c0ninja",Player1,0,0,0)
+	CreateCreatureObjectOffScreen("c0ninja",Player1,0,0,0)
+	CreateCreatureObjectOffScreen("c0ninja",Player1,0,0,0)
+	RealSetGlobalTimer("C0NinjaSpawnTimer","%bg1_eet_symbol%0112",SIX_ROUNDS)
+END
+
+IF
+	Global("C0AuraQuest","GLOBAL",3)
+	Global("C0NinjaSpawn","%bg1_eet_symbol%0112",4)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraQuest","GLOBAL",4)
+	ActionOverride("C0Fubuki",StartDialogueNoSet(Player1))
+END

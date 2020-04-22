@@ -10,7 +10,16 @@ COPY ~%MOD_FOLDER%/spells~ ~override~
 //////////////////////////////// ANIMATIONS ///////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+ACTION_IF NOT FILE_EXISTS ~MGIRA1.BAM~ THEN BEGIN
+COPY ~%MOD_FOLDER%/animations/keg~ ~override~
+END
+
+ACTION_IF NOT FILE_EXISTS ~MGIRA1.BAM~ THEN BEGIN
+COPY ~%MOD_FOLDER%/animations/golem_iron~ ~override~
+END
+
 ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
+    ~autocannon~ => ~C0_AUTOCANNON~
     ~automaton~ => ~C0_AURA_AUTOMATON~
     ~automaton_jade~ => ~C0_AURA_AUTOMATON_JADE~
     ~automaton_black~ => ~C0_AURA_AUTOMATON_BLACK~
@@ -24,6 +33,38 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
     COPY ~%MOD_FOLDER%/animations/%folder%/7xxx.ini~ ~override/%hexNumber%.ini~
     OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
     APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
+END
+
+ACTION_IF (NOT GAME_IS_BGEE) BEGIN
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
+  ACTION_IF (slot <= 0) BEGIN
+  END
+
+  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+  APPEND ~animate.ids~ ~0x%hexNumber% C0_AUTOMATON_SMALL~ UNLESS ~C0_AUTOMATON_SMALL~
+  CLEAR_IDS_MAP
+
+  COPY ~%MOD_FOLDER%/animations/automaton_small/exxx.ini~ ~override/%hexNumber%.ini~
+
+  ACTION_BASH_FOR ~%MOD_FOLDER%/animations/automaton_small~ ~^.+\.bam$~ BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
+  END
+END
+
+ACTION_IF (NOT GAME_IS_BGEE) BEGIN
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
+  ACTION_IF (slot <= 0) BEGIN
+  END
+
+  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+  APPEND ~animate.ids~ ~0x%hexNumber% C0_AUTOMATON_LARGE~ UNLESS ~C0_AUTOMATON_LARGE~
+  CLEAR_IDS_MAP
+
+  COPY ~%MOD_FOLDER%/animations/automaton_large/exxx.ini~ ~override/%hexNumber%.ini~
+
+  ACTION_BASH_FOR ~%MOD_FOLDER%/animations/automaton_large~ ~^.+\.bam$~ BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
+  END
 END
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -106,10 +147,6 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Shocked~) STR_VAR bam
 ////////////////////////////// PROJECTILES ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////
-////////////////////////////// PROJECTILES ////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aproj0.PRO~ ~C0 Grenade~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb1.PRO~ ~C0 Green Flaming Oil~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb2.PRO~ ~C0 Flashbomb~
@@ -122,6 +159,10 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb8.PRO~ ~C0 Purple Firebomb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb9.PRO~ ~C0 Big Boom Bomb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro1.PRO~ ~C0 Healing Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro2.PRO~ ~C0 Lightning Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auar02.PRO~ ~C0 Lightning Arrow Chain 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0lchain.PRO~ ~C0 Lightning Arrow Chain 2~
+COPY_EXISTING ~c0auar02.pro~ ~override~
+WRITE_SHORT 0x21A (IDS_OF_SYMBOL (~projectl~ ~c0lchain~)) + 1
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro3.PRO~ ~C0 Static Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro4.PRO~ ~C0 Trollbane Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro5.PRO~ ~C0 Disruptor Arrow~
@@ -132,6 +173,9 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro9.PRO~ ~C0 Ice Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0arain.PRO~ ~C0 Arrow Volley~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0achain.PRO~ ~C0 Chain Lightning~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0athund.PRO~ ~C0 Thunderbolt~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0athun2.PRO~ ~C0 Thunderbolt~
+COPY_EXISTING ~c0athun2.pro~ ~override~
+WRITE_SHORT 0x21A (IDS_OF_SYMBOL (~projectl~ ~c0athund~)) + 1
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aburst.PRO~ ~C0 Burst Orb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0asvoid.PRO~ ~C0 Screaming Void~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aarea1.PRO~ ~C0 Reveal Magic~
@@ -139,6 +183,7 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aarea1.PRO~ ~C0 Reveal Magic~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abombb.PRO~ ~C0 EMP Bomb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abombc.PRO~ ~C0 Phaser Bomb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aglue.PRO~ ~C0 Glue Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auimb.PRO~ ~C0 Arcane Disjunctor~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0akeg1.PRO~ ~C0 Exploding Keg~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0ausp02.PRO~ ~C0 Poison Haze~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0ausp03.PRO~ ~C0 Poison Blast~

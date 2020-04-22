@@ -1,6 +1,6 @@
 // PVRZ-based bams
 
-ACTION_FOR_EACH bamFile IN ~c0amaskc.bam~ ~c0muffyc.bam~ ~c0amagac.bam~ ~c02asunc.bam~ ~c0spikec.bam~ BEGIN
+ACTION_FOR_EACH bamFile IN ~c0amaskc.bam~ ~c0muffyc.bam~ ~c0amagac.bam~ ~c02asunc.bam~ ~c0spikec.bam~ ~c0amaga3.bam~ ~c0ausw05.bam~ ~c0aubo7.bam~ BEGIN
     COPY ~%MOD_FOLDER%/bams/%bamFile%~ ~override~
       LPF UPDATE_PVRZ_INDICES RET original_base_index new_base_index END
     ACTION_IF (original_base_index >= 0 AND new_base_index >= 0) BEGIN
@@ -26,7 +26,7 @@ Aura's custom-made leather armor is dyed a bright pinkish red color that is, acc
 STATISTICS:
 
 Equipped abilities:
-- Save vs. Breath Weapons: +3
+– Save vs. Breath Weapons: +3
 
 Armor Class: 7 (9 vs. piercing and missile)
 Requires:
@@ -44,8 +44,8 @@ Aura's custom-made leather armor is dyed a bright pinkish red color that is, acc
 STATISTICS:
 
 Equipped abilities:
-- Save vs. Breath Weapons: +3
-- Elemental Resistance: +20%
+– Save vs. Breath Weapons: +3
+– Elemental Resistance: +20%
 
 Armor Class: 5 (7 vs. piercing and missile)
 Requires:
@@ -112,6 +112,18 @@ Weight: 0~
 
 APPEND ~ITEMSPEC.2da~ ~C0AUIDEN  1~
 
+COPY_EXISTING ~c0asaku.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        match_parameter2  = 82    // Called Shot icon
+        parameter2        = c0aicon4
+      END
+SAY NAME1 ~Amatsugami~
+SAY NAME2 ~Amatsugami~
+
 COPY_EXISTING ~c0auide2.spl~ ~override~
 READ_LONG 0x64 "abil_off"
 READ_SHORT 0x68 "abil_num"
@@ -162,7 +174,7 @@ SAY NAME1 ~Muffy the Clockwork Squirrel~
 SAY NAME2 ~Muffy the Clockwork Squirrel~
 SAY DESC ~Muffy is a strange machine made of metal and clockwork that serves as Aura's pet. It has a strange degree of sentience, understanding human speech and exhibiting behaviour just like a real, living squirrel, to the point where its state as an animated construct is debatable. Aura claims to have crafted Muffy herself, though how she gave it life is a secret she keeps to herself.
 
-Regardless of how it is able to act as though it were alive, Muffy is doubtlessly a useful creation – the squirrel's stomach is a hollow compartment capable of storing small objects such as gems, potions or keys. Though the act of opening up Muffy seems rather morbid, the squirrel seems rather happy to have its 'belly' filled with valuables.
+Regardless of how it is able to act as though it were alive, Muffy is doubtlessly a useful creation – the squirrel's stomach is a hollow compartment capable of storing small objects such as gems or keys. Though the act of opening up Muffy seems rather morbid, the squirrel seems rather happy to have its 'belly' filled with valuables.
 
 STATISTICS:
 
@@ -186,44 +198,9 @@ Weight: 0~
 
 COPY_EXISTING ~c0aubook.sto~ ~override~
 SAY 0xc ~Aura's Rune Book~
-/*
-COPY_EXISTING ~c0axbow1.itm~ ~override~
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-      match_parameter1 = 0
- parameter1 = RESOLVE_STR_REF (~Paralyzed~)
-END
-SAY NAME1 ~Thunderbolt +6~
-SAY NAME2 ~Thunderbolt +6~
-SAY DESC ~This strange bronze-colored contraption appears to be some sort of launcher. Its creator and late owner, Liro Mideveningwalker, was an intelligent yet ambitious gnome, and often sought out mysteries and secrets in dangerous places to increase her own knowledge. Her inexperience in combat led her to design this powerful cannon as a means for self defense. This weapon fires deadly lightning bolts that can strike down anything in its path. Liro's creativity also led her to add a variety of other implements to make it more effective. However, the energy that powers the weapon is limited and requires proper tools to recharge after too many uses. Between the cannon's notable weight and complex mechanisms, only a select few would be capable of using it effectively.
 
-STATISTICS:
-
-Equipped abilities:
-– Armor Class: +6 vs. melee weapons
-– Attacks per round set to 2
-– Increased visual range
-– Electrical Resistance: +100%
-
-Combat abilities:
-– The Thunderbolt does not launch projectiles. Instead, it fires a ray of lightning which deals 6d6+10 (save vs. breath weapons for half) electrical damage to all creatures within its line of fire and paralyzes them for two rounds on a failed save vs. breath. All targets struck are also Magnetized (-2 to AC vs. missiles and -20% missile damage resistance) for five rounds. The Thunderbolt strikes as a +6 weapon and may be fired 80 times before needing to recharge.
-
-Speed Factor: 5
-Proficiency Type: None
-Type: Two-handed
-Requires:
- 14 Strength
- 17 Intelligence
-
-Weight: 20~
-WRITE_SHORT 0x9C ~%c0athund%~
-*/
 COPY_EXISTING ~c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
-SAY NAME2 ~Create Sunshooter Arrows~
 
 COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1b.spl~
   LPF ALTER_SPELL_HEADER
@@ -488,13 +465,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
 
 THAC0: +1
-Speed Factor: 2
+Speed Factor: 0
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo1b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -524,13 +502,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
 
 THAC0: +3
-Speed Factor: 2
+Speed Factor: 4
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo2a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -560,13 +539,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +2
-Speed Factor: 1
+Speed Factor: 0
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo2b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -596,13 +576,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +4
-Speed Factor: 1
+Speed Factor: 4
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo2c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -633,13 +614,14 @@ Combat abilities:
 
 THAC0: -2
 Damage: +2
-Speed Factor: 1
+Speed Factor: 2
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo3a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -670,13 +652,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +3
-Speed Factor: 1
+Speed Factor: 0
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo3b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -707,13 +690,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +5
-Speed Factor: 1
+Speed Factor: 4
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo3c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -745,13 +729,14 @@ Combat abilities:
 
 THAC0: -1
 Damage: +3
-Speed Factor: 1
+Speed Factor: 2
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo4a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -776,7 +761,7 @@ STATISTICS:
   
   May use 'Rain of Arrows' once per day
   Special: Fires 5 volleys of +5 arrows in a cone briefly reducing movement rate by 30%, 10 attacks per round for the duration
-  Damage: 1d6+5 missile
+  Damage: 1d6+1 missile
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static)
@@ -786,13 +771,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +4
-Speed Factor: 1
+Speed Factor: 0
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo4b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -827,13 +813,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +6
-Speed Factor: 1
+Speed Factor: 4
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo4c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -868,13 +855,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 Damage: +4
-Speed Factor: 1
+Speed Factor: 2
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo5a.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -899,7 +887,7 @@ STATISTICS:
   
   May use 'Rain of Arrows' once per day
   Special: Fires 10 volleys of +5 arrows in a cone briefly reducing movement rate by 50%, 10 attacks per round for the duration
-  Damage: 1d6+5 missile
+  Damage: 1d6+1 missile
 
 Charge abilities:
 – Create Sunshooter Arrows (1x/day) (Healing, Lightning, Static, Disruptor, Warp)
@@ -909,13 +897,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +5
-Speed Factor: 1
+Speed Factor: 0
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo5b.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -938,7 +927,7 @@ STATISTICS:
 – Configuration: Precise
   +15% Critical Hit Chance, -1/2 attacks per round
   
-  May use 'Piercing Shot' once per day
+  May use 'Sniper Shot' once per day
   Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 75% for 5 rounds
   Damage: 1d6+15 piercing
 
@@ -950,13 +939,14 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 THAC0: +8
-Speed Factor: 1
+Speed Factor: 4
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
 
 COPY_EXISTING ~c0aubo5c.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -991,13 +981,203 @@ Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
 
 Damage: +6
-Speed Factor: 1
+Speed Factor: 2
 Proficiency Type: Shortbow
 Type: Two-handed
 Requires:
  6 Strength
+ 19 Intelligence
 
-Weight: 2~
+Weight: 0~
+
+COPY_EXISTING ~c0aubo6.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Perfect Sunshooter~
+SAY NAME2 ~Perfect Sunshooter~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it. The Perfect Sunshooter is the product of a master artificer's craft, combining all the strengths of the bow's various configurations.
+
+Additionally, Aura gains +2 to Dexterity while wielding the Sunshooter.
+
+STATISTICS:
+
+– Configuration: Perfect
+  +3/2 attacks per round
+  +15% Critical Hit Chance
+  Attacks deal maximum damage
+  May use 'Rain of Arrows', 'Sniper Shot' or 'Blazing Shot' two times per day
+
+  'Rain of Arrows'
+  Special: Fires 15 volleys of +5 arrows in a cone briefly reducing movement rate by 99%, 10 attacks per round for the duration
+  Damage: 1d6+2 missile
+
+  'Sniper Shot'
+  Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 100% for 5 rounds
+  Damage: 1d6+20 piercing
+  
+  'Blazing Shot'
+  Special: Launch a +5 arrow, stunning for 5 rounds on a failed Save vs. Death at -4
+  Damage: 1d6+5 missile, 12d10 fire (Save vs. Death at -4 for half)
+
+Charge abilities (1x/day):
+– Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp, Detonator)
+
+Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +4 enchantment
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+
+THAC0: +8
+Damage: +6
+Speed Factor: 0
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+ 19 Intelligence
+
+Weight: 0~
+
+COPY_EXISTING ~c0aubo7.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Sunshooter Opus~
+SAY NAME2 ~Sunshooter Opus~
+SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it. The Sunshooter Opus is the product of a master artificer's craft, combining all the strengths of the bow's various configurations.
+
+The magical bowstring of Gond has made the bow even more powerful, allowing it to launch arrows of pure magical energy. Additionally, Aura gains +2 to Dexterity while wielding the Sunshooter.
+
+STATISTICS:
+
+– Configuration: Perfect
+  +2 attacks per round
+  +20% Critical Hit Chance
+  Attacks deal maximum damage
+  May use 'Rain of Arrows', 'Sniper Shot' or 'Blazing Shot' three times per day
+
+  'Rain of Arrows'
+  Special: Fires 15 volleys of +5 arrows in a cone briefly reducing movement rate by 99%, 10 attacks per round for the duration
+  Damage: 1d6+2 missile
+
+  'Sniper Shot'
+  Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 100% for 5 rounds
+  Damage: 1d6+20 piercing
+  
+  'Blazing Shot'
+  Special: Launch a +5 arrow, stunning for 5 rounds on a failed Save vs. Death at -4
+  Damage: 1d6+5 missile, 12d10 fire (Save vs. Death at -4 for half)
+
+Charge abilities (1x/day):
+– Create Sunshooter Arrows (Healing, Lightning, Static, Disruptor, Warp, Detonator)
+
+Combat abilities:
+– Eminence: All arrows launched by this bow strike with at least +5 enchantment
+– When no arrows are equipped, the bow fires missiles that are treated as +5 for the purposes of determining what enemies they can damage. The missiles receive +8 to hit and deal a total of 6 piercing and 2d6 magical damage
+– Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 5% for 5 rounds
+
+THAC0: +8
+Damage: +8
+Speed Factor: 0
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+ 6 Strength
+ 19 Intelligence
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0auaro8%~
+
+COPY_EXISTING ~c0auboa1.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Armor Pierced~)
+  END
+SAY NAME2 ~Sniper Shot +5~
+WRITE_SHORT 0x9C ~%c0auaro8%~
+COPY_EXISTING ~c0auboa2.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Armor Pierced~)
+  END
+SAY NAME2 ~Sniper Shot +5~
+WRITE_SHORT 0x9C ~%c0auaro8%~
+COPY_EXISTING ~c0auboa3.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Armor Pierced~)
+  END
+SAY NAME2 ~Sniper Shot +5~
+WRITE_SHORT 0x9C ~%c0auaro8%~
+
+COPY_EXISTING ~c0aubob1.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Stunned~)
+  END
+SAY NAME2 ~Blazing Shot +5~
+WRITE_SHORT 0x9C ~%c0auaro4%~
+COPY_EXISTING ~c0aubob2.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Stunned~)
+  END
+SAY NAME2 ~Blazing Shot +5~
+WRITE_SHORT 0x9C ~%c0auaro4%~
+COPY_EXISTING ~c0aubob3.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Stunned~)
+  END
+SAY NAME2 ~Blazing Shot +5~
+WRITE_SHORT 0x9C ~%c0auaro4%~
+
+COPY_EXISTING ~c0auboc1.itm~ ~override~
+SAY NAME2 ~Arrow Rain +5~
+WRITE_SHORT 0x9C ~%c0arain%~
+COPY_EXISTING ~c0auboc2.itm~ ~override~
+SAY NAME2 ~Arrow Rain +5~
+WRITE_SHORT 0x9C ~%c0arain%~
+COPY_EXISTING ~c0auboc3.itm~ ~override~
+SAY NAME2 ~Arrow Rain +5~
+WRITE_SHORT 0x9C ~%c0arain%~
+COPY_EXISTING ~c0auboc4.itm~ ~override~
+SAY NAME2 ~Arrow Rain +5~
+WRITE_SHORT 0x9C ~%c0arain%~
 
 COPY_EXISTING ~c0auarow.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
@@ -1039,20 +1219,27 @@ COPY_EXISTING ~c0auaro2.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Lightning Arrow~
-SAY NAME2 ~Lightning Arrow~
+SAY NAME1 ~Lightning Arrow +3~
+SAY NAME2 ~Lightning Arrow +3~
 SAY DESC ~This unusual arrow, designed and crafted by Aura, is charged with a huge amount of electricity which is released when the arrow strikes at a target, electrocuting them as well as all enemies around them.
 
 STATISTICS:
 
 Combat abilities:
-– Deals electrical damage that penetrates through all targets in its path, applying Magnetism (-2 penalty to AC vs. missiles and -20% missile damage resistance) to all creatures struck for five rounds
+– Deals electrical damage that chains to up to five additional targets, applying Magnetism (-2 penalty to AC vs. missiles and -20% missile damage resistance) to all creatures struck for five rounds
 
+THAC0: +4
 Damage: 1d6+4 electrical
-Launcher: Bow
+Launcher: Sunshooter Bow
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro2%~
+
+COPY_EXISTING ~c0auaro2.spl~ ~override~
+  LPF ALTER_SPELL_HEADER
+	INT_VAR
+		projectile = c0auar02
+END
 
 COPY_EXISTING ~c0auaro3.itm~ ~override~
   LPF ALTER_EFFECT
@@ -1063,7 +1250,6 @@ COPY_EXISTING ~c0auaro3.itm~ ~override~
       match_parameter1 = 0
  parameter1 = RESOLVE_STR_REF (~Paralyzed~)
 END
-COPY_EXISTING ~c0auaro3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
@@ -1075,21 +1261,129 @@ COPY_EXISTING ~c0auaro3.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Static Arrow~
-SAY NAME2 ~Static Arrow~
+SAY NAME1 ~Static Arrow +3~
+SAY NAME2 ~Static Arrow +3~
 SAY DESC ~This unusual arrow, designed and crafted by Aura, is charged with a huge amount of electricity which is released when the arrow strikes a target, trapping them in a web-like formation.
 
 STATISTICS:
 
 Combat abilities:
-– Target must make a save vs. death at -2 or be paralyzed and suffer from a -50% penalty to electrical resistance for five rounds.
+– Target must make a save vs. death at -2 or be paralyzed and suffer from a -50% penalty to electrical resistance for five rounds
 
 THAC0: +2
 Damage: 1d6+4 electrical
-Launcher: Bow
+Launcher: Sunshooter Bow
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0auaro3%~
+
+COPY_EXISTING ~c0auaro5.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+ parameter1 = RESOLVE_STR_REF (~Spell Protections Removed~)
+END
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Disruptor Arrow +4~
+SAY NAME2 ~Disruptor Arrow +4~
+SAY DESC ~This unusual arrow, designed and crafted by Aura, is enchanted with antimagic, allowing it to disrupt a spellcaster's magical defenses.
+
+STATISTICS:
+
+Combat abilities:
+– Target loses one 8th- or lower level spell protection and -10% magic resistance for one turn
+
+THAC0: +10
+Damage: 2d6+4 magic
+Launcher: Sunshooter Bow
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0auaro5%~
+
+COPY_EXISTING ~c0auaro6.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+      match_parameter1 = 0
+ parameter1 = RESOLVE_STR_REF (~Warped into another dimension~)
+END
+COPY_EXISTING ~c0auaro6.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Warp Arrow +4~
+SAY NAME2 ~Warp Arrow +4~
+SAY DESC ~This unusual arrow, designed and crafted by Aura, is capable of warping the target to another dimension where they are trapped for a short duration.
+
+STATISTICS:
+
+Combat abilities:
+– Target is Warped into another dimension for one turn. Enemies may make a Saving Throw vs. Spells at -4 to avoid the effects.
+
+THAC0: +10
+Damage: None
+Launcher: Sunshooter Bow
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0auaro6%~
+
+COPY_EXISTING ~c0auaro7.itm~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+      match_parameter1 = 0
+ parameter1 = RESOLVE_STR_REF (~Stunned~)
+END
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+SAY NAME1 ~Detonator Arrow +5~
+SAY NAME2 ~Detonator Arrow +5~
+SAY DESC ~This unusual arrow, designed and crafted by Aura, contains a small amount of Lantanese smokepowder which explodes violently upon impact.
+
+STATISTICS:
+
+Combat abilities:
+– Target must make a Save vs. Spell at -4 or be stunned for one round
+
+Damage: 6d6+4 explosion upon impact (Save vs. Spell at -4 for half)
+Area of Effect: 15' radius
+Launcher: Sunshooter Bow
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0auaro7%~
 
 COPY_EXISTING ~c0autt01.itm~ ~override~
 SAY NAME1 ~Burst Orb~
@@ -1118,12 +1412,6 @@ SAY DESC ~This crystal initially appears to be a normal shard of ice, though it 
 STATISTICS:
 
 Weight: 0~
-
-COPY_EXISTING ~dezkie.cre~ ~override/dezkie.cre~
-	PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
-		ADD_CRE_ITEM ~c0agem1~ #0 #0 #0 ~NONE~ ~inv~
-	END
-BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~c0autt02.spl~ ~override~
   LPF ALTER_EFFECT
@@ -1221,10 +1509,12 @@ Charge abilities:
  
 Weight: 1~
 
+COPY_EXISTING ~c0bandol.sto~ ~override~
+
 COPY_EXISTING ~c0bandol.itm~ ~override~
-SAY NAME1 ~Bandolier~
-SAY NAME2 ~Bandolier~
-SAY DESC ~This bandolier was designed by Aura to safely carry fragile objects such as potion bottles, firebombs and explosives of all kinds.
+SAY NAME1 ~Aura's Potion Bag~
+SAY NAME2 ~Aura's Potion Bag~
+SAY DESC ~This bag was designed by Aura to safely carry fragile objects such as potion bottles, firebombs and explosives of all kinds.
 
 STATISTICS:
 
@@ -1233,423 +1523,7 @@ Capacity: 100
 Weight: 0~
 
 COPY_EXISTING ~c0bandol.sto~ ~override~
-SAY 0xc ~Bandolier~
-
-COPY_EXISTING ~c0abomb1.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb1%~
-END
-		LPF	ADD_SPELL_EFFECT
-			INT_VAR
-				insert_point = 0
-				opcode = 324
-				target = 2
-				parameter2 = FIRE
-				duration = 1
-			STR_VAR
-				resource = EVAL ~%SOURCE_RES%~
-		END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 142
-	  parameter2 = c0aicon3
-END
-COPY_EXISTING ~c0abomb1.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Green Flaming Oil~
-SAY DESC ~Inside of this glass pot is an expensive mixture of oil and other chemicals. When this mixture is set ablaze, it burns for several seconds at a very hot temperature.  Flaming oil is sometimes difficult to use because it takes a long time for the user to properly throw it. Adventurers often carry oil with them to deal with trolls in the unfortunate event that they are encountered.
-
-Aura's flasks use a specially-made type of oil which releases a highly flammable gas. The flames are emerald green, just like the oil itself.
-
-STATISTICS:
-
-When thrown, releases a cloud which deals damage per round to all creatures within it (Save vs. Breath Weapons for half damage). Afflicted targets who leave the area of effect suffer damage for two additional rounds. The cloud lasts for five rounds.
-  1st level: 2d3 Fire Damage (Save vs. Breath)
-  10th level: 4d3 Fire Damage (Save vs. Breath at -1)
-  20th level: 4d6 Unmitigated Fire Damage (Save vs. Breath at -2)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 500
-
-COPY_EXISTING ~c0abomb2.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb2%~
-END
-COPY_EXISTING ~c0abomb2.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~White Flashbomb~
-SAY DESC ~This flask contains an alchemical compound which, when detonated, explodes with a flash of light that stuns and blinds all within the vicinity.
-
-STATISTICS
-
-When thrown, deals damage and Blinds all creatures within a 10' radius. Additionally, targets who fail Save vs. Breath Weapons are Stunned instead.
-  1st level: 2d4 Non-Lethal Damage, Blind (2 rounds), Stun (Save vs. Breath at +2)
-  10th level: 3d4 Non-Lethal Damage, Blind (3 rounds), Stun (Save vs. Breath at -1)
-  20th level: 4d4 Non-Lethal Damage, Blind (4 rounds), Stun (Save vs. Breath at -4)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 1000
-
-COPY_EXISTING ~c0abomb3.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb3%~
-END
-COPY_EXISTING ~c0abomb3.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Spiked Firebomb~
-SAY DESC ~This spiked metal object is an explosive which unleashes a fiery blast while launching sharp metal shrapnel at anyone within a certain range of it.
-
-STATISTICS
-
-When thrown, deals Fire and Piercing Damage within a 10' radius and causes targets to Bleed for 5% Maximum Hit Points every round on a failed Save vs. Breath Weapons.
-  1st level: 4d6+5 Fire, 1d6+2 Piercing Damage, Bleed (3 rounds)
-  10th level: 6d6+8 Fire, 2d6+4 Piercing Damage, Bleed (6 rounds)
-  20th level: 8d6+10 Fire, 3d6+6 Piercing Damage, Bleed (9 rounds)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 1000
-
-COPY_EXISTING ~c0abomb4.spl~ ~override~
-		LPF	ADD_SPELL_EFFECT
-			INT_VAR
-				insert_point = 0
-				opcode = 324
-				target = 2
-				parameter2 = POISN
-				duration = 1
-			STR_VAR
-				resource = EVAL ~%SOURCE_RES%~
-		END
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb4%~
-END
-COPY_EXISTING ~c0abomb4.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Sulfide Bomb~
-SAY DESC ~This explosive contains a huge amount of sulfur, which when released creates a cloud of foul-smelling and toxic fumes that can knock out a man within seconds.
-
-STATISTICS
-
-When thrown, releases a cloud for three rounds which deals Poison Damage each round and knocks all targets unconscious for two rounds on a failed Save vs. Breath Weapons.
-  12th level: 2d6 Poison Damage, Unconsciousness (Save vs. Breath at -2)
-  18th level: 4d6 Poison Damage, Unconsciousness (Save vs. Breath at -4)
-  24th level: 8d6 Poison Damage, Unconsciousness (Save vs. Breath at -6)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 2000
-
-COPY_EXISTING ~c0abomb5.spl~ ~override~
-		LPF	ADD_SPELL_EFFECT
-			INT_VAR
-				insert_point = 0
-				opcode = 324
-				target = 2
-				parameter2 = POISN
-				duration = 1
-			STR_VAR
-				resource = EVAL ~%SOURCE_RES%~
-		END
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb5%~
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
- parameter1 = RESOLVE_STR_REF (~Weakened~)
-END
-COPY_EXISTING ~c0abomb5.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Crimson Smoke Canister~
-SAY DESC ~This round tube, when thrown, releases a thick cloud of crimson-colored toxic smoke which impairs vision and physically weakens all creatures that breathe it.
-
-STATISTICS
-
-When thrown, releases a cloud for one turn which deals Poison Damage each round. Creatures standing in the cloud have their field of vision greatly reduced and suffer a -4 penalty to THAC0. Creatures must additionally make a Save vs. Breath Weapons each round or suffer a penalty to Armor Class and Saving Throws for three rounds.
-  15th level: 4 Poison Damage, -2 to Armor Class and Saving Throws (Save vs. Breath at +2)
-  20th level: 7 Poison Damage, -3 to Armor Class and Saving Throws (Save vs. Breath)
-  25th level: 10 Poison Damage, -4 to Armor Class and Saving Throws (Save vs. Breath at -2)  
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 2000
-
-COPY_EXISTING ~c0abomb6.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0aglue%~
-END
-COPY_EXISTING ~c0abom6a.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb6%~
-END
-COPY_EXISTING ~c0abomb6.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Adhesive Bomb~
-SAY DESC ~This canister contains a substance which rapidly congeals when exposed to air, becoming a burning hot and sticky glue which impairs the movements of those within its vicinity.
-
-STATISTICS
-
-When thrown, deals Fire Damage and Slows for five rounds on a failed Save vs. Breath Weapons. The glue remains on the ground afterwards for three rounds, greatly reducing the movement rate of anyone standing in the area of effect.
-  18th level: 3d6 Fire Damage, Slow (Save vs. Breath at -4), -50% Movement Rate
-  24th level: 6d6 Fire Damage, Slow (Save vs. Breath at -6), -75% Movement Rate
-  30th level: 9d6 Fire Damage, Slow (Save vs. Breath at -8), -99% Movement Rate
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 3500
-
-COPY_EXISTING ~c0abomb7.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb7%~
-END
-COPY_EXISTING ~c0abomb7.itm~ ~override~
-		LPF	ADD_SPELL_EFFECT
-			INT_VAR
-				insert_point = 0
-				opcode = 324
-				target = 2
-				parameter2 = ACID
-				duration = 1
-			STR_VAR
-				resource = EVAL ~%SOURCE_RES%~
-		END
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Corrosive Bomb~
-SAY DESC ~This canister contains a heavily acidic substance which bursts into a cloud of corrosive acid when detonated, dealing severe injury to anyone unfortunate enough to stand within the vicinity.
-
-STATISTICS
-
-When thrown, releases an acidic cloud which deals Acid Damage each round. Enemies standing within the cloud suffer a cumulative penalty to Acid Resistance for one turn. The cloud remains for five rounds.
-  21st level: 4d4 Acid Damage, -10% Acid Resistance
-  26th level: 6d4 Acid Damage, -15% Acid Resistance
-  31st level: 8d4 Acid Damage, -20% Acid Resistance
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 5000
-
-COPY_EXISTING ~c0aburn.spl~ ~override~
-		LPF	ADD_SPELL_EFFECT
-			INT_VAR
-				insert_point = 0
-				opcode = 324
-				target = 2
-				parameter2 = FIRE
-				duration = 1
-			STR_VAR
-				resource = EVAL ~%SOURCE_RES%~
-		END
-      LPF ALTER_EFFECT
-      INT_VAR
-        check_globals     = 0
-        check_headers     = 1
-        match_opcode      = 142   // Display portrait icon
-        parameter2        = c0aicon3
-      END
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      match_opcode = 139 // display string
-	  parameter1 = RESOLVE_STR_REF (~Burning~)
-  END
-COPY_EXISTING ~c0abomb8.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb8%~
-END
-COPY_EXISTING ~c0abomb8.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Dread Flame Bomb~
-SAY DESC ~This canister contains a powder made from a hybrid of glow powder and Shou explosive powder. The purple flames that burst from the explosive deal horrifying damage and inflict terror in any survivors.
-
-STATISTICS
-
-When thrown, unleashes a purple fireball that deals massive Fire Damage. Additionally, afflicted victims must make a Save vs. Breath Weapons or become Ignited, suffering 10% of their Maximum Hit Points each round and fleeing in terror for the duration.
-  24th level: 10d10 Fire Damage, Ignited (4 rounds, Save vs. Breath at -4)
-  30th level: 10d12 Fire Damage, Ignited (5 rounds, Save vs. Breath at -5)
-  36th level: 12d12 Fire Damage, Ignited (6 rounds, Save vs. Breath at -6)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 9000
-
-COPY_EXISTING ~c0abomb9.spl~ ~override~
-      LPF ALTER_EFFECT
-      INT_VAR
-        match_opcode      = 139   // Display portrait icon
-		match_savingthrow = 0
-        parameter1 = RESOLVE_STR_REF (~Deafened~)
-      END
-      LPF ALTER_EFFECT
-      INT_VAR
-        match_opcode      = 139   // Display portrait icon
-		match_savingthrow = 4
-        parameter1 = RESOLVE_STR_REF (~Stunned~)
-      END
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0abomb9%~
-END
-COPY_EXISTING ~c0abomb9.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Divine Thunderclap Bomb~
-SAY DESC ~This devastating explosive contains a special compound crafted from Lantanese smokepowder and Shou explosive powder. The compound powder is so dangerous that only a small amount must be used, which must be contained within a vibration-resistant canister which is afterwards placed within a larger canister with considerable space inbetween both. When it detonates, the destructive force of the powder obliterates everything within its range.
-
-STATISTICS:
-
-When thrown, unleashes a devastating explosion which deals massive Fire and Electrical Damage, Deafens all targets and Stuns for five rounds on a failed Save vs. Death. Targets take damage as though their Fire and Electrical Resistances are halved (e.g. 100% Resistance takes 50% Damage)
-  27th level: 12d10 Fire/Electrical Damage, Deafness (3 rounds), Stun (Save vs. Death at -4)
-  33rd level: 16d10 Fire/Electrical Damage, Deafness (4 rounds), Stun (Save vs. Death at -5)
-  39th level: 20d10 Fire/Electrical Damage, Deafness (5 rounds), Stun (Save vs. Death at -6)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 12000
-
-COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl1.itm~
-SAY NAME1 ~Strange Letter~
-SAY NAME2 ~Strange Letter~
-SAY UNIDENTIFIED_DESC ~This letter was left behind on the bodies of one of the elite ninja sent to capture Aura.
-
-"Our quarry has entered into our domain. Seek her out and kill all who try to stand in your way. Capture her alive if possible, but if she chooses to resist, do not hesitate to eliminate her. When the task is complete, raise the signal at the city's bridge during the midnight hour and await my arrival.
-
-Remember the oaths you have sworn and know that your success will free us from the curse of which we have been bound. Do not fail me."~
-
-COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl2.itm~
-SAY NAME1 ~Note~
-SAY NAME2 ~Note~
-SAY UNIDENTIFIED_DESC ~This hastily-scribbled note was left behind by Aura.
-
-"Thank you for everything we've done together, but I can't ask you to fight this battle for my sake. Hopefully I'll make it back, but if I don't... please don't miss me."~
-
-COPY_EXISTING ~misc1c.itm~ ~override/c0ascrl3.itm~
-SAY NAME1 ~Scroll~
-SAY NAME2 ~Fubuki's Records~
-SAY UNIDENTIFIED_DESC ~This heavy scroll's contents are written entirely in Kara-Turan. According to Aura, they contain several years' worth of Fubuki's gathered records and information on past events involving Tadahashi Saito's war against the holy temples of Kozakura.~
+SAY 0xc ~Aura's Potion Bag~
 
 COPY_EXISTING ~c0amask1.spl~ ~override~
 COPY_EXISTING ~c0amask1.itm~ ~override~
@@ -1708,11 +1582,6 @@ SAY DESC ~This katana was designed by Aura for her former friend, Tadahashi Sait
 Weight: 4~
 
 COPY_EXISTING ~c0ausw01.itm~ ~override~
-LPF ALTER_EFFECT
-	INT_VAR
-	match_opcode = 139
-	parameter1 = RESOLVE_STR_REF (~Disarmed~)
-END
 SAY NAME1 ~Katana~
 SAY NAME2 ~Blade of Howling Souls +2~
 SAY UNIDENTIFIED_DESC ~The katana is a single-edged, slightly curved sword that ends with a chisel point. The katana is perhaps one of the finest swords ever made, the steps to its creation a long and secret process that is more art form than anything else. This blade is an important facet of Kara-Turan culture. To touch or wield a samurai's katana is to insult the samurai and to incite his wrath. For a gaijin, or foreigner, to own such a blade is a rare occurrence. Either the gaijin is a greatly honored friend of an important minister, or the gaijin has murdered a samurai.
@@ -1836,49 +1705,7 @@ Requires:
  16 Dexterity
 
 Weight: 2~
-/*
-COPY_EXISTING ~c0akat01.spl~ ~override~
-COPY_EXISTING ~c0akat02.spl~ ~override~
-COPY_EXISTING ~c0akat03.spl~ ~override~
-COPY_EXISTING ~c0ausw03.spl~ ~override~
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      check_globals = 1
-      check_headers = 1
-      opcode = 139 // display string
-	  target = 2
-	  parameter1 = RESOLVE_STR_REF (~Disarmed~)
-	  savingthrow = 4
-	  savebonus = %-2%
-  END
-COPY_EXISTING ~c0ausw03.itm~ ~override~
-SAY NAME1 ~Katana~
-SAY NAME2 ~Han'men-Akatsuki +5~
-SAY DESC ~This flawless katana is the epitome of Kara-Turan swordsmithing. Forged out of a sheet of pure, red-colored steel folded upon itself a million times, its fine balance and a razor-sharp edge that never fades makes it a truly unparalleled weapon among its kind. The wielder of this katana can almost feel guided by its natural motions, guiding the blade as it weaves and flows, striking lethal blows over and over again.
 
-STATISTICS:
-
-Combat abilities:
-– Every third successful attack is a guaranteed critical hit (resets after one round of not attacking)
-– Wielder's weapon speed factor is decreased by one for two rounds on each successful hit
-– On a critical hit, disarms opponent unless a save vs. death at -2 is made. Disarmed opponents are unable to attack for one round.
-– 2% chance to slay target instantly on hit (chances are doubled on a critical hit) unless a save vs. death is made.
-
-Equipped abilities:
-– Armor Class: +5 vs. melee weapons
-
-THAC0: +5
-Damage: 1d10+1 (slashing)
-Speed Factor: 5
-Proficiency Type: Katana
-Type: One-handed
-Requires:
- 6 Strength
- 18 Dexterity
- 15 Intelligence
-
-Weight: 4~
-*/
 COPY_EXISTING ~c0auim01.itm~ ~override~
 SAY NAME1 ~Two-handed Sword~
 SAY NAME2 ~Two-handed Sword, Cursed Berserking +3~
@@ -2018,3 +1845,184 @@ Type: Two-handed
 Requires:
  14 Strength
 Weight: 15~
+
+COPY_EXISTING ~c0abrac1.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Gloves~
+SAY NAME2 ~Minor Artificer's Gloves of Fire~
+SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles and explosives with fire.
+
+STATISTICS:
+
+Equipped abilities:
+– Fire Resistance: +10%
+– All fire damage inflicted by the wearer is increased by 10%
+
+Weight: 1~
+
+COPY_EXISTING ~c0abrac2.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Gloves~
+SAY NAME2 ~Artificer's Gloves of Fire~
+SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles and explosives with fire.
+
+STATISTICS:
+
+Equipped abilities:
+– Fire Resistance: +20%
+– All fire damage inflicted by the wearer is increased by 10%
+
+Weight: 1~
+
+COPY_EXISTING ~c0abrac3.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Gloves~
+SAY NAME2 ~Greater Artificer's Gloves of Fire~
+SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles and explosives with fire.
+
+STATISTICS:
+
+Equipped abilities:
+– Fire Resistance: +40%
+– All fire damage inflicted by the wearer is increased by 20%
+
+Weight: 1~
+/*
+COPY_EXISTING ~c0agaunt.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Massive Gauntlet~
+SAY NAME2 ~Apocalypse Gauntlet~
+SAY DESC ~To be added
+
+STATISTICS:
+
+Equipped abilities:
+– Strength: 24
+
+Weight: 20~
+*/
+COPY_EXISTING ~c0afish.itm~ ~override~
+SAY NAME1 ~Sardine~
+SAY NAME2 ~Sardine~
+SAY DESC ~Sardines, also known as pilchards, are small, oily fish that travel in large schools and feed on sea plankton. They are commonly consumed by both larger fish and mammals alike. Cats are known for being especially fond of sardines.
+
+STATISTICS:
+
+Weight: 0~
+
+COPY_EXISTING ~c02aring.spl~ ~override~
+COPY_EXISTING ~c02aring.itm~ ~override~
+SAY NAME1 ~Ring of Moon's Eye~
+SAY NAME2 ~Ring of Moon's Eye~
+SAY DESC ~This roughly crafted ring appears unremarkable at first glance aside from a small crescent-shaped carving on the inner side. When worn, the bearer's skin becomes faintly illuminated, as though bathed in moonlight.
+
+STATISTICS:
+
+Equipped abilities:
+– When struck in combat, the wearer has a 25% chance to cast Reflected Image on <PRO_HIMHER>self
+– Immunity to fear and holding effects
+
+Weight: 0~
+
+COPY_EXISTING ~c0auaro4.itm~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        parameter2        = c0aicon3
+      END
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+ parameter1 = RESOLVE_STR_REF (~Burning~)
+END
+SAY NAME1 ~Trollbane Arrow~
+SAY NAME2 ~Trollbane Arrow~
+SAY DESC ~Trollbane is a concoction made from various flammable chemicals, making it effectively poisonous for, as it might suggest, trollkin. When this arrow strikes a troll, the trollbane bursts into flame and comes into effect, altering the troll's physiology and preventing them from regenerating their wounds.
+
+STATISTICS:
+
+Combat abilities:
+– Targets struck by this arrow must make a save vs. death at -4 or suffer two points of fire damage per round for three rounds. If the target is a troll, it permanently loses its regenerative abilities.
+
+THAC0: +2
+Damage: 1d6+4 fire
+Damage type: piercing
+Launcher: Bow
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0auaro4%~
+
+COPY_EXISTING ~c0abomba.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0asvoid%~
+END
+COPY_EXISTING ~c0abomba.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+SAY NAME1 ~Firebomb~
+SAY NAME2 ~Screaming Void~
+SAY DESC ~This malignant explosive was crafted using dust from the voidstone which caused a negative energy field within Bridgefort. As unsettling as the dark sludge-like substance appears, it can deal an indisputably massive amount of harm to any being unfortunate enough to be caught within its radius.
+
+STATISTICS
+
+When thrown, unleashes a burst of negative energy which deals Magic Damage and reduces all creatures' Strength. Has no effect against undead.
+  1st level: 6d6+4 Magic Damage (Save vs. Spells for half), -1 Strength (5 rounds)
+  10th level: 6d8+6 Magic Damage (Save vs. Spells at -1 for half), -2 Strength (7 rounds)
+  20th level: 6d10+8 Magic Damage (Save vs. Spells at -2 for half), -3 Strength (1 turn)
+  30th level: 8d10+10 Magic Damage (Save vs. Spells at -3 for half), -4 Strength (2 turns)
+  40th level: 10d10+12 Magic Damage (Save vs. Spells at -4 for half), -5 Strength (3 turns)
+
+Weight: 0~
+WRITE_SHORT 0x9C ~%c0aproj0%~
+WRITE_LONG 0x34 4000

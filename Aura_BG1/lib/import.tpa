@@ -1,0 +1,14 @@
+// SCRIPTS
+
+  EXTEND_TOP ~bdsodimp.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/bdsodimp.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~sevpat04.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/sevpat04.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0041.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/reeldar.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0042.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/reeldar.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0043.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/reeldar.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0044.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/reeldar.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0045.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/reeldar.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0046.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/reeldar.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~duemag01.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/duemag01.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0701.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/ar0701.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~ar0602.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/ar0602.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~neera.bcs~ ~%MOD_FOLDER%/scripts/BG2EE/import/neera.baf~ EVALUATE_BUFFER
