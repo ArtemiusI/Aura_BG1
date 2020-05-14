@@ -703,7 +703,7 @@ END
 IF
 	InParty(Myself)
 	Global("C0AuraHatesBears","GLOBAL",0)
-	Race(LastSeenBy(Myself),BEAR)
+	See([0.0.BEAR])
 THEN
   RESPONSE #100
   SetGlobal("C0AuraHatesBears","GLOBAL",1)
@@ -725,7 +725,7 @@ END
 	
 IF
 	InParty(Myself)
-	Race(LastSeenBy(Myself),BEAR)
+	Range([0.0.BEAR],10)
 THEN
 RESPONSE #100
 	Wait(1)

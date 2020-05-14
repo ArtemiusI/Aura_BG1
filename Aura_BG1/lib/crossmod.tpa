@@ -26,6 +26,20 @@ THEN BEGIN
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/white.d~
 END
 
+// Aura-Isra
+ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~brh#isra.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between Aura and Isra~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/isra.d~
+END
+
+// Aura-Emily
+ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~X3milyB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between Aura and Emily~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/emily.d~
+END
+
 // Aura-Recorder
 ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~X3RecB.dlg~
 THEN BEGIN
