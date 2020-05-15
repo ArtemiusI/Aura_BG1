@@ -35,8 +35,6 @@ DO ~IncrementGlobal("rh#IsraAura2","GLOBAL",1)~
 == BC0AURA ~*giggle* Maybe you know me better than I do. I tend to be confused by my own feelings sometimes. Thank you for encouraging me.~
 EXIT
 
-Aura-Isra 3
-
 CHAIN IF WEIGHT #-1
 ~IsValidForPartyDialogue("C0Aura")
 See("C0Aura")
