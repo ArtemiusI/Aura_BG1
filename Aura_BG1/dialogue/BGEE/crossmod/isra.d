@@ -43,7 +43,7 @@ See("C0Aura")
 CombatCounter(0)
 !See([ENEMY])
 Global("rh#IsraAura3","GLOBAL",0)~ THEN BRH#ISRA isra-aura3
-== BRH#ISRA ~Aura, if I may... there is one small thing that concerns me, though I'm not certain my question is entirely tactful.~
+~Aura, if I may... there is one small thing that concerns me, though I'm not certain my question is entirely tactful.~
 DO ~IncrementGlobal("rh#IsraAura3","GLOBAL",1)~
 == BC0AURA ~I don’t mind if you ask, Isra. I know you’re not the type to upset anyone.~
 == BRH#ISRA ~'Tis clear enough that glory and wealth don't attract you overmuch, and yet... forgive me for saying so, but I was curious as to what drove you to adventure instead of a safer life.~
