@@ -142,6 +142,7 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Aflame~) STR_VAR bam_
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Magatama~) STR_VAR bam_file = c0aicon4 RET c0aicon4 = icon END
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Grand Artifice~) STR_VAR bam_file = c0aicon5 RET c0aicon5 = icon END
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Shocked~) STR_VAR bam_file = c0aicon6 RET c0aicon6 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Guardian Angel~) STR_VAR bam_file = c0aicon7 RET c0aicon7 = icon END
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// PROJECTILES ////////////////////////////////////
