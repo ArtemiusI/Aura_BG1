@@ -33,6 +33,7 @@ INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
 
 INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/aura_bg1.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/crossmod.tpa~
 ACTION_IF GAME_INCLUDES ~sod~
 THEN BEGIN
   PRINT ~Installing content for Siege of Dragonspear...~
