@@ -1,49 +1,71 @@
 // Aura-Sirene
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~bc0siren.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~bc0siren.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Sirene~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/sirene.d~
 END
   
 // Aura-Drake
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~bc0drake.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~bc0drake.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Drake~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/drake.d~
 END
 
 // Aura-Verr
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~l#1verrb.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~l#1verrb.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Verr'Sza~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/verrsza.d~
 END
 
 // Aura-White
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~V#1WHIB.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~V#1WHIB.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and White~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/white.d~
 END
 
 // Aura-Isra
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~brh#isra.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~brh#isra.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Isra~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/isra.d~
 END
 
 // Aura-Emily
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~X3milyB.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~X3milyB.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Emily~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/emily.d~
 END
 
+// Aura-Helga
+ACTION_IF FILE_EXISTS_IN_GAME ~X3HelgaB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between Aura and Helga~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/helga.d~
+END
+
+// Aura-Kale
+ACTION_IF FILE_EXISTS_IN_GAME ~X3KaleB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between Aura and Kale~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/kale.d~
+END
+
 // Aura-Recorder
-ACTION_IF FILE_EXISTS_IN_GAME ~bc0aura.dlg~ AND FILE_EXISTS_IN_GAME ~X3RecB.dlg~
+ACTION_IF FILE_EXISTS_IN_GAME ~X3RecB.dlg~
 THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Recorder~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/recorder.d~
 END
+
+// Aura-Vienxay
+ACTION_IF FILE_EXISTS_IN_GAME ~X3VienB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between Aura and Vienxay~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/vienxay.d~
+END
+
 

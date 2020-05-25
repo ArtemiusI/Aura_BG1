@@ -436,8 +436,8 @@ END
 
 // JOURNAL
 
-ADD_JOURNAL TITLE (%Aura's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 @10009 USING ~%MOD_FOLDER%/tra/english/BG1/setup.tra~
-ADD_JOURNAL TITLE (%Amanokagami Reika%) @20001 @20002 USING ~%MOD_FOLDER%/tra/english/BG1/setup.tra~
+ADD_JOURNAL TITLE (%Aura's Tale%) @10001 @10002 @10003 @10004 @10005 @10006 @10007 @10008 @10009 USING ~%MOD_FOLDER%/tra/english/setup.tra~
+ADD_JOURNAL TITLE (%Amanokagami Reika%) @20001 @20002 USING ~%MOD_FOLDER%/tra/english/setup.tra~
 
 // DIALOGUE
   
@@ -460,8 +460,8 @@ COPY_EXISTING_REGEXP GLOB ~.*\.dlg~ ~override~
   EXTEND_TOP ~%bg1_eet_symbol%0112.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar0112.baf~ EVAL
   EXTEND_TOP ~%bg1_eet_symbol%0900.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar0900.baf~ EVAL
   EXTEND_TOP ~%bg1_eet_symbol%3300.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar3300.baf~ EVAL
+  EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/BGEE/baldur.baf~ EVAL
   
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/baldur.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aura.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aurad.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts0.baf~

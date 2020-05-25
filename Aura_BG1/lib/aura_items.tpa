@@ -471,8 +471,8 @@ COPY_EXISTING ~c0aubo1a.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter I~
-SAY NAME2 ~Sunshooter I~
+SAY NAME1 ~Sunshooter I (Rapid)~
+SAY NAME2 ~Sunshooter I (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -508,8 +508,8 @@ COPY_EXISTING ~c0aubo1b.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter I~
-SAY NAME2 ~Sunshooter I~
+SAY NAME1 ~Sunshooter I (Precise)~
+SAY NAME2 ~Sunshooter I (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -545,8 +545,8 @@ COPY_EXISTING ~c0aubo2a.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter II~
-SAY NAME2 ~Sunshooter II~
+SAY NAME1 ~Sunshooter II (Rapid)~
+SAY NAME2 ~Sunshooter II (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -582,8 +582,8 @@ COPY_EXISTING ~c0aubo2b.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter II~
-SAY NAME2 ~Sunshooter II~
+SAY NAME1 ~Sunshooter II (Precise)~
+SAY NAME2 ~Sunshooter II (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -619,8 +619,8 @@ COPY_EXISTING ~c0aubo2c.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter II~
-SAY NAME2 ~Sunshooter II~
+SAY NAME1 ~Sunshooter II (Power)~
+SAY NAME2 ~Sunshooter II (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -657,8 +657,8 @@ COPY_EXISTING ~c0aubo3a.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter III~
-SAY NAME2 ~Sunshooter III~
+SAY NAME1 ~Sunshooter III (Rapid)~
+SAY NAME2 ~Sunshooter III (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -695,8 +695,8 @@ COPY_EXISTING ~c0aubo3b.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter III~
-SAY NAME2 ~Sunshooter III~
+SAY NAME1 ~Sunshooter III (Precise)~
+SAY NAME2 ~Sunshooter III (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -733,8 +733,8 @@ COPY_EXISTING ~c0aubo3c.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter III~
-SAY NAME2 ~Sunshooter III~
+SAY NAME1 ~Sunshooter III (Power)~
+SAY NAME2 ~Sunshooter III (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -772,8 +772,8 @@ COPY_EXISTING ~c0aubo4a.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter IV~
-SAY NAME2 ~Sunshooter IV~
+SAY NAME1 ~Sunshooter IV (Rapid)~
+SAY NAME2 ~Sunshooter IV (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -782,8 +782,8 @@ STATISTICS:
   +1 attack per round, -1 damage
   
   May use 'Rain of Arrows' once per day
-  Special: Fires 5 volleys of +5 arrows in a cone briefly reducing movement rate by 30%, 10 attacks per round for the duration
-  Damage: 1d6+1 missile
+  Special: Fires 5 volleys of +5 arrows in a cone briefly reducing movement rate by 99%, 10 attacks per round for the duration
+  Damage: 1d6+1 magic
 
 Charge abilities (1x/day):
 – Create Sunshooter Arrows (Healing, Lightning, Static)
@@ -814,8 +814,8 @@ COPY_EXISTING ~c0aubo4b.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter IV~
-SAY NAME2 ~Sunshooter IV~
+SAY NAME1 ~Sunshooter IV (Precise)~
+SAY NAME2 ~Sunshooter IV (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -856,8 +856,8 @@ COPY_EXISTING ~c0aubo4c.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter IV~
-SAY NAME2 ~Sunshooter IV~
+SAY NAME1 ~Sunshooter IV (Power)~
+SAY NAME2 ~Sunshooter IV (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -898,8 +898,8 @@ COPY_EXISTING ~c0aubo5a.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter V~
-SAY NAME2 ~Sunshooter V~
+SAY NAME1 ~Sunshooter V (Rapid)~
+SAY NAME2 ~Sunshooter V (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -908,8 +908,8 @@ STATISTICS:
   +3/2 attacks per round, -1 damage
   
   May use 'Rain of Arrows' once per day
-  Special: Fires 10 volleys of +5 arrows in a cone briefly reducing movement rate by 50%, 10 attacks per round for the duration
-  Damage: 1d6+1 missile
+  Special: Fires 10 volleys of +5 arrows in a cone briefly reducing movement rate by 99%, 10 attacks per round for the duration
+  Damage: 1d6+1 magic
 
 Charge abilities:
 – Create Sunshooter Arrows (1x/day) (Healing, Lightning, Static, Disruptor, Warp)
@@ -940,8 +940,8 @@ COPY_EXISTING ~c0aubo5b.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter V~
-SAY NAME2 ~Sunshooter V~
+SAY NAME1 ~Sunshooter V (Precise)~
+SAY NAME2 ~Sunshooter V (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
@@ -982,8 +982,8 @@ COPY_EXISTING ~c0aubo5c.itm~ ~override~
 	STR_VAR
 	  resource = C0Aura
 END
-SAY NAME1 ~Sunshooter V~
-SAY NAME2 ~Sunshooter V~
+SAY NAME1 ~Sunshooter V (Power)~
+SAY NAME2 ~Sunshooter V (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
 
 STATISTICS:
