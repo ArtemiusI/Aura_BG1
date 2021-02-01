@@ -237,7 +237,7 @@ CHAIN C0AURAJ t4.2
 ~I don't talk about it much... even though I don't regret the three years I spent living and learning among the people of Kozakura, the way I was introduced to it was... not pleasant.~
 = ~While I was still in Lantan, I used to venture across the entire island looking for secrets and lost knowledge. My peers used to call me "Aura the Explorer" as a way to make fun of me, but I liked it... I always wanted to find things that weren't catalogued in the old archives and libraries of home.~
 = ~Even then, I wasn't satisfied. I always wanted to see the world. I wasn't happy with how isolated my people were, and I wanted to see and share experiences with the rest of the Realms. So when I felt I couldn't resist the urge, I begged my parents to let me join the crew of a trade ship so that I could travel.~
-= ~I travelled for a few years, from Maztica to Waterdeep, learning local customs and making a living from trading my inventions. Then, when my ship was travelling by see across the Golden Way...~
+= ~I travelled for a few years, from Maztica to Waterdeep, learning local customs and making a living from trading my inventions. Then, when my ship was travelling by sea across the Golden Way...~
 END
 ++ ~You looked a little scared for a second. What happened then?~ + t4.5
 ++ ~Go on.~ + t4.5
@@ -717,7 +717,7 @@ IF ~!Gender(Player1,FEMALE)~ + t10.15
 
 CHAIN C0AURAJ t10.13
 ~Oh. Well, I'll have a cup anyway... now that I'm thinking of Kozakura again...~
-EXTERN C0AURAJ t10.13
+EXTERN C0AURAJ t10.12
 
 CHAIN C0AURAJ t10.14
 ~I'll just... rest on your shoulder for a while if you don't mind, <CHARNAME>... so sleepy...~
@@ -950,7 +950,7 @@ END
 
 I_C_T GELLAN 0 C0AuraGELLAN0
 == GELLAN IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Ah, I see you've brought our little darlin' inventor with you! How are you, Aura, dear?~
-== C0AURAJ ~All is well, miss Gellana. Thank you for your concern.~
+== C0AURAJ ~All is well, missus Gellana. Thank you for your concern.~
 == GELLAN ~Good, that's good, dearie. Now, was there something you needed?~
 END
 
@@ -1902,7 +1902,7 @@ IF ~~ EXIT
 END
  
 IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) Global("C0AuraInsulted","GLOBAL",0)~ THEN BEGIN pid
- SAY ~How's it going?~ [AURAf]
+ SAY ~How's it going?~ [C0BLANK]
  + ~Gender(Player1,FEMALE)
 	!Alignment(Player1,MASK_EVIL)
 	CheckStatGT(Player1,9,CHR)
@@ -2311,7 +2311,7 @@ IF ~~ EXIT
 END
 
 IF ~~ f4.1
-SAY ~*giggle*~ [AURAu]
+SAY ~*giggle*~
 IF ~~ EXIT
 END
 

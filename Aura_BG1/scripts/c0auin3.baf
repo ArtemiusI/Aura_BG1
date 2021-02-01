@@ -6,8 +6,7 @@ THEN
   RESPONSE #100
   SetGlobal("Creation","LOCALS",1)
   MakeGlobalOverride()
-  AddFamiliar()
-  ChangeEnemyAlly(Myself,FAMILIAR)
+  ChangeEnemyAlly(Myself,CONTROLLED)
 END
 
 IF
@@ -37,7 +36,6 @@ IF
   !Global("Standby","LOCALS",1)
 THEN
   RESPONSE #100
-  AddFamiliar()
   MakeGlobalOverride()
   SetGlobal("Upgraded","LOCALS",0)
 END
@@ -291,6 +289,104 @@ THEN
 END
 
 IF
+  Global("C0AutoUpgradeSpecial5","GLOBAL",1)
+  Global("MageSpells1","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUIN31",Myself)
+	ApplySpellRES("C0AUIN32",Myself)
+	Rest()
+	SetGlobal("MageSpells1","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial6","GLOBAL",1)
+  Global("MageSpells2","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUIN33",Myself)
+	ApplySpellRES("C0AUIN34",Myself)
+	Rest()
+	SetGlobal("MageSpells2","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial7","GLOBAL",1)
+  Global("MageSpells3","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUIN35",Myself)
+	ApplySpellRES("C0AUIN36",Myself)
+	Rest()
+	SetGlobal("MageSpells3","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial8","GLOBAL",1)
+  Global("MageSpells4","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUIN37",Myself)
+	ApplySpellRES("C0AUIN38",Myself)
+	Rest()
+	SetGlobal("MageSpells4","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial9","GLOBAL",1)
+  Global("EnchantBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUENC1",Myself)
+	SetGlobal("EnchantBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial9","GLOBAL",2)
+  Global("EnchantBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUENC2",Myself)
+	SetGlobal("EnchantBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial9","GLOBAL",3)
+  Global("EnchantBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUENC3",Myself)
+	SetGlobal("EnchantBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial9","GLOBAL",4)
+  Global("EnchantBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUENC4",Myself)
+	SetGlobal("EnchantBlade","LOCALS",1)
+	Continue()
+END
+
+IF
+  Global("C0AutoUpgradeSpecial9","GLOBAL",5)
+  Global("EnchantBlade","LOCALS",0)
+THEN
+  RESPONSE #100
+	ApplySpellRES("C0AUENC5",Myself)
+	SetGlobal("EnchantBlade","LOCALS",1)
+	Continue()
+END
+
+IF
   Die()
 THEN
   RESPONSE #100
@@ -317,7 +413,8 @@ IF
 THEN
   RESPONSE #100
   SetGlobal("Standby","LOCALS",0)
-  RemoveFamiliar()
+  ClearAllActions()
+  MoveGlobalObject(Myself,Myself)
   ChangeEnemyAlly(Myself,NEUTRAL)
 END
 
@@ -327,19 +424,23 @@ IF
   !Allegiance(Myself,GOODBUTBLUE)
 THEN
   RESPONSE #100
-  RemoveFamiliar()
+  ClearAllActions()
+  MoveGlobalObject(Myself,Myself)
+  ChangeEnemyAlly(Myself,NEUTRAL)
+  SmallWait(1)
   ChangeEnemyAlly(Myself,GOODBUTBLUE)
 END
 
 IF
   InParty("C0Aura")
-  !Allegiance(Myself,FAMILIAR)
+  !Allegiance(Myself,CONTROLLED)
   !Global("Standby","LOCALS",1)
 THEN
   RESPONSE #100
-  AddFamiliar()
+  ClearAllActions()
   MakeGlobalOverride()
-  ChangeEnemyAlly(Myself,FAMILIAR)
+  MoveGlobalObject(Myself,Myself)
+  ChangeEnemyAlly(Myself,CONTROLLED)
 END
 
 IF
@@ -350,7 +451,6 @@ THEN
   RESPONSE #100
   SetGlobal("Standby","LOCALS",0)
   Enemy()
-  RemoveFamiliar()
 END
 
 IF
@@ -456,6 +556,7 @@ END
 
 IF
 	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
 	ClassLevelGT("C0Aura",ROGUE,11)
     Global("Upgrade","LOCALS",0)
 THEN
@@ -482,6 +583,7 @@ END
 
 IF
 	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
 	ClassLevelGT("C0Aura",ROGUE,15)
     Global("Upgrade","LOCALS",0)
 THEN
@@ -512,6 +614,7 @@ END
 
 IF
 	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
 	ClassLevelGT("C0Aura",ROGUE,19)
     Global("Upgrade","LOCALS",0)
 THEN
@@ -543,6 +646,7 @@ END
 
 IF
 	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
 	ClassLevelGT("C0Aura",ROGUE,15)
     Global("Upgrade","LOCALS",1)
 THEN
@@ -572,6 +676,7 @@ END
 
 IF
 	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
 	ClassLevelGT("C0Aura",ROGUE,19)
     Global("Upgrade","LOCALS",2)
 THEN

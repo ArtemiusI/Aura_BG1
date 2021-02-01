@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~3.2~
+VERSION ~3.3~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
@@ -48,24 +48,31 @@ PRINT ~Please choose one of the following:
 [3] Alternate 1 by Omar Diaz
 [4] Alternate 2 by Pantalion
 [5] Alternate 3 (edited NWN)
-[6] Original BG1 Default by Lava Del'Vortel
-[7] Original BG2 Default by Artemius_I/AionZ~
+[6] First BG1 Default by Lava Del'Vortel
+[7] Second BG1 Default by Artemius_I/AionZ
+[8] Original BG2 Default by Artemius_I/AionZ~
 
 OUTER_SPRINT ~portrait~ ~placeholder_value~
 OUTER_WHILE (!(IS_AN_INT ~portrait~) OR (~portrait~ > 0x7) OR (~portrait~ < 0x1)) BEGIN
   ACTION_READLN ~portrait~
 END
-      ACTION_IF ("portrait" = 7) THEN BEGIN
+      ACTION_IF ("portrait" = 8) THEN BEGIN
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraL.bmp~ ~override/AuraL.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: Original BG2 Default by Artemius_I/AionZ~
 	  END
-      ACTION_IF ("portrait" = 6) THEN BEGIN
+      ACTION_IF ("portrait" = 7) THEN BEGIN
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraL.bmp~ ~override/AuraL.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraS.bmp~ ~override/AuraS.bmp~
-      PRINT ~Portrait: Original BG1 Default by Lava Del'Vortel~
+      PRINT ~Portrait: Second BG1 Default by Artemius_I/AionZ~
+	  END
+      ACTION_IF ("portrait" = 6) THEN BEGIN
+		COPY ~%MOD_FOLDER%/alt-portrait/lavabg1/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/lavabg1/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/lavabg1/AuraS.bmp~ ~override/AuraS.bmp~
+      PRINT ~Portrait: First BG1 Default by Lava Del'Vortel~
 	  END
       ACTION_IF ("portrait" = 5) THEN BEGIN
 		COPY ~%MOD_FOLDER%/alt-portrait/nwnstyle/AuraL.bmp~ ~override/AuraL.bmp~

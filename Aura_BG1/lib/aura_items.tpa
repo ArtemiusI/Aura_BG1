@@ -118,6 +118,7 @@ COPY_EXISTING ~c0amaga3.spl~ ~override~
 END
 
 COPY_EXISTING ~c0amaga2.itm~ ~override~
+LPF ALTER_EFFECT INT_VAR match_opcode = 319 special = RESOLVE_STR_REF (~<CHARNAME>~) END
 SAY NAME1 ~Amulet~
 SAY NAME2 ~<CHARNAME>'s Magatama~
 SAY DESC ~This mysterious, curved stone is called a 'magatama'. Though you have never seen anything like it before, it is apparently a fairly common decorative design in its place of origin, Kara-Tur. These jewels are sometimes blessed by priestesses of the Way and carried as protective talismans against chaotic and malevolent spirits.
@@ -1040,7 +1041,7 @@ STATISTICS:
 
   'Rain of Arrows'
   Special: Fires 15 volleys of +5 arrows in a cone briefly reducing movement rate by 99%, 10 attacks per round for the duration
-  Damage: 1d6+2 missile
+  Damage: 1d6+1 magic
 
   'Sniper Shot'
   Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 100% for 5 rounds
@@ -1096,7 +1097,7 @@ STATISTICS:
 
   'Rain of Arrows'
   Special: Fires 15 volleys of +5 arrows in a cone briefly reducing movement rate by 99%, 10 attacks per round for the duration
-  Damage: 1d6+2 missile
+  Damage: 1d6+1 magic
 
   'Sniper Shot'
   Special: Launch a +5 arrow from increased visual range, dealing critical damage and reducing physical resistances by 100% for 5 rounds
@@ -1188,19 +1189,18 @@ COPY_EXISTING ~c0aubob3.itm~ ~override~
 SAY NAME2 ~Blazing Shot +5~
 WRITE_SHORT 0x9C ~%c0auaro4%~
 
-COPY_EXISTING ~c0auboc1.itm~ ~override~
+COPY_EXISTING ~c0auboc.itm~ ~override~
+  LPF ALTER_ITEM_HEADER
+	INT_VAR
+		projectile = c0arain
+END
+SAY NAME1 ~Arrow Rain +5~
 SAY NAME2 ~Arrow Rain +5~
-WRITE_SHORT 0x9C ~%c0arain%~
-COPY_EXISTING ~c0auboc2.itm~ ~override~
-SAY NAME2 ~Arrow Rain +5~
-WRITE_SHORT 0x9C ~%c0arain%~
-COPY_EXISTING ~c0auboc3.itm~ ~override~
-SAY NAME2 ~Arrow Rain +5~
-WRITE_SHORT 0x9C ~%c0arain%~
-COPY_EXISTING ~c0auboc4.itm~ ~override~
-SAY NAME2 ~Arrow Rain +5~
-WRITE_SHORT 0x9C ~%c0arain%~
 
+COPY_EXISTING ~c0austop.spl~ ~override~
+  LPF ALTER_EFFECT INT_VAR match_opcode = 100 parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0AURA~) END
+COPY_EXISTING ~c0auarow.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0auheal END
 COPY_EXISTING ~c0auarow.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
@@ -1220,7 +1220,8 @@ SAY DESC ~This unusual arrow, designed and crafted by Aura, deals no damage to i
 STATISTICS:
 
 Combat abilities:
-– Target regenerates 1d2 hit points per second for (2 + Aura's level) seconds
+– Target is healed for 2 hit points (+ half of Aura's level), then regenerates the same amount every 2 seconds following for 6 seconds (non-cumulative)
+– From 20th level onwards, the arrow bursts into a shower of energy, granting the healing effects to allies near the target
 – This arrow does not apply Magnetism
 
 Damage: None
@@ -1806,13 +1807,13 @@ Aura's tinkering has somehow awakened a part of the power that lingers within th
 STATISTICS:
 
 Charge abilities:
-– Call Lightning three times per day
 – Storm Shield once per day
 
 Equipped abilities:
 – May only be removed with a Remove Curse spell
+– 5% chance each nearby foe will be struck by lightning for 2d8 electrical damage
 – Wearer is immune to lightning strikes, Call Lightning and Lightning Bolt
-– Electricity Resistance: +20%
+– Electrical Resistance: +20%
 – All electrical damage inflicted by the wearer is increased by 15%
 – Save vs. Spells: -3 penalty
 
@@ -1845,6 +1846,12 @@ Requires:
 
 Weight: 4~
 
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/C0AUIM06.BAF~
+
+COPY_EXISTING ~c0auim06.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~c0auim06~ // override
+  WRITE_ASCII DEATHVAR ~c0auim06~ // death variable
+
 COPY_EXISTING ~c0auim06.spl~ ~override~
 COPY_EXISTING ~c0auim06.itm~ ~override~
 SAY NAME1 ~Two-handed Sword~
@@ -1857,7 +1864,7 @@ STATISTICS:
 
 Special:
 – Consumes 10 gold per successful hit
-– Upon killing a target, gain 100 gold and deal +4 melee damage for the next round.
+– Upon killing a target, 50% chance to gain 100 gold and deal +4 melee damage for the next round.
 
 THAC0: +3
 Damage: 1d10+4 (slashing)
@@ -1881,13 +1888,12 @@ COPY_EXISTING ~c0abrac1.itm~ ~override~
 END
 SAY NAME1 ~Gloves~
 SAY NAME2 ~Minor Artificer's Gloves of Fire~
-SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles and explosives with fire.
+SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles with fire.
 
 STATISTICS:
 
 Equipped abilities:
-– Fire Resistance: +10%
-– All fire damage inflicted by the wearer is increased by 10%
+– Ranged attacks deal 1 extra point of fire damage
 
 Weight: 1~
 
@@ -1904,12 +1910,12 @@ COPY_EXISTING ~c0abrac2.itm~ ~override~
 END
 SAY NAME1 ~Gloves~
 SAY NAME2 ~Artificer's Gloves of Fire~
-SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles and explosives with fire.
+SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles with fire.
 
 STATISTICS:
 
 Equipped abilities:
-– Fire Resistance: +20%
+– Ranged attacks deal 1d4 extra points of fire damage
 – All fire damage inflicted by the wearer is increased by 10%
 
 Weight: 1~
@@ -1927,12 +1933,13 @@ COPY_EXISTING ~c0abrac3.itm~ ~override~
 END
 SAY NAME1 ~Gloves~
 SAY NAME2 ~Greater Artificer's Gloves of Fire~
-SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles and explosives with fire.
+SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles with fire.
 
 STATISTICS:
 
 Equipped abilities:
-– Fire Resistance: +40%
+– Fire Resistance: +20%
+– Ranged attacks deal 1d6 extra points of fire damage
 – All fire damage inflicted by the wearer is increased by 20%
 
 Weight: 1~

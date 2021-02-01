@@ -117,6 +117,15 @@ ACTION_PHP_EACH	DMG_ARRAY AS one => two	BEGIN
 	LAF	ADD_SPLPROT	INT_VAR	stat = 260	value = min	relation = 	max	RET	EVAL ~%one%~ = new_row	END
 END
 
+ACTION_DEFINE_ASSOCIATIVE_ARRAY	DMG_ARRAY2	BEGIN
+	~FIRE2~		=>	14
+END
+ACTION_PHP_EACH	DMG_ARRAY2 AS one => two	BEGIN
+	LAF	ADD_SPLPROT	INT_VAR	stat = two	value = 0	relation = 	2	RET	min = new_row	END
+	LAF	ADD_SPLPROT	INT_VAR	stat = two	value = 128	relation = 	4	RET	max = new_row	END
+	LAF	ADD_SPLPROT	INT_VAR	stat = 260	value = min	relation = 	max	RET	EVAL ~%one%~ = new_row	END
+END
+
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// ICONS //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -220,3 +229,5 @@ ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albol2.PRO~ ~C0 Aerial Judgment 2~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0pring.PRO~ ~C0 Panacea Circle~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acomet.PRO~ ~C0 Red Meteor~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auheal.PRO~ ~C0 Aura Healing~

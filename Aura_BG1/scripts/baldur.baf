@@ -5,3 +5,16 @@ THEN
   RESPONSE #100
 	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
 END
+
+IF
+  InParty("C0Aura")
+  !Dead("C0Aura")
+  Global("C0AutoCreated", "GLOBAL", 1)
+  !TriggerOverride("C0AUIN3",Global("Standby", "LOCALS", 1))
+  !Dead("C0AUIN3")
+  !InActiveArea("C0AUIN3")
+THEN
+  RESPONSE #100
+    MoveGlobalObject("C0AUIN3","C0Aura")
+	ActionOverride("C0AUIN3",JumpToObject(Myself))
+END

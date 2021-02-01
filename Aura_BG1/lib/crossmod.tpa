@@ -1,3 +1,11 @@
+
+// Aura-Glam
+ACTION_IF MOD_IS_INSTALLED ~SETUP-GLAMNPCPACK.TP2~ ~0~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between Aura and Glam's NPC Pack~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/glamvrock.d~
+END
+
 // Aura-Sirene
 ACTION_IF FILE_EXISTS_IN_GAME ~bc0siren.dlg~
 THEN BEGIN
@@ -67,5 +75,3 @@ THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Vienxay~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/vienxay.d~
 END
-
-

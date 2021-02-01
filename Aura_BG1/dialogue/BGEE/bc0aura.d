@@ -1240,7 +1240,7 @@ Global("C0AuraYeslick3","GLOBAL",0)~ THEN BYESLI C0AuraYeslick3
 ~Is it true that yer kin travel through the skies in flyin' ships, lass?~
 DO ~SetGlobal("C0AuraYeslick3","GLOBAL",1)~
 == BC0AURA ~You mean airships? Yes, they're real. Not as common as people believe, though. Mostly we make do by carriage or by foot.~
-== BYESLI ~Ehh... just the thought of bein' in such a contraption is enough to make this dwarf's belly retch... eh, no offense meant to yer kin. I be too used to the underground.~
+== BYESLI ~Ehh... just the thought of bein' in such a contraption is enough to make this dwarf's belly churn... eh, no offense meant to yer kin. I be too used to the underground.~
 == BC0AURA ~What brought this on, anyway? I didn't think you'd even know about something like airships.~
 == BYESLI ~Aye, 'tis a long story lass, but I'll give ye the short version. In me younger years, I became acquainted with a strange gnome possessin' an antique airship. Eh... 'Fiddlebender' be his name, as I recall.~
 == BC0AURA ~I think I knew a Fiddlebender once... though it was a 'she', as I recall. What about this fellow, then?~

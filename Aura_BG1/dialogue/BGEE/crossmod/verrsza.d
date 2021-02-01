@@ -35,4 +35,4 @@ DO ~SetGlobal("C0AuraVerr2","GLOBAL",2)~
 == BC0Aura ~But I've only gotten half of the results I needed! Come here and let me finish!~
 == L#1VerrB ~I swear, I will kill you, gnome!~
 == BC0Aura ~Yikes! I get it, I get it! Calm down and go take a nap already. I'll work with what I've already got.~
-EXIT
+DO ~RestParty()~ EXIT

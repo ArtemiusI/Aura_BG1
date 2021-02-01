@@ -86,7 +86,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 Disadvantages:
 – Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -4 penalty to base THAC0 modifier.
+– -3 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 
@@ -179,7 +179,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 Disadvantages:
 – Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -4 penalty to base THAC0 modifier.
+– -3 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 
@@ -279,7 +279,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 
 Disadvantages:
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -4 penalty to base THAC0 modifier.
+– -3 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.
 
@@ -1823,11 +1823,12 @@ SAY NAME1 ~Lantanese Potion of Ultimate Mastery~
 SAY NAME2 ~Lantanese Potion of Ultimate Mastery~
 SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
 
-   - Mages and Bards gain +2 to Intelligence.
-   - Clerics and Druids gain +2 to Wisdom.
-   - Thieves and Monks gain +2 to Dexterity.
    - Fighters, Rangers and Paladins gain +2 to Strength.
-   - Sorcerers and Shamans gain +2 to Constitution.
+   - Thieves and Monks gain +2 to Dexterity.
+   - Shamans gain +2 to Constitution.
+   - Mages gain +2 to Intelligence.
+   - Clerics and Druids gain +2 to Wisdom.
+   - Sorcerers and Bards gain +2 to Charisma.
    - Spellcasting classes take precedence over warrior classes.
    - Arcane classes take precedence over divine classes.~
 WRITE_LONG 0x34 15000

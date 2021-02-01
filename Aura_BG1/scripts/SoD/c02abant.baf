@@ -1148,7 +1148,7 @@ RESPONSE #70
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",8)
 	SetGlobal("C02AuraDrake1","MYAREA",80)
 RESPONSE #80
-	DisplayStringHead("C0Drake",~...No. Never again, not in a million years. *shudder* My manhood is quivering at the very thought.~)
+	DisplayStringHead("C0Drake",~...No. Never again, not in a million years. *shudder* I feel emasculated at the very thought.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
 	SetGlobal("C02AuraDrake1","MYAREA",90)
 RESPONSE #90

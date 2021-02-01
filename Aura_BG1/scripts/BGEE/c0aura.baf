@@ -1,3 +1,10 @@
+IF
+  GlobalGT("bd_plot","GLOBAL",0)
+THEN
+ RESPONSE #100
+  ChangeAIScript("C02AURA",OVERRIDE)
+END
+
 // EXPERIENCE
 
 IF
@@ -174,6 +181,40 @@ IF
 THEN
   RESPONSE #100
 	IncrementGlobal("C0AuraTalk","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    RealGlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+	Global("Chapter","GLOBAL",4)
+    ReputationGT(Player1,9)
+    !Global("C0AuraTalkStopped","GLOBAL",1)
+	GlobalLT("C0AuraInsulted","GLOBAL",2)
+      Global("C0AuraTalk","GLOBAL",11)
+THEN
+  RESPONSE #100
+	IncrementGlobal("C0AuraTalk","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    RealGlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+	!Global("C0AuraTalkStopped","GLOBAL",1)
+	GlobalLT("C0AuraInsulted","GLOBAL",2)
+      Global("C0AuraTalk","GLOBAL",12)
+THEN
+  RESPONSE #100
+    StartDialogueNoSet(Player1)
 END
 
 // CANDLEKEEP
@@ -851,6 +892,20 @@ THEN
 RESPONSE #100
 	SetGlobal("C0AuraCrafting","GLOBAL",2)
 	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	!PartyHasItemIdentified("sw2h03")
+	!PartyHasItemIdentified("bow07")
+	!PartyHasItemIdentified("misc48")
+	!PartyHasItemIdentified("staf25")
+	!PartyHasItemIdentified("sw2h22")
+	Global("C0AuraCrafting","GLOBAL",1)
+	GlobalTimerExpired("C0AuraCraftingTalkTimer","GLOBAL")
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraCrafting","GLOBAL",0)
 END
 
 // CURSED BERSERKING SWORD +3
