@@ -326,23 +326,6 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-IF
-	InParty(Myself)
-	RealGlobalTimerExpired("C02AuraTalkTimer","GLOBAL")
-	Global("C0AuraTalkStopped","GLOBAL",0)
-	See(Player1)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	CombatCounter(0)
-	ReputationGT(Player1,8)
-	!See([ENEMY])
-	Global("bd_plot","global",495)
-THEN
-  RESPONSE #100
-	IncrementGlobal("C02AuraTalk","GLOBAL",1)
-	StartDialogueNoSet(Player1)
-END
-
 // Armor Upgrade
 
 IF

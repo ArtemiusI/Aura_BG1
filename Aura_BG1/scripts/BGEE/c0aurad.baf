@@ -4,7 +4,7 @@ IF
     InParty(Myself)
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-	Global("C0AuraTalk","GLOBAL",12)
+	Global("C0AuraTalk","GLOBAL",14)
 	TimeOfDay(NIGHT)
 	!AreaType("DUNGEON")
 THEN

@@ -152,7 +152,6 @@ IF
       Global("C0AuraTalk","GLOBAL",6)
       Global("C0AuraTalk","GLOBAL",8)
       Global("C0AuraTalk","GLOBAL",10)
-	  Global("C0AuraTalk","GLOBAL",14)
 	  Global("C0AuraTalk","GLOBAL",18)
 THEN
   RESPONSE #100
