@@ -323,8 +323,6 @@ LAF qd_multiclass
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
-COPY_EXISTING ~C0AUNAM.spl~ ~override~
-LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
 
       PRINT ~Installed Aura as an Illusionist / Artificer~
       END
@@ -606,8 +604,6 @@ END
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
-COPY_EXISTING ~C0AUNAM.spl~ ~override~
-LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
 
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
@@ -811,6 +807,10 @@ COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn10.spl~
 		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 10 END
 COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn11.spl~
 		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 11 END
+
+OUTER_SET multikitname = RESOLVE_STR_REF (~Artificer~)
+COPY_EXISTING ~c0aunam.eff~ ~override~
+WRITE_LONG 0x1c %multikitname%
 
 COPY_EXISTING ~c0aubear.spl~ ~override~
 SAY NAME1 ~I Hate Bears!~
