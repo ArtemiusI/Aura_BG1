@@ -470,20 +470,6 @@ THEN
 	ActionOverride("c02akoko",StartDialogueNoSet(Player1))
 END
 
-// COLDHEARTH LAIR
-
-IF
-    See(Player1)
-	AreaCheck("bd1200")
-	Global("BD_SDDD13_SEAT","bd1200",3)
-	Global("C02AuraColdhearthLair","bd1200",0)
-THEN
-  RESPONSE #100
-	SmallWait(10)
-	SetGlobal("C02AuraColdhearthLair","bd1200",1)
-	StartDialogueNoSet(Player1)
-END
-
 IF
 	See(Player1)
 	See("Phylactery2")

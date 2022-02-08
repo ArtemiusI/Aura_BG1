@@ -3,9 +3,10 @@ BEGIN C0AURAJ
 // TALK 1
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",2)~ THEN C0AURAJ t1
-~Th-thank you for letting me join you, <CHARNAME>... I'm not sure what I'd be able to do all by myself. I, um... I won't let you down.~
+~Th-thank you for letting me join you, <CHARNAME>... I'm not sure what I'd be able to do all by myself. I, um... I won't let you down.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~You sound nervous. Is this your first time travelling like this?~ + t1.1
 ++ ~Don't worry. I'm as new to the adventuring life as you.~ + t1.2
@@ -81,9 +82,10 @@ EXIT
 // TALK 2
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",4)~ THEN C0AURAJ t2
-~Hey, you! where do you think you're trying to hide this time?~
+~Hey, you! where do you think you're trying to hide this time?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~Me? I'm not hiding anywhere.~ + t2.1
 ++ ~Who are you talking to, Aura?~ + t2.2
@@ -155,9 +157,10 @@ EXIT
 // TALK 3
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",6)~ THEN C0AURAJ t3
-~<CHARNAME>, you mentioned you grew up in Candlekeep, right? The great library?~
+~<CHARNAME>, you mentioned you grew up in Candlekeep, right? The great library?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~That's right. What of it?~ + t3.1
 ++ ~Don't remind me of that terrible place. I'm happy without the memories.~ + t3.a
@@ -214,9 +217,10 @@ EXIT
 // TALK 4
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",8)~ THEN C0AURAJ t4
-~A bit of ink there, I think... no, no... that's too much. Muffy? Where's my thinner brush? There, that's better... hmm? Is something wrong, <CHARNAME>?~
+~A bit of ink there, I think... no, no... that's too much. Muffy? Where's my thinner brush? There, that's better... hmm? Is something wrong, <CHARNAME>?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~What are you painting, Aura?~ + t4.1
 ++ ~I was just watching. Carry on by all means.~ + t4.1
@@ -298,9 +302,10 @@ EXIT
 // TALK 5
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",10)~ THEN C0AURAJ t5
-~<CHARNAME>, I... umm, I finished my painting from the last time we stopped to talk. Would you like to see it?~
+~<CHARNAME>, I... umm, I finished my painting from the last time we stopped to talk. Would you like to see it?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~I'd love to see it.~ + t5.1
 ++ ~I don't have the time right now, Aura.~ + t5.0
@@ -371,9 +376,10 @@ EXIT
 // TALK 6
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",12)~ THEN C0AURAJ t6
-~Whew, I think I've been through more adventures in the short time I've known you than for the rest of my life, <CHARNAME>.~
+~Whew, I think I've been through more adventures in the short time I've known you than for the rest of my life, <CHARNAME>.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 = ~Not that it's a bad thing, mind you! I've learned a lot here that I wouldn't have otherwise. I'm just saying, you've lived a rather blessed life.~
 END
 ++ ~Come to think of it, how old are you exactly, Aura? You've never mentioned it.~ + t6.1
@@ -431,9 +437,10 @@ EXIT
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",14)
 Global("C0AuraRestTalk","GLOBAL",1)~ THEN C0AURAJ t7
-~Oh, finally, a chance to relax and put our feet up. Muffy! Where are those tea biscuits? Oh, thank you. The tea's nearly ready as well.~
+~Oh, finally, a chance to relax and put our feet up. Muffy! Where are those tea biscuits? Oh, thank you. The tea's nearly ready as well.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~Looks like you're enjoying yourself.~ + t7.1
 ++ ~Tea and biscuits? Are we adventuring or having a picnic?~ + t7.2
@@ -537,9 +544,10 @@ DO ~RestParty()~ EXIT
 // TALK 8
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",16)~ THEN C0AURAJ t8
-~I... I guess we're in trouble now, right? I mean... even more than we already were?~
+~I... I guess we're in trouble now, right? I mean... even more than we already were?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~Are you afraid, Aura?~ + t8.1
 ++ ~We'll be fine. I'm not letting anything stop me, not now.~ + t8.2
@@ -589,10 +597,11 @@ DO ~IncrementGlobal("C0AuraInsulted","GLOBAL",1)~ EXIT
 // TALK 9
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",18)~ THEN C0AURAJ t9
-~Here, <CHARNAME>. I made this for you!~
+~Here, <CHARNAME>. I made this for you!~ [C0BLANK]
 DO ~GiveItemCreate("c0amaga2",Player1,1,0,0)
 IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~It's... a necklace? Looks just like the one you wear.~ + t9.1
 ++ ~Thanks, Aura.~ + t9.2
@@ -629,9 +638,10 @@ DO ~IncrementGlobal("C0AuraInsulted","GLOBAL",1) SetGlobal("C0AuraTalkStopped","
 // TALK 10
 
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",20) Global("C0AuraRestTalk","GLOBAL",2)~ THEN C0AURAJ t10
-~Heya. Come sit next to me for a bit, <CHARNAME>! It's nice and warm by the fire.~
+~Heya. Come sit next to me for a bit, <CHARNAME>! It's nice and warm by the fire.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",2700)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
+SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~No tea or biscuits this time?~ + t10.1
 ++ ~Sure. I enjoy your company.~ + t10.2
@@ -1065,7 +1075,7 @@ I_C_T TAMOKO 0 C0AuraTAMOKO0
 END
 
 CHAIN IF WEIGHT #-1 ~Global("C0AuraTamoko","GLOBAL",2)~ THEN C0AURAJ tamoko3
-~W-wait!!~
+~W-wait!!~ [C0BLANK]
 DO ~SetGlobal("C0AuraTamoko","GLOBAL",3)~
 == TAMOKO ~...~
 == C0AURAJ ~O-omachi-kudasai, Tamoko-san!~
@@ -1113,7 +1123,7 @@ CHAIN C0AURAJ tamoko7
 COPY_TRANS TAMOKO 20
 
 CHAIN IF ~Global("C0AuraTamoko","GLOBAL",4) Dead("Tamoko")~ THEN C0AURAJ tamoko.dead
-~Why?! Why did you kill her, <CHARNAME>?~
+~Why?! Why did you kill her, <CHARNAME>?~ [C0BLANK]
 DO ~SetGlobal("C0AuraTamoko","GLOBAL",5)~
 END
 ++ ~I didn't have a choice.~ + tamoko.dead.1
@@ -1201,7 +1211,7 @@ EXIT
 
 CHAIN IF ~GlobalTimerExpired("C0AuraBurstOrbWait","GLOBAL")
 Global("C0AuraBurstOrb","GLOBAL",1)~ THEN C0AURAJ burstorb
-~Hey. <CHARNAME>! Take this. It's one of my most recent inventions.~
+~Hey. <CHARNAME>! Take this. It's one of my most recent inventions.~ [C0BLANK]
 DO ~GiveItemCreate("c0autt01",Player1,3,0,0)
 SetGlobal("C0AuraBurstOrb","GLOBAL",2)
 SetGlobalTimer("C0AuraBurstOrbTimer","GLOBAL",THREE_DAYS)~
@@ -1227,7 +1237,7 @@ EXIT
 // TELESCOPE
 
 CHAIN IF ~Global("C0AuraTelescope","GLOBAL",1)~ THEN C0AURAJ telescope
-~*sigh* I don't suppose I can talk you out of this, can I? This telescope is an artifact of my homeland, after all.~
+~*sigh* I don't suppose I can talk you out of this, can I? This telescope is an artifact of my homeland, after all.~ [C0BLANK]
 DO ~SetGlobal("C0AuraTelescope","GLOBAL",2)~
 END
 ++ ~Do you have a better idea?~ + telescope.1
@@ -1247,7 +1257,7 @@ CHAIN C0AURAJ telescope.2
 DO ~ClearAllActions() StartCutsceneMode() StartCutscene("c0aufade")~ EXIT
 
 CHAIN IF ~Global("C0AuraTelescope","GLOBAL",2)~ THEN C0AURAJ telescope.3
-~Okay! That was easy. I've tinkered with plenty of these while I was training at the academy. Bet you can't even tell it's different.~
+~Okay! That was easy. I've tinkered with plenty of these while I was training at the academy. Bet you can't even tell it's different.~ [C0BLANK]
 DO ~SetGlobal("C0AuraTelescope","GLOBAL",3)~
 = ~I put the real telescope somewhere. Hopefully they won't wonder too much about how it got moved. Now let's get out of here.~
 DO ~AddXPObject("C0Aura",1000)~ EXIT
@@ -1256,16 +1266,48 @@ CHAIN C0AURAJ telescope.x
 ~Fine. Have it your way. I guess I've just completely misjudged you.~
 DO ~IncrementGlobal("C0AuraInsulted","GLOBAL",1)~ EXIT
 
+// MAGETALKS
+
+/*
+
+CHAIN IF ~Global("C0AuraMageTalk","GLOBAL",2)~ THEN C0AURAJ race.elf
+~~
+DO ~IncrementGlobal("C0AuraMageTalk","GLOBAL",1)~
+END
+
+
+// RACETALKS
+
+CHAIN IF ~Global("C0AuraRaceTalk","GLOBAL",2)
+Race(Player1,ELF)~ THEN C0AURAJ race.elf
+~~
+DO ~IncrementGlobal("C0AuraRaceTalk","GLOBAL",1)~
+END
+
+CHAIN IF ~Global("C0AuraRaceTalk","GLOBAL",2)
+Race(Player1,ELF)~ THEN C0AURAJ race.dwarf
+~~
+DO ~IncrementGlobal("C0AuraRaceTalk","GLOBAL",1)~
+END
+
+CHAIN IF ~Global("C0AuraRaceTalk","GLOBAL",2)
+Race(Player1,ELF)~ THEN C0AURAJ race.gnome
+~~
+DO ~IncrementGlobal("C0AuraRaceTalk","GLOBAL",1)~
+END
+
+*/
+
 // QUEST
 
 CHAIN IF ~Global("C0AuraQuestLeave","GLOBAL",1)~ THEN C0AURAJ questleave
-~This... this can't keep happening, <CHARNAME>. Sooner or later they'll kill me... or you. I never meant for you to get caught up in all this... argh!~
+~This... this can't keep happening, <CHARNAME>. Sooner or later they'll kill me... or you. I never meant for you to get caught up in all this... argh!~ [C0BLANK]
 DO ~SetGlobal("C0AuraQuestLeave","GLOBAL",2)~
 = ~*sigh* I'm... I'm sorry, I didn't mean to yell like that. I'm just so tired... I think I need some rest. Preferably indoors, where I might be able to keep both eyes shut. Would that be okay, <CHARNAME>?~
 EXIT
 
 CHAIN IF ~Global("C0AuraQuest","GLOBAL",10)~ THEN C0AURAJ endquest
-~*sigh* We did it... it's over. Thank you, <CHARNAME>... I'd like to have a moment.~
+~*sigh* We did it... it's over. Thank you, <CHARNAME>... I'd like to have a moment.~ [C0BLANK]
 = ~(She kneels before the ronin's corpse and clasps her hands, uttering a few Kozakuran prayers. Eventually, she lays her hand over his eyelids, closing them, and rises.)~
 DO ~FadeFromColor([30.0],0)~
 = ~I... guess you probably have a lot of questions to ask. I'd rather not talk here, though. Lead on, <CHARNAME>... I'll take the sword with me.~
@@ -1901,7 +1943,7 @@ SAY ~I could. But I won't. Why should I, when you clearly don't have any respect
 IF ~~ EXIT
 END
  
-IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) Global("C0AuraInsulted","GLOBAL",0)~ THEN BEGIN pid
+IF ~Global("EndofBG1","GLOBAL",0) IsGabber(Player1) CombatCounter(0) !Detect([ENEMY]) Global("C0AuraInsulted","GLOBAL",0)~ THEN BEGIN pid
  SAY ~How's it going?~ [C0BLANK]
  + ~Gender(Player1,FEMALE)
 	!Alignment(Player1,MASK_EVIL)

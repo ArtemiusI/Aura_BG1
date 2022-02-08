@@ -1,0 +1,9 @@
+2DA V1.0
+
+			ResRef		Type      
+CAST		C0ARUNE6	3           
+SEE_ENEMY	C0ARUN6A	3          
+ATTACKED	C0ARUN6B	3          
+HPLT50		C0ARUN6C	3        
+HPLT25		C0ARUN6D	3        
+HELPLESS	C0ARUN6E	3        

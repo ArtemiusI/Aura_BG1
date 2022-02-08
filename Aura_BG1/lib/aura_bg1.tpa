@@ -31,9 +31,9 @@ COPY ~%MOD_FOLDER%/creatures/C0Aura.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
+While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, after which a certain course of events led her to leave on a journey towards the Sword Coast.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
   SAY HAPPY ~I'm glad I decided to travel with you.~ [C0AU002]
   SAY UNHAPPY_ANNOYED ~That was just an honest mistake... right?~ [C0AU003]
@@ -42,11 +42,11 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
   SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
   SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
-  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
-  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
-  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY1 ~I didn't want to have to fight!~ [C0AU009]
+  SAY BATTLE_CRY2 ~Ready, aim and fire!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I never miss!~ [C0AU011]
   SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
-  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY BATTLE_CRY5 ~Okay, I got this!~ [C0AU013]
   SAY DAMAGE ~Ow!~ [C0AU014]
   SAY DYING ~Ah...~ [C0AU015]
   SAY HURT ~It hurts so much...~ [C0AU016]
@@ -55,13 +55,13 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
   SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
   SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
-  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
-  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON1 ~Yep?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Mm-hmm?~ [C0AU023]
   SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
   SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
   SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
   SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
-  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_HIT ~Ha ha! Right on target!~ [C0AU036]
   SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
   SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
   SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
@@ -81,9 +81,9 @@ COPY ~%MOD_FOLDER%/creatures/SoD/c02aura.cre~ ~override~
   WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
 
 During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
@@ -94,11 +94,11 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
   SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
   SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
-  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
-  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
-  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY1 ~I didn't want to have to fight!~ [C0AU009]
+  SAY BATTLE_CRY2 ~Ready, aim and fire!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I never miss!~ [C0AU011]
   SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
-  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY BATTLE_CRY5 ~Okay, I got this!~ [C0AU013]
   SAY DAMAGE ~Ow!~ [C0AU014]
   SAY DYING ~Ah...~ [C0AU015]
   SAY HURT ~It hurts so much...~ [C0AU016]
@@ -107,13 +107,16 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
   SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
   SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
-  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
-  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON1 ~Yep?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Mm-hmm?~ [C0AU023]
   SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
+  SAY SELECT_COMMON4 ~Need a hand?~ [C0AU025]
+  SAY SELECT_COMMON5 ~Need a gadget?~ [C0AU026]
+  SAY SELECT_COMMON6 ~Anything you need!~ [C0AU027]
   SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
   SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
   SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
-  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_HIT ~Ha ha! Right on target!~ [C0AU036]
   SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
   SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
   SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
@@ -135,9 +138,9 @@ COPY ~%MOD_FOLDER%/creatures/C0AuraMA.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
+While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, after which a certain course of events led her to leave on a journey towards the Sword Coast.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
   SAY HAPPY ~I'm glad I decided to travel with you.~ [C0AU002]
   SAY UNHAPPY_ANNOYED ~That was just an honest mistake... right?~ [C0AU003]
@@ -146,11 +149,11 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
   SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
   SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
-  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
-  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
-  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY1 ~I didn't want to have to fight!~ [C0AU009]
+  SAY BATTLE_CRY2 ~Ready, aim and fire!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I never miss!~ [C0AU011]
   SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
-  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY BATTLE_CRY5 ~Okay, I got this!~ [C0AU013]
   SAY DAMAGE ~Ow!~ [C0AU014]
   SAY DYING ~Ah...~ [C0AU015]
   SAY HURT ~It hurts so much...~ [C0AU016]
@@ -159,13 +162,13 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
   SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
   SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
-  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
-  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON1 ~Yep?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Mm-hmm?~ [C0AU023]
   SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
   SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
   SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
   SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
-  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_HIT ~Ha ha! Right on target!~ [C0AU036]
   SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
   SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
   SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
@@ -185,9 +188,9 @@ COPY ~%MOD_FOLDER%/creatures/SoD/c02AuraM.cre~ ~override/C02Aura.cre~
   WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
 
 During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
@@ -198,11 +201,11 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
   SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
   SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
-  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
-  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
-  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY1 ~I didn't want to have to fight!~ [C0AU009]
+  SAY BATTLE_CRY2 ~Ready, aim and fire!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I never miss!~ [C0AU011]
   SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
-  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY BATTLE_CRY5 ~Okay, I got this!~ [C0AU013]
   SAY DAMAGE ~Ow!~ [C0AU014]
   SAY DYING ~Ah...~ [C0AU015]
   SAY HURT ~It hurts so much...~ [C0AU016]
@@ -211,13 +214,16 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
   SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
   SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
-  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
-  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON1 ~Yep?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Mm-hmm?~ [C0AU023]
   SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
+  SAY SELECT_COMMON4 ~Need a hand?~ [C0AU025]
+  SAY SELECT_COMMON5 ~Need a gadget?~ [C0AU026]
+  SAY SELECT_COMMON6 ~Anything you need!~ [C0AU027]
   SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
   SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
   SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
-  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_HIT ~Ha ha! Right on target!~ [C0AU036]
   SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
   SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
   SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
@@ -298,9 +304,9 @@ COPY ~%MOD_FOLDER%/creatures/C0AuraPR.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. She now seeks an adversary in the Sword Coast, and has sought your aid in her quest.~
+While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, after which a certain course of events led her to leave on a journey towards the Sword Coast.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
   SAY HAPPY ~I'm glad I decided to travel with you.~ [C0AU002]
   SAY UNHAPPY_ANNOYED ~That was just an honest mistake... right?~ [C0AU003]
@@ -309,11 +315,11 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
   SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
   SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
-  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
-  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
-  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY1 ~I didn't want to have to fight!~ [C0AU009]
+  SAY BATTLE_CRY2 ~Ready, aim and fire!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I never miss!~ [C0AU011]
   SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
-  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY BATTLE_CRY5 ~Okay, I got this!~ [C0AU013]
   SAY DAMAGE ~Ow!~ [C0AU014]
   SAY DYING ~Ah...~ [C0AU015]
   SAY HURT ~It hurts so much...~ [C0AU016]
@@ -322,13 +328,13 @@ Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation i
   SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
   SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
   SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
-  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
-  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON1 ~Yep?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Mm-hmm?~ [C0AU023]
   SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
   SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
   SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
   SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
-  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_HIT ~Ha ha! Right on target!~ [C0AU036]
   SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
   SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
   SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
@@ -348,9 +354,9 @@ COPY ~%MOD_FOLDER%/creatures/SoD/c02AuraP.cre~ ~override/C02Aura.cre~
   WRITE_ASCII 0x2cc ~C02Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and bring knowledge to other, less advanced societies. In one such venture, Aura's crew was assaulted by a magical storm which destroyed their ship and swept her away into the ocean.
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
-Upon regaining consciousness, Aura found herself somehow in Kozakura, a nation in the land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
+While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, until a disastrous commission led to her disgrace and her subsequent leaving of Kozakura. Within the Sword Coast, she eventually crossed paths with her adversary and former friend, the disgraced samurai Tadahashi Saito, and ended his life with great regret.
 
 During her travels north, Aura was repeatedly forced to evade or defend herself against crusaders who would doubtlessly force her to use her great technological intellect to further their goals. Though adverse to the idea of violence, she has allied herself with the Flaming Fist both for her own protection and to fight as her own choice.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
@@ -361,11 +367,11 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
   SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
   SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
-  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
-  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
-  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY1 ~I didn't want to have to fight!~ [C0AU009]
+  SAY BATTLE_CRY2 ~Ready, aim and fire!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I never miss!~ [C0AU011]
   SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
-  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY BATTLE_CRY5 ~Okay, I got this!~ [C0AU013]
   SAY DAMAGE ~Ow!~ [C0AU014]
   SAY DYING ~Ah...~ [C0AU015]
   SAY HURT ~It hurts so much...~ [C0AU016]
@@ -374,13 +380,16 @@ During her travels north, Aura was repeatedly forced to evade or defend herself 
   SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
   SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
   SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
-  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
-  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON1 ~Yep?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Mm-hmm?~ [C0AU023]
   SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
+  SAY SELECT_COMMON4 ~Need a hand?~ [C0AU025]
+  SAY SELECT_COMMON5 ~Need a gadget?~ [C0AU026]
+  SAY SELECT_COMMON6 ~Anything you need!~ [C0AU027]
   SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
   SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
   SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
-  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_HIT ~Ha ha! Right on target!~ [C0AU036]
   SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
   SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
   SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]

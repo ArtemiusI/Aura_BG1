@@ -59,9 +59,10 @@ ADD_KIT ~C0AURA~
   SAY ~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +30 bonus to Lore.
+– +20 bonus to Lore.
+– +5 additional Lore per level gained.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
-– Analytical Archery: The artificer gains Intelligence bonuses to ranged THAC0 in addition to Dexterity.
+– Analytical Archery: The artificer uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -71,24 +72,82 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day. Extra uses are gained at levels 9 and 13.
+– May use the Craft Rune ability once per day.
 
-CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
 
 – May use the Advanced Alchemy ability at will.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
 
-– From level 8 onwards, may use the Craft Automaton ability once per day.
+– 3rd level: May use the Infusion ability once per day.
+
+INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.
+
+– 8th level: Infusion's enchantment bonus increases to +2.
+– 9th level: May use the Craft Automaton ability once per day.
 
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– 10th level: Gains an additional use of Craft Rune.
+– 16th level: Infusion's enchantment bonus increases to +3.
+– 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
+– 20th level: Gains an additional use of Craft Rune.
+– 24th level: Infusion's enchantment bonus increases to +4.
+– 32nd level: Infusion's enchantment bonus increases to +5.
+– 40th level: Infusion's enchantment bonus increases to +6.
 
 Disadvantages:
 – Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -3 penalty to melee THAC0 modifier.
+– -2 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
+/*  SAY ~^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+^0xFF12B4E6Advantages:^-
+– +20 bonus to ^0xFFDBD8B8Lore^-.
+– +5 additional ^0xFFDBD8B8Lore^- per level gained.
+– +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
+– ^0xFF12B4E6Analytical Archery:^- The artificer uses ^0xFFDBD8B8Intelligence^-, if higher, for bonuses to ranged ^0xFFDBD8B8THAC0^- instead of ^0xFFDBD8B8Dexterity^-.
+– May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
+
+  ^0xFF12B4E6ALCHEMIST'S FIRE:^- Trap damage increases to d6 and sets targets ^0xFFDBD8B8Aflame^-, dealing an additional 1d4 fire damage per round.
+  ^0xFF12B4E6RAPID FREEZE:^- Targets become ^0xFFDBD8B8Slowed^-, suffering a -4 penalty to ^0xFFDBD8B8THAC0^- and ^0xFFDBD8B8Armor Class^-.
+  ^0xFF12B4E6ACIDIC COMPOUND:^- Targets are afflicted with ^0xFFDBD8B8Corrosion^-, suffering a -25% penalty to ^0xFFDBD8B8Physical Resistance^- and ^0xFFDBD8B8Damage^-.
+  ^0xFF12B4E6ELECTRIC CHARGE:^- Targets become ^0xFFDBD8B8Shocked^-, suffering a 10% chance every round to become ^0xFFDBD8B8Paralyzed^- for 1 round.
+
+– May use the ^0xFF12B4E6Craft Rune^- ability once per day.
+
+^0xFF12B4E6CRAFT RUNE:^- Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the ^0xFF12B4E6Craft Rune^- ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
+
+– May use the ^0xFF12B4E6Advanced Alchemy^- ability at will.
+
+^0xFF12B4E6ADVANCED ALCHEMY:^- Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– ^0xFF12B4E68th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
+– ^0xFF12B4E69th level:^- May use the ^0xFF12B4E6Craft Automaton^- ability once per day.
+
+^0xFF12B4E6CRAFT AUTOMATON:^- The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– ^0xFF12B4E613th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
+– ^0xFF12B4E615th level:^- May use the ^0xFF12B4E6Infusion^- ability once per day.
+
+^0xFF12B4E6INFUSION:^- The artificer infuses their allies' weapons. All party members' weapons are treated as having a +3 enchantment for the purposes of determining what they can hit for 8 hours.
+
+– ^0xFF12B4E618th level:^- ^0xFF12B4E6Soul of Artifice^-: +1 bonus to ^0xFFDBD8B8Saving Throws^-. This bonus increases to +3 while under the effects of ^0xFF12B4E6Infusion^-.
+– ^0xFF12B4E624th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +4.
+– ^0xFF12B4E632nd level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +5.
+– ^0xFF12B4E640th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +6.
+
+^0xFF12B4E6Disadvantages:^-
+– Hit Die: d4
+– -10% penalty to ^0xFFDBD8B8Pick Pockets^-, ^0xFFDBD8B8Hide in Shadows^- and ^0xFFDBD8B8Move Silently^-.
+– -1 penalty to melee ^0xFF12B4E6THAC0^- modifier.
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.~*/
 
 LAF fl#add_kit_ee
   STR_VAR
@@ -145,16 +204,66 @@ ADD_KIT ~C0AURA~
  // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
   SAY ~illusionist / artificer~
   SAY ~Illusionist / Artificer~
-  SAY ~ILLUSIONIST/ARTIFICER: This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
+/*  SAY ~^0xFF12B4E6ILLUSIONIST/ARTIFICER:^- This character can use the abilities of a ^0xFF12B4E6Mage^- and an ^0xFF12B4E6Artificer^-, though ^0xFF12B4E6Mage^- spells cannot be cast while wearing armor.
+  
+Gnomes can choose this multi-class, but become ^0xFF12B4E6Illusionist/Artificers^- by default. Gnomes are the only race that can combine a specialist ^0xFF12B4E6Mage^- class in a multi-class.
+  
+^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+^0xFF12B4E6Advantages:^-
+– +20 bonus to ^0xFFDBD8B8Lore^-.
+– +5 additional ^0xFFDBD8B8Lore^- per level gained.
+– +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
+– ^0xFF12B4E6Analytical Archery:^- The artificer uses ^0xFFDBD8B8Intelligence^-, if higher, for bonuses to ranged ^0xFFDBD8B8THAC0^- instead of ^0xFFDBD8B8Dexterity^-.
+– May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
+
+  ^0xFF12B4E6ALCHEMIST'S FIRE:^- Trap damage increases to d6 and sets targets ^0xFFDBD8B8Aflame^-, dealing an additional 1d4 fire damage per round.
+  ^0xFF12B4E6RAPID FREEZE:^- Targets become ^0xFFDBD8B8Slowed^-, suffering a -4 penalty to ^0xFFDBD8B8THAC0^- and ^0xFFDBD8B8Armor Class^-.
+  ^0xFF12B4E6ACIDIC COMPOUND:^- Targets are afflicted with ^0xFFDBD8B8Corrosion^-, suffering a -25% penalty to ^0xFFDBD8B8Physical Resistance^- and ^0xFFDBD8B8Damage^-.
+  ^0xFF12B4E6ELECTRIC CHARGE:^- Targets become ^0xFFDBD8B8Shocked^-, suffering a 10% chance every round to become ^0xFFDBD8B8Paralyzed^- for 1 round.
+
+– May use the ^0xFF12B4E6Craft Rune^- ability once per day.
+
+^0xFF12B4E6CRAFT RUNE:^- Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the ^0xFF12B4E6Craft Rune^- ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
+
+– May use the ^0xFF12B4E6Advanced Alchemy^- ability at will.
+
+^0xFF12B4E6ADVANCED ALCHEMY:^- Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– ^0xFF12B4E68th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
+– ^0xFF12B4E69th level:^- May use the ^0xFF12B4E6Craft Automaton^- ability once per day.
+
+^0xFF12B4E6CRAFT AUTOMATON:^- The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– ^0xFF12B4E613th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
+– ^0xFF12B4E615th level:^- May use the ^0xFF12B4E6Infusion^- ability once per day.
+
+^0xFF12B4E6INFUSION:^- The artificer infuses their allies' weapons. All party members' weapons are treated as having a +3 enchantment for the purposes of determining what they can hit for 8 hours.
+
+– ^0xFF12B4E618th level:^- ^0xFF12B4E6Soul of Artifice^-: +1 bonus to ^0xFFDBD8B8Saving Throws^-. This bonus increases to +3 while under the effects of ^0xFF12B4E6Infusion^-.
+– ^0xFF12B4E624th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +4.
+– ^0xFF12B4E632nd level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +5.
+– ^0xFF12B4E640th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +6.
+
+^0xFF12B4E6Disadvantages:^-
+– Hit Die: d4
+– -10% penalty to ^0xFFDBD8B8Pick Pockets^-, ^0xFFDBD8B8Hide in Shadows^- and ^0xFFDBD8B8Move Silently^-.
+– -1 penalty to melee ^0xFF12B4E6THAC0^- modifier.
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.~*/
+  SAY ~ILLUSIONIST/ARTIFICER:^- This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
   
 Gnomes can choose this multi-class, but become Illusionist/Artificers by default. Gnomes are the only race that can combine a specialist Mage class in a multi-class.
   
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +30 bonus to Lore.
+– +20 bonus to Lore.
+– +5 additional Lore per level gained.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
-– Analytical Archery: The artificer gains Intelligence bonuses to ranged THAC0 in addition to Dexterity.
+– Analytical Archery: The artificer uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -164,22 +273,35 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day. Extra uses are gained at levels 9 and 13.
+– May use the Craft Rune ability once per day.
 
-CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
 
-– From level 4 onwards, may use the Advanced Alchemy ability at will.
+– May use the Advanced Alchemy ability at will.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
 
-– From level 8 onwards, may use the Craft Automaton ability once per day.
+– 3rd level: May use the Infusion ability once per day.
+
+INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.
+
+– 8th level: Infusion's enchantment bonus increases to +2.
+– 9th level: May use the Craft Automaton ability once per day.
 
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– 10th level: Gains an additional use of Craft Rune.
+– 16th level: Infusion's enchantment bonus increases to +3.
+– 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
+– 20th level: Gains an additional use of Craft Rune.
+– 24th level: Infusion's enchantment bonus increases to +4.
+– 32nd level: Infusion's enchantment bonus increases to +5.
+– 40th level: Infusion's enchantment bonus increases to +6.
 
 Disadvantages:
 – Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -3 penalty to melee THAC0 modifier.
+– -2 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 
@@ -201,6 +323,7 @@ LAF qd_multiclass
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
+COPY_EXISTING ~C0AUNAM.spl~ ~override~
 LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
 
       PRINT ~Installed Aura as an Illusionist / Artificer~
@@ -248,14 +371,77 @@ ADD_KIT ~C0AURA~
  // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
   SAY ~priestess / artificer~
   SAY ~Priestess / Artificer~
+/*  SAY ~^0xFF12B4E6PRIESTESS/ARTIFICER:^- This character can use the abilities of a ^0xFF12B4E6Priestess^- and an ^0xFF12B4E6Artificer^-, though weapons are restricted to only those allowed by the ^0xFF12B4E6Priestess's^- ethos. Thieving skills cannot be used while wearing more than studded leather armor.
+  
+^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+
+^0xFF12B4E6Advantages:^-
+– +20 bonus to ^0xFFDBD8B8Lore^-.
+– +5 additional ^0xFFDBD8B8Lore^- per level gained.
+– +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
+– ^0xFF12B4E6Analytical Archery:^- The artificer uses ^0xFFDBD8B8Intelligence^-, if higher, for bonuses to ranged ^0xFFDBD8B8THAC0^- instead of ^0xFFDBD8B8Dexterity^-.
+– May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
+
+  ^0xFF12B4E6ALCHEMIST'S FIRE:^- Trap damage increases to d6 and sets targets ^0xFFDBD8B8Aflame^-, dealing an additional 1d4 fire damage per round.
+  ^0xFF12B4E6RAPID FREEZE:^- Targets become ^0xFFDBD8B8Slowed^-, suffering a -4 penalty to ^0xFFDBD8B8THAC0^- and ^0xFFDBD8B8Armor Class^-.
+  ^0xFF12B4E6ACIDIC COMPOUND:^- Targets are afflicted with ^0xFFDBD8B8Corrosion^-, suffering a -25% penalty to ^0xFFDBD8B8Physical Resistance^- and ^0xFFDBD8B8Damage^-.
+  ^0xFF12B4E6ELECTRIC CHARGE:^- Targets become ^0xFFDBD8B8Shocked^-, suffering a 10% chance every round to become ^0xFFDBD8B8Paralyzed^- for 1 round.
+
+– May use the ^0xFF12B4E6Craft Rune^- ability once per day.
+
+^0xFF12B4E6CRAFT RUNE:^- Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the ^0xFF12B4E6Craft Rune^- ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
+
+– May use the ^0xFF12B4E6Advanced Alchemy^- ability at will.
+
+^0xFF12B4E6ADVANCED ALCHEMY:^- Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– ^0xFF12B4E68th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
+– ^0xFF12B4E69th level:^- May use the ^0xFF12B4E6Craft Automaton^- ability once per day.
+
+^0xFF12B4E6CRAFT AUTOMATON:^- The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– ^0xFF12B4E613th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
+– ^0xFF12B4E615th level:^- May use the ^0xFF12B4E6Infusion^- ability once per day.
+
+^0xFF12B4E6INFUSION:^- The artificer infuses their allies' weapons. All party members' weapons are treated as having a +3 enchantment for the purposes of determining what they can hit for 8 hours.
+
+– ^0xFF12B4E618th level:^- ^0xFF12B4E6Soul of Artifice^-: +1 bonus to ^0xFFDBD8B8Saving Throws^-. This bonus increases to +3 while under the effects of ^0xFF12B4E6Infusion^-.
+– ^0xFF12B4E624th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +4.
+– ^0xFF12B4E632nd level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +5.
+– ^0xFF12B4E640th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +6.
+
+^0xFF12B4E6Disadvantages:^-
+– Hit Die: d4
+– -10% penalty to ^0xFFDBD8B8Pick Pockets^-, ^0xFFDBD8B8Hide in Shadows^- and ^0xFFDBD8B8Move Silently^-.
+– -1 penalty to melee ^0xFF12B4E6THAC0^- modifier.
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.
+
+^0xFF12B4E6PRIESTESS:^- Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.
+
+^0xFF12B4E6Advantages:^-
+– May use the ^0xFF12B4E6Spiritual Blessing^- innate ability once per day.
+
+^0xFF12B4E6SPIRITUAL BLESSING:^- The priestess invokes a prayer to heavenly spirits, bestowing a random blessing upon the target. There is a 25% chance of gaining +2 THAC0 and +10% increased damage, a 25% chance of gaining +2 to Luck and Saving Throws, and a 25% chance of gaining +2 to Armor Class and +10% resistance to all damage. Regardless of the blessing, the target is also healed for ten hit points and cured of all diseases and poisons. However, the fickle nature of spirits means there is a 25% chance that no blessing is granted at all. From 12th level onwards, Spiritual Blessing is cast in a 15-ft. radius around the priestess, affecting all allies.
+
+– May cast ^0xFF12B4E6Protection from Evil 10' Radius^- once per day. Gains one use at level 1 and an additional use every 10 levels thereafter.
+– ^0xFF12B4E66th Level:^- may cast ^0xFF12B4E6True Seeing^- as an innate ability once per day.
+
+^0xFF12B4E6Disadvantages:^-
+– May only be proficient in clubs, quarterstaves, short bows and slings.
+– May not wear armor heavier than studded leather.
+– May not be chaotic or evil-aligned.~*/
   SAY ~PRIESTESS/ARTIFICER: This character can use the abilities of a Priestess and an Artificer, though weapons are restricted to only those allowed by the Priestess's ethos. Thieving skills cannot be used while wearing more than studded leather armor.
   
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
-– +30 bonus to Lore.
+– +20 bonus to Lore.
+– +5 additional Lore per level gained.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
-– Analytical Archery: The artificer gains Intelligence bonuses to ranged THAC0 in addition to Dexterity.
+– Analytical Archery: The artificer uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -265,21 +451,35 @@ Set Alchemical Snare: Set a trap in the targeted location when no hostile creatu
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
 
-– May use the Craft Rune ability once per day. Extra uses are gained at levels 9 and 13.
+– May use the Craft Rune ability once per day.
 
-CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
 
-– From level 4 onwards, may use the Advanced Alchemy ability at will.
+– May use the Advanced Alchemy ability at will.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
 
-– From level 8 onwards, may use the Craft Automaton ability once per day.
+– 3rd level: May use the Infusion ability once per day.
+
+INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.
+
+– 8th level: Infusion's enchantment bonus increases to +2.
+– 9th level: May use the Craft Automaton ability once per day.
 
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
 
+– 10th level: Gains an additional use of Craft Rune.
+– 16th level: Infusion's enchantment bonus increases to +3.
+– 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
+– 20th level: Gains an additional use of Craft Rune.
+– 24th level: Infusion's enchantment bonus increases to +4.
+– 32nd level: Infusion's enchantment bonus increases to +5.
+– 40th level: Infusion's enchantment bonus increases to +6.
+
 Disadvantages:
+– Hit Die: d4
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -3 penalty to melee THAC0 modifier.
+– -2 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.
 
@@ -291,10 +491,9 @@ Advantages:
 SPIRITUAL BLESSING: The priestess invokes a prayer to heavenly spirits, bestowing a random blessing upon the target. There is a 25% chance of gaining +2 THAC0 and +10% increased damage, a 25% chance of gaining +2 to Luck and Saving Throws, and a 25% chance of gaining +2 to Armor Class and +10% resistance to all damage. Regardless of the blessing, the target is also healed for ten hit points and cured of all diseases and poisons. However, the fickle nature of spirits means there is a 25% chance that no blessing is granted at all. From 12th level onwards, Spiritual Blessing is cast in a 15-ft. radius around the priestess, affecting all allies.
 
 – May cast Protection from Evil 10' Radius once per day. Gains one use at level 1 and an additional use every 10 levels thereafter.
-– From 6th level onwards, may cast True Seeing as an innate ability once per day.
+– 6th Level: may cast True Seeing as an innate ability once per day.
 
 Disadvantages:
-– Hit Die: d4
 – May only be proficient in clubs, quarterstaves, short bows and slings.
 – May not wear armor heavier than studded leather.
 – May not be chaotic or evil-aligned.~
@@ -407,6 +606,7 @@ END
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
+COPY_EXISTING ~C0AUNAM.spl~ ~override~
 LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
 
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
@@ -428,6 +628,189 @@ BUT_ONLY_IF_IT_CHANGES
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// SPELLS //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+
+// DEXTERITY CHECK
+APPEND ~splprot.2da~ ~C0AUDEX%TAB%40%TAB%-1%TAB%1~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~C0AUDEX~ BEGIN
+	    SET C0AUDEX = %row%
+	  END
+	END
+// INTELLIGENCE CHECK
+APPEND ~splprot.2da~ ~C0AUINT%TAB%38%TAB%-1%TAB%1~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~C0AUINT~ BEGIN
+	    SET C0AUINT = %row%
+	  END
+	END
+	
+COPY_EXISTING ~c0audex.spl~ ~override~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN09 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN10 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 duration = 9 parameter1 = 1 STR_VAR resource = C0AURN11 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 1 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT1 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 2 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT2 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 3 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT3 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 4 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT4 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 5 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT5 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 6 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 7 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 8 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 9 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 10 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 11 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 12 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 13 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 14 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 15 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT6 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT7 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT8 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT8 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT9 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT9 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT0 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT0 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUDEX% STR_VAR resource = C0AUINT0 END
+
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint1.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN09 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN09 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN10 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN10 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN10 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN11 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN11 END
+
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint2.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN09 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN09 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint3.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN08 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint4.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN07 END
+	
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint5.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN06 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint6.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 16 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN05 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint7.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 17 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 18 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN04 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint8.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 19 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 20 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN03 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint9.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 21 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 22 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 23 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN02 END
+		
+COPY_EXISTING ~c0auint.spl~ ~override/c0auint0.spl~
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 24 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		LPF	ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 2 duration = 9 parameter1 = 25 parameter2 = %C0AUINT% STR_VAR resource = C0AURN01 END
+		
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn02.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 2 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn03.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 3 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn04.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 4 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn05.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 5 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn06.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 6 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn07.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 7 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn08.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 8 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn09.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 9 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn10.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 10 END
+COPY_EXISTING ~c0aurn01.spl~ ~override/c0aurn11.spl~
+		LPF ALTER_EFFECT INT_VAR match_opcode = 167 parameter1 = 11 END
 
 COPY_EXISTING ~c0aubear.spl~ ~override~
 SAY NAME1 ~I Hate Bears!~
@@ -602,6 +985,18 @@ COPY_EXISTING ~c0auin1d.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
 SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
 
+OUTER_SET runecast = RESOLVE_STR_REF (~Cast Rune~)
+OUTER_SET runeimbue = RESOLVE_STR_REF (~Imbue Rune~)
+APPEND TOOLTIP.2DA ~C0ARUNE1 %runecast% %runeimbue% -1
+C0ARUNE2 %runecast% %runeimbue% -1
+C0ARUNE3 %runecast% %runeimbue% -1
+C0ARUNE4 %runecast% %runeimbue% -1
+C0ARUNE5 %runecast% %runeimbue% -1
+C0ARUNE6 %runecast% %runeimbue% -1
+C0ARUNE7 %runecast% %runeimbue% -1
+C0ARUNE8 %runecast% %runeimbue% -1
+C0ARUNE9 %runecast% %runeimbue% -1~ UNLESS ~C0ARUNE1~
+
 COPY_EXISTING ~c0rune1.spl~ ~override~
 SAY NAME1 ~Igneus Blaze~
 SAY UNIDENTIFIED_DESC ~Igneus Blaze
@@ -753,22 +1148,24 @@ COPY_EXISTING ~c0auin2.spl~ ~override~
 SAY NAME1 ~Craft Rune~
 SAY NAME2 ~Craft Rune~
 SAY UNIDENTIFIED_DESC ~Craft Rune
-Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended to cast a powerful arcane spell.
+Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be either expended immediately, or imbued on a target to discharge under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless) to cast a powerful arcane spell.
 
 1st level: Igneus Blaze, Cryoshock, Energy Barrage
-10th level: Lunar Butterfly
+8th level: Lunar Butterfly
 12th level: Aerial Judgment
 16th level: Gaia Shield
 20th level: Chronos Warp, Panacea Circle
 24th level: Red Meteor
 
 Runes may not be crafted during combat, and lose their potency if not used within 24 hours.
-From 20th level onwards, two runes are created per selection.~
+From 22nd level onwards, two runes are created per selection, except for Red Meteor.~
 
 COPY_EXISTING ~c0arune1.itm~ ~override~
 SAY NAME1 ~Ignus Rune~
 SAY NAME2 ~Ignus Rune~
-SAY DESC ~Igneus Blaze
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Igneus Blaze
 (Evocation)
 
 Range: 40-ft.
@@ -784,7 +1181,9 @@ From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree 
 COPY_EXISTING ~c0arune2.itm~ ~override~
 SAY NAME1 ~Cryon Rune~
 SAY NAME2 ~Cryon Rune~
-SAY DESC ~Cryoshock
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Cryoshock
 (Evocation)
 
 Range: Visual range of the caster
@@ -798,7 +1197,9 @@ The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing 
 COPY_EXISTING ~c0arune3.itm~ ~override~
 SAY NAME1 ~Arcana Rune~
 SAY NAME2 ~Arcana Rune~
-SAY DESC ~Energy Barrage
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Energy Barrage
 (Evocation)
 
 Range: Visual range of the caster
@@ -812,7 +1213,9 @@ The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes
 COPY_EXISTING ~c0arune4.itm~ ~override~
 SAY NAME1 ~Lunacy Rune~
 SAY NAME2 ~Lunacy Rune~
-SAY DESC ~Lunar Butterfly
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Lunar Butterfly
 (Illusion/Phantasm)
 
 Range: 40 ft.
@@ -831,7 +1234,9 @@ From 15th level onwards, the bolt of moonlight spreads to all nearby creatures a
 COPY_EXISTING ~c0arune5.itm~ ~override~
 SAY NAME1 ~Aether Rune~
 SAY NAME2 ~Aether Rune~
-SAY DESC ~Aerial Judgment
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Aerial Judgment
 (Alteration)
 
 Range: Visual range of the caster
@@ -847,7 +1252,9 @@ From 15th level onwards, enemies around the target suffer half regular damage wi
 COPY_EXISTING ~c0arune6.itm~ ~override~
 SAY NAME1 ~Adamant Rune~
 SAY NAME2 ~Adamant Rune~
-SAY DESC ~Gaia Shield
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Gaia Shield
 (Alteration)
 
 Range: 0
@@ -863,7 +1270,9 @@ From 20th level onwards, Gaia Shield also bestows protective skins to all allies
 COPY_EXISTING ~c0arune7.itm~ ~override~
 SAY NAME1 ~Chrono Rune~
 SAY NAME2 ~Chrono Rune~
-SAY DESC ~Chronos Warp
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Chronos Warp
 (Alteration)
 
 Range: 40 ft.
@@ -877,7 +1286,9 @@ The Chrono Rune allows the user to cast Chronos Warp. For 5 rounds, the target c
 COPY_EXISTING ~c0arune8.itm~ ~override~
 SAY NAME1 ~Mederi Rune~
 SAY NAME2 ~Mederi Rune~
-SAY DESC ~Panacea Circle
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Panacea Circle
 (Necromancy)
 
 Range: 15 ft.
@@ -891,7 +1302,9 @@ The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-f
 COPY_EXISTING ~c0arune9.itm~ ~override~
 SAY NAME1 ~Calamity Rune~
 SAY NAME2 ~Calamity Rune~
-SAY DESC ~Red Meteor
+SAY DESC ~This rune may be activated as any normal wand. When used, the inscribed spell may be either discharged immediately or imbued upon a target under specific triggers (Enemy Sighted, Target Hit, Hit Points at 50%, Hit Points at 25%, Helpless). An imbued rune lasts eight hours from the time of inscription, and only one rune may be imbued per target.
+
+Red Meteor
 (Evocation)
 
 Range: 270 ft.
@@ -903,6 +1316,7 @@ Saving Throw: Special
 The Calamity Rune allows the user to cast Red Meteor. A crimson-colored mass of magical energy is shaped several hundred feet above the caster and their target and strikes down with massive speed and force, dealing 10d10 damage (half magic, half fire) with no save. Targets are knocked away from the center of impact by the shockwave and must make a Saving Throw vs. Paralysis or be stunned for 3 rounds.
 
 This spell will not harm party members.~
+
 	
 // STONESKINS
 APPEND ~splprot.2da~ ~C0STSKIN%TAB%88%TAB%-1%TAB%1~
@@ -947,6 +1361,245 @@ From 10th level onwards, the cone expands to a 60-degree angle, and a 90-degree 
 	LPF ALTER_SPELL_HEADER INT_VAR header = 10 projectile = c0acone2 END
 	LPF ALTER_SPELL_HEADER INT_VAR header = 11 projectile = c0acone3 END
 	LPF ALTER_SPELL_HEADER INT_VAR header = 12 projectile = c0acone3 END
+	
+COPY_EXISTING ~c0arun1a.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr01 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr02 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr03 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr04 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr05 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun2a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun2a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr06 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE2 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun2b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun2b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr07 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE2 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun2c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun2c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr08 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE2 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun2d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun2d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr09 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE2 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun2e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun2e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr10 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE2 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun3a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun3a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr11 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE3 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun3b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun3b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr12 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE3 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun3c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun3c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr13 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE3 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun3d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun3d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr14 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE3 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun3e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun3e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr15 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE3 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun4a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun4a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr16 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE4 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun4b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun4b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr17 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE4 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun4c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun4c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr18 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE4 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun4d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun4d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr19 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE4 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun4e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun4e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr20 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE4 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun5a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun5a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr21 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE5 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun5b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun5b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr22 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE5 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun5c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun5c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr23 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE5 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun5d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun5d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr24 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE5 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun5e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun5e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr25 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE5 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun6a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun6a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr26 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE6 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun6b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun6b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr27 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE6 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun6c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun6c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr28 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE6 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun6d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun6d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr29 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE6 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun6e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun6e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr30 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE6 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun7a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun7a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr31 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE7 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun7b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun7b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr32 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE7 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun7c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun7c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr33 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE7 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun7d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun7d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr34 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE7 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun7e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun7e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr35 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE7 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun8a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun8a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr36 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE8 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun8b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun8b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr37 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE8 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun8c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun8c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr38 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE8 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun8d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun8d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr39 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE8 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun8e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun8e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 parameter1 = 0 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr40 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE8 END
+SAY NAME1 ~Imbue: Helpless~
+
+COPY_EXISTING ~c0arun1a.spl~ ~override/c0arun9a.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun9a END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr41 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE9 END
+SAY NAME1 ~Imbue: See Enemy~
+COPY_EXISTING ~c0arun1b.spl~ ~override/c0arun9b.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun9b END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr42 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE9 END
+SAY NAME1 ~Imbue: Attacked~
+COPY_EXISTING ~c0arun1c.spl~ ~override/c0arun9c.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun9c END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr43 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE9 END
+SAY NAME1 ~Imbue: Hit Points at 50%~
+COPY_EXISTING ~c0arun1d.spl~ ~override/c0arun9d.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun9d END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr44 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE9 END
+SAY NAME1 ~Imbue: Hit Points at 25%~
+COPY_EXISTING ~c0arun1e.spl~ ~override/c0arun9e.spl~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = c0arun9e END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicr45 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 232 STR_VAR resource = C0ARUNE9 END
+SAY NAME1 ~Imbue: Helpless~
 
 // Cryoshock
 
@@ -979,13 +1632,16 @@ Area of Effect: 1 creature
 Saving Throw: None 
 
 The Arcana Rune allows the user to cast Energy Barrage. Energy Barrage unleashes a missile of pure arcane energy, dealing 1d4+1 magical damage. An additional missile is created for every two levels of the caster beyond level 1, up to a maximum of eight missiles at level 15.~
-	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0amiss2 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0amiss3 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 3 projectile = c0amiss4 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 4 projectile = c0amiss5 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 5 projectile = c0amiss6 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 6 projectile = c0amiss7 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 7 projectile = c0amiss8 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0amiss1 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0amiss2 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 3 projectile = c0amiss3 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 4 projectile = c0amiss4 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 5 projectile = c0amiss5 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 6 projectile = c0amiss5 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 7 projectile = c0amiss6 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 8 projectile = c0amiss7 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 9 projectile = c0amiss8 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 10 projectile = c0amiss8 END
 
 // LUNAR BUTTERFLY
 
@@ -1006,6 +1662,8 @@ Ally cast: Target gains the effects of Mirror Image for 3 rounds + 1 round/user 
 Enemy cast: Target must make a Save vs. Spells or become Confused and Intoxicated for one turn.
 
 From 15th level onwards, the bolt of moonlight spreads to all nearby creatures around the target, inflicting the spell's effects on each target.~
+	LPF ALTER_SPELL_HEADER INT_VAR header = 1 projectile = c0aluna3 END
+	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0aluna4 END
 COPY_EXISTING ~c0rune4a.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Confused~) END
 COPY_EXISTING ~c0rune4b.spl~ ~override~
@@ -1339,9 +1997,12 @@ SAY NAME2 ~Deactivate: Barrier Sphere~
 SAY UNIDENTIFIED_DESC ~Barrier Sphere
 Use this ability to deactivate Barrier Sphere.~
 COPY_EXISTING ~c0autos4.spl~ ~override~
-SAY NAME1 ~Activate: Empower~
-SAY NAME2 ~Activate: Empower~
-SAY UNIDENTIFIED_DESC ~Empower
+  LPF ALTER_EFFECT INT_VAR header = 0 match_opcode = 53 parameter1 = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_HUGE~) END
+  LPF ALTER_EFFECT INT_VAR header = 1 match_opcode = 53 parameter1 = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_JADE_HUGE~) END
+  LPF ALTER_EFFECT INT_VAR header = 2 match_opcode = 53 parameter1 = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_BLACK_HUGE~) END
+SAY NAME1 ~Activate: Enlarge~
+SAY NAME2 ~Activate: Enlarge~
+SAY UNIDENTIFIED_DESC ~Enlarge
 With this ability, the automaton activates an internal device which causes it to become magically empowered for one turn, altering its stats:
   - +5 to THAC0
   - +30% to Damage
@@ -1365,6 +2026,13 @@ SAY NAME1 ~Activate: Self-Destruct~
 SAY NAME2 ~Activate: Self-Destruct~
 SAY UNIDENTIFIED_DESC ~Self-Destruct
 With this ability, the automation activates an internal device which causes it to explode after one turn of channelling, dealing 24d6 damage (half fire, half electrical) and knocking all creatures unconscious and away from the automaton. This devastating explosion immediately destroys the automaton.~
+
+COPY_EXISTING ~c0auin7.spl~ ~override~
+SAY NAME1 ~Infusion~
+SAY UNIDENTIFIED_DESC ~Infusion
+The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. Enchantment bonus increases to +2 at 8th level, +3 at 16th level, +4 at 24th level, +5 at 32nd level and +6 at 40th level.
+
+This ability can only be used outside of combat.~
 
 COPY_EXISTING ~c0auin4.spl~ ~override~
 SAY NAME1 ~Craft Wand~
@@ -1396,6 +2064,8 @@ COPY_EXISTING ~c0auin6.spl~ ~override~
         match_parameter2  = 82    // Called Shot icon
         parameter2        = c0aicon5
       END
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Grand Artificer~) special = 4 END
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 2 timing = 9 parameter2 = 0 STR_VAR resource = C0AUNAM END
 SAY NAME1 ~Grand Artifice~
 SAY NAME2 ~Grand Artifice~
 SAY UNIDENTIFIED_DESC ~Grand Artifice
@@ -1424,7 +2094,7 @@ STATISTICS:
 Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
 
 Weight: 1~
-WRITE_LONG 0x34 200
+WRITE_LONG 0x34 300
  
 COPY_EXISTING ~c0apot02.spl~ ~override~
 SAY NAME1 ~Potion of Fire Resistance~
@@ -1441,7 +2111,7 @@ Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 
 Duration: 2 hours
 
 Weight: 1~
-WRITE_LONG 0x34 250
+WRITE_LONG 0x34 375
 
 COPY_EXISTING ~c0apot03.spl~ ~override~
 SAY NAME1 ~Potion of Cold Resistance~
@@ -1458,7 +2128,7 @@ Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 
 Duration: 2 hours
 
 Weight: 1~
-WRITE_LONG 0x34 250
+WRITE_LONG 0x34 375
 
 COPY_EXISTING ~c0apot04.spl~ ~override~
 SAY NAME1 ~Philter of Health~
@@ -1475,7 +2145,7 @@ Special: Removes fatigue
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 160
+WRITE_LONG 0x34 240
 
 COPY_EXISTING ~c0apot05.spl~ ~override~
 SAY NAME1 ~Potion of Invisibility~
@@ -1491,7 +2161,7 @@ Special: Invisibility and Non-Detection
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 180
+WRITE_LONG 0x34 270
 
 COPY_EXISTING ~c0apot06.spl~ ~override~
 SAY NAME1 ~Trollblood Extract~
@@ -1509,7 +2179,7 @@ Special: Regenerate two hit points per second
 Duration: 5 rounds
 
 Weight: 1~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 750
 
 COPY_EXISTING ~c0apot07.spl~ ~override~
 SAY NAME1 ~Tonic of Alertness~
@@ -1528,7 +2198,7 @@ Special: Immunity to backstab
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 900
 
 COPY_EXISTING ~c0apot08.spl~ ~override~
 SAY NAME1 ~Elixir of Harmony~
@@ -1546,7 +2216,7 @@ Special: Damage output is reduced by 50%
 Duration: 5 rounds
 
 Weight: 1~
-WRITE_LONG 0x34 600
+WRITE_LONG 0x34 900
 
 COPY_EXISTING ~c0apot09.spl~ ~override~
 SAY NAME1 ~Potion of Antimagic~
@@ -1563,7 +2233,7 @@ Special: Immunity to spells of 5th level and below, all spell effects are remove
 Duration: 2 rounds
 
 Weight: 1~
-WRITE_LONG 0x34 1000
+WRITE_LONG 0x34 1500
 
 COPY_EXISTING ~c0apot10.spl~ ~override~
 SAY NAME1 ~Potion of Equanimity~
@@ -1581,7 +2251,7 @@ Dexterity: +4
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 900
+WRITE_LONG 0x34 1350
 
 COPY_EXISTING ~c0apot11.spl~ ~override~
 SAY NAME1 ~Oil of Speed~
@@ -1597,7 +2267,7 @@ Special: Doubles movement and attack rates
 Duration: 1 turn
 
 Weight: 1~
-WRITE_LONG 0x34 300
+WRITE_LONG 0x34 500
 
 COPY_EXISTING ~c0apot12.spl~ ~override~
 SAY NAME1 ~Potion of Invulnerability~
@@ -1614,7 +2284,7 @@ Saving Throws: +5
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 700
+WRITE_LONG 0x34 1050
 
 COPY_EXISTING ~c0apot13.spl~ ~override~
 SAY NAME1 ~Philter of Luck~
@@ -1637,7 +2307,7 @@ Luck: +2
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 1000
+WRITE_LONG 0x34 1500
 
 COPY_EXISTING ~c0apot14.spl~ ~override~
 SAY NAME1 ~Elixir of Restoration~
@@ -1653,7 +2323,7 @@ Special: Restores lost levels
 Duration: Permanent
 
 Weight: 1~
-WRITE_LONG 0x34 150
+WRITE_LONG 0x34 250
 
 COPY_EXISTING ~c0apot15.spl~ ~override~
 SAY NAME1 ~Potion of Freedom~
@@ -1669,7 +2339,7 @@ Special: Free Action
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 450
+WRITE_LONG 0x34 675
 
 COPY_EXISTING ~c0apot16.spl~ ~override~
 SAY NAME1 ~Elixir of Lifeshield~
@@ -1685,7 +2355,7 @@ Special: Death Ward
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 750
 
 COPY_EXISTING ~c0apot17.spl~ ~override~
 SAY NAME1 ~Elixir of Might~
@@ -1701,7 +2371,7 @@ Strength: +2
 Duration: 1 hour
 
 Weight: 1~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 750
 
 COPY_EXISTING ~c0apot18.spl~ ~override~
 SAY NAME1 ~Thrym Extract~
@@ -1717,7 +2387,7 @@ Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in
 Duration: 1 turn
 
 Weight: 1~
-WRITE_LONG 0x34 600
+WRITE_LONG 0x34 900
 
 COPY_EXISTING ~c0apot19.spl~ ~override~
 SAY NAME1 ~Potion of Etherealness~
@@ -1733,7 +2403,7 @@ Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> 
 Duration: 1 turn
 
 Weight: 1~
-WRITE_LONG 0x34 700
+WRITE_LONG 0x34 1050
 
 COPY_EXISTING ~c0apot20.spl~ ~override~
 SAY NAME1 ~Elixir of Focus~
@@ -1749,7 +2419,7 @@ Special: Imbiber may move freely for one round while others are frozen in time. 
 Duration: 1 round
 
 Weight: 1~
-WRITE_LONG 0x34 700
+WRITE_LONG 0x34 1050
 
 COPY_EXISTING ~c0apot21.spl~ ~override~
 SAY NAME1 ~Potion of Life Transference~
@@ -1766,7 +2436,7 @@ Maximum Hit Points: -50%
 Duration: 8 hours
 
 Weight: 1~
-WRITE_LONG 0x34 1200
+WRITE_LONG 0x34 1800
 
 COPY_EXISTING ~c0apot22.spl~ ~override~
 SAY NAME1 ~Philter of Arcane Barrier~
@@ -1783,31 +2453,31 @@ Special: All Saving Throws are automatically successful
 Duration: 3 turns
 
 Weight: 1~
-WRITE_LONG 0x34 1500
+WRITE_LONG 0x34 2250
 
 COPY_EXISTING ~c0apoth1.itm~ ~override~
 SAY NAME1 ~Lantanese Elixir of Divine Might~
 SAY NAME2 ~Lantanese Elixir of Divine Might~
 SAY DESC ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
-WRITE_LONG 0x34 2000
+WRITE_LONG 0x34 2500
 
 COPY_EXISTING ~c0apoth2.itm~ ~override~
 SAY NAME1 ~Lantanese Potion of Complete Healing~
 SAY NAME2 ~Lantanese Potion of Complete Healing~
 SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
-WRITE_LONG 0x34 2000
+WRITE_LONG 0x34 2500
 
 COPY_EXISTING ~c0apoth3.itm~ ~override~
 SAY NAME1 ~Lantanese Philter of Truth~
 SAY NAME2 ~Lantanese Philter of Truth~
 SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
-WRITE_LONG 0x34 2000
+WRITE_LONG 0x34 2500
 
 COPY_EXISTING ~c0apoth4.itm~ ~override~
 SAY NAME1 ~Lantanese Tonic of Hardiness~
 SAY NAME2 ~Lantanese Tonic of Hardiness~
 SAY DESC ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
-WRITE_LONG 0x34 2000
+WRITE_LONG 0x34 2500
 
 COPY_EXISTING ~c0apoth5.spl~ ~override~
   LPF ALTER_EFFECT
@@ -1831,7 +2501,7 @@ SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills
    - Sorcerers and Bards gain +2 to Charisma.
    - Spellcasting classes take precedence over warrior classes.
    - Arcane classes take precedence over divine classes.~
-WRITE_LONG 0x34 15000
+WRITE_LONG 0x34 20000
 
 COPY_EXISTING ~c0abomb1.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -1870,7 +2540,7 @@ SAY NAME1 ~Firebomb~
 SAY NAME2 ~Green Flaming Oil~
 SAY DESC ~Inside of this glass pot is an expensive mixture of oil and other chemicals. When this mixture is set ablaze, it burns for several seconds at a very hot temperature.  Flaming oil is sometimes difficult to use because it takes a long time for the user to properly throw it. Adventurers often carry oil with them to deal with trolls in the unfortunate event that they are encountered.
 
-Minerva's flasks use a specially-made type of oil which releases a highly flammable gas. The flames are emerald green, just like the oil itself.
+Aura's flasks use a specially-made type of oil which releases a highly flammable gas. The flames are emerald green, just like the oil itself.
 
 STATISTICS:
 
@@ -1881,7 +2551,7 @@ When thrown, releases a cloud which deals damage per round to all creatures with
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 250
+WRITE_LONG 0x34 375
 
 COPY_EXISTING ~c0abomb2.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -1914,7 +2584,7 @@ When thrown, deals damage and Blinds all creatures within a 10' radius. Addition
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 750
 
 COPY_EXISTING ~c0abomb3.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -1947,7 +2617,7 @@ When thrown, deals Fire and Piercing Damage within a 10' radius and causes targe
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 500
+WRITE_LONG 0x34 750
 
 COPY_EXISTING ~c0abomb4.spl~ ~override~
 		LPF	ADD_SPELL_EFFECT
@@ -1990,7 +2660,7 @@ When thrown, releases a cloud for three rounds which deals Poison Damage each ro
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 600
+WRITE_LONG 0x34 900
 
 COPY_EXISTING ~c0abomb5.spl~ ~override~
 		LPF	ADD_SPELL_EFFECT
@@ -2040,7 +2710,7 @@ When thrown, releases a cloud for one turn which deals Poison Damage each round.
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 1000
+WRITE_LONG 0x34 1250
 
 COPY_EXISTING ~c0abomb6.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -2080,7 +2750,7 @@ When thrown, deals Fire Damage and Slows for five rounds on a failed Save vs. Br
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 2500
+WRITE_LONG 0x34 3000
 
 COPY_EXISTING ~c0abomb7.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -2123,7 +2793,7 @@ When thrown, releases an acidic cloud which deals Acid Damage each round. Enemie
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 3000
+WRITE_LONG 0x34 3500
 
 COPY_EXISTING ~c0aburn.spl~ ~override~
 		LPF	ADD_SPELL_EFFECT
@@ -2181,7 +2851,7 @@ When thrown, unleashes a purple fireball that deals massive Fire Damage. Additio
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 5000
+WRITE_LONG 0x34 7500
 
 COPY_EXISTING ~c0abomb9.spl~ ~override~
       LPF ALTER_EFFECT
@@ -2226,7 +2896,7 @@ When thrown, unleashes a devastating explosion which deals massive Fire and Elec
 
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 7000
+WRITE_LONG 0x34 9000
 
 // SCRIPTS
 

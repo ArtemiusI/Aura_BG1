@@ -132,7 +132,8 @@ IF
     Global("C0AuraTalk","GLOBAL",0)
 THEN
   RESPONSE #100
-    RealSetGlobalTimer("C0AuraTalkTimer","GLOBAL",300)
+    RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_HOURS)
+    SetGlobalTimer("C0AuraTalkTimer","GLOBAL",TWENTY_MINUTES)
     SetGlobal("C0AuraTalk","GLOBAL",1)
 END
 
@@ -141,20 +142,39 @@ IF
     See(Player1)
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
+    RealGlobalTimerExpired("C0AuraTalkRealTimer","GLOBAL")
+    GlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
     CombatCounter(0)
     !See([ENEMY])
 	!Global("C0AuraTalkStopped","GLOBAL",1)
 	GlobalLT("C0AuraInsulted","GLOBAL",2)
-    OR(7)
-      Global("C0AuraTalk","GLOBAL",2)
-      Global("C0AuraTalk","GLOBAL",4)
-      Global("C0AuraTalk","GLOBAL",6)
-      Global("C0AuraTalk","GLOBAL",8)
-      Global("C0AuraTalk","GLOBAL",10)
-	  Global("C0AuraTalk","GLOBAL",18)
+    Switch("C0AuraTalk","GLOBAL")
 THEN
-  RESPONSE #100
+  RESPONSE #1
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #2
+    StartDialogueNoSet(Player1)
+  RESPONSE #3
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #4
+    StartDialogueNoSet(Player1)
+  RESPONSE #5
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #6
+    StartDialogueNoSet(Player1)
+  RESPONSE #7
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #8
+    StartDialogueNoSet(Player1)
+  RESPONSE #9
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #10
+    StartDialogueNoSet(Player1)
+  RESPONSE #13
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #17
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #18
     StartDialogueNoSet(Player1)
 END
 
@@ -163,56 +183,18 @@ IF
     See(Player1)
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
-    CombatCounter(0)
-    !See([ENEMY])
-    ReputationGT(Player1,9)
-    !Global("C0AuraTalkStopped","GLOBAL",1)
-	GlobalLT("C0AuraInsulted","GLOBAL",2)
-    OR(7)
-      Global("C0AuraTalk","GLOBAL",1)
-	  Global("C0AuraTalk","GLOBAL",3)
-      Global("C0AuraTalk","GLOBAL",5)
-      Global("C0AuraTalk","GLOBAL",7)
-      Global("C0AuraTalk","GLOBAL",9)
-	  Global("C0AuraTalk","GLOBAL",13)
-	  Global("C0AuraTalk","GLOBAL",17)
-THEN
-  RESPONSE #100
-	IncrementGlobal("C0AuraTalk","GLOBAL",1)
-END
-
-IF
-    InParty(Myself)
-    See(Player1)
-    !StateCheck(Myself,CD_STATE_NOTVALID)
-    !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
+    RealGlobalTimerExpired("C0AuraTalkRealTimer","GLOBAL")
+    GlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
     CombatCounter(0)
     !See([ENEMY])
 	Global("Chapter","GLOBAL",4)
-    ReputationGT(Player1,9)
-    !Global("C0AuraTalkStopped","GLOBAL",1)
-	GlobalLT("C0AuraInsulted","GLOBAL",2)
-      Global("C0AuraTalk","GLOBAL",11)
-THEN
-  RESPONSE #100
-	IncrementGlobal("C0AuraTalk","GLOBAL",1)
-END
-
-IF
-    InParty(Myself)
-    See(Player1)
-    !StateCheck(Myself,CD_STATE_NOTVALID)
-    !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
-    CombatCounter(0)
-    !See([ENEMY])
 	!Global("C0AuraTalkStopped","GLOBAL",1)
 	GlobalLT("C0AuraInsulted","GLOBAL",2)
-      Global("C0AuraTalk","GLOBAL",12)
+    Switch("C0AuraTalk","GLOBAL")
 THEN
-  RESPONSE #100
+  RESPONSE #11
+    IncrementGlobal("C0AuraTalk","GLOBAL",1)
+  RESPONSE #12
     StartDialogueNoSet(Player1)
 END
 

@@ -9,7 +9,7 @@ THEN
 END
 
 IF
-	!InParty("C0Aura")
+	!InPartyAllowDead("C0Aura")
 	Dead("C0Aura")
 	GlobalGT("C0AuraQuest","GLOBAL",1)
 	GlobalLT("C0AuraQuest","GLOBAL",13)

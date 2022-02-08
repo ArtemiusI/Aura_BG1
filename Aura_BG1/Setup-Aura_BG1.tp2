@@ -1,6 +1,6 @@
 BACKUP ~Aura_BG1/backup~
 AUTHOR ~AionZ~
-VERSION ~3.3~
+VERSION ~3.4~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/qd_multiclass.tpa~
@@ -104,3 +104,88 @@ END
 		COPY ~%MOD_FOLDER%/portraits/AuraS.bmp~ ~override/AuraS.bmp~
       PRINT ~Portrait: BG1 Default by Artemius_I/AionZ~
       END
+	  
+	 
+BEGIN ~Pre-version 3.4 soundset for Aura by Kait~
+  REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~Main component must be installed~
+ 
+ COPY ~%MOD_FOLDER%/audio/kait~ OVERRIDE
+ 
+COPY_EXISTING ~C0Aura.cre~ OVERRIDE
+  SAY MORALE ~Run away! Run away!~ [C0AU001]
+  SAY HAPPY ~I'm glad I decided to travel with you.~ [C0AU002]
+  SAY UNHAPPY_ANNOYED ~That was just an honest mistake... right?~ [C0AU003]
+  SAY UNHAPPY_SERIOUS ~I can't believe anyone could be this terrible.~ [C0AU004]
+  SAY UNHAPPY_BREAKING_POINT ~That's... that's enough. I can't deal with this anymore. I'm leaving.~ [C0AU005]
+  SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
+  SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
+  SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
+  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
+  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
+  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY DAMAGE ~Ow!~ [C0AU014]
+  SAY DYING ~Ah...~ [C0AU015]
+  SAY HURT ~It hurts so much...~ [C0AU016]
+  SAY AREA_FOREST ~Oh, I love the forest. It reminds me of home.~ [C0AU017]
+  SAY AREA_CITY ~These cities are so different from my homeland.~ [C0AU018]
+  SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
+  SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
+  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
+  SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
+  SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
+  SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
+  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
+  SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
+  SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
+  SAY SPELL_DISRUPTED ~Oh, nuts and bolts! I worked hard on that!~ [C0AU040]
+  SAY SET_A_TRAP ~That's how you use your gray matter.~ [C0AU041]
+  SAY HIDDEN_IN_SHADOWS ~I'll be as quiet as a mouse.~ [C0AU042]
+  SAY PICKED_POCKET ~Huh? What's this?~ [C0AU043]
+  
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/audio/kait/scripts/c0areset.baf~
+  
+ACTION_IF GAME_INCLUDES ~sod~
+THEN BEGIN
+COPY_EXISTING ~C02Aura.cre~ OVERRIDE
+  SAY MORALE ~Run away! Run away!~ [C0AU001]
+  SAY HAPPY ~I'm glad I decided to travel with you.~ [C0AU002]
+  SAY UNHAPPY_ANNOYED ~That was just an honest mistake... right?~ [C0AU003]
+  SAY UNHAPPY_SERIOUS ~I can't believe anyone could be this terrible.~ [C0AU004]
+  SAY UNHAPPY_BREAKING_POINT ~That's... that's enough. I can't deal with this anymore. I'm leaving.~ [C0AU005]
+  SAY LEADER ~Umm... okay. I'll try my best!~ [C0AU006]
+  SAY TIRED ~Can we please take a break? I want tea and biscuits...~ [C0AU007]
+  SAY BORED ~Don't worry, I'll just work on my next invention while you do, uh, nothing I guess.~ [C0AU008]
+  SAY BATTLE_CRY1 ~I didn't want to have to do this!~ [C0AU009]
+  SAY BATTLE_CRY2 ~I've got you in my sights!~ [C0AU010]
+  SAY BATTLE_CRY3 ~I don't miss!~ [C0AU011]
+  SAY BATTLE_CRY4 ~You're not getting away from me!~ [C0AU012]
+  SAY BATTLE_CRY5 ~Okay, here we go!~ [C0AU013]
+  SAY DAMAGE ~Ow!~ [C0AU014]
+  SAY DYING ~Ah...~ [C0AU015]
+  SAY HURT ~It hurts so much...~ [C0AU016]
+  SAY AREA_FOREST ~Oh, I love the forest. It reminds me of home.~ [C0AU017]
+  SAY AREA_CITY ~These cities are so different from my homeland.~ [C0AU018]
+  SAY AREA_DUNGEON ~Careful, Muffy, there might be ghosts nearby.~ [C0AU019]
+  SAY AREA_DAY ~The sunlight's nice on my hair. See how it glitters?~ [C0AU020]
+  SAY AREA_NIGHT ~I'm not afraid of the dark. Really, I'm not!~ [C0AU021]
+  SAY SELECT_COMMON1 ~Mm-hmm?~ [C0AU022]
+  SAY SELECT_COMMON2 ~Yep?~ [C0AU023]
+  SAY SELECT_COMMON3 ~I'm listening.~ [C0AU024]
+  SAY SELECT_ACTION1 ~Okay.~ [C0AU028]
+  SAY SELECT_ACTION2 ~Here I go.~ [C0AU029]
+  SAY SELECT_ACTION3 ~I'm the girl for the job.~ [C0AU030]
+  SAY CRITICAL_HIT ~Aha! Got you!~ [C0AU036]
+  SAY CRITICAL_MISS ~Oops! I messed that one up.~ [C0AU037]
+  SAY TARGET_IMMUNE ~Ooh, interesting. It bounced right off.~ [C0AU038]
+  SAY INVENTORY_FULL ~Hey, I'm not big enough to carry all this.~ [C0AU039]
+  SAY SPELL_DISRUPTED ~Oh, nuts and bolts! I worked hard on that!~ [C0AU040]
+  SAY SET_A_TRAP ~That's how you use your gray matter.~ [C0AU041]
+  SAY HIDDEN_IN_SHADOWS ~I'll be as quiet as a mouse.~ [C0AU042]
+  SAY PICKED_POCKET ~Huh? What's this?~ [C0AU043]
+END

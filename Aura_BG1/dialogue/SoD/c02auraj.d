@@ -2,7 +2,7 @@ BEGIN C02AURAJ
 
 CHAIN IF ~!Global("C02AuraWasInBG1","GLOBAL",1)
 Global("C02AuraTalk","GLOBAL",2)~ THEN C02AURAJ t1a
-~You were very kind to take me under your wing, <CHARNAME>, even though I'm not a fighter. I hope that I'm not dragging you down.~
+~You were very kind to take me under your wing, <CHARNAME>, even though I'm not a fighter. I hope that I'm not dragging you down.~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~It's fine. I allowed you to join because you needed protection.~ + t1a.1
@@ -57,7 +57,7 @@ EXIT
 
 CHAIN IF ~Global("C02AuraWasInBG1","GLOBAL",1)
 Global("C02AuraTalk","GLOBAL",2)~ THEN C02AURAJ t1b
-~Haha... I can't believe I'm travelling with you again so soon after we parted, <CHARNAME>. Even though the circumstances are different this time, I'm glad to be back.~
+~Haha... I can't believe I'm travelling with you again so soon after we parted, <CHARNAME>. Even though the circumstances are different this time, I'm glad to be back.~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~I'm glad to have you back. Tea parties just aren't as interesting without you.~ + t1b.1
@@ -113,7 +113,7 @@ CHAIN C02AURAJ t1b.8
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",4)~ THEN C02AURAJ t2
-~Th–this place is creepy... I'm not sure if you can see it given how dark it is, but I'm quivering in my boots here.~
+~Th–this place is creepy... I'm not sure if you can see it given how dark it is, but I'm quivering in my boots here.~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~Calm down. I'm right here with you.~ + t2.1
@@ -228,7 +228,7 @@ CHAIN C02AURAJ t2.19
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",6)~ THEN C02AURAJ t3
-~Can I ask you something, <CHARNAME>? Do you... feel confident in yourself as a leader?~
+~Can I ask you something, <CHARNAME>? Do you... feel confident in yourself as a leader?~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~What brought this up?~ + t3.1
@@ -274,7 +274,7 @@ CHAIN C02AURAJ t3.x
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",8)~ THEN C02AURAJ t4
-~Let's see... comfrey, elderberries, lemon balm, and... don't have that, a dash of ginger will have to do... oh, and I'll throw in some honey as well, why not.~
+~Let's see... comfrey, elderberries, lemon balm, and... don't have that, a dash of ginger will have to do... oh, and I'll throw in some honey as well, why not.~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~What are you doing, Aura?~ + t4.1
@@ -388,7 +388,7 @@ StartCutsceneMode()
 StartCutscene("c0aufade")~ EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",10)~ THEN C02AURAJ t5
-~Thank you for the sunflowers, <CHARNAME>. I'll be able to make enough medicinal tea to last me for the rest of the expedition now.~
+~Thank you for the sunflowers, <CHARNAME>. I'll be able to make enough medicinal tea to last me for the rest of the expedition now.~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1) TakePartyItem("c02asunf") DestroyItem("c02asunf")~
 = ~Umm... there were a few flowers left over from the brewing process, and I wasn't sure what to do with them... so I put them in a glass jar. Even in their condition... I still think they're beautiful. I'd like to give them to you, as my way of saying thanks.~
 END
@@ -436,7 +436,7 @@ CHAIN C02AURAJ t5.7
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",12)~ THEN C02AURAJ t6
-~I wonder how the family's doing back home. It's been years since I've seen them.~
+~I wonder how the family's doing back home. It's been years since I've seen them.~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~You must really miss them.~ + t6.1
@@ -560,7 +560,7 @@ CHAIN C02AURAJ t6.14
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",14)~ THEN C02AURAJ t7
-~You know, I never thought I'd say this about war and fighting, but I'm actually... starting to have fun. A lot of fun, in fact. Isn't that strange?~
+~You know, I never thought I'd say this about war and fighting, but I'm actually... starting to have fun. A lot of fun, in fact. Isn't that strange?~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 ++ ~I'm glad to hear it.~ + t7.1
@@ -621,7 +621,7 @@ CHAIN C02AURAJ t7.8
 EXIT
 
 CHAIN IF ~Global("C02AuraTalk","GLOBAL",16)~ THEN C02AURAJ t8
-~We're... we're really going to jump into that portal into the Hells, aren't we? This isn't all some big nightmare?~
+~We're... we're really going to jump into that portal into the Hells, aren't we? This isn't all some big nightmare?~ [C0BLANK]
 DO ~IncrementGlobal("C02AuraTalk","GLOBAL",1)~
 END
 + ~Global("C02AuraRomanceActive","GLOBAL",2)~ + ~I'm afraid not.~ + t8.1
@@ -837,11 +837,11 @@ CHAIN C02AURAJ bdclovis1
 == BDCLOVIS ~I do get fatigued pretty quickly during drills. I thought I needed more training.~
 == C02AURAJ ~You'll improve faster if you take advantage of your size. Go for the legs. You'll have an easier time hitting their face once they've fallen over.~
 EXTERN BDCLOVIS 5
-
+/*
 // Coldhearth Lair
 
 CHAIN IF WEIGHT #-1 ~Global("C02AuraColdhearthLair","bd1200",1)~ THEN C02AURAJ coldhearth
-~Nngh... something's strange... almost familiar...~
+~Nngh... something's strange... almost familiar...~ [C0BLANK]
 DO ~SetGlobal("C02AuraColdhearthLair","bd1200",2)~
 END
 ++ ~What's wrong, Aura?~ + coldhearth.1
@@ -867,7 +867,7 @@ EXIT
 CHAIN C02AURAJ coldhearth.3
 ~S–sorry, <CHARNAME>, I'll be with you shortly.~
 EXIT
-
+*/
 // Dog
 
 I_C_T BDDOGW01 0 C0AuraBDDOGW01
@@ -1029,7 +1029,7 @@ SetGlobal("bd_poison","bd0035",2)~ EXTERN BDBELT 11
 END
 
 CHAIN IF WEIGHT #-1 ~Global("C02AuraPoison","GLOBAL",1)~ THEN C02AURAJ poison
-~<CHARNAME>... about that poison... I didn't want to say anything when mister de Lancie was around, but I've got an idea if you'd rather incapacitate the crusaders without seriously hurting them.~
+~<CHARNAME>... about that poison... I didn't want to say anything when mister de Lancie was around, but I've got an idea if you'd rather incapacitate the crusaders without seriously hurting them.~ [C0BLANK]
 DO ~SetGlobal("C02AuraPoison","GLOBAL",2)~
 END
 ++ ~You've got my attention. Go ahead.~ + poison.1
@@ -1096,7 +1096,7 @@ END
 
 CHAIN IF ~AreaCheck("BD0114")
 Global("BD_POINT6","BD0114",2)~ THEN C02AURAJ rhinobeetle
-~Oooh! Look at how big it is! Isn't it cute?~
+~Oooh! Look at how big it is! Isn't it cute?~ [C0BLANK]
 COPY_TRANS BDJAHEIJ 27
 
 // Schael
@@ -1541,7 +1541,7 @@ EXTERN BDTRISTI 15
 // Trollbane Arrow
 
 CHAIN IF WEIGHT #-1 ~Global("C02AuraTrollbaneArrow","GLOBAL",1)~ THEN C02AURAJ trollbane
-~If you're going to fight trolls, <CHARNAME>, you might want to take these arrows.~
+~If you're going to fight trolls, <CHARNAME>, you might want to take these arrows.~ [C0BLANK]
 DO ~SetGlobal("C02AuraTrollbaneArrow","GLOBAL",2)
 GiveItemCreate("c0auaro4",Player1,5,0,0)~
 = ~I've been working on them since I was told we'd have to go through the Troll Claw Woods. They're filled with trollbane, a sort of poison for trolls. If it gets into their bloodstream, it'll stop them from regenerating.~
@@ -1580,7 +1580,7 @@ EXTERN BDVIDYAD 10
 // Voidstone
 
 CHAIN IF WEIGHT #-1 ~Global("C02AuraVoidstone","GLOBAL",1)~ THEN C02AURAJ voidstone
-~Those stones... the shards of the negative energy spellstone. Can I take a look at them?~
+~Those stones... the shards of the negative energy spellstone. Can I take a look at them?~ [C0BLANK]
 END
 ++ ~I'm not sure why you'd want to, but go ahead.~ + voidstone.1
 ++ ~Sure. Knock yourself out. Erm, not literally, though.~ + voidstone.1
@@ -1889,8 +1889,11 @@ END
 
 // PID
 
-IF ~IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN pid
- SAY ~How's it going?~ [AURAf]
+IF ~GlobalGT("bd_plot","global",0)
+!AreaCheck("BD0120")
+!AreaCheck("BD0130")
+IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN pid
+ SAY ~How's it going?~ [C0BLANK]
  + ~Global("C02AuraTalk","GLOBAL",9) PartyHasItem("c02asunf")~ + ~I got you the sunflowers you wanted.~ DO ~SetGlobal("C02AuraTalk","GLOBAL",10) RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)~ + sunflowers
  + ~OR(2)
  Global("C02AuraRomanceActive","GLOBAL",1)

@@ -4,7 +4,7 @@ THEN RESPONSE #100
   SetInterrupt(FALSE)
   SetGlobal("SPRITE_IS_DEADC0AUIN3","GLOBAL",0)
   SetGlobal("C0AutoCreated", "GLOBAL", 1)
-  ActionOverride(LastSummonerOf(Myself),ApplySpellRES("c0auin3a",Myself))
+  ActionOverride(LastSummonerOf(Myself),ReallyForceSpellRES("c0auin3a",Myself))
   SetInterrupt(TRUE)
   DestroySelf()
 END
@@ -14,7 +14,7 @@ IF
   !Dead("C0AUIN3")
   InMyArea("C0AUIN3")
 THEN RESPONSE #100
-	DisplayString("c0aura",~An automaton is already currently active.~)
+	DisplayString(LastSummonerOf(Myself),~An automaton is already currently active.~)
 	DestroySelf()
 END
 
@@ -24,7 +24,7 @@ IF
   !InMyArea("C0AUIN3")
 THEN RESPONSE #100
 	MoveGlobalObject("C0AUIN3","C0Aura")
-	DisplayString("c0aura",~An automaton is already currently active.~)
+	DisplayString(LastSummonerOf(Myself),~An automaton is already currently active.~)
 	DestroySelf()
 END
 

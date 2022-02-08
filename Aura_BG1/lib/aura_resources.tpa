@@ -1,5 +1,4 @@
 COPY ~%MOD_FOLDER%/2da~ ~override~
-COPY ~%MOD_FOLDER%/audio~ ~override~
 COPY ~%MOD_FOLDER%/bams~ ~override~
 COPY ~%MOD_FOLDER%/items~ ~override~
 COPY ~%MOD_FOLDER%/portraits~ ~override~
@@ -18,13 +17,10 @@ ACTION_IF NOT FILE_EXISTS ~MGIRA1.BAM~ THEN BEGIN
 COPY ~%MOD_FOLDER%/animations/golem_iron~ ~override~
 END
 
-ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_7xxx BEGIN
     ~autocannon~ => ~C0_AUTOCANNON~
-    ~automaton~ => ~C0_AURA_AUTOMATON~
-    ~automaton_jade~ => ~C0_AURA_AUTOMATON_JADE~
-    ~automaton_black~ => ~C0_AURA_AUTOMATON_BLACK~
   END
-  ACTION_PHP_EACH anims AS folder => symbol BEGIN
+  ACTION_PHP_EACH aura_anims_7xxx AS folder => symbol BEGIN
     ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
       COPY ~%BASH_FOR_FILESPEC%~ ~override~
     END
@@ -35,36 +31,24 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
     APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
 END
 
-ACTION_IF (NOT GAME_IS_BGEE) BEGIN
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
-  ACTION_IF (slot <= 0) BEGIN
+ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
+    ~golem_iron_small~ => ~C0_GOLEM_IRON_SMALL~
+    ~automaton~ => ~C0_AURA_AUTOMATON~
+    ~automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE~
+    ~automaton_jade~ => ~C0_AURA_AUTOMATON_JADE~
+    ~automaton_jade_huge~ => ~C0_AURA_AUTOMATON_JADE_HUGE~
+    ~automaton_black~ => ~C0_AURA_AUTOMATON_BLACK~
+    ~automaton_black_huge~ => ~C0_AURA_AUTOMATON_BLACK_HUGE~
   END
-
-  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-  APPEND ~animate.ids~ ~0x%hexNumber% C0_AUTOMATON_SMALL~ UNLESS ~C0_AUTOMATON_SMALL~
-  CLEAR_IDS_MAP
-
-  COPY ~%MOD_FOLDER%/animations/automaton_small/exxx.ini~ ~override/%hexNumber%.ini~
-
-  ACTION_BASH_FOR ~%MOD_FOLDER%/animations/automaton_small~ ~^.+\.bam$~ BEGIN
-    COPY ~%BASH_FOR_FILESPEC%~ ~override~
-  END
-END
-
-ACTION_IF (NOT GAME_IS_BGEE) BEGIN
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
-  ACTION_IF (slot <= 0) BEGIN
-  END
-
-  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-  APPEND ~animate.ids~ ~0x%hexNumber% C0_AUTOMATON_LARGE~ UNLESS ~C0_AUTOMATON_LARGE~
-  CLEAR_IDS_MAP
-
-  COPY ~%MOD_FOLDER%/animations/automaton_large/exxx.ini~ ~override/%hexNumber%.ini~
-
-  ACTION_BASH_FOR ~%MOD_FOLDER%/animations/automaton_large~ ~^.+\.bam$~ BEGIN
-    COPY ~%BASH_FOR_FILESPEC%~ ~override~
-  END
+  ACTION_PHP_EACH aura_anims_Exxx AS folder => symbol BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xE000 RET slot END
+    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+    COPY ~%MOD_FOLDER%/animations/%folder%/Exxx.ini~ ~override/%hexNumber%.ini~
+    OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
+    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
 END
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -152,6 +136,61 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Magatama~) STR_VAR ba
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Grand Artifice~) STR_VAR bam_file = c0aicon5 RET c0aicon5 = icon END
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Shocked~) STR_VAR bam_file = c0aicon6 RET c0aicon6 = icon END
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Guardian Angel~) STR_VAR bam_file = c0aicon7 RET c0aicon7 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Protection from Chaos~) STR_VAR bam_file = c0aicon8 RET c0aicon8 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Igneus Blaze (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr01 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Igneus Blaze (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr02 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Igneus Blaze (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr03 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Igneus Blaze (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr04 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Igneus Blaze (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr05 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Cryoshock (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr06 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Cryoshock (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr07 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Cryoshock (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr08 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Cryoshock (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr09 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Cryoshock (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr10 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Energy Barrage (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr11 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Energy Barrage (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr12 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Energy Barrage (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr13 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Energy Barrage (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr14 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Energy Barrage (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr15 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Lunar Butterfly (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr16 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Lunar Butterfly (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr17 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Lunar Butterfly (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr18 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Lunar Butterfly (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr19 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Lunar Butterfly (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr20 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Aerial Judgment (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr21 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Aerial Judgment (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr22 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Aerial Judgment (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr23 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Aerial Judgment (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr24 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Aerial Judgment (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr25 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Gaia Shield (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr26 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Gaia Shield (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr27 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Gaia Shield (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr28 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Gaia Shield (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr29 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Gaia Shield (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr30 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Chronos Warp (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr31 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Chronos Warp (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr32 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Chronos Warp (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr33 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Chronos Warp (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr34 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Chronos Warp (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr35 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Panacea Circle (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr36 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Panacea Circle (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr37 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Panacea Circle (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr38 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Panacea Circle (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr39 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Panacea Circle (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr40 = icon END
+
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (See Enemy)~) STR_VAR bam_file = c0aicr01 RET c0aicr41 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (Hit)~) STR_VAR bam_file = c0aicr01 RET c0aicr42 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (50%)~) STR_VAR bam_file = c0aicr01 RET c0aicr43 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr44 = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr45 = icon END
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// PROJECTILES ////////////////////////////////////
@@ -226,8 +265,15 @@ ADD_PROJECTILE ~override/c0amiss8.PRO~ ~C0 Energy Barrage 8~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albolt.PRO~ ~C0 Aerial Judgment~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albol2.PRO~ ~C0 Aerial Judgment 2~
 
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aluna3.PRO~ ~C0 Lunar Butterfly~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aluna4.PRO~ ~C0 Lunar Butterfly 2~
+
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0pring.PRO~ ~C0 Panacea Circle~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acomet.PRO~ ~C0 Red Meteor~
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auheal.PRO~ ~C0 Aura Healing~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#at1.PRO~ ~C0 Autocannon Missile Fire~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#at2.PRO~ ~C0 Autocannon Missile Ice~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#at3.PRO~ ~C0 Autocannon Missile Lightning~
