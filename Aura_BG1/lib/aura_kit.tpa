@@ -2131,11 +2131,11 @@ Weight: 1~
 WRITE_LONG 0x34 375
 
 COPY_EXISTING ~c0apot04.spl~ ~override~
-SAY NAME1 ~Philter of Health~
-SAY NAME2 ~Philter of Health~
+SAY NAME1 ~Potion of Health~
+SAY NAME2 ~Potion of Health~
 COPY_EXISTING ~c0apot04.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Health~
-SAY NAME2 ~Lantanese Philter of Health~
+SAY NAME1 ~Lantanese Potion of Health~
+SAY NAME2 ~Lantanese Potion of Health~
 SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
 
 STATISTICS:
