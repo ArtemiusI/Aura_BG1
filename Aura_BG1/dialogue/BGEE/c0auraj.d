@@ -5,8 +5,8 @@ BEGIN C0AURAJ
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",2)~ THEN C0AURAJ t1
 ~Th-thank you for letting me join you, <CHARNAME>... I'm not sure what I'd be able to do all by myself. I, um... I won't let you down.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~You sound nervous. Is this your first time travelling like this?~ + t1.1
 ++ ~Don't worry. I'm as new to the adventuring life as you.~ + t1.2
@@ -84,8 +84,8 @@ EXIT
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",4)~ THEN C0AURAJ t2
 ~Hey, you! where do you think you're trying to hide this time?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~Me? I'm not hiding anywhere.~ + t2.1
 ++ ~Who are you talking to, Aura?~ + t2.2
@@ -102,7 +102,7 @@ EXTERN C0AURAJ t2.2
 
 CHAIN C0AURAJ t2.2
 ~Stop! Get out of the electrum jar! Hey, come out of my bag this instant! I- eeek!~
-= ~M-muffy, behave! S-stop... a-haha, that tickles, stop crawling all over me!~ [GAM_48]
+= ~M-muffy, behave! S-stop... a-haha, that tickles, stop crawling all over me!~ [C0MUFFY]
 END
 ++ ~Is that... a squirrel? A metal squirrel?~ + t2.3
 ++ ~Uh, is there anything I can do to help?~ + t2.4
@@ -159,8 +159,8 @@ EXIT
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",6)~ THEN C0AURAJ t3
 ~<CHARNAME>, you mentioned you grew up in Candlekeep, right? The great library?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~That's right. What of it?~ + t3.1
 ++ ~Don't remind me of that terrible place. I'm happy without the memories.~ + t3.a
@@ -219,8 +219,8 @@ EXIT
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",8)~ THEN C0AURAJ t4
 ~A bit of ink there, I think... no, no... that's too much. Muffy? Where's my thinner brush? There, that's better... hmm? Is something wrong, <CHARNAME>?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~What are you painting, Aura?~ + t4.1
 ++ ~I was just watching. Carry on by all means.~ + t4.1
@@ -304,8 +304,8 @@ EXIT
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",10)~ THEN C0AURAJ t5
 ~<CHARNAME>, I... umm, I finished my painting from the last time we stopped to talk. Would you like to see it?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~I'd love to see it.~ + t5.1
 ++ ~I don't have the time right now, Aura.~ + t5.0
@@ -378,8 +378,8 @@ EXIT
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",12)~ THEN C0AURAJ t6
 ~Whew, I think I've been through more adventures in the short time I've known you than for the rest of my life, <CHARNAME>.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 = ~Not that it's a bad thing, mind you! I've learned a lot here that I wouldn't have otherwise. I'm just saying, you've lived a rather blessed life.~
 END
 ++ ~Come to think of it, how old are you exactly, Aura? You've never mentioned it.~ + t6.1
@@ -439,8 +439,8 @@ CHAIN IF ~Global("C0AuraTalk","GLOBAL",14)
 Global("C0AuraRestTalk","GLOBAL",1)~ THEN C0AURAJ t7
 ~Oh, finally, a chance to relax and put our feet up. Muffy! Where are those tea biscuits? Oh, thank you. The tea's nearly ready as well.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~Looks like you're enjoying yourself.~ + t7.1
 ++ ~Tea and biscuits? Are we adventuring or having a picnic?~ + t7.2
@@ -546,8 +546,8 @@ DO ~RestParty()~ EXIT
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",16)~ THEN C0AURAJ t8
 ~I... I guess we're in trouble now, right? I mean... even more than we already were?~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~Are you afraid, Aura?~ + t8.1
 ++ ~We'll be fine. I'm not letting anything stop me, not now.~ + t8.2
@@ -600,8 +600,8 @@ CHAIN IF ~Global("C0AuraTalk","GLOBAL",18)~ THEN C0AURAJ t9
 ~Here, <CHARNAME>. I made this for you!~ [C0BLANK]
 DO ~GiveItemCreate("c0amaga2",Player1,1,0,0)
 IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~It's... a necklace? Looks just like the one you wear.~ + t9.1
 ++ ~Thanks, Aura.~ + t9.2
@@ -640,8 +640,8 @@ DO ~IncrementGlobal("C0AuraInsulted","GLOBAL",1) SetGlobal("C0AuraTalkStopped","
 CHAIN IF ~Global("C0AuraTalk","GLOBAL",20) Global("C0AuraRestTalk","GLOBAL",2)~ THEN C0AURAJ t10
 ~Heya. Come sit next to me for a bit, <CHARNAME>! It's nice and warm by the fire.~ [C0BLANK]
 DO ~IncrementGlobal("C0AuraTalk","GLOBAL",1)
-RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THIRTY_MINUTES)
-SetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",THREE_DAYS)~
+RealSetGlobalTimer("C0AuraTalkRealTimer","GLOBAL",TWELVE_HOURS)
+SetGlobalTimer("C0AuraTalkTimer","GLOBAL",THREE_DAYS)~
 END
 ++ ~No tea or biscuits this time?~ + t10.1
 ++ ~Sure. I enjoy your company.~ + t10.2
@@ -1233,6 +1233,32 @@ EXTERN C0AURAJ burstorb.3
 CHAIN C0AURAJ burstorb.3
 ~I've only got three ready-made at the moment. I can make more though, but it's not easy. Let's say... roughly one every three days. And I don't dare stockpile them, so remember to ask me at the right time. Use them sparingly. Also carefully!~
 EXIT
+
+// RED/VIOLET POTIONS
+CHAIN IF ~Global("C0AuraWeirdPotions","GLOBAL",1)~ THEN C0AURAJ weirdpotions
+~These potions are really... unique. I've seen a ton of alchemical formulae, but these are... well, whoever concocted them is definitely brilliant. Or insane. Maybe both.~ [C0BLANK]
+DO ~SetGlobal("C0AuraWeirdPotions","GLOBAL",2)~
+= ~Just the colors alone are so bizarre. I don't know what kind of reagent would allow for such vibrant shades while also having such drastic effects... hmm, maybe orchils...? No, that'd eventually start fading...~
+= ~Could I take a sample, <CHARNAME>? Just a small one, it won't affect their potency. I might be able to figure out how to replicate the effects. They're really interesting, but it'd be a shame to use them when they're the only ones we have.~
+END
+++ ~Sure. How long do you think you'll take?~ + weirdpotion.1
+++ ~They seem dangerous. I'm not sure trying to replicate them is a good idea.~ + weirdpotion.2
+
+CHAIN C0AURAJ weirdpotion.1
+~Give me... three days. I should be able to find some formula that can at least imitate the effects by then. Thanks, <CHARNAME>! Ooh, this is going to be so much fun!~
+DO ~SetGlobal("C0AuraWeirdPotions","GLOBAL",3)
+SetGlobalTimer("C0AuraWeirdPotionsTimer","GLOBAL",THREE_DAYS)~ EXIT
+
+CHAIN C0AURAJ weirdpotion.2
+~Well, it's your call. If you change your mind, though, I'd still really like to run some tests on them.~
+EXIT
+
+CHAIN IF ~Global("C0AuraWeirdPotions","GLOBAL",4)~ THEN C0AURAJ weirdpotions
+~Well, I've gotten a dozen more split ends, burned my favorite handkerchief, and my fingers are going to be stained magenta for at least a week, but... I did it! I think I've managed to reproduce the effects of those two colored potions.~ [C0BLANK]
+DO ~SetGlobal("C0AuraWeirdPotions","GLOBAL",5)~
+= ~I've memorized the formula, so I'll be able to make more along with my usual fare. They're... not as volatile as the originals. But that's also a good thing. I thought playing it safe would be a good idea. Maybe in the future, I'll look more into them.~
+= ~I'll give you the ones I've made. If you need more, I'll have to purchase more components, though, and they're pretty pricey. Okay, that's everything. Carry on!~
+DO ~GiveItemCreate("c0apotx1",Player1,1,0,0) SetItemFlags("c0apotx1",IDENTIFIED,TRUE) GiveItemCreate("c0apotx2",Player1,1,0,0) SetItemFlags("c0apotx2",IDENTIFIED,TRUE) AddXPObject("C0Aura",500)~ EXIT
 
 // TELESCOPE
 
@@ -1952,6 +1978,9 @@ IF ~Global("EndofBG1","GLOBAL",0) IsGabber(Player1) CombatCounter(0) !Detect([EN
 	GlobalGT("C0AuraTalk","GLOBAL",6)~ + ~(Flirt)~ + flirt
  + ~!Global("C0AuraBurstOrb","GLOBAL",0)
 	GlobalTimerExpired("C0AuraBurstOrbTimer","GLOBAL")~ + ~Do you have any Burst Orbs for me?~ DO ~SetGlobalTimer("C0AuraBurstOrbTimer","GLOBAL",THREE_DAYS) GiveItemCreate("c0autt01",Player1,1,0,0)~ + makeburstorb
+ + ~Global("C0AuraWeirdPotions","GLOBAL",2)
+ PartyHasItem("potn15")
+ PartyHasItem("potn16")~ + ~Here's the two colored potions. How long would it take to replicate the effects?~ + weirdpotion.1
  + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal
  + ~Global("C0AuraCrafting","GLOBAL",3) Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft1
  + ~Global("C0AuraCrafting","GLOBAL",3) !Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft2
@@ -1977,6 +2006,9 @@ IF ~~ pid2
 	GlobalGT("C0AuraTalk","GLOBAL",6)~ + ~(Flirt)~ + flirt
  + ~!Global("C0AuraBurstOrb","GLOBAL",0)
 	GlobalTimerExpired("C0AuraBurstOrbTimer","GLOBAL")~ + ~Do you have any Burst Orbs for me?~ DO ~SetGlobalTimer("C0AuraBurstOrbTimer","GLOBAL",THREE_DAYS) GiveItemCreate("c0autt01",Player1,1,0,0)~ + makeburstorb
+ + ~Global("C0AuraWeirdPotions","GLOBAL",2)
+ PartyHasItem("potn15")
+ PartyHasItem("potn16")~ + ~Here's the two colored potions. How long would it take to replicate the effects?~ + weirdpotion.1
  + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal
  + ~Global("C0AuraCrafting","GLOBAL",3) Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft1
  + ~Global("C0AuraCrafting","GLOBAL",3) !Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft2
@@ -2014,7 +2046,7 @@ IF ~Global("C0AuraCrystal","GLOBAL",1)~ THEN BEGIN crystal2
 SAY ~I ran some experiments on the ice crystal you found, and the results match up with what I've studied about extraplanar powers.~
 = ~The crystal that you found was an essence of ice, from the Para-Elemental Plane of Ice. I'm not sure how it ended up in this plane, but it likely has something to do with the magic that affects that ice island.~
 = ~It's not very useful on its own, though. I wish I had the resources to make something more interesting out of it, but this is what I could put together with what I had. Here, take it.~
-IF ~~ DO ~SetGlobal("C0AuraCrystal","GLOBAL",2)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraCrystal","GLOBAL",2) AddXPObject("C0Aura",1500)~ EXIT
 END
 
 IF ~~ runes
@@ -2661,7 +2693,7 @@ IF WEIGHT #-1 ~Global("C0AuraAtWork","GLOBAL",4)
 Global("C0AuraKozah","GLOBAL",1)~ craftdone4.1
 SAY ~Uh, that wasn't supposed to happen... I think.~
 = ~Actually, on second thought... maybe the thunderbolt helped activate the idol's powers. It's practically buzzing with energy now!~
-IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim04",Player1,3,1,0)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim04",Player1,3,1,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF WEIGHT #-1 ~!Global("C0AuraAtWork","GLOBAL",0)
@@ -2678,18 +2710,18 @@ END
 IF ~~ craftdone1
 SAY ~Working with cursed items is always a challenge, and a huge risk at that, but... well, I think I've managed to restrain it a little.~
 = ~Remember - if you're going to use it, try to stay healthy in battle, or else it'll put you in even greater danger than before. Unless you really know what you're doing, of course.~
-IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim01",Player1,0,0,0)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim01",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone2
 SAY ~Isn't it impressive! Oof, heavy, though... it's not really my type of weapon, and I already have my Sunshooter, but it should suit anyone with stronger muscles just fine.~
 = ~It can't fire as fast anymore... but believe me, it'll make every shot count.~
-IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim02",Player1,0,0,0)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim02",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone3
 SAY ~Mmm, I've never added a metal plating to a weapon before, especially one that changes its shape, but... I think I've managed it. Shiny, isn't it?~
-IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim03",Player1,0,0,0)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim03",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone4
@@ -2700,12 +2732,12 @@ END
 
 IF ~~ craftdone5
 SAY ~Meh. The staff was a lot more interesting to research than to work on, to be honest. It's not quite so useless anymore... but it's just so boring now! Anyways, go ahead and take it. Maybe you'll have a plan for what to do with the thing.~
-IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim05",Player1,0,0,0)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim05",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone6
 SAY ~Uh... bad news. I couldn't stop the sword from eating your gold. But I did manage to force it to give a little bit back, kind of. Just use it and you'll see what I mean.~
-IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim06",Player1,0,0,0)~ EXIT
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim06",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ stringfix

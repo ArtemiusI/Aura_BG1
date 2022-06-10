@@ -80,7 +80,7 @@ STATISTICS:
 Equipped abilities:
 – Saving Throws: +2
 – Tamanoya: The wearer is protected by Death Ward, Protection from Chaos and Protection from Evil
-– Yasakani: If the wearer would suffer fatal damage, she instead survives with one hit point. This blessing is only effective once per eight hours, or after being raised.
+– Yasakani: If the wearer would suffer fatal damage, she instead survives with one hit point and is healed for 10% of her maximum hit points. This blessing is only effective once per eight hours, or after being raised.
 
 Weight: 0~
 OUTER_SET strref = RESOLVE_STR_REF (~Aura bats your hand away with the hint of a frown on her face. "Hey, hands off!"~ [GAM_47])
@@ -91,8 +91,9 @@ COPY_EXISTING ~c0amaga2.spl~ ~override~
   LPF ALTER_EFFECT INT_VAR match_opcode = 142 parameter2 = c0aicon7 END
 COPY_EXISTING ~c0amaga3.spl~ ~override~
   LPF ALTER_EFFECT INT_VAR
-      match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Protected from Fatal Damage~)
-END
+      match_opcode = 139 match_special = 1 parameter1 = RESOLVE_STR_REF (~Protected from Fatal Damage~) END
+  LPF ALTER_EFFECT INT_VAR
+      match_opcode = 139 match_special = 2 parameter1 = RESOLVE_STR_REF (~Healed~) END
 
 COPY_EXISTING ~c0amaga2.itm~ ~override~
       LPF ALTER_EFFECT
@@ -520,6 +521,7 @@ Charge abilities (1x/day):
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +1
 Damage: -2 (missile)
@@ -560,6 +562,7 @@ Charge abilities (1x/day):
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +3
 Speed Factor: 4
@@ -598,6 +601,7 @@ Charge abilities (1x/day):
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +2
 Damage: -1 (missile)
@@ -638,6 +642,7 @@ Charge abilities (1x/day):
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +4
 Speed Factor: 4
@@ -677,6 +682,7 @@ Charge abilities (1x/day):
 
 Combat abilities:
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: -2
 Damage: +2 (missile)
@@ -717,6 +723,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +1 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +3
 Damage: -1 (missile)
@@ -758,6 +765,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +1 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +5
 Speed Factor: 4
@@ -798,6 +806,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +1 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: -1
 Damage: +3 (missile)
@@ -842,6 +851,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +2 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +4
 Damage: -1 (missile)
@@ -887,6 +897,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +2 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +6
 Speed Factor: 4
@@ -931,6 +942,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +2 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 Damage: +4 (missile)
 Speed Factor: 2
@@ -974,6 +986,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +3 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +5
 Damage: -1 (missile)
@@ -1019,6 +1032,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +3 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +7
 Speed Factor: 4
@@ -1063,6 +1077,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +3 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 Damage: +6 (missile)
 Speed Factor: 2
@@ -1120,6 +1135,7 @@ Charge abilities (1x/day):
 Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +4 enchantment
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 3% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +7
 Damage: +6 (missile)
@@ -1179,6 +1195,7 @@ Combat abilities:
 – Eminence: All arrows launched by this bow strike with at least +5 enchantment
 – When no arrows are equipped, the bow fires missiles that are treated as +5 for the purposes of determining what enemies they can damage. The missiles receive +8 to hit and deal a total of 7 piercing and 2d6 magical damage
 – Magnetism: Each hit reduces target's Armor Class vs. Ranged Weapons by 1 and Missile Resistance by 5% for 5 rounds
+– Analytical Archery: This bow uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 
 THAC0: +8
 Damage: +7 (missile)
@@ -1262,8 +1279,6 @@ END
 SAY NAME1 ~Arrow Rain +5~
 SAY NAME2 ~Arrow Rain +5~
 
-COPY_EXISTING ~c0austop.spl~ ~override~
-  LPF ALTER_EFFECT INT_VAR match_opcode = 100 parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0AURA~) END
 COPY_EXISTING ~c0auarow.spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR header = 2 projectile = c0auheal END
 COPY_EXISTING ~c0auarow.itm~ ~override~
@@ -2122,3 +2137,30 @@ When thrown, unleashes a burst of negative energy which deals Magic Damage and r
 Weight: 0~
 WRITE_SHORT 0x9C ~%c0aproj0%~
 WRITE_LONG 0x34 6000
+
+COPY_EXISTING ~c0apotx1.itm~ ~override~
+SAY NAME2 ~Lantanese Violet Potion~
+SAY DESC ~This is one of the oddest potions you have ever examined. Once drunk, this mixture causes one's muscles to immediately bulge to completely inhuman proportions, titan-like actually, while Dexterity and Constitution are both reduced essentially to that of a slug. This variant of the Violet Potion is a near identical replica, albeit greatly distilled to reduce the longevity of its dubious effects to a fraction of its original amount.
+
+STATISTICS:
+
+Strength: 25
+Dexterity: 3
+Constitution: 3
+Duration: 2 hours
+
+Weight: 1~
+
+COPY_EXISTING ~c0apotx2.itm~ ~override~
+SAY NAME2 ~Lantanese Red Potion~
+SAY DESC ~Close examination reveals this liquid to be very peculiar in nature. It could be a sorcerer's dream, but that would depend entirely on who you asked. After ingesting the mixture, the drinker becomes the weakest, most unwise, yet incredibly intelligent person to have ever lived, with an innate 50% Magic Damage Resistance as well. This variant of the Red Potion is a near identical replica, albeit greatly distilled to reduce the longevity of its dubious effects to a fraction of its original amount.
+
+STATISTICS:
+
+Special: +50% resistance to all magical damage
+Intelligence: 25
+Wisdom: 3
+Strength: 3
+Duration: 24 hours
+
+Weight: 1~

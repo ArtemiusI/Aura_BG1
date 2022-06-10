@@ -2,18 +2,10 @@
 //////////////////////////////////// KIT //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-PRINT ~Choose a class for Aura:~
-
-PRINT ~Please choose one of the following:
-[1] Artificer (Thief)
-[2] Illusionist / Artificer (Mage / Thief)
-[3] Priestess / Artificer (Cleric / Thief)~
-
-OUTER_SPRINT ~auraclass~ ~placeholder_value~
-OUTER_WHILE (!(IS_AN_INT ~auraclass~) OR (~auraclass~ > 0x5) OR (~auraclass~ < 0x1)) BEGIN
-  PRINT ~Please select 1, 2, or 3 and press Enter.~
-  ACTION_READLN ~auraclass~
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~C0A_A01.SPL~ BEGIN
+INCLUDE ~%MOD_FOLDER%/LIB/ANALYZE.TPA~
 END
+
       ACTION_IF ("auraclass" = 1) THEN BEGIN
 ADD_KIT ~C0AURA~
  // appended to CLASWEAP.2da
@@ -62,7 +54,6 @@ Advantages:
 – +20 bonus to Lore.
 – +5 additional Lore per level gained.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
-– Analytical Archery: The artificer uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -79,6 +70,10 @@ CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and 
 – May use the Advanced Alchemy ability at will.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– May use Analyze at will.
+
+ANALYZE: With this ability, the user carefully observes the target and identifies their strengths and weaknesses, revealing their Hit Die, THAC0, Saving Throws, Magic Resistance, Damage Resistance and vulnerability to Poison and Backstabs. This ability may be used an unlimited number of times.
 
 – 3rd level: May use the Infusion ability once per day.
 
@@ -109,7 +104,6 @@ Disadvantages:
 – +20 bonus to ^0xFFDBD8B8Lore^-.
 – +5 additional ^0xFFDBD8B8Lore^- per level gained.
 – +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
-– ^0xFF12B4E6Analytical Archery:^- The artificer uses ^0xFFDBD8B8Intelligence^-, if higher, for bonuses to ranged ^0xFFDBD8B8THAC0^- instead of ^0xFFDBD8B8Dexterity^-.
 – May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 ^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
@@ -214,7 +208,6 @@ Gnomes can choose this multi-class, but become ^0xFF12B4E6Illusionist/Artificers
 – +20 bonus to ^0xFFDBD8B8Lore^-.
 – +5 additional ^0xFFDBD8B8Lore^- per level gained.
 – +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
-– ^0xFF12B4E6Analytical Archery:^- The artificer uses ^0xFFDBD8B8Intelligence^-, if higher, for bonuses to ranged ^0xFFDBD8B8THAC0^- instead of ^0xFFDBD8B8Dexterity^-.
 – May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 ^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
@@ -263,7 +256,6 @@ Advantages:
 – +20 bonus to Lore.
 – +5 additional Lore per level gained.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
-– Analytical Archery: The artificer uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -280,6 +272,10 @@ CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and 
 – May use the Advanced Alchemy ability at will.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– May use Analyze at will.
+
+ANALYZE: With this ability, the user carefully observes the target and identifies their strengths and weaknesses, revealing their Hit Die, THAC0, Saving Throws, Magic Resistance, Damage Resistance and vulnerability to Poison and Backstabs. This ability may be used an unlimited number of times.
 
 – 3rd level: May use the Infusion ability once per day.
 
@@ -377,7 +373,6 @@ ADD_KIT ~C0AURA~
 – +20 bonus to ^0xFFDBD8B8Lore^-.
 – +5 additional ^0xFFDBD8B8Lore^- per level gained.
 – +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
-– ^0xFF12B4E6Analytical Archery:^- The artificer uses ^0xFFDBD8B8Intelligence^-, if higher, for bonuses to ranged ^0xFFDBD8B8THAC0^- instead of ^0xFFDBD8B8Dexterity^-.
 – May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 ^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
@@ -439,7 +434,6 @@ Advantages:
 – +20 bonus to Lore.
 – +5 additional Lore per level gained.
 – +10% bonus to Find Traps, Open Locks and Set Traps.
-– Analytical Archery: The artificer uses Intelligence, if higher, for bonuses to ranged THAC0 instead of Dexterity.
 – May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
 
 Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
@@ -456,6 +450,10 @@ CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and 
 – May use the Advanced Alchemy ability at will.
 
 ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– May use Analyze at will.
+
+ANALYZE: With this ability, the user carefully observes the target and identifies their strengths and weaknesses, revealing their Hit Die, THAC0, Saving Throws, Magic Resistance, Damage Resistance and vulnerability to Poison and Backstabs. This ability may be used an unlimited number of times.
 
 – 3rd level: May use the Infusion ability once per day.
 
@@ -2077,10 +2075,6 @@ Requires: Use Any Item~
 ///////////////////////////////// POTIONS /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////// POTIONS /////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-
 COPY_EXISTING ~c0apot01.spl~ ~override~
 SAY NAME1 ~Potion of Renewal~
 SAY NAME2 ~Potion of Renewal~
@@ -2136,13 +2130,13 @@ SAY NAME2 ~Philter of Health~
 COPY_EXISTING ~c0apot04.itm~ ~override~
 SAY NAME1 ~Lantanese Philter of Health~
 SAY NAME2 ~Lantanese Philter of Health~
-SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
+SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day... among other uses.
 
 STATISTICS:
 
 Maximum Hit Points: +10%
-Special: Removes fatigue
-Duration: 1 hour
+Special: Removes and grants immunity to fatigue
+Duration: 2 hours
 
 Weight: 1~
 WRITE_LONG 0x34 240
@@ -2502,6 +2496,379 @@ SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills
    - Spellcasting classes take precedence over warrior classes.
    - Arcane classes take precedence over divine classes.~
 WRITE_LONG 0x34 20000
+
+COPY_EXISTING ~c0agre1a.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Alchemist's Fire I~
+SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d6 fire damage and must Save vs. Breath or take an additional 1d6 fire damage after one round.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre1b.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Alchemist's Fire II~
+SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d8 fire damage and must Save vs. Breath or take an additional 1d8 fire damage after one round.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre1c.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Alchemist's Fire III~
+SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d10 fire damage and must Save vs. Breath or take an additional 1d10 fire damage after one round.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre1d.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Alchemist's Fire IV~
+SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 2d8 fire damage and must Save vs. Breath or take an additional 2d8 fire damage after one round.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre1e.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Alchemist's Fire V~
+SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 2d12 fire damage and must Save vs. Breath or take an additional 2d12 fire damage after one round.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre2a.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Acid Flask I~
+SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and every following round for two rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre2b.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Acid Flask II~
+SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and every following round for three rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre2c.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Acid Flask III~
+SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and every following round for four rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre2d.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Acid Flask IV~
+SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and every following round for five rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre2e.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Acid Flask V~
+SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and every following round for six rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre3a.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Choking Powder I~
+SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be dazed for one round, unable to take any actions.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre3b.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Choking Powder II~
+SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be dazed for two rounds, unable to take any actions.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre3c.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Choking Powder III~
+SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or be dazed for two rounds, unable to take any actions.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre3d.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Choking Powder IV~
+SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or be dazed for two rounds, unable to take any actions.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre3e.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Choking Powder V~
+SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or be dazed for three rounds, unable to take any actions.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre4a.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Sleeping Gas I~
+SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius of 4 HD or lower must make a Save vs. Breath or fall asleep for one turn.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre4b.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Sleeping Gas II~
+SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius of 7 HD or lower must make a Save vs. Breath or fall asleep for one turn.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre4c.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Sleeping Gas III~
+SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius of 10 HD or lower must make a Save vs. Breath at -1 or fall asleep for one turn.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre4d.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Sleeping Gas IV~
+SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius of 13 HD or lower must make a Save vs. Breath at -2 or fall asleep for one turn.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre4e.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Sleeping Gas V~
+SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius of 16 HD or lower must make a Save vs. Breath at -3 or fall asleep for one turn.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre5a.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Tanglefoot Bag I~
+SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be entangled in sticky threads for two rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre5b.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Tanglefoot Bag II~
+SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or be entangled in sticky threads for two rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre5c.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Tanglefoot Bag III~
+SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or be entangled in sticky threads for four rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre5d.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Tanglefoot Bag IV~
+SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or be entangled in sticky threads for four rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre5e.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Tanglefoot Bag V~
+SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -3 or be entangled in sticky threads for six rounds.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre6a.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Thunderstone I~
+SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be deafened for 5 rounds, suffering a 50% penalty to spell failure.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre6b.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Thunderstone II~
+SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or be deafened for 5 rounds, suffering a 50% penalty to spell failure.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre6c.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Thunderstone III~
+SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or be deafened for 5 rounds, suffering a 50% penalty to spell failure.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre6d.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Thunderstone IV~
+SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -3 or be deafened for 5 rounds, suffering a 50% penalty to spell failure.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agre6e.itm~ ~override~
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+SAY NAME1 ~Grenade~
+SAY NAME2 ~Thunderstone V~
+SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
+
+STATISTICS:
+
+Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -4 or be deafened for 5 rounds, suffering a 50% penalty to spell failure.
+
+Weight: 0~
+
+COPY_EXISTING ~c0agren1.spl~ ~override~
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren1 END
+COPY_EXISTING ~c0agren2.spl~ ~override~
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren2 END
+COPY_EXISTING ~c0agren3.spl~ ~override~
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren3 END
+COPY_EXISTING ~c0agren4.spl~ ~override~
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren4 END
+COPY_EXISTING ~c0agren5.spl~ ~override~
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren5 END
+COPY_EXISTING ~c0agren6.spl~ ~override~
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren6 END
 
 COPY_EXISTING ~c0abomb1.spl~ ~override~
 READ_LONG 0x64 "abil_off"

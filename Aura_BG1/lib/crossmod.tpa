@@ -75,3 +75,10 @@ THEN BEGIN
   PRINT ~Adding crossmod banters between Aura and Vienxay~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/vienxay.d~
 END
+
+// Aura-SotSC
+ACTION_IF MOD_IS_INSTALLED ~Setup-SotSC.tp2~ ~0~
+THEN BEGIN
+  PRINT ~Adding crossmod content between Aura and Shades of the Sword Coast~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/BGEE/crossmod/sotsc.d~
+END

@@ -80,6 +80,7 @@ END
 
 IF ~~ rejoin.0
 SAY ~Anyways, what can I do for you?~
+++ ~Could you make some potions for me?~ + potions
 + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal
 ++ ~Would you like to join me again, Aura?~ + rejoin.1
 ++ ~Nothing. I'll be going now.~ EXIT
@@ -88,6 +89,11 @@ END
 IF ~~ rejoin.1
 SAY ~Sure thing! Just give me a sec... Muffy? Hey, where do you think you're... ha, gotcha! Come on, quit fooling around, it's time to go!~
 IF ~~ DO ~SetGlobal("KickedOut","LOCALS",0) JoinParty()~ EXIT
+END
+
+IF ~~ potions
+SAY ~Of course! Just give me a moment to prepare my alchemy set.~
+IF ~~ DO ~ReallyForceSpellRES("c0aualc",Myself)~ EXIT
 END
 
 IF ~~ crystal

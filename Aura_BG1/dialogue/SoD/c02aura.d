@@ -245,7 +245,7 @@ END
 CHAIN C02AURA voidstone.2
 ~Nothing insidious. I just thought I might be able to turn them into some sort of explosive weapon. I only need the dust, though. I can do plenty with this.~
 = ~I can't make too many at once. It's just too draining on my resources... not to mention, it's dangerous. I'll only be able to make one per alchemy session. It'll be powerful, though, that much I can guarantee.~
-DO ~SetGlobal("C02AuraVoidstone","GLOBAL",2)~ EXIT
+DO ~SetGlobal("C02AuraVoidstone","GLOBAL",2) AddXPObject("C0Aura",500)~ EXIT
 
 // Kicked Out
 
@@ -364,10 +364,15 @@ CHAIN IF ~Global("bd_joined","LOCALS",0)~ THEN C02AURA p
 ~Heya. How're things going? Not so well here, I'm so busy concocting potions and making medicine for the wounded that I've barely had time to work on anything.~
 = ~Anyway, what's up? Do you need my help for something?~
 END
+++ ~Could you make some potions for me?~ + potions
 ++ ~If you're looking for more exciting work, I've got room in the party.~ + p.0
 ++ ~I'm in need of your skills, Aura. Join me and let's go.~ + p.0
 ++ ~Sound like you've got plenty on your hands already. I'll leave you to it.~ + p.1
 ++ ~Not right now. I'll be leaving.~ + p.1
+
+CHAIN C02AURA potions
+~Of course! Just give me a moment to prepare my alchemy set.~
+DO ~ReallyForceSpellRES("c0aualc",Myself)~ EXIT
 
 CHAIN C02AURA p.0
 ~Yeah, sure. Plenty more things to do out there than here, right? Give me a moment to clean up and we'll go.~

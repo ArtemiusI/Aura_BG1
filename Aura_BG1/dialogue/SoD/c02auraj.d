@@ -1597,7 +1597,7 @@ END
 CHAIN C02AURAJ voidstone.2
 ~Nothing insidious. I just thought I might be able to turn them into some sort of explosive weapon. I only need the dust, though. I can do plenty with this.~
 = ~I can't make too many at once. It's just too draining on my resources... not to mention, it's dangerous. I'll only be able to make one per alchemy session. It'll be powerful, though, that much I can guarantee.~
-DO ~SetGlobal("C02AuraVoidstone","GLOBAL",2)~ EXIT
+DO ~SetGlobal("C02AuraVoidstone","GLOBAL",2) AddXPObject("C0Aura",500)~ EXIT
 
 // Wilhelmina
 
@@ -1894,7 +1894,7 @@ IF ~GlobalGT("bd_plot","global",0)
 !AreaCheck("BD0130")
 IsGabber(Player1) CombatCounter(0) !Detect([ENEMY])~ THEN BEGIN pid
  SAY ~How's it going?~ [C0BLANK]
- + ~Global("C02AuraTalk","GLOBAL",9) PartyHasItem("c02asunf")~ + ~I got you the sunflowers you wanted.~ DO ~SetGlobal("C02AuraTalk","GLOBAL",10) RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)~ + sunflowers
+ + ~Global("C02AuraTalk","GLOBAL",9) PartyHasItem("c02asunf")~ + ~I got you the sunflowers you wanted.~ DO ~SetGlobal("C02AuraTalk","GLOBAL",10) RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",TWELVE_HOURS)~ + sunflowers
  + ~OR(2)
  Global("C02AuraRomanceActive","GLOBAL",1)
  Global("C02AuraRomanceActive","GLOBAL",2)~ + ~(Flirt)~ + flirt
@@ -1913,7 +1913,7 @@ END
 
 IF ~~ pid.2
  SAY ~Okay. What else?~
- + ~Global("C02AuraTalk","GLOBAL",9) PartyHasItem("c02asunf")~ + ~I got you the sunflowers you wanted.~ DO ~SetGlobal("C02AuraTalk","GLOBAL",10) RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",THIRTY_MINUTES)~ + sunflowers
+ + ~Global("C02AuraTalk","GLOBAL",9) PartyHasItem("c02asunf")~ + ~I got you the sunflowers you wanted.~ DO ~SetGlobal("C02AuraTalk","GLOBAL",10) RealSetGlobalTimer("C02AuraTalkTimer","GLOBAL",TWELVE_HOURS)~ + sunflowers
  + ~OR(2)
  Global("C02AuraRomanceActive","GLOBAL",1)
  Global("C02AuraRomanceActive","GLOBAL",2)~ + ~(Flirt)~ + flirt
@@ -2117,18 +2117,25 @@ SAY ~Sure... which one?~
 + ~InParty("C0Drake")~ + ~What do you think about Drake?~ + pid4.drake
 + ~InParty("Dynaheir")~ + ~What do you think about Dynaheir?~ + pid4.dynaheir
 + ~InParty("Edwin")~ + ~What do you think about Edwin?~ + pid4.edwin
++ ~InParty("X3Emily")~ + ~What do you think about Emily?~ + pid4.emily
 + ~InParty("Glint")~ + ~What do you think about Glint?~ + pid4.glint
++ ~InParty("X3Helga")~ + ~What do you think about Helga?~ + pid4.helga
 + ~InParty("Jaheira")~ + ~What do you think about Jaheira?~ + pid4.jaheira
++ ~InParty("X3Kale")~ + ~What do you think about Kale?~ + pid4.kale
 + ~InParty("Khalid")~ + ~What do you think about Khalid?~ + pid4.khalid
 + ~InParty("Mkhiin")~ + ~What do you think about M'khiin?~ + pid4.mkhiin
 + ~InParty("Minsc")~ + ~What do you think about Minsc?~ + pid4.minsc
 + ~InParty("Neera")~ + ~What do you think about Neera?~ + pid4.neera
 + ~InParty("Rasaad")~ + ~What do you think about Rasaad?~ + pid4.rasaad
++ ~InParty("X3Rec")~ + ~What do you think about Recorder?~ + pid4.recorder
 + ~InParty("Safana")~ + ~What do you think about Safana?~ + pid4.safana
 + ~InParty("C0Sirene")~ + ~What do you think about Sirene?~ + pid4.sirene
 + ~InParty("L#1DVER")~ + ~What do you think about Verr'Sza?~ + pid4.verr
 + ~InParty("Viconia")~ + ~What do you think about Viconia?~ + pid4.viconia
++ ~InParty("X3Vien")~ + ~What do you think about Vienxay?~ + pid4.vienxay
 + ~InParty("Voghiln")~ + ~What do you think about Voghiln?~ + pid4.voghiln
+++ ~Actually, there's something else I wanted to talk about.~ + pidtalk
+++ ~Never mind. Let's get moving.~ EXIT
 END
 
 IF ~~ pid4.baeloth
@@ -2167,14 +2174,32 @@ SAY ~Hehe, he's sour on the outside, but I can get a lot of magical tidbits out 
 ++ ~That's all for now.~ + pid.end
 END
 
+IF ~~ pid4.emily
+SAY ~~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
 IF ~~ pid4.glint
 SAY ~Ooh, I like his sense of fashion. Blue hair reminds me of my adorable younger brother. Oh, and he's a nice guy, too, of course.~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
 ++ ~That's all for now.~ + pid.end
 END
 
+IF ~~ pid4.helga
+SAY ~~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
 IF ~~ pid4.jaheira
 SAY ~I— I respect her, but I have trouble approaching her because... well, you know... she turns into a bear.~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
+IF ~~ pid4.kale
+SAY ~~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
 ++ ~That's all for now.~ + pid.end
 END
@@ -2209,6 +2234,12 @@ SAY ~I have a lot of respect for him. He's trained his body with just as much dr
 ++ ~That's all for now.~ + pid.end
 END
 
+IF ~~ pid4.recorder
+SAY ~~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
 IF ~~ pid4.safana
 SAY ~She's pretty, but she'll never look at me as an equal. I know that.~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
@@ -2229,6 +2260,12 @@ END
 
 IF ~~ pid4.viconia
 SAY ~I'd really like to see her be happy for once. She's actually very beautiful when she smiles... at least, as far as I can imagine it.~
+++ ~I see. There's something else I wanted to ask.~ + pidtalk
+++ ~That's all for now.~ + pid.end
+END
+
+IF ~~ pid4.vienxay
+SAY ~~
 ++ ~I see. There's something else I wanted to ask.~ + pidtalk
 ++ ~That's all for now.~ + pid.end
 END

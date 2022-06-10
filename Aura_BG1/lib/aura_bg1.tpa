@@ -429,6 +429,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.dlg~ ~override~
   EXTEND_TOP ~%bg1_eet_symbol%3300.bcs~ ~%MOD_FOLDER%/scripts/BGEE/ar3300.baf~ EVAL
   EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/BGEE/baldur.baf~ EVAL
   
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0fubuki.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aura.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0aurad.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BGEE/c0acuts0.baf~

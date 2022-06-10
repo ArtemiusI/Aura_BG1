@@ -32,13 +32,18 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_7xxx BEGIN
 END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
+    ~snow_hag~ => ~C0_SNOW_HAG~
+    ~giant_earth_elemental~ => ~C0_GIANT_EARTH_ELEMENTAL~
     ~golem_iron_small~ => ~C0_GOLEM_IRON_SMALL~
+    ~mithril_golem~ => ~C0_MITHRIL_GOLEM~
+    ~adamantite_golem~ => ~C0_ADAMANTITE_GOLEM~
     ~automaton~ => ~C0_AURA_AUTOMATON~
     ~automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE~
     ~automaton_jade~ => ~C0_AURA_AUTOMATON_JADE~
     ~automaton_jade_huge~ => ~C0_AURA_AUTOMATON_JADE_HUGE~
     ~automaton_black~ => ~C0_AURA_AUTOMATON_BLACK~
     ~automaton_black_huge~ => ~C0_AURA_AUTOMATON_BLACK_HUGE~
+    ~wyvern~ => ~C0_WYVERN~
   END
   ACTION_PHP_EACH aura_anims_Exxx AS folder => symbol BEGIN
     ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
@@ -197,6 +202,13 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (H
 ///////////////////////////////////////////////////////////////////////////////
 
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aproj0.PRO~ ~C0 Grenade~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aproj1.PRO~ ~C0 Grenade 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren1.PRO~ ~C0 Alchemist's Fire~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren2.PRO~ ~C0 Acid Flask~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren3.PRO~ ~C0 Choking Powder~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren4.PRO~ ~C0 Sleeping Gas~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren5.PRO~ ~C0 Tanglefoot Bag~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren6.PRO~ ~C0 Thunderstone~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb1.PRO~ ~C0 Green Flaming Oil~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb2.PRO~ ~C0 Flashbomb~
 ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb3.PRO~ ~C0 Spiked Bomb~

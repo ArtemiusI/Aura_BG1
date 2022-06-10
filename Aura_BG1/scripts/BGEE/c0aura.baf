@@ -187,7 +187,7 @@ IF
     GlobalTimerExpired("C0AuraTalkTimer","GLOBAL")
     CombatCounter(0)
     !See([ENEMY])
-	Global("Chapter","GLOBAL",4)
+	GlobalGT("Chapter","GLOBAL",3)
 	!Global("C0AuraTalkStopped","GLOBAL",1)
 	GlobalLT("C0AuraInsulted","GLOBAL",2)
     Switch("C0AuraTalk","GLOBAL")
@@ -333,6 +333,31 @@ IF
 THEN
   RESPONSE #100
 	SetGlobal("C0AuraShipwreck","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// TELESCOPE
+
+IF
+    InParty(Myself)
+	PartyHasItem("potn15")
+	PartyHasItem("potn16")
+    Global("C0AuraWeirdPotions","GLOBAL",0)
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("C0AuraWeirdPotions","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+IF
+    InParty(Myself)
+    Global("C0AuraWeirdPotions","GLOBAL",3)
+	GlobalTimerExpired("C0AuraWeirdPotionsTimer","GLOBAL")
+THEN
+  RESPONSE #100
+	Wait(1)
+	SetGlobal("C0AuraWeirdPotions","GLOBAL",4)
 	StartDialogueNoSet(Player1)
 END
 
