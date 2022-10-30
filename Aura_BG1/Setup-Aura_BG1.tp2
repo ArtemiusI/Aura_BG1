@@ -99,20 +99,13 @@ END
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-BEGIN ~BG1 Default (The Artisan)~
+BEGIN ~Default Portrait (The Artisan)~
 FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
   REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
 		COPY ~%MOD_FOLDER%/portraits/AuraL.bmp~ ~override/AuraL.bmp~
 		COPY ~%MOD_FOLDER%/portraits/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/portraits/AuraS.bmp~ ~override/AuraS.bmp~
-BEGIN ~BG2 Default (The Artisan)~
-FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
-  REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
-  REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
-		COPY ~%MOD_FOLDER%/portraits/Aura2L.bmp~ ~override/AuraL.bmp~
-		COPY ~%MOD_FOLDER%/portraits/Aura2M.bmp~ ~override/AuraM.bmp~
-		COPY ~%MOD_FOLDER%/portraits/Aura2S.bmp~ ~override/AuraS.bmp~
 BEGIN ~Alternate 1 (Omar Diaz)~
 FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
@@ -148,6 +141,13 @@ FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraL.bmp~ ~override/AuraL.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg1/AuraS.bmp~ ~override/AuraS.bmp~
+BEGIN ~Third BG2 Default (The Artisan)~
+FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
+  REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
+  REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
+		COPY ~%MOD_FOLDER%/alt-portrait/thirdbg1/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/thirdbg1/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/thirdbg1/AuraS.bmp~ ~override/AuraS.bmp~
 BEGIN ~Original BG2 Default (The Artisan)~
 FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
@@ -155,6 +155,13 @@ FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraL.bmp~ ~override/AuraL.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/originalbg2/AuraS.bmp~ ~override/AuraS.bmp~
+BEGIN ~Second BG2 Default (The Artisan)~
+FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
+  REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
+  REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
+		COPY ~%MOD_FOLDER%/alt-portrait/secondbg2/AuraL.bmp~ ~override/AuraL.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/secondbg2/AuraM.bmp~ ~override/AuraM.bmp~
+		COPY ~%MOD_FOLDER%/alt-portrait/secondbg2/AuraS.bmp~ ~override/AuraS.bmp~
   
 BEGIN ~Pre-version 3.4 soundset for Aura by Kait~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~Main component must be installed~

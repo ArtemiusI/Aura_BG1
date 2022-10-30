@@ -46,6 +46,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
     ~wyvern~ => ~C0_WYVERN~
   END
   ACTION_PHP_EACH aura_anims_Exxx AS folder => symbol BEGIN
+  ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/animations/%folder%~ BEGIN
     ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
       COPY ~%BASH_FOR_FILESPEC%~ ~override~
     END
@@ -54,6 +55,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
     COPY ~%MOD_FOLDER%/animations/%folder%/Exxx.ini~ ~override/%hexNumber%.ini~
     OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
     APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
+END
 END
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -94,8 +94,8 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 
 Disadvantages:
 – Hit Die: d4
+– Base THAC0 progresses as a Mage of the same level.
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -2 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 /*  SAY ~^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
@@ -296,8 +296,8 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 
 Disadvantages:
 – Hit Die: d4
+– Base THAC0 progresses as a Mage of the same level.
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -2 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.~
 
@@ -457,7 +457,7 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.
+INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.													  
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -474,8 +474,8 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 
 Disadvantages:
 – Hit Die: d4
+– Base THAC0 progresses as a Mage of the same level.
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
-– -2 penalty to melee THAC0 modifier.
 – No backstab multiplier.
 – May only distribute 20 skill points per level among thieving skills.
 
@@ -2131,6 +2131,8 @@ COPY_EXISTING ~c0apot04.itm~ ~override~
 SAY NAME1 ~Lantanese Philter of Health~
 SAY NAME2 ~Lantanese Philter of Health~
 SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day... among other uses.
+
+		   
 
 Maximum Hit Points: +10%
 Special: Removes and grants immunity to fatigue
