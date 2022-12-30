@@ -553,3 +553,5 @@ COPY_EXISTING ~dezkie.cre~ ~override/dezkie.cre~
 		ADD_CRE_ITEM ~c0agem1~ #0 #0 #0 ~NONE~ ~inv~
 	END
 BUT_ONLY_IF_IT_CHANGES
+
+INCLUDE ~%MOD_FOLDER%/lib/crossmod.tpa~
