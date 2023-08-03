@@ -1,10 +1,9 @@
 COPY_EXISTING ~%MOD_FOLDER%/artificer/bams~ ~override~
-COPY_EXISTING ~%MOD_FOLDER%/artificer/items~ ~override~
 COPY_EXISTING ~%MOD_FOLDER%/artificer/spells~ ~override~
-COPY_EXISTING ~%MOD_FOLDER%/artificer/explosives~ ~override~
-COPY_EXISTING ~%MOD_FOLDER%/artificer/grenades~ ~override~
-COPY_EXISTING ~%MOD_FOLDER%/artificer/potions~ ~override~
-COPY_EXISTING ~%MOD_FOLDER%/artificer/runes~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/items/explosives~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/items/grenades~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/items/potions~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/items/runes~ ~override~
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// KIT //////////////////////////////////////

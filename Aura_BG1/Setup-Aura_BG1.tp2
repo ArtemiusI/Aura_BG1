@@ -163,7 +163,7 @@ FORCED_SUBCOMPONENT ~Choose a portrait for Aura:~
 		COPY ~%MOD_FOLDER%/alt-portrait/secondbg2/AuraM.bmp~ ~override/AuraM.bmp~
 		COPY ~%MOD_FOLDER%/alt-portrait/secondbg2/AuraS.bmp~ ~override/AuraS.bmp~
   
-BEGIN ~Pre-version 3.4 soundset for Aura by Kait~
+BEGIN ~ADD-ON: Pre-version 3.4 soundset for Aura by Kait~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~Main component must be installed~
  
  COPY ~%MOD_FOLDER%/audio/kait~ OVERRIDE
