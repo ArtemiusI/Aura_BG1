@@ -871,29 +871,39 @@ END
 
 IF
 	InParty(Myself)
-	OR(5)
+	OR(10)
 	PartyHasItemIdentified("sw2h03")
-	PartyHasItemIdentified("bow07")
+	PartyHasItemIdentified("sper03")
+	PartyHasItemIdentified("brac11")
 	PartyHasItemIdentified("misc48")
-	PartyHasItemIdentified("staf25")
-	PartyHasItemIdentified("sw2h22")
+	PartyHasItemIdentified("brac08")
+	PartyHasItemIdentified("ring23")
+	PartyHasItemIdentified("ring04")
+	PartyHasItemIdentified("belt05")
+	PartyHasItemIdentified("belt15")
+	PartyHasItemIdentified("blun09")
 	Global("C0AuraCrafting","GLOBAL",0)
 THEN
 RESPONSE #100
 	SetGlobal("C0AuraCrafting","GLOBAL",1)
-	SetGlobalTimer("C0AuraCraftingTalkTimer","GLOBAL",ONE_DAY)
+	RealSetGlobalTimer("C0AuraCraftingTalkTimer","GLOBAL",4)
 END
 
 IF
 	InParty(Myself)
-	OR(5)
+	OR(10)
 	PartyHasItemIdentified("sw2h03")
-	PartyHasItemIdentified("bow07")
+	PartyHasItemIdentified("sper03")
+	PartyHasItemIdentified("brac11")
 	PartyHasItemIdentified("misc48")
-	PartyHasItemIdentified("staf25")
-	PartyHasItemIdentified("sw2h22")
+	PartyHasItemIdentified("brac08")
+	PartyHasItemIdentified("ring23")
+	PartyHasItemIdentified("ring04")
+	PartyHasItemIdentified("belt05")
+	PartyHasItemIdentified("belt15")
+	PartyHasItemIdentified("blun09")
 	Global("C0AuraCrafting","GLOBAL",1)
-	GlobalTimerExpired("C0AuraCraftingTalkTimer","GLOBAL")
+	RealGlobalTimerExpired("C0AuraCraftingTalkTimer","GLOBAL")
 THEN
 RESPONSE #100
 	SetGlobal("C0AuraCrafting","GLOBAL",2)
@@ -903,168 +913,131 @@ END
 IF
 	InParty(Myself)
 	!PartyHasItemIdentified("sw2h03")
-	!PartyHasItemIdentified("bow07")
+	!PartyHasItemIdentified("sper03")
+	!PartyHasItemIdentified("brac11")
 	!PartyHasItemIdentified("misc48")
-	!PartyHasItemIdentified("staf25")
-	!PartyHasItemIdentified("sw2h22")
+	!PartyHasItemIdentified("brac08")
+	!PartyHasItemIdentified("ring23")
+	!PartyHasItemIdentified("ring04")
+	!PartyHasItemIdentified("belt05")
+	!PartyHasItemIdentified("belt15")
+	!PartyHasItemIdentified("blun09")
 	Global("C0AuraCrafting","GLOBAL",1)
-	GlobalTimerExpired("C0AuraCraftingTalkTimer","GLOBAL")
+	RealGlobalTimerExpired("C0AuraCraftingTalkTimer","GLOBAL")
 THEN
 RESPONSE #100
 	SetGlobal("C0AuraCrafting","GLOBAL",0)
 END
 
-// CURSED BERSERKING SWORD +3
+// CURSED ITEM UPGRADES
 
 IF
 	InParty(Myself)
-	PartyHasItemIdentified("sw2h03")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove1","GLOBAL",0)
+	Global("C0AuraCursedItems","GLOBAL",0)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove1","GLOBAL",1)
-	SetGlobalTimer("C0AuraImprove1Timer","GLOBAL",ONE_DAY)
+	SetGlobal("C0AuraCursedItems","GLOBAL",1)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 IF
 	InParty(Myself)
-	PartyHasItemIdentified("sw2h03")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove1","GLOBAL",1)
-	GlobalTimerExpired("C0AuraImprove1Timer","GLOBAL")
+	ClassLevelGT(Myself,"ROGUE",1)
+	Global("C0AuraCursedItems","GLOBAL",1)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove1","GLOBAL",2)
-	DisplayStringHead(Myself,~(Aura has been carefully examining the Cursed Berserking Sword +3)~)
-END
-
-// THE DEAD SHOT +2
-
-IF
-	InParty(Myself)
-	PartyHasItemIdentified("bow07")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove2","GLOBAL",0)
-THEN
-RESPONSE #100
-	SetGlobal("C0AuraImprove2","GLOBAL",1)
-	SetGlobalTimer("C0AuraImprove2Timer","GLOBAL",ONE_DAY)
+	SetGlobal("C0AuraCursedItems","GLOBAL",2)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 IF
 	InParty(Myself)
-	PartyHasItemIdentified("bow07")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove2","GLOBAL",1)
-	GlobalTimerExpired("C0AuraImprove2Timer","GLOBAL")
+	ClassLevelGT(Myself,"ROGUE",2)
+	Global("C0AuraCursedItems","GLOBAL",2)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove2","GLOBAL",2)
-	DisplayStringHead(Myself,~(Aura has been carefully examining The Dead Shot +2)~)
-END
-
-// SILVER STAFF MACE
-
-IF
-	InParty(Myself)
-	PartyHasItemIdentified("staf06")
-	PartyHasItem("dagg09")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove3","GLOBAL",0)
-THEN
-RESPONSE #100
-	SetGlobal("C0AuraImprove3","GLOBAL",1)
-	RealSetGlobalTimer("C0AuraImprove3Timer","GLOBAL",5)
+	SetGlobal("C0AuraCursedItems","GLOBAL",3)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 IF
 	InParty(Myself)
-	PartyHasItemIdentified("staf06")
-	PartyHasItem("dagg09")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove3","GLOBAL",1)
-	RealGlobalTimerExpired("C0AuraImprove3Timer","GLOBAL")
+	ClassLevelGT(Myself,"ROGUE",3)
+	Global("C0AuraCursedItems","GLOBAL",3)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove3","GLOBAL",2)
-	DisplayStringHead(Myself,~(Aura has been carefully examining the Staff Mace +2)~)
-END
-
-// GLASSES OF IDENTIFICATION
-
-IF
-	InParty(Myself)
-	PartyHasItem("misc48")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove4","GLOBAL",0)
-THEN
-RESPONSE #100
-	SetGlobal("C0AuraImprove4","GLOBAL",1)
-	SetGlobalTimer("C0AuraImprove4Timer","GLOBAL",ONE_DAY)
+	SetGlobal("C0AuraCursedItems","GLOBAL",4)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 IF
 	InParty(Myself)
-	PartyHasItem("misc48")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove4","GLOBAL",1)
-	GlobalTimerExpired("C0AuraImprove4Timer","GLOBAL")
+	ClassLevelGT(Myself,"ROGUE",4)
+	Global("C0AuraCursedItems","GLOBAL",4)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove4","GLOBAL",2)
-	DisplayStringHead(Myself,~(Aura has been carefully examining the Idol of Kozah)~)
-END
-
-
-// OSSIFIER
-
-IF
-	InParty(Myself)
-	PartyHasItemIdentified("STAF25")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove5","GLOBAL",0)
-THEN
-RESPONSE #100
-	SetGlobal("C0AuraImprove5","GLOBAL",1)
-	SetGlobalTimer("C0AuraImprove5Timer","GLOBAL",ONE_DAY)
+	SetGlobal("C0AuraCursedItems","GLOBAL",5)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 IF
 	InParty(Myself)
-	PartyHasItemIdentified("STAF25")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove5","GLOBAL",1)
-	GlobalTimerExpired("C0AuraImprove5Timer","GLOBAL")
+	ClassLevelGT(Myself,"ROGUE",5)
+	Global("C0AuraCursedItems","GLOBAL",5)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove5","GLOBAL",2)
-	DisplayStringHead(Myself,~(Aura has been carefully examining The Ossifier)~)
-END
-
-// GOLD DIGGER
-
-IF
-	InParty(Myself)
-	PartyHasItemIdentified("sw2h22")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove6","GLOBAL",0)
-THEN
-RESPONSE #100
-	SetGlobal("C0AuraImprove6","GLOBAL",1)
-	SetGlobalTimer("C0AuraImprove6Timer","GLOBAL",ONE_DAY)
+	SetGlobal("C0AuraCursedItems","GLOBAL",6)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 IF
 	InParty(Myself)
-	PartyHasItemIdentified("sw2h22")
-	Global("C0AuraCrafting","GLOBAL",3)
-	Global("C0AuraImprove6","GLOBAL",1)
-	GlobalTimerExpired("C0AuraImprove6Timer","GLOBAL")
+	ClassLevelGT(Myself,"ROGUE",6)
+	Global("C0AuraCursedItems","GLOBAL",6)
 THEN
 RESPONSE #100
-	SetGlobal("C0AuraImprove6","GLOBAL",2)
-	DisplayStringHead(Myself,~(Aura has been carefully examining the Gold Digger +1)~)
+	SetGlobal("C0AuraCursedItems","GLOBAL",7)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
+END
+
+IF
+	InParty(Myself)
+	ClassLevelGT(Myself,"ROGUE",7)
+	Global("C0AuraCursedItems","GLOBAL",7)
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraCursedItems","GLOBAL",8)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
+END
+
+IF
+	InParty(Myself)
+	ClassLevelGT(Myself,"ROGUE",8)
+	Global("C0AuraCursedItems","GLOBAL",8)
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraCursedItems","GLOBAL",9)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
+END
+
+IF
+	InParty(Myself)
+	ClassLevelGT(Myself,"ROGUE",9)
+	Global("C0AuraCursedItems","GLOBAL",9)
+THEN
+RESPONSE #100
+	SetGlobal("C0AuraCursedItems","GLOBAL",10)
+	IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",1)
+	Continue()
 END
 
 // DONE

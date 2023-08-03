@@ -1,3 +1,11 @@
+COPY_EXISTING ~%MOD_FOLDER%/artificer/bams~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/items~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/spells~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/explosives~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/grenades~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/potions~ ~override~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/runes~ ~override~
+
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// KIT //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -826,14 +834,14 @@ Set a trap in the targeted location when no hostile creatures are in sight. Trap
   ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
   ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap1.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap2.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap3.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap4.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap5.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap6.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap7.PRO~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap8.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap1.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap2.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap3.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap4.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap5.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap6.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap7.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0atrap8.PRO~
 
 COPY_EXISTING ~c0atrap1.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -2128,11 +2136,9 @@ COPY_EXISTING ~c0apot04.spl~ ~override~
 SAY NAME1 ~Potion of Health~
 SAY NAME2 ~Potion of Health~
 COPY_EXISTING ~c0apot04.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Health~
-SAY NAME2 ~Lantanese Philter of Health~
+SAY NAME1 ~Lantanese Elixir of Health~
+SAY NAME2 ~Lantanese Elixir of Health~
 SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day... among other uses.
-
-		   
 
 Maximum Hit Points: +10%
 Special: Removes and grants immunity to fatigue
@@ -2281,11 +2287,11 @@ Weight: 1~
 WRITE_LONG 0x34 1050
 
 COPY_EXISTING ~c0apot13.spl~ ~override~
-SAY NAME1 ~Philter of Luck~
-SAY NAME2 ~Philter of Luck~
+SAY NAME1 ~Elixir of Luck~
+SAY NAME2 ~Elixir of Luck~
 COPY_EXISTING ~c0apot13.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Luck~
-SAY NAME2 ~Lantanese Philter of Luck~
+SAY NAME1 ~Lantanese Elixir of Luck~
+SAY NAME2 ~Lantanese Elixir of Luck~
 SAY DESC ~Also known informally as 'liquid luck', this gold-colored liquid provides the drinker with an sense of temporary luck and confidence, as though nothing could go wrong.
 
 STATISTICS:
@@ -2433,11 +2439,11 @@ Weight: 1~
 WRITE_LONG 0x34 1800
 
 COPY_EXISTING ~c0apot22.spl~ ~override~
-SAY NAME1 ~Philter of Arcane Barrier~
-SAY NAME2 ~Philter of Arcane Barrier~
+SAY NAME1 ~Potion of Arcane Barrier~
+SAY NAME2 ~Potion of Arcane Barrier~
 COPY_EXISTING ~c0apot22.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Arcane Barrier~
-SAY NAME2 ~Lantanese Philter of Arcane Barrier~
+SAY NAME1 ~Lantanese Potion of Arcane Barrier~
+SAY NAME2 ~Lantanese Potion of Arcane Barrier~
 SAY DESC ~This potion causes the drinker's very skin itself to repel magical energies, making them all but immune to the majority of spells. However, they may still cast their own spells if they so choose.
 
 STATISTICS:
@@ -2462,8 +2468,8 @@ SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully res
 WRITE_LONG 0x34 2500
 
 COPY_EXISTING ~c0apoth3.itm~ ~override~
-SAY NAME1 ~Lantanese Philter of Truth~
-SAY NAME2 ~Lantanese Philter of Truth~
+SAY NAME1 ~Lantanese Potion of Truth~
+SAY NAME2 ~Lantanese Potion of Truth~
 SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
 WRITE_LONG 0x34 2500
 

@@ -45,17 +45,6 @@ SAY DESC ~This brass insignia is small enough to fit inside of your palm. Engrav
 COPY_EXISTING ~c0amaga1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
       opcode = 180
 	  target = 1
 	  timing = 2
@@ -208,6 +197,24 @@ SAY 0xc ~Aura's Rune Book~
 
 COPY_EXISTING ~c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
+
+OUTER_SET bow_strref = RESOLVE_STR_REF (~Aura hugs her bow close while shaking her head slightly. "Mmm... sorry, but I don't think I'd feel right without my Sunshooter."~ [GAM_47])
+APPEND item_use.2da ~c0aubo1a Aura %bow_strref% 3
+c0aubo1b Aura %bow_strref% 3
+c0aubo2a Aura %bow_strref% 3
+c0aubo2b Aura %bow_strref% 3
+c0aubo2c Aura %bow_strref% 3
+c0aubo3a Aura %bow_strref% 3
+c0aubo3b Aura %bow_strref% 3
+c0aubo3c Aura %bow_strref% 3
+c0aubo4a Aura %bow_strref% 3
+c0aubo4b Aura %bow_strref% 3
+c0aubo4c Aura %bow_strref% 3
+c0aubo5a Aura %bow_strref% 3
+c0aubo5b Aura %bow_strref% 3
+c0aubo5c Aura %bow_strref% 3
+c0aubo6  Aura %bow_strref% 3
+c0aubo7  Aura %bow_strref% 3~
 
 COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1b.spl~
   LPF ALTER_SPELL_HEADER
@@ -495,17 +502,6 @@ C0AUBO5C    %sunshooter%    C0AUBOW~
 
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/C0AUBOW.d~
 COPY_EXISTING ~c0aubo1a.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter I (Rapid)~
 SAY NAME2 ~Sunshooter I (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -535,17 +531,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo1b.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter I (Precise)~
 SAY NAME2 ~Sunshooter I (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -575,17 +560,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo2a.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter II (Rapid)~
 SAY NAME2 ~Sunshooter II (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -615,17 +589,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo2b.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter II (Precise)~
 SAY NAME2 ~Sunshooter II (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -655,17 +618,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo2c.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter II (Power)~
 SAY NAME2 ~Sunshooter II (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -696,17 +648,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo3a.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter III (Rapid)~
 SAY NAME2 ~Sunshooter III (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -737,17 +678,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo3b.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter III (Precise)~
 SAY NAME2 ~Sunshooter III (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -778,17 +708,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo3c.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter III (Power)~
 SAY NAME2 ~Sunshooter III (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -820,17 +739,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo4a.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter IV (Rapid)~
 SAY NAME2 ~Sunshooter IV (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -865,17 +773,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo4b.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter IV (Precise)~
 SAY NAME2 ~Sunshooter IV (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -910,17 +807,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo4c.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter IV (Power)~
 SAY NAME2 ~Sunshooter IV (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -955,17 +841,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo5a.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter V (Rapid)~
 SAY NAME2 ~Sunshooter V (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -1000,17 +875,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo5b.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter V (Precise)~
 SAY NAME2 ~Sunshooter V (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -1045,17 +909,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo5c.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter V (Power)~
 SAY NAME2 ~Sunshooter V (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -1090,17 +943,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo6.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Perfect Sunshooter~
 SAY NAME2 ~Perfect Sunshooter~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it. The Perfect Sunshooter is the product of a master artificer's craft, combining all the strengths of the bow's various configurations.
@@ -1149,17 +991,6 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo7.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter2 = 11
-	  power = 1
-	  special = RESOLVE_STR_REF (~Aura~)
-	STR_VAR
-	  resource = C0Aura
-END
 SAY NAME1 ~Sunshooter Opus~
 SAY NAME2 ~Sunshooter Opus~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it. The Sunshooter Opus is the product of a master artificer's craft, combining all the strengths of the bow's various configurations.
@@ -1809,23 +1640,18 @@ Weight: 2~
 
 COPY_EXISTING ~c0auim01.itm~ ~override~
 SAY NAME1 ~Two-handed Sword~
-SAY NAME2 ~Two-handed Sword, Cursed Berserking +3~
-SAY DESC ~This is a cursed sword which performs perfectly under every test, save the heat of battle. Upon entering combat, the wielder will immediately go berserk, killing everything within reach until either calming down or falling unconscious. A very powerful sword, but one must decide whether or not it is worth the risk. Even once the battle fury has ended, this sword can only be removed via an exorcism using a Remove Curse spell.
+SAY NAME2 ~Sword of Wrath +3~
+SAY DESC ~This was once a cursed sword which performs perfectly under every test, save the heat of battle. Upon entering combat, the wielder will immediately go berserk, killing everything within reach until either calming down or falling unconscious. A very powerful sword, but one must decide whether or not it is worth the risk. Even once the battle fury has ended, this sword can only be removed via an exorcism using a Remove Curse spell.
 
-Aura's enhancements to the weapon were unsuccessful in removing the curse, but somewhat successful in suppressing the rage that overcomes the wielder... at least, so long as they retain the physical and mental fortitude to hold it back. Should they allow the fury to overwhelm them, they would gain incredible strength from the unleashed power... but at a risky cost. As an last resort, a magically-charged gem is embedded in the crossguard with a Remove Curse enchantment.
+With Aura's enhancements to the weapon, the curse of the weapon has been broken, but an aura of rage still permeates through the weapon, often causing its wielder to become more reckless in combat. However, it has been controlled to the extent that those who carry it can tell friend from foe.
 
 STATISTICS:
 
-Charge abilities:
-– Remove Curse once per day
-
 Equipped abilities:
-– May only be removed with a Remove Curse spell
-– When below 50% maximum Hit Points, the wielder must make a Save vs. Spell at -4 every round or go berserk, gaining +2 to Strength and +4 to damage rolls but reducing armor class by 2. Additionally, the wielder loses 1d4 hit points per round for as long as they remain enraged
-– When below 10% maximum Hit Points, cast Remove Curse on self
+– Armor Class: -2 penalty
 
-THAC0: +1
-Damage: 1d10+1 (slashing)
+THAC0: +3
+Damage: 1d10+3 (slashing)
 Speed Factor: 7
 Proficiency Type: Two-handed Sword
 Type: Two-handed
@@ -1835,49 +1661,39 @@ Requires:
 Weight: 15~
 
 COPY_EXISTING ~c0auim02.itm~ ~override~
-SAY NAME1 ~Longbow~
-SAY NAME2 ~The Killing Shot +3~
-SAY DESC ~Longbow of Marksmanship: The Killing Shot
-Driven by years of rivalry, the dukes of Spandeliyon and Delthuntle decided to organize a private contest that would proclaim the better archer between them. Both boasted the power of their magical bows, but that wasn't enough for Edwall Dest, Duke of Spandeliyon. He arranged for the theft of his opponent's bow, and on the day of the contest, he couldn't help gloat in his advantage. The Duke of Delthuntle, known only as Raymond, demanded a demonstration of Edwall's skill on a scarecrow that he had placed. Edwall Dest drew his longbow and released the arrow with determination, not stopping to think how uncannily the target resembled himself. The missile split the large voodoo doll's head in twain, and at that moment, Edwall's head did much the same.
-
-Aura's enhancements to the weapon include reshaping it into a composite weapon and adding several strange attachments. The bow has become significantly heavier and more difficult to draw as a consequence, but now fires mighty shots capable of shattering the most sturdy of defenses.
+LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Bleeding~) END
+SAY NAME1 ~Spear~
+SAY NAME2 ~Biting Thorns +3~
+SAY DESC ~Once a cursed spear which struck the wielder as they struck the enemy, this weapon is now a powerful asset after Aura's enhancements. The barbed thorns that once threatened its wielder now are now its greatest asset, lodging themseves into their foe and causing deep bleeding. However, the weapon has not been fully tamed, as it requires great finesse to wield without self-injury.
 
 STATISTICS:
 
 Combat abilities:
-– Sets attacks per round to 1
-– Critical Hit Chance: +10% (this weapon)
-– Armor Breaker: Critical hits deal an additional 1d10 piercing damage and reduces the target's Armor Class by 4 points for two rounds.
+– Target bleeds for 1 piercing damage per 2 seconds for 1 round on a failed Save vs. Breath
 
-THAC0: +6
-Damage: +1 (plus Strength bonus)
-Speed Factor: 9
-Proficiency Type: Longbow
+THAC0: +3
+Damage: 1d6+3 (piercing)
+Speed Factor: 3
+Proficiency Type: Spear
 Type: Two-handed
 Requires:
- 17 Strength
+ 5 Strength
+ 17 Dexterity
 
-Weight: 8~
+Weight: 5~
 
 COPY_EXISTING ~c0auim03.itm~ ~override~
-SAY NAME1 ~Quarterstaff~
-SAY NAME2 ~Silver Staff Mace +2~
-SAY DESC ~This weapon appears to be a normal large walking staff, but it has a faint aura of alteration magic. Uttering the command word causes the staff to assume the attributes of a mace, allowing it to be wielded with one hand. This was likely designed for Clerics or Druids, though that does not preclude use by most others.
-
-Aura's enhancements have coated the Staff Mace with a plating of pure silver from the Werebane dagger, making it an effective weapon against lycanthropes.
+SAY NAME1 ~Bracers~
+SAY NAME2 ~Bracers of Precision~
+SAY DESC ~The bracers appear to be Bracers of Specialization, but were in fact once a cruel joke designed by the drow, meant to trick unsuspecting rivals into wearing them and having their wrists bound by a curse. Now, however, their curse has been transformed into a boon thanks to Lantanese artifice. These bracers now enhance the wearer's precision while wielding melee weapons, allowing them to make more accurate and deadly strikes.
 
 STATISTICS:
 
-THAC0: +2, +5 vs. lycanthropes
-Damage: 2d4+2, +5 vs. lycanthropes
-Damage type: Crushing
-Speed Factor: 2
-Proficiency Type: Quarterstaff
-Type: One-handed
-Requires:
- 3 Strength
+Equipped abilities:
+– THAC0: +2 (melee only)
+– Critical Hit Chance: +5% (melee only)
 
-Weight: 5~
+Weight: 1~
 
 COPY_EXISTING ~c0auim04.itm~ ~override~
 SAY NAME1 ~Idol~
@@ -1892,7 +1708,6 @@ Charge abilities:
 – Storm Shield once per day
 
 Equipped abilities:
-– May only be removed with a Remove Curse spell
 – 5% chance each nearby foe will be struck by lightning for 2d8 electrical damage
 – Wearer is immune to lightning strikes, Call Lightning and Lightning Bolt
 – Electrical Resistance: +20%
@@ -1902,172 +1717,97 @@ Equipped abilities:
 Weight: 1~
 
 COPY_EXISTING ~c0auim05.itm~ ~override~
-SAY NAME1 ~Quarterstaff~
-SAY NAME2 ~The Ossifier~
-SAY DESC ~Cursed Staff of Petrification: The Ossifier
-The surface of this seven-foot shaft more resembles stone than wood, but in the hands of a skilled wielder it weighs little more than a staff of oak. Along its length appear the ghost-like images of various foes caught in defensive postures, appearing almost as thought they had been suddenly turned to stone.
-
-Aura's enhancements have managed to turn the cursed weapon into something more beneficial, albeit still largely useless.
+SAY NAME1 ~Gauntlets~
+SAY NAME2 ~Gauntlets of Security~
+SAY DESC ~Gauntlets of Security
+With mischief in mind, the impetuous Elander set out to craft these cursed gauntlets to best a rival. It turns out his malice got the best of him, when he mistook these gloves for another pair. Fortunately, thanks to some clever enhancements made by Aura, such errors will not be made again by another.
 
 STATISTICS:
 
 Equipped abilities:
-– May only be removed by a Remove Curse spell
-– Stoneskin on user when equipped (five skins, re-applied upon re-equipping)
-– Barkskin (base AC set to 6)
+– Off-Hand THAC0: +2
+– Pick Pockets: +25%
+– Open Locks: +25%
+
+Weight: 2~
+
+COPY_EXISTING ~c0auim06.itm~ ~override~
+SAY NAME1 ~Ring~
+SAY NAME2 ~Ring of Discipline~
+SAY DESC ~Ring of Discipline: The Trained Mind
+Oft the bane of the careless Mage, this ring was actually used to promote humility. Hergat Norin, a grand wizard of Narfell, would give the Discipliner to his most skilled and most egotistical students. Through their blind arrogance, they would mistake the ring as a reward for their "obvious brilliance," and not the punishment of a disapproving teacher. On the other hand, a hardworking and inquisitive student earns their reward, and with the enhancements made to this ring, its magic now supports the mind of the truly brilliant.
+
+STATISTICS:
+
+Equipped abilities: 
+– Intelligence: +1
+– Casting Speed: +1
+
+Requires:
+  16 Intelligence
+  14 Wisdom
+
+Weight: 0~
+
+COPY_EXISTING ~c0auim07.itm~ ~override~
+SAY NAME1 ~Ring~
+SAY NAME2 ~Ring of Agility~
+SAY DESC ~Ring of Agility
+The most notorious owner of this ring made a substantial living exploiting its once-cursed nature. Gregoria the Foole, a Jester by trade, would use his incomparable sleight of hand to switch this ring with that of a patsy taken from his audience. The rest of his performance would involve the mocking of the newly clumsy individual, much to the delight of their comrades. The ring was removed (by a method known only to the wily Jester) only once the stooge had promised no reprisals for the treatment he had received, though Gregoria frequently still had to make a hasty retreat. His last known performance was rumored to have been an ill-humored mage in Zhentil Keep: a show from which he did not flee quite fast enough.
+
+Aura's enhancements have excised the ring of its negative qualities, and now it provides its wearer with newfound grace.
+
+STATISTICS:
+
+Equipped abilities:
+– Dexterity: +1
+– Armor Class vs. Missiles: +3
+
+Weight: 0~
+
+COPY_EXISTING ~c0auim08.itm~ ~override~
+SAY NAME1 ~Girdle~
+SAY NAME2 ~Girdle of Masculinity/Femininity~
+SAY DESC ~The cursed Girdle of Femininity and Masculinity, a rare yet oft-discussed magical item, is wrought with a most powerful magic. Anyone unfortunate enough to secure it around their waist instantly finds their gender to be transformed. It is said that not fifty years past, a nameless court jester was beheaded for presenting the girdle as a gift to Duke Lobelahn's lover.
+
+While Aura has managed to break the curse, the enchantments left behind appear to be no different. That said, those who wear it now may do so with intent, making them more confident—and attractive—to onlookers.
+
+STATISTICS:
+
+Equipped abilities:
+– Changes the wearer's gender
+– Charisma: +1
+
+Weight: 2~
+
+COPY_EXISTING ~c0auim09.itm~ ~override~
+SAY NAME1 ~Morningstar~
+SAY NAME2 ~Kiel's Morning Star +3~
+SAY DESC ~This is the morning star of Kiel the Legion Killer, firstborn son of Durlag Trollkiller and Clan-prince of his father's ill-fated tower. He was wielding it in his final hour as he rushed to warn his father of the doppelgangers' infiltration of their Clan-home. It is said that the intensity of his rage in these final moments permanently imprinted itself upon the weapon. All who wield it are overcome with this battle anger whenever an enemy is sighted.
+
+Aura claims that no magicks of artifice could suffice to quell the rage within this weapon—only the rites taught to her by her Kozakuran mentor managed to grant the vengeful spirit any measure of peace. Now, the weapon embodies its former master's undying will.
+
+STATISTICS:
 
 Combat abilities:
-– 1% chance to petrify target on strike on a failed save vs. spell
-
-Damage: 1d6 (crushing)
-Speed Factor: 4
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires:
- 5 Strength
-
-Weight: 4~
-
-COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/C0AUIM06.BAF~
-
-COPY_EXISTING ~c0auim06.cre~ ~override~
-  WRITE_ASCII SCRIPT_OVERRIDE ~c0auim06~ // override
-  WRITE_ASCII DEATHVAR ~c0auim06~ // death variable
-
-COPY_EXISTING ~c0auim06.spl~ ~override~
-COPY_EXISTING ~c0auim06.itm~ ~override~
-SAY NAME1 ~Two-handed Sword~
-SAY NAME2 ~Gold Miner +3~
-SAY DESC ~Crafted by dwarves in service to the temple of Waukeen in Amn, this two-handed sword draws power from the gold in its wielder's purse. For the wealthy it strikes mighty blows. For the impoverished, the Gold Digger is no better than a mundane greatsword.
-
-Aura's enhancements have somehow managed to reverse-engineer the weapon's enchantments, causing large showers of gold coins to burst from the bodies of the fallen and starting a gold frenzy in the wielder, urging them to kill more quickly.
-
-STATISTICS:
-
-Special:
-– Consumes 10 gold per successful hit
-– Upon killing a target, 50% chance to gain 100 gold and deal +4 melee damage for the next round.
+– Saving Throws: +2
 
 THAC0: +3
-Damage: 1d10+4 (slashing)
-Speed Factor: 9
-Proficiency Type: Two-handed Sword
-Type: Two-handed
+Damage: 2d4+3 (crushing)
+Speed Factor: 4
+Proficiency Type: Flail/Morning Star
+Type: One-handed
 Requires:
- 14 Strength
-Weight: 15~
+ 10 Strength
 
-COPY_EXISTING ~c0abrac1.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Gloves~
-SAY NAME2 ~Minor Artificer's Gloves of Fire~
-SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles with fire.
+Weight: 10~
 
-STATISTICS:
-
-Equipped abilities:
-– Ranged attacks deal 1 extra point of fire damage
-
-Weight: 1~
-
-COPY_EXISTING ~c0abrac2.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Gloves~
-SAY NAME2 ~Artificer's Gloves of Fire~
-SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles with fire.
-
-STATISTICS:
-
-Equipped abilities:
-– Ranged attacks deal 1d4 extra points of fire damage
-– All fire damage inflicted by the wearer is increased by 10%
-
-Weight: 1~
-
-COPY_EXISTING ~c0abrac3.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Gloves~
-SAY NAME2 ~Greater Artificer's Gloves of Fire~
-SAY DESC ~These thick padded gloves are specialized equipment for artificers and are normally attuned to a specific element. This specific pair of gloves allows an artificer to imbue their missiles with fire.
-
-STATISTICS:
-
-Equipped abilities:
-– Fire Resistance: +20%
-– Ranged attacks deal 1d6 extra points of fire damage
-– All fire damage inflicted by the wearer is increased by 20%
-
-Weight: 1~
-/*
-COPY_EXISTING ~c0agaunt.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Massive Gauntlet~
-SAY NAME2 ~Apocalypse Gauntlet~
-SAY DESC ~To be added
-
-STATISTICS:
-
-Equipped abilities:
-– Strength: 24
-
-Weight: 20~
-*/
 COPY_EXISTING ~c0afish.itm~ ~override~
 SAY NAME1 ~Sardine~
 SAY NAME2 ~Sardine~
 SAY DESC ~Sardines, also known as pilchards, are small, oily fish that travel in large schools and feed on sea plankton. They are commonly consumed by both larger fish and mammals alike. Cats are known for being especially fond of sardines.
 
 STATISTICS:
-
-Weight: 0~
-
-COPY_EXISTING ~c02aring.spl~ ~override~
-COPY_EXISTING ~c02aring.itm~ ~override~
-SAY NAME1 ~Ring of Moon's Eye~
-SAY NAME2 ~Ring of Moon's Eye~
-SAY DESC ~This roughly crafted ring appears unremarkable at first glance aside from a small crescent-shaped carving on the inner side. When worn, the bearer's skin becomes faintly illuminated, as though bathed in moonlight.
-
-STATISTICS:
-
-Equipped abilities:
-– When struck in combat, the wearer has a 25% chance to cast Reflected Image on <PRO_HIMHER>self
-– Immunity to fear and holding effects
 
 Weight: 0~
 

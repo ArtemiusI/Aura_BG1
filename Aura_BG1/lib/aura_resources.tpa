@@ -9,14 +9,6 @@ COPY ~%MOD_FOLDER%/spells~ ~override~
 //////////////////////////////// ANIMATIONS ///////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-ACTION_IF NOT FILE_EXISTS ~MGIRA1.BAM~ THEN BEGIN
-COPY ~%MOD_FOLDER%/animations/keg~ ~override~
-END
-
-ACTION_IF NOT FILE_EXISTS ~MGIRA1.BAM~ THEN BEGIN
-COPY ~%MOD_FOLDER%/animations/golem_iron~ ~override~
-END
-
 ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_7xxx BEGIN
     ~autocannon~ => ~C0_AUTOCANNON~
   END
@@ -32,21 +24,14 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_7xxx BEGIN
 END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
-    ~snow_hag~ => ~C0_SNOW_HAG~
-    ~giant_earth_elemental~ => ~C0_GIANT_EARTH_ELEMENTAL~
-    ~golem_iron_small~ => ~C0_GOLEM_IRON_SMALL~
-    ~mithril_golem~ => ~C0_MITHRIL_GOLEM~
-    ~adamantite_golem~ => ~C0_ADAMANTITE_GOLEM~
     ~automaton~ => ~C0_AURA_AUTOMATON~
     ~automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE~
     ~automaton_jade~ => ~C0_AURA_AUTOMATON_JADE~
     ~automaton_jade_huge~ => ~C0_AURA_AUTOMATON_JADE_HUGE~
     ~automaton_black~ => ~C0_AURA_AUTOMATON_BLACK~
     ~automaton_black_huge~ => ~C0_AURA_AUTOMATON_BLACK_HUGE~
-    ~wyvern~ => ~C0_WYVERN~
   END
   ACTION_PHP_EACH aura_anims_Exxx AS folder => symbol BEGIN
-  ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/animations/%folder%~ BEGIN
     ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
       COPY ~%BASH_FOR_FILESPEC%~ ~override~
     END
@@ -55,7 +40,6 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
     COPY ~%MOD_FOLDER%/animations/%folder%/Exxx.ini~ ~override/%hexNumber%.ini~
     OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
     APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
-END
 END
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -203,55 +187,55 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (H
 ////////////////////////////// PROJECTILES ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aproj0.PRO~ ~C0 Grenade~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aproj1.PRO~ ~C0 Grenade 1~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren1.PRO~ ~C0 Alchemist's Fire~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren2.PRO~ ~C0 Acid Flask~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren3.PRO~ ~C0 Choking Powder~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren4.PRO~ ~C0 Sleeping Gas~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren5.PRO~ ~C0 Tanglefoot Bag~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0agren6.PRO~ ~C0 Thunderstone~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb1.PRO~ ~C0 Green Flaming Oil~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb2.PRO~ ~C0 Flashbomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb3.PRO~ ~C0 Spiked Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb4.PRO~ ~C0 Sulfur Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb5.PRO~ ~C0 Red Smoke~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb6.PRO~ ~C0 Adhesive Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb7.PRO~ ~C0 Acid Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb8.PRO~ ~C0 Purple Firebomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abomb9.PRO~ ~C0 Big Boom Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro1.PRO~ ~C0 Healing Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro2.PRO~ ~C0 Lightning Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auar02.PRO~ ~C0 Lightning Arrow Chain 1~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0lchain.PRO~ ~C0 Lightning Arrow Chain 2~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aproj0.PRO~ ~C0 Grenade~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aproj1.PRO~ ~C0 Grenade 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0agren1.PRO~ ~C0 Alchemist's Fire~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0agren2.PRO~ ~C0 Acid Flask~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0agren3.PRO~ ~C0 Choking Powder~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0agren4.PRO~ ~C0 Sleeping Gas~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0agren5.PRO~ ~C0 Tanglefoot Bag~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0agren6.PRO~ ~C0 Thunderstone~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb1.PRO~ ~C0 Green Flaming Oil~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb2.PRO~ ~C0 Flashbomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb3.PRO~ ~C0 Spiked Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb4.PRO~ ~C0 Sulfur Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb5.PRO~ ~C0 Red Smoke~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb6.PRO~ ~C0 Adhesive Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb7.PRO~ ~C0 Acid Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb8.PRO~ ~C0 Purple Firebomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abomb9.PRO~ ~C0 Big Boom Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro1.PRO~ ~C0 Healing Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro2.PRO~ ~C0 Lightning Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auar02.PRO~ ~C0 Lightning Arrow Chain 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0lchain.PRO~ ~C0 Lightning Arrow Chain 2~
 COPY_EXISTING ~c0auar02.pro~ ~override~
 WRITE_SHORT 0x21A (IDS_OF_SYMBOL (~projectl~ ~c0lchain~)) + 1
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro3.PRO~ ~C0 Static Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro4.PRO~ ~C0 Trollbane Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro5.PRO~ ~C0 Disruptor Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro6.PRO~ ~C0 Warp Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro7.PRO~ ~C0 Detonator Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro8.PRO~ ~C0 Energy Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auaro9.PRO~ ~C0 Ice Arrow~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0arain.PRO~ ~C0 Arrow Volley~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0achain.PRO~ ~C0 Chain Lightning~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0athund.PRO~ ~C0 Thunderbolt~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0athun2.PRO~ ~C0 Thunderbolt~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro3.PRO~ ~C0 Static Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro4.PRO~ ~C0 Trollbane Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro5.PRO~ ~C0 Disruptor Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro6.PRO~ ~C0 Warp Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro7.PRO~ ~C0 Detonator Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro8.PRO~ ~C0 Energy Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro9.PRO~ ~C0 Ice Arrow~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0arain.PRO~ ~C0 Arrow Volley~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0achain.PRO~ ~C0 Chain Lightning~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0athund.PRO~ ~C0 Thunderbolt~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0athun2.PRO~ ~C0 Thunderbolt~
 COPY_EXISTING ~c0athun2.pro~ ~override~
 WRITE_SHORT 0x21A (IDS_OF_SYMBOL (~projectl~ ~c0athund~)) + 1
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aburst.PRO~ ~C0 Burst Orb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0asvoid.PRO~ ~C0 Screaming Void~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aarea1.PRO~ ~C0 Reveal Magic~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aburst.PRO~ ~C0 Burst Orb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0asvoid.PRO~ ~C0 Screaming Void~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aarea1.PRO~ ~C0 Reveal Magic~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abombb.PRO~ ~C0 EMP Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0abombc.PRO~ ~C0 Phaser Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aglue.PRO~ ~C0 Glue Bomb~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auimb.PRO~ ~C0 Arcane Disjunctor~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0akeg1.PRO~ ~C0 Exploding Keg~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0ausp02.PRO~ ~C0 Poison Haze~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0ausp03.PRO~ ~C0 Poison Blast~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abombb.PRO~ ~C0 EMP Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0abombc.PRO~ ~C0 Phaser Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aglue.PRO~ ~C0 Glue Bomb~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auimb.PRO~ ~C0 Arcane Disjunctor~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0akeg1.PRO~ ~C0 Exploding Keg~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0ausp02.PRO~ ~C0 Poison Haze~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0ausp03.PRO~ ~C0 Poison Blast~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acone1.PRO~ ~C0 Igneus Blaze 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0acone1.PRO~ ~C0 Igneus Blaze 1~
 COPY_EXISTING ~c0acone1.pro~ ~override/c0acone2.pro~
 WRITE_BYTE 0x224 60
 COPY_EXISTING ~c0acone1.pro~ ~override/c0acone3.pro~
@@ -259,10 +243,10 @@ WRITE_BYTE 0x224 90
 ADD_PROJECTILE ~override/c0acone2.PRO~ ~C0 Igneus Blaze 2~
 ADD_PROJECTILE ~override/c0acone3.PRO~ ~C0 Igneus Blaze 3~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acryo1.PRO~ ~C0 Cryoshock~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0acryo1.PRO~ ~C0 Cryoshock~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0amiss1.PRO~ ~C0 Energy Barrage 1~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0amiss2.PRO~ ~C0 Energy Barrage 2~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0amiss1.PRO~ ~C0 Energy Barrage 1~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0amiss2.PRO~ ~C0 Energy Barrage 2~
 COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss3.pro~
 COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss4.pro~
 COPY_EXISTING ~c0amiss2.pro~ ~override/c0amiss5.pro~
@@ -276,18 +260,18 @@ ADD_PROJECTILE ~override/c0amiss6.PRO~ ~C0 Energy Barrage 6~
 ADD_PROJECTILE ~override/c0amiss7.PRO~ ~C0 Energy Barrage 7~
 ADD_PROJECTILE ~override/c0amiss8.PRO~ ~C0 Energy Barrage 8~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albolt.PRO~ ~C0 Aerial Judgment~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0albol2.PRO~ ~C0 Aerial Judgment 2~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0albolt.PRO~ ~C0 Aerial Judgment~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0albol2.PRO~ ~C0 Aerial Judgment 2~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aluna3.PRO~ ~C0 Lunar Butterfly~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0aluna4.PRO~ ~C0 Lunar Butterfly 2~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aluna3.PRO~ ~C0 Lunar Butterfly~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0aluna4.PRO~ ~C0 Lunar Butterfly 2~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0pring.PRO~ ~C0 Panacea Circle~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0pring.PRO~ ~C0 Panacea Circle~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0acomet.PRO~ ~C0 Red Meteor~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0acomet.PRO~ ~C0 Red Meteor~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0auheal.PRO~ ~C0 Aura Healing~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auheal.PRO~ ~C0 Aura Healing~
 
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#at1.PRO~ ~C0 Autocannon Missile Fire~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#at2.PRO~ ~C0 Autocannon Missile Ice~
-ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#at3.PRO~ ~C0 Autocannon Missile Lightning~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0au#at1.PRO~ ~C0 Autocannon Missile Fire~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0au#at2.PRO~ ~C0 Autocannon Missile Ice~
+ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0au#at3.PRO~ ~C0 Autocannon Missile Lightning~

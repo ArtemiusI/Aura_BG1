@@ -83,41 +83,6 @@ COPY_EXISTING ~%MOD_FOLDER%/creatures/SoD/c02auto.cre~ ~override~
   WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
   WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
 
-COPY_EXISTING ~c0abomba.spl~ ~override~
-READ_LONG 0x64 "abil_off"
-READ_SHORT 0x68 "abil_num"
-SET "delta" = 0
-FOR (index = 0; index < abil_num; index = index + 1) BEGIN
-WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0asvoid%~
-END
-COPY_EXISTING ~c0abomba.itm~ ~override~
-  LPF ADD_ITEM_EQEFFECT
-    INT_VAR
-      opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0AURA~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
-END
-SAY NAME1 ~Firebomb~
-SAY NAME2 ~Screaming Void~
-SAY DESC ~This malignant explosive was crafted using dust from the voidstone which caused a negative energy field within Bridgefort. As unsettling as the dark sludge-like substance appears, it can deal an indisputably massive amount of harm to any being unfortunate enough to be caught within its radius.
-
-STATISTICS
-
-When thrown, unleashes a burst of negative energy which deals Magic Damage and reduces all creatures' Strength. Has no effect against undead.
-  1st level: 6d6+4 Magic Damage (Save vs. Spells for half), -1 Strength (5 rounds)
-  10th level: 6d8+6 Magic Damage (Save vs. Spells at -1 for half), -2 Strength (7 rounds)
-  20th level: 6d10+8 Magic Damage (Save vs. Spells at -2 for half), -3 Strength (1 turn)
-  30th level: 8d10+10 Magic Damage (Save vs. Spells at -3 for half), -4 Strength (2 turns)
-  40th level: 10d10+12 Magic Damage (Save vs. Spells at -4 for half), -5 Strength (3 turns)
-
-Weight: 0~
-WRITE_SHORT 0x9C ~%c0aproj0%~
-WRITE_LONG 0x34 4000
-
 COPY_EXISTING ~c02aucat.itm~ ~override~
 SAY NAME1 ~Cat~
 SAY NAME2 ~"Koko-chan"~

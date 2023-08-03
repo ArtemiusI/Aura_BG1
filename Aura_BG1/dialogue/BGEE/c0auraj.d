@@ -1821,54 +1821,26 @@ END
 // FIRST CRAFTING NOTICE
 
 IF ~Global("C0AuraCrafting","GLOBAL",2)~ crafting
-SAY ~Hmm...~
-++ ~You've been examining our gear for a while now, Aura. What's so interesting?~ DO ~SetGlobal("C0AuraCrafting","GLOBAL",3)~ + crafting1
+SAY ~Ooh, do be careful with what you have there, <CHARNAME>. There's quite a powerful curse on that thing... just looking at it makes my skin crawl.~
+++ ~How can you tell?~ + crafting1
+++ ~Can you do something about it?~ + crafting2
 END
 
 IF ~~ crafting1
-SAY ~Oh, well... I was just looking... I feel as though some of the things we've been carrying around could... use some improvements.~
-IF ~PartyHasItemIdentified("sw2h03")~ DO ~SetGlobal("C0AuraImprove1","GLOBAL",2)~ + crafting1a
-IF ~!PartyHasItemIdentified("sw2h03") PartyHasItemIdentified("bow07")~ DO ~SetGlobal("C0AuraImprove2","GLOBAL",2)~ + crafting1b
-IF ~!PartyHasItemIdentified("sw2h03") !PartyHasItemIdentified("bow07") PartyHasItemIdentified("staf06") PartyHasItemIdentified("dagg09")~ DO ~SetGlobal("C0AuraImprove3","GLOBAL",2)~ + crafting1c
-IF ~!PartyHasItemIdentified("sw2h03") !PartyHasItemIdentified("bow07") !PartyHasItemIdentified("staf06") !PartyHasItemIdentified("dagg09") PartyHasItemIdentified("misc48")~ DO ~SetGlobal("C0AuraImprove4","GLOBAL",2)~ + crafting1d
-IF ~!PartyHasItemIdentified("sw2h03") !PartyHasItemIdentified("bow07") !PartyHasItemIdentified("staf06") !PartyHasItemIdentified("dagg09") !PartyHasItemIdentified("misc48") PartyHasItemIdentified("staf25")~ DO ~SetGlobal("C0AuraImprove5","GLOBAL",2)~ + crafting1e
-IF ~!PartyHasItemIdentified("sw2h03") !PartyHasItemIdentified("bow07") !PartyHasItemIdentified("staf06") !PartyHasItemIdentified("dagg09") !PartyHasItemIdentified("misc48") !PartyHasItemIdentified("staf25") PartyHasItemIdentified("sw2h22")~ DO ~SetGlobal("C0AuraImprove6","GLOBAL",2)~ + crafting1f
-END
-
-IF ~~ crafting1a
-SAY ~Take this big sword for example... there's a powerful curse on it, but I'm sure you already know that. I've been thinking of some way I could do something about it.~
-++ ~Is that even possible? Can you do that?~ + crafting2
-END
-
-IF ~~ crafting1b
-SAY ~Like... how about this monster of a bow? The one we found off the bandits in their camp? It's asking for some enhancements to give its shots a little more kick.~
-++ ~Is that even possible? Can you do that?~ + crafting2
-END
-
-IF ~~ crafting1c
-SAY ~We're stranded in an isle full of lycanthropes, right? Well, if we're going to fight them, I could give this staff mace we found a silver plating using that dagger as material. It wouldn't take long, and it might be an alternative in case we don't have anyone who knows how to use a knife in battle, you know?~
-++ ~We'd need it quickly, Aura. Can you really do something like that so quickly?~ + crafting2
-END
-
-IF ~~ crafting1d
-SAY ~Let's say... that idol there. It's pretty useless as it is. Maybe I can get a little power out of it if I took the time to tinker on it.~
-++ ~That thing is extremely dangerous and probably cursed. Are you sure you want to work on it?~ + crafting2
-END
-
-IF ~~ crafting1e
-SAY ~Like that heavy stone staff you bought at the discount store, for example. I have a feeling it might not be as useless as it appears to be. It just needs a bit of... work.~
-++ ~Is that even possible? Can you do that?~ + crafting2
-END
-
-IF ~~ crafting1f
-SAY ~Maybe that golden sword that somehow takes power from draining your purse? I've never seen anything like it before. There might be a thing or two I can do to make it a bit more efficient.~
-++ ~Is that even possible? Can you do that?~ + crafting2
+SAY ~I'm an artificer, remember? It's my line of work to handle strange and wondrous items.~
+= ~Still, I wouldn't really call this "strange and wondrous" so much as "creepy and awful". Still, it makes me curious... I've researched ways to break curses without destroying the item or its magic, but it's a difficult craft.~
+IF ~~ + crafting3
 END
 
 IF ~~ crafting2
-SAY ~I'm an artificer, remember? It's my line of work to handle strange and wondrous items.~
-= ~Tell you what, if there's anything I might be able to work with, I'll let you know after I've had the time to examine it. And if you're interested in how I might improve it, just give a holler, got it?~
-IF ~~ EXIT
+SAY ~Maybe... I've done a bit of research into curses in the past, and there's ways to break them without destroying the item, or its magic. It's not easy, though.~
+IF ~~ + crafting3
+END
+
+IF ~~ crafting3
+SAY ~If you want me to see if I can turn this or anything else cursed into something useful... I can give it a shot. But there's so many different types of magic that can go into a curse, I can't promise I can modify everything we find with what knowledge I have right now. I might need more experience before tackling the really hard stuff.~
+= ~Still, I'll do my best if you don't mind letting me have a try. Just give me a holler if you ever think it's a good idea.~
+IF ~~ DO ~SetGlobal("C0AuraCrafting","GLOBAL",3)~ EXIT
 END
 
 // Low reputation; unhappy
@@ -1982,8 +1954,8 @@ IF ~Global("EndofBG1","GLOBAL",0) IsGabber(Player1) CombatCounter(0) !Detect([EN
  PartyHasItem("potn15")
  PartyHasItem("potn16")~ + ~Here's the two colored potions. How long would it take to replicate the effects?~ + weirdpotion.1
  + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal
- + ~Global("C0AuraCrafting","GLOBAL",3) Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft1
- + ~Global("C0AuraCrafting","GLOBAL",3) !Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft2
+ + ~Global("C0AuraCrafting","GLOBAL",3) GlobalGT("C0AuraCursedUpgrade","GLOBAL",0) Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to deal with this cursed item?~ + craft1
+ + ~Global("C0AuraCrafting","GLOBAL",3) GlobalGT("C0AuraCursedUpgrade","GLOBAL",0) !Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to deal with this cursed item?~ + craft2
  + ~!Global("C0AuraHatesBears","GLOBAL",0) 
  Global("C0AuraAskBears","GLOBAL",0)~ + ~So... why are you afraid of bears?~ DO ~SetGlobal("C0AuraAskBears","GLOBAL",1)~ + bears
  + ~Global("C0AuraAskRunes","GLOBAL",0)~ + ~Where did you learn your ability to inscribe magical runes from?~ DO ~SetGlobal("C0AuraAskRunes","GLOBAL",1)~ + runes
@@ -2010,8 +1982,8 @@ IF ~~ pid2
  PartyHasItem("potn15")
  PartyHasItem("potn16")~ + ~Here's the two colored potions. How long would it take to replicate the effects?~ + weirdpotion.1
  + ~PartyHasItem("c0agem1")~ + ~I'd like for you to take a look at this crystal.~ + crystal
- + ~Global("C0AuraCrafting","GLOBAL",3) Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft1
- + ~Global("C0AuraCrafting","GLOBAL",3) !Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to work on something for me?~ + craft2
+ + ~Global("C0AuraCrafting","GLOBAL",3) GlobalGT("C0AuraCursedUpgrade","GLOBAL",0) Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to deal with this cursed item?~ + craft1
+ + ~Global("C0AuraCrafting","GLOBAL",3) GlobalGT("C0AuraCursedUpgrade","GLOBAL",0) !Global("C0AuraAtWork","GLOBAL",0)~ + ~Do you have time to deal with this cursed item?~ + craft2
  + ~!Global("C0AuraHatesBears","GLOBAL",0) 
  Global("C0AuraAskBears","GLOBAL",0)~ + ~So... why are you afraid of bears?~ DO ~SetGlobal("C0AuraAskBears","GLOBAL",1)~ + bears
  + ~Global("C0AuraAskRunes","GLOBAL",0)~ + ~Where did you learn your ability to inscribe magical runes from?~ DO ~SetGlobal("C0AuraAskRunes","GLOBAL",1)~ + runes
@@ -2538,13 +2510,17 @@ IF ~~ EXIT
 END
 
 IF ~~ craft1
-SAY ~Sure, I've got the time for a commission. What needs upgrading?~
-+ ~Global("C0AuraImprove1","GLOBAL",2) PartyHasItemIdentified("sw2h03")~ + ~\[Cursed Berserking Sword +3\] Can you do something about the curse on this two-handed sword?~ + ragesword
-+ ~Global("C0AuraImprove2","GLOBAL",2) PartyHasItemIdentified("bow07")~ + ~\[The Dead Shot +2\] Can you add any enhancements onto this magical longbow?~ + deadshot
-+ ~Global("C0AuraImprove3","GLOBAL",2) PartyHasItemIdentified("staf06") PartyHasItem("dagg09")~ + ~\[Staff Mace +2 + Silver Dagger\] What is it about the Staff Mace that interests you?~ + staffmace
-+ ~Global("C0AuraImprove4","GLOBAL",2) PartyHasItemIdentified("misc48")~ + ~\[Idol\] The idol doesn't seem to do much. Have you discovered some secret to it?~ + idol
-+ ~Global("C0AuraImprove5","GLOBAL",2) PartyHasItemIdentified("staf25")~ + ~\[Ossifier\] Can you somehow make this useless stone staff less useless?~ + ossifier
-+ ~Global("C0AuraImprove6","GLOBAL",2) PartyHasItemIdentified("sw2h22")~ + ~\[Gold Digger +1\] Is there any way to make this sword create gold rather than destroy it?~ + golddigger
+SAY ~Sure, I've got the time to handle some curse-breaking. What needs looking at?~
++ ~Global("C0AuraImprove1","GLOBAL",0) PartyHasItemIdentified("sw2h03")~ + ~The Cursed Sword of Berserking.~ + ragesword
++ ~Global("C0AuraImprove2","GLOBAL",0) PartyHasItemIdentified("sper03")~ + ~The Backbiter.~ + backbiter
++ ~Global("C0AuraImprove3","GLOBAL",0) PartyHasItemIdentified("brac11")~ + ~The Bracers of Binding.~ + bracerbinding
++ ~Global("C0AuraImprove4","GLOBAL",0) PartyHasItemIdentified("misc48")~ + ~The Idol of Kozah.~ + idol
++ ~Global("C0AuraImprove5","GLOBAL",0) PartyHasItemIdentified("brac08")~ + ~The Gauntlets of Fumbling.~ + bracerfumbling
++ ~Global("C0AuraImprove6","GLOBAL",0) PartyHasItemIdentified("ring23")~ + ~The Discipliner.~ + discipliner
++ ~Global("C0AuraImprove7","GLOBAL",0) PartyHasItemIdentified("ring04")~ + ~The Jester's Folly.~ + jesterfolly
++ ~Global("C0AuraImprove8","GLOBAL",0) PartyHasItemIdentified("belt05")~ + ~The Girdle of Masculinity/Femininity.~ + sexgirdle
++ ~Global("C0AuraImprove9","GLOBAL",0) PartyHasItemIdentified("belt15")~ + ~The Big-Fisted Belt.~ + bigfist
++ ~Global("C0AuraImprove10","GLOBAL",0) PartyHasItemIdentified("blun09")~ + ~The Morningstar of Kiel.~ + kielstar
 ++ ~On second thought, there's nothing I need worked on right now.~ + pid2
 END
 
@@ -2555,12 +2531,16 @@ END
 
 IF ~~ craft3
 SAY ~Anything else you need looking at?~
-+ ~Global("C0AuraImprove1","GLOBAL",2) PartyHasItemIdentified("sw2h03")~ + ~\[Cursed Berserking Sword +3\] Can you do something about the curse on this two-handed sword?~ + ragesword
-+ ~Global("C0AuraImprove2","GLOBAL",2) PartyHasItemIdentified("bow07")~ + ~\[The Dead Shot +2\] Can you add any enhancements onto this magical longbow?~ + deadshot
-+ ~Global("C0AuraImprove3","GLOBAL",2) PartyHasItemIdentified("staf06") PartyHasItem("dagg09")~ + ~\[Staff Mace +2\] What is it about the Staff Mace that interests you?~ + staffmace
-+ ~Global("C0AuraImprove4","GLOBAL",2) PartyHasItemIdentified("misc48")~ + ~\[Idol\] The idol doesn't seem to do much. Have you discovered some secret to it?~ + idol
-+ ~Global("C0AuraImprove5","GLOBAL",2) PartyHasItemIdentified("staf25")~ + ~\[Ossifier\] Can you somehow make this useless stone staff less useless?~ + ossifier
-+ ~Global("C0AuraImprove6","GLOBAL",2) PartyHasItemIdentified("sw2h22")~ + ~\[Gold Digger +1\] Is there any way to make this sword create gold rather than destroy it?~ + golddigger
++ ~Global("C0AuraImprove1","GLOBAL",0) PartyHasItemIdentified("sw2h03")~ + ~The Cursed Sword of Berserking.~ + ragesword
++ ~Global("C0AuraImprove2","GLOBAL",0) PartyHasItemIdentified("sper03")~ + ~The Backbiter.~ + backbiter
++ ~Global("C0AuraImprove3","GLOBAL",0) PartyHasItemIdentified("brac11")~ + ~The Bracers of Binding.~ + bracerbinding
++ ~Global("C0AuraImprove4","GLOBAL",0) PartyHasItemIdentified("misc48")~ + ~The Idol of Kozah.~ + idol
++ ~Global("C0AuraImprove5","GLOBAL",0) PartyHasItemIdentified("brac08")~ + ~The Gauntlets of Fumbling.~ + bracerfumbling
++ ~Global("C0AuraImprove6","GLOBAL",0) PartyHasItemIdentified("ring23")~ + ~The Discipliner.~ + discipliner
++ ~Global("C0AuraImprove7","GLOBAL",0) PartyHasItemIdentified("ring04")~ + ~The Jester's Folly.~ + jesterfolly
++ ~Global("C0AuraImprove8","GLOBAL",0) PartyHasItemIdentified("belt05")~ + ~The Girdle of Masculinity/Femininity.~ + sexgirdle
++ ~Global("C0AuraImprove9","GLOBAL",0) PartyHasItemIdentified("belt15")~ + ~The Big-Fisted Belt.~ + bigfist
++ ~Global("C0AuraImprove10","GLOBAL",1) PartyHasItemIdentified("blun09")~ + ~The Morningstar of Kiel.~ + kielstar
 ++ ~On second thought, there's nothing I need worked on right now.~ + pid2
 END
 
@@ -2570,123 +2550,58 @@ IF ~~ EXIT
 END
 
 IF ~~ ragesword
-SAY ~Mmm, curses are tricky. I don't think I'd be able to remove it... well, I could, but not without stripping all the power from the blade with the curse.~
-= ~Now, if I attached the right rune to it, on the other hand... I might have a few things I can try to make the risk a bit more manageable for the user.~
-++ ~How manageable are we talking here?~ + ragesword2
+SAY ~That sword's curse isn't to be taken lightly... I don't even want to think about how many innocent lives it's taken.~
+= ~Leave it to me, <CHARNAME>. I can't promise I'll be able to fully break whatever evil magic went into making this thing, but I'll at least make sure nobody else ends up like poor Captain Brage.~
+IF ~~ DO ~SetGlobal("C0AuraImprove1","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",1) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("sw2h03") DestroyItem("sw2h03")~ + craft4
 END
 
-IF ~~ ragesword0
-SAY ~Mmm, probably for the best. That thing gives me the creeps anyway.~
-IF ~~ + craft3
+IF ~~ backbiter
+SAY ~This weapon is so fascinating. It reminds me of a certain bit of folklore involving a Kozakuran youkai that wielded a spear a little like this... remind me to tell you the story some time!~
+= ~Let's see... it wouldn't be so hard to just strip down the enchantments, but that would be such a waste... I wonder if there'd be a way to modify the barbs... it'd be difficult, but if wielded carefully.. hmm...~
+IF ~~ DO ~SetGlobal("C0AuraImprove2","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",2) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("sper03") DestroyItem("sper03")~ + craft4
 END
 
-IF ~~ ragesword2
-SAY ~Well, let's put it this way. If you're healthy, it should work just like a normal, powerful sword. But I can only suppress the rage... so if the person swinging gets too badly hurt, well...~
-= ~All that bottled up power has to be released somehow, you know? You'd probably become inhumanly strong, but... that sort of thing can't be good for your body tissue. It'll hurt.~
-++ ~In other words, the wielder will be fine if they stay healthy, but they'll go into an even more suicidal rage if they get hurt?~ + ragesword3
-++ ~I don't think I like the sound of that. Never mind.~ + ragesword0
-END
-
-IF ~~ ragesword3
-SAY ~You got it right. I can't say it'll be safe... or cheap, for that matter. But it'd be more controllable this way.~
-++ ~Let's do it. How long will it take?~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",1) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("sw2h03") DestroyItem("sw2h03")~ + ragesword4
-++ ~I don't think so. Let's leave it as it is.~ + ragesword0
-END
-
-IF ~~ ragesword4
-SAY ~Mmm... it won't be simple. I'll have to try a few things just to make sure the strain doesn't just rip the user's muscles apart. I'd say... give me a week at least just to be safe.~
-IF ~~ + craft4
-END
-
-IF ~~ deadshot
-SAY ~Ooh, I like that bow. It's a little too big and unwieldy for me, but I'm just itching to do some work on it...~
-++ ~What sort of work were you thinking of?~ + deadshot1
-END
-
-IF ~~ deadshot0
-SAY ~Alright. It'd be a poor enhancement if you couldn't even draw it afterwards, I suppose. If you think you can handle it, though, just ask again.~
-IF ~~ + craft3
-END
-
-IF ~~ deadshot1
-SAY ~Mmm... well, it's a pretty strong weapon already. It's got incredible force behind its shots, but it still has its limits... but if I fortified the limbs with the right material, well...~
-= ~It'd be heavier, slower, but stronger... more accurate, too. It'd be more like a miniature ballista than anything else. If you don't mind losing speed for more power, then let me work on it. I'd imagine you'd need a strong arm to be able to draw it once I'm done.~
-++ ~More power sounds good - I'll trust in my own strength. Get to work.~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",2) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",THREE_DAYS) TakePartyItem("bow07") DestroyItem("bow07")~ + deadshot2
-++ ~I'd rather not. It's a strong enough weapon as it is.~ + deadshot0
-END
-
-IF ~~ deadshot2
-SAY ~In that case, I'll need to scavenge together some material. Give me three days and I'll make you a weapon to behold, just wait!~
-IF ~~ + craft4
-END
-
-IF ~~ staffmace
-SAY ~Oh, well... It's an interesting weapon already, as a staff that can transmute into a mace. I've been thinking, though...~
-= ~I could, maybe, use the silver from that dagger we found to add a plating to the weapon so that we might have a decent weapon to use against lycanthropes. I'd have to melt down the dagger, of course, but if no one knows how to use it well to begin with...~
-= ~It's an idea, anyway. I thought perhaps it might be helpful to us... and it wouldn't take long at all.~
-++ ~I'd rather a blunt weapon over a dagger for fighting lycanthropes. How long would the process take?~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",3) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",EIGHT_HOURS) TakePartyItem("staf06") DestroyItem("staf06") TakePartyItem("dagg09") DestroyItem("dagg09")~ + staffmace1
-++ ~No need. A dagger suits me fine.~ + staffmace0
-END
-
-IF ~~ staffmace0
-SAY ~Fair enough. Like I said, it's just an idea. If you're fine with the weapons as they are, it's your call.~
-IF ~~ + craft3
-END
-
-IF ~~ staffmace1
-SAY ~Not long. I've done this many times before, and I have the tools I need right now, fortunately. If we take a few hours to rest, I'm sure I'll have a shiny, improved weapon ready for you.~
-IF ~~ + craft4
+IF ~~ bracerbinding
+SAY ~These aren't so out of place for drow artifacts. They do have a pretty mean sense of humor. But at the same time, some of the things they've made have such incredible potential. If only I could visit one of their cities one day... ugh, that's not really possible the way I'd like it, I know.~
+IF ~~ DO ~SetGlobal("C0AuraImprove3","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",3) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("brac11") DestroyItem("brac11")~ + craft4
 END
 
 IF ~~ idol
-SAY ~The idol of Kozah? Oh, yep. I can't help but think that there's more to it than just a unique carving. There's definitely some magic in it somewhere, it just needs to be awakened.~
-= ~Dangerous, though. It could cause thunderbolts to rain down on us if I mess with it too much. Still, I think I could at least squeeze a bit of power out of it.~
-++ ~It could be worth it. How long do you think it'll take?~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",4) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("misc48") DestroyItem("misc48")~ + idol1
-++ ~Sounds dangerous. Best leave it for now.~ + idol0
+SAY ~I'm still wondering if it was really a good idea to bring this thing with us. But at the same time, I'm so curious... but it could be really dangerous... ugh! Okay, okay, let me take a closer look at it.~
+= ~There's some inscriptures I might be able to translate some meaning out of... it'll definitely take time. And hopefully I won't get struck by lightning for trying. Or anyone else. Fingers crossed!~
+IF ~~ DO ~SetGlobal("C0AuraImprove4","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",4) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("misc48") DestroyItem("misc48")~ + craft4
 END
 
-IF ~~ idol0
-SAY ~Yeah, you're probably right.~
-IF ~~ + craft3
+IF ~~ bracerfumbling
+SAY ~Like they always say, "what goes around, comes around", huh? Leeeet's make sure the same doesn't happen to us. I'll take care of these things.~
+IF ~~ DO ~SetGlobal("C0AuraImprove5","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",5) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("brac08") DestroyItem("brac08")~ + craft4
 END
 
-IF ~~ idol1
-SAY ~Who knows? I've never tested anything like this before. It could take a day or two. Maybe a week, maybe even months. However long it takes before the thing starts to crack.~
-IF ~~ + craft4
+IF ~~ discipliner
+SAY ~You know, I know a few tutors back home who'd love to get their hands on this ring. Sometimes the students just drive them crazy, you know? Though I'm not sure having them drooling in the corner makes things better...~
+= ~This'll be a really fun challenge. The mage who made this was very powerful. In case, uh... I put this on for experimentation and something goes wrong, like the curse becomes permanent or something, I've got a notebook in the bottom compartment of my bag, make sure to... uh, forget it. Hopefully it doesn't come to that.~
+IF ~~ DO ~SetGlobal("C0AuraImprove6","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",6) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("ring23") DestroyItem("ring23")~ + craft4
 END
 
-IF ~~ ossifier
-SAY ~It's a funny thing, isn't it? I'm almost reluctant to change it, but I'm curious if there's not... more to it.~
-= ~I can't say what my tinkering would do with the staff, but it's mostly sitting around gathering dust as it is, right? You might as well let me see if I can't squeeze a bit of magic out of it.~
-++ ~Sure. Do whatever you like with it.~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",5) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",TWENTY_DAYS) TakePartyItem("staf25") DestroyItem("staf25")~ + ossifier1
-++ ~Nah. Just leave it be. It's not worth the effort.~ + ossifier0
+IF ~~ jesterfolly
+SAY ~You know, there's much more harmless ways to pull a prank on someone. The pie to the face is always a classic.~
+= ~*ahem* Before I start thinking about pie, I'll draw up a plan for how to reverse the curse on this ring. It's not going to cause any more mischief from now on.~
+IF ~~ DO ~SetGlobal("C0AuraImprove7","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",7) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("ring04") DestroyItem("ring04")~ + craft4
 END
 
-IF ~~ ossifier0
-SAY ~Aww... and there you had me excited when you asked me about it.~
-IF ~~ + craft3
+IF ~~ sexgirdle
+SAY ~Oh... right, we have this. Can I... not? This reminds me of a bad experience I had with a body-switching experiment I did with my classmate and it was... oh, okay. I'll see what I can do.~
+IF ~~ DO ~SetGlobal("C0AuraImprove8","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",8) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("belt05") DestroyItem("belt05")~ + craft4
 END
 
-IF ~~ ossifier1
-SAY ~Alrighty! Uh, though... I can't say how long I'll be spending on the thing. But once I'm happy with the results, I'll give you a holler.~
-IF ~~ + craft4
+IF ~~ bigfist
+SAY ~They say some personalities rub off on things that become magical artifacts. When I look at this, I have to wonder if that's true. It's almost kind of a shame to modify it.~
+IF ~~ DO ~SetGlobal("C0AuraImprove9","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",9) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("belt15") DestroyItem("belt15")~ + craft4
 END
 
-IF ~~ golddigger
-SAY ~Hmm... maybe. I'd have to take a look at how the magic works if I want to reverse the effect. It might be possible... but I dunno how strong I can make it. Even if I could make it spew thousands of gold coins with each swing, it'd kill the value of gold pretty fast.~
-= ~It's worth a try though. If you want me to see what I can do with the sword, then just give me a couple of weeks to work it.~
-++ ~It's worthless to me as it is. Do what you can with it.~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",6) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",FOURTEEN_DAYS) TakePartyItem("sw2h22") DestroyItem("sw2h22")~ + golddigger1
-++ ~Never mind. Let's just leave it as it is.~ + golddigger0
-END
-
-IF ~~ golddigger0
-SAY ~Okay. It's your choice.~
-IF ~~ + craft3
-END
-
-IF ~~ golddigger1
-SAY ~Okay. Like I said, a couple of weeks. I'll need to figure out exactly how the enchantment works, where all the gold goes, if I can somehow reverse-engineer the effect, you know. I'll get to work as quickly as I can.~
-IF ~~ + craft4
+IF ~~ kielstar
+SAY ~This... I'm not sure simple artifice will be enough. The story behind this weapon is too tragic... it's less like a magical curse, and more like the spirit of its master still haunts it. But I'll see what I can do.~
+IF ~~ DO ~SetGlobal("C0AuraImprove10","GLOBAL",1) IncrementGlobal("C0AuraCursedUpgrade","GLOBAL",-1) SetGlobal("C0AuraAtWork","GLOBAL",10) SetGlobalTimer("C0AuraCraftTimer","GLOBAL",ONE_WEEK) TakePartyItem("blun09") DestroyItem("blun09")~ + craft4
 END
 
 IF WEIGHT #-1 ~Global("C0AuraAtWork","GLOBAL",4)
@@ -2705,22 +2620,24 @@ IF ~Global("C0AuraAtWork","GLOBAL",3)~ + craftdone3
 IF ~Global("C0AuraAtWork","GLOBAL",4)~ + craftdone4
 IF ~Global("C0AuraAtWork","GLOBAL",5)~ + craftdone5
 IF ~Global("C0AuraAtWork","GLOBAL",6)~ + craftdone6
+IF ~Global("C0AuraAtWork","GLOBAL",7)~ + craftdone7
+IF ~Global("C0AuraAtWork","GLOBAL",8)~ + craftdone8
+IF ~Global("C0AuraAtWork","GLOBAL",9)~ + craftdone9
+IF ~Global("C0AuraAtWork","GLOBAL",10)~ + craftdone10
 END
 
 IF ~~ craftdone1
-SAY ~Working with cursed items is always a challenge, and a huge risk at that, but... well, I think I've managed to restrain it a little.~
-= ~Remember - if you're going to use it, try to stay healthy in battle, or else it'll put you in even greater danger than before. Unless you really know what you're doing, of course.~
+SAY ~The sword... well, I've calmed it down a little, at least. You should be able to put it back down even if you hold it now, but... still, be careful. It's still a little on the dangerous side.~
 IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim01",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone2
-SAY ~Isn't it impressive! Oof, heavy, though... it's not really my type of weapon, and I already have my Sunshooter, but it should suit anyone with stronger muscles just fine.~
-= ~It can't fire as fast anymore... but believe me, it'll make every shot count.~
+SAY ~Here you go... ooh, careful with the thorns, though! I've lost count of the number of times I've pricked myself by accident. My fingers are still numb in places. Be careful how you handle the spear. It's not cursed anymore, but it might still be dangerous, if you're not particularly dexterous.~
 IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim02",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone3
-SAY ~Mmm, I've never added a metal plating to a weapon before, especially one that changes its shape, but... I think I've managed it. Shiny, isn't it?~
+SAY ~It took a bit of adjusting, but you won't have to worry about mixing these bracers up with other pairs anymore. Plus, they're more comfortable to wear now!~
 IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim03",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
@@ -2731,13 +2648,33 @@ IF ~~ DO ~SetGlobal("C0AuraKozah","GLOBAL",1) ApplySpell(Myself,RESTORE_FULL_HEA
 END
 
 IF ~~ craftdone5
-SAY ~Meh. The staff was a lot more interesting to research than to work on, to be honest. It's not quite so useless anymore... but it's just so boring now! Anyways, go ahead and take it. Maybe you'll have a plan for what to do with the thing.~
+SAY ~These should be handy for more delicate work. You won't need to be afraid of fumbling things are long as you're wearing them. Assuming I got the enchantments right, anyway...~
 IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim05",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ craftdone6
-SAY ~Uh... bad news. I couldn't stop the sword from eating your gold. But I did manage to force it to give a little bit back, kind of. Just use it and you'll see what I mean.~
+SAY ~I'd call this a passing grade? Come on, I can pat myself on the back once in a while, can't I?~
 IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim06",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
+END
+
+IF ~~ craftdone7
+SAY ~I'm rather attached to this ring, actually. Maybe I could hold on to it if you don't have any other ideas? Hehe.~
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim07",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
+END
+
+IF ~~ craftdone8
+SAY ~Okay, the curse is gone, but aside from that, it's not much different. What you do with it, that's up to you. I don't wanna know.~
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim08",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
+END
+
+IF ~~ craftdone9
+SAY ~The curse was much easier to clear off than the mess, really. Whoever cursed it to begin with didn't really put in a whole lot of effort.~
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("belt06",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
+END
+
+IF ~~ craftdone10
+SAY ~*sigh* It took a little more than artifice to give the soul of this weapon some measure of peace. But... I learned some rites from my mentor that I felt were appropriate. It was the most I could do. Yasuraka ni nemuru...~
+IF ~~ DO ~SetGlobal("C0AuraAtWork","GLOBAL",0) GiveItemCreate("c0auim09",Player1,0,0,0) AddXPObject("C0Aura",500)~ EXIT
 END
 
 IF ~~ stringfix
