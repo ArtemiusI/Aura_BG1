@@ -666,31 +666,11 @@ THEN
 END
 
 IF
-  !AreaType(CITY)
-  OR(2)
-  AreaType(DUNGEON)
-  AreaType(OUTDOOR)
   Detect(Lastsummonerof(Myself))
   !Global("C0ArtificerAlchemy","LOCALS",1)
 THEN
   RESPONSE #100
     FaceObject(Lastsummonerof(Myself))
-	ApplySpellRES("c0aualc1",Lastsummonerof(Myself))
-    StartDialogueNoSet(Lastsummonerof(Myself))
-	Continue()
-END
-
-IF
-  !AreaType(DUNGEON)
-  OR(2)
-  AreaType(CITY)
-  !AreaType(OUTDOOR)
-  Detect(Lastsummonerof(Myself))
-  !Global("C0ArtificerAlchemy","LOCALS",1)
-THEN
-  RESPONSE #100
-    FaceObject(Lastsummonerof(Myself))
-	ApplySpellRES("c0aualc3",Lastsummonerof(Myself))
     StartDialogueNoSet(Lastsummonerof(Myself))
 	Continue()
 END
@@ -701,7 +681,6 @@ IF
 THEN
   RESPONSE #100
 	SetGlobal("C0AlchemyRefreshStock","GLOBAL",0)
-	ApplySpellRES("c0aualc2",Lastsummonerof(Myself))
     DestroySelf()
 END
 
@@ -710,6 +689,5 @@ IF
   !Global("C0AlchemyRefreshStock","GLOBAL",1)
 THEN
   RESPONSE #100
-	ApplySpellRES("c0aualc2",Lastsummonerof(Myself))
     DestroySelf()
 END

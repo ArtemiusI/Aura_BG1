@@ -6,8 +6,15 @@ END
 + ~OR(2)
 AreaCheck("c0au01")
 AreaCheck("ar4500")~ + ~Upgrades.~ DO ~RemoveFamiliar()~ + upgrades
-+ ~CombatCounter(0)
-HPPercentLT(Myself,100)~ + ~Repair.~ + repair
++ ~Global("RepairCount","LOCALS",3)
+CombatCounter(0)
+HPPercentLT(Myself,100)~ + ~Repair (3/3).~ + repair
++ ~Global("RepairCount","LOCALS",2)
+CombatCounter(0)
+HPPercentLT(Myself,100)~ + ~Repair (2/3).~ + repair
++ ~Global("RepairCount","LOCALS",1)
+CombatCounter(0)
+HPPercentLT(Myself,100)~ + ~Repair (1/3).~ + repair
 ++ ~Open inventory.~ DO ~StartStore("C0AUTINV",Lasttalkedtoby(Myself))~ EXIT
 + ~Global("Standby","LOCALS",0)~ + ~Standby.~ DO ~SetGlobal("Standby","LOCALS",1)~ EXIT
 + ~Global("Standby","LOCALS",1)~ + ~Follow.~ DO ~SetGlobal("Standby","LOCALS",0)~ EXIT

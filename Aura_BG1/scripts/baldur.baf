@@ -17,4 +17,5 @@ THEN
   RESPONSE #100
     MoveGlobalObject("C0AUIN3","C0Aura")
 	ActionOverride("C0AUIN3",JumpToObject(Myself))
+	ActionOverride("C0AUIN3",SetGlobal("FollowAura","LOCALS",1))
 END

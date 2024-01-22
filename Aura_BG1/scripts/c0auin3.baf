@@ -5,8 +5,23 @@ IF
 THEN
   RESPONSE #100
   SetGlobal("Creation","LOCALS",1)
+  SetGlobal("RepairCount","LOCALS",3)
   MakeGlobalOverride()
   ChangeEnemyAlly(Myself,CONTROLLED)
+END
+
+IF
+	PartyRested()
+THEN
+  RESPONSE #100
+  SetGlobal("RepairCount","LOCALS",3)
+END
+
+IF
+	HitBy([ANYONE],ELECTRICITY)
+THEN
+  RESPONSE #100
+    ApplySpellRES("c0auinh",Myself)
 END
 
 IF
@@ -634,8 +649,11 @@ IF
     !StateCheck("C0Aura",STATE_CONFUSED)
 	CombatCounter(0)
 	Delay(6)
+	OR(2)
+	Global("FollowAura","LOCALS",1)
 	!Range("C0Aura",20)
 THEN
 	RESPONSE #100
+		SetGlobal("FollowAura","LOCALS",0)
 		MoveToObjectFollow("C0Aura")
 END

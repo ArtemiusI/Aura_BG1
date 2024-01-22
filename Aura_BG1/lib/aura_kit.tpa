@@ -14,48 +14,38 @@ INCLUDE ~%MOD_FOLDER%/LIB/ANALYZE.TPA~
 END
 
       ACTION_IF ("auraclass" = 1) THEN BEGIN
-ADD_KIT ~C0AURA~
- // appended to CLASWEAP.2da
- ~C0AURA		1           1           1           1           1           1           1           1~
- // appended column-wise to WEAPPROF.2da
-//11                                T   S           F   Q             S S
-//10                                W   C           L   U             W I
-//9                         B L S   O   I   W       A   A             O N
-//8                         A O H   H   M   A       I   R C   S       R G
-//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
-//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
-//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
-//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
-//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
-//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
-//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
- // appended to ABCLASRQ.2da
- ~C0AURA				0      9	0	15	0	0~
- // appended to ABCLSMOD.2da
- ~C0AURA				0	0	0	0	0	0~
- // appended to ABDCDSRQ.2da
- ~C0AURA                		0       0       0       0       0       0~
- // appended to ABDCSCRQ.2da
- ~C0AURA                 	0       0       0       0       0	0~
- // appended to ALIGNMNT.2da
- ~C0AURA                  	1       1       1       1      1	1       1       1       1~
- // appended to DUALCLAS.2da
- ~C0AURA                  	0       0       0       0       0       0~
- // path to your CLAB-style 2da file 
- ~%MOD_FOLDER%/2da/C0AURACL.2da~
- // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
- // usability flags, added to the end of the KITLIST.2da entry
- ~0x00004000     4~
- // HLA table to use; see LUABBR.2da
- ~C0AURA~
- // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
- ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~artificer~
-  SAY ~Artificer~
-  SAY ~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+COPY ~%MOD_FOLDER%/ToF/Aura_BG1.ini~ ~weidu_external/data/dw_shared/dw_talents_3p/Aura_BG1.ini~
+COPY_EXISTING ~%MOD_FOLDER%/artificer/2da~ ~override~
+LAF ADD_KIT_EX
+  INT_VAR
+    // Mage	= 1
+	// Fighter = 2
+	// Cleric = 3
+	// Thief = 4
+	// Bard = 5
+	// Paladin = 6
+	// Fighter/Mage = 7
+	// Fighter/Cleric = 8
+	// Fighter/Thief = 9
+	// Fighter/Mage/Thief = 10
+	// Druid = 11
+	// Ranger = 12
+	// Mage/Thief = 13
+	// Cleric/Mage = 14
+	// Cleric/Thief = 15
+	// Fighter/Druid = 16
+	// Fighter/Mage/Cleric = 17
+	// Cleric/Ranger = 18
+	// Sorcerer = 19
+	// Monk = 20
+	// Shaman = 21
+    kit_class     = 4
+	
+    mixed         = RESOLVE_STR_REF(~Artificer~)
+	
+    lower         = RESOLVE_STR_REF(~artificer~)
+	
+    help          = RESOLVE_STR_REF(~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
 Advantages:
 – +20 bonus to Lore.
@@ -84,7 +74,11 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.
+The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+  SLASHING: Increases critical hit rate with slashing weapons by 1.
+  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
+  MISSILES: Additional +1 bonus to damage with ranged weapons.
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -92,6 +86,10 @@ INFUSION: The artificer infuses their allies' weapons. All party members' weapon
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
 
 – 10th level: Gains an additional use of Craft Rune.
+– 12th level: May use Elemental Infusions.
+
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
 – 20th level: Gains an additional use of Craft Rune.
@@ -104,156 +102,133 @@ Disadvantages:
 – Base THAC0 progresses as a Mage of the same level.
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
 – No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~
-/*  SAY ~^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
-
-^0xFF12B4E6Advantages:^-
-– +20 bonus to ^0xFFDBD8B8Lore^-.
-– +5 additional ^0xFFDBD8B8Lore^- per level gained.
-– +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
-– May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
-
-^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
-
-  ^0xFF12B4E6ALCHEMIST'S FIRE:^- Trap damage increases to d6 and sets targets ^0xFFDBD8B8Aflame^-, dealing an additional 1d4 fire damage per round.
-  ^0xFF12B4E6RAPID FREEZE:^- Targets become ^0xFFDBD8B8Slowed^-, suffering a -4 penalty to ^0xFFDBD8B8THAC0^- and ^0xFFDBD8B8Armor Class^-.
-  ^0xFF12B4E6ACIDIC COMPOUND:^- Targets are afflicted with ^0xFFDBD8B8Corrosion^-, suffering a -25% penalty to ^0xFFDBD8B8Physical Resistance^- and ^0xFFDBD8B8Damage^-.
-  ^0xFF12B4E6ELECTRIC CHARGE:^- Targets become ^0xFFDBD8B8Shocked^-, suffering a 10% chance every round to become ^0xFFDBD8B8Paralyzed^- for 1 round.
-
-– May use the ^0xFF12B4E6Craft Rune^- ability once per day.
-
-^0xFF12B4E6CRAFT RUNE:^- Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the ^0xFF12B4E6Craft Rune^- ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
-
-– May use the ^0xFF12B4E6Advanced Alchemy^- ability at will.
-
-^0xFF12B4E6ADVANCED ALCHEMY:^- Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
-
-– ^0xFF12B4E68th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
-– ^0xFF12B4E69th level:^- May use the ^0xFF12B4E6Craft Automaton^- ability once per day.
-
-^0xFF12B4E6CRAFT AUTOMATON:^- The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
-
-– ^0xFF12B4E613th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
-– ^0xFF12B4E615th level:^- May use the ^0xFF12B4E6Infusion^- ability once per day.
-
-^0xFF12B4E6INFUSION:^- The artificer infuses their allies' weapons. All party members' weapons are treated as having a +3 enchantment for the purposes of determining what they can hit for 8 hours.
-
-– ^0xFF12B4E618th level:^- ^0xFF12B4E6Soul of Artifice^-: +1 bonus to ^0xFFDBD8B8Saving Throws^-. This bonus increases to +3 while under the effects of ^0xFF12B4E6Infusion^-.
-– ^0xFF12B4E624th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +4.
-– ^0xFF12B4E632nd level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +5.
-– ^0xFF12B4E640th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +6.
-
-^0xFF12B4E6Disadvantages:^-
-– Hit Die: d4
-– -10% penalty to ^0xFFDBD8B8Pick Pockets^-, ^0xFFDBD8B8Hide in Shadows^- and ^0xFFDBD8B8Move Silently^-.
-– -1 penalty to melee ^0xFF12B4E6THAC0^- modifier.
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~*/
-
-LAF fl#add_kit_ee
+– May only distribute 20 skill points per level among thieving skills.~)
+	
+    briefdesc     = RESOLVE_STR_REF(~ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.~)
+	
+	// fallen = 0
+	
   STR_VAR
-    kit_name = C0AURA
+    kit_name      = ~C0AURA~
+	
+    unusable      = ~0x00004000~
+    // clasweap      = ~1 1 1 1 1 1 1 1~
+	//                                       T   S           F   Q             S S
+	//                                       W   C           L   U             W I
+	//                               B L S   O   I   W       A   A             O N
+	//                               A O H   H   M   A       I   R C   S       R G
+	//               L S           M S N O   A   I   R     H L   T R L H     2 D L 2
+	//               _ _       S   I T G R   N K T D H     A M   E O O O     H A E W
+	//               S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E
+	//               W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A
+	//               O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P
+	//               R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O
+	//               D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N
+    weapprof      = ~1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1~
+	
+    abclasrq      = ~0 9 0 15 0 0~
+	
+    // abclsmod      = ~0 0 0 0 0 0~
+	
+    // abdcdsrq      = ~0 0 0 = 0 =~
+	
+    // abdcscrq      = ~15 0 0 0 0 0~
+	
+	//               L L L N N N C C C
+	//               G N E G N E G N E
+    // alignmnt      = ~0 1 1 0 1 1 0 1 1~
+	
+    // dualclas      = ~1 1 1 0 0 0~
+	
+    luabbr        = ~C0AURA~
+	
+    // stweap        = ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08~
+	
+    clab_path     = ~override/C0AURACL.2da~
+	
+    kittable      = ~~
+	
+	// base_class = 
+	
+	// clab_base_f = 
+	
+	// clab_base_p = 
+	
+	// clab_base_d = 
+	
+	// clab_base_r = 
+	
+	// clab_base_m = 
+	
+	// clab_base_t = 
+	
+    // clsrcreq      = ~1 1 1 1 1 1 1~
+	
+    clswpbon      = ~0 0 5~
+	
+    hpclass       = ~HPWIZ~
+	
+    numwslot      = ~3~
+	
+    // clascolr = ~27 136 119 21 187~
+	
+	// clasiskl = ~0 0 0 0 0 0 0~
+	
+	// clasthac = ~0~
+	
+	// thiefscl = ~100 100 100 100 100 100 0 0~
+	
+	backstab = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
 	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-    clswpbon = ~0 0 5~
-	hpclass = ~HPWIZ~
+	
+	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
 	thiefskl = ~40 20~
+	
+	// traplimt = ~6~
+	
+    // bdstweap      = ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+  RET
+    kit_id
 END
 
       PRINT ~Installed Aura as an Artificer~
       END
       ACTION_IF ("auraclass" = 2) THEN BEGIN
+COPY ~%MOD_FOLDER%/ToF/Aura_BG1.ini~ ~weidu_external/data/dw_shared/dw_talents_3p/Aura_BG1.ini~
 COPY ~%MOD_FOLDER%/2da/mage~ ~override~
-ADD_KIT ~C0AURA~
- // appended to CLASWEAP.2da
- ~C0AURA		1           1           1           1           1           1           1           1~
- // appended column-wise to WEAPPROF.2da
-//11                                T   S           F   Q             S S
-//10                                W   C           L   U             W I
-//9                         B L S   O   I   W       A   A             O N
-//8                         A O H   H   M   A       I   R C   S       R G
-//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
-//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
-//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
-//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
-//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
-//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
-//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0AURA	1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
- // appended to ABCLASRQ.2da
- ~C0AURA				0      9	0	15	0	0~
- // appended to ABCLSMOD.2da
- ~C0AURA				0	0	0	0	0	0~
- // appended to ABDCDSRQ.2da
- ~C0AURA                		0       0       0       0       0       0~
- // appended to ABDCSCRQ.2da
- ~C0AURA                 	0       0       0       0       0	0~
- // appended to ALIGNMNT.2da
- ~C0AURA                  	1       1       1       1      1	1       1       1       1~
- // appended to DUALCLAS.2da
- ~C0AURA                  	0       0       0       0       0       0~
- // path to your CLAB-style 2da file 
- ~%MOD_FOLDER%/2da/blankclab.2da~
- // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
- // usability flags, added to the end of the KITLIST.2da entry
- ~0x00000400     13~
- // HLA table to use; see LUABBR.2da
- ~C0AURA~
- // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
- ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~illusionist / artificer~
-  SAY ~Illusionist / Artificer~
-/*  SAY ~^0xFF12B4E6ILLUSIONIST/ARTIFICER:^- This character can use the abilities of a ^0xFF12B4E6Mage^- and an ^0xFF12B4E6Artificer^-, though ^0xFF12B4E6Mage^- spells cannot be cast while wearing armor.
-  
-Gnomes can choose this multi-class, but become ^0xFF12B4E6Illusionist/Artificers^- by default. Gnomes are the only race that can combine a specialist ^0xFF12B4E6Mage^- class in a multi-class.
-  
-^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
-^0xFF12B4E6Advantages:^-
-– +20 bonus to ^0xFFDBD8B8Lore^-.
-– +5 additional ^0xFFDBD8B8Lore^- per level gained.
-– +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
-– May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
-
-^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
-
-  ^0xFF12B4E6ALCHEMIST'S FIRE:^- Trap damage increases to d6 and sets targets ^0xFFDBD8B8Aflame^-, dealing an additional 1d4 fire damage per round.
-  ^0xFF12B4E6RAPID FREEZE:^- Targets become ^0xFFDBD8B8Slowed^-, suffering a -4 penalty to ^0xFFDBD8B8THAC0^- and ^0xFFDBD8B8Armor Class^-.
-  ^0xFF12B4E6ACIDIC COMPOUND:^- Targets are afflicted with ^0xFFDBD8B8Corrosion^-, suffering a -25% penalty to ^0xFFDBD8B8Physical Resistance^- and ^0xFFDBD8B8Damage^-.
-  ^0xFF12B4E6ELECTRIC CHARGE:^- Targets become ^0xFFDBD8B8Shocked^-, suffering a 10% chance every round to become ^0xFFDBD8B8Paralyzed^- for 1 round.
-
-– May use the ^0xFF12B4E6Craft Rune^- ability once per day.
-
-^0xFF12B4E6CRAFT RUNE:^- Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the ^0xFF12B4E6Craft Rune^- ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
-
-– May use the ^0xFF12B4E6Advanced Alchemy^- ability at will.
-
-^0xFF12B4E6ADVANCED ALCHEMY:^- Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
-
-– ^0xFF12B4E68th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
-– ^0xFF12B4E69th level:^- May use the ^0xFF12B4E6Craft Automaton^- ability once per day.
-
-^0xFF12B4E6CRAFT AUTOMATON:^- The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
-
-– ^0xFF12B4E613th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
-– ^0xFF12B4E615th level:^- May use the ^0xFF12B4E6Infusion^- ability once per day.
-
-^0xFF12B4E6INFUSION:^- The artificer infuses their allies' weapons. All party members' weapons are treated as having a +3 enchantment for the purposes of determining what they can hit for 8 hours.
-
-– ^0xFF12B4E618th level:^- ^0xFF12B4E6Soul of Artifice^-: +1 bonus to ^0xFFDBD8B8Saving Throws^-. This bonus increases to +3 while under the effects of ^0xFF12B4E6Infusion^-.
-– ^0xFF12B4E624th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +4.
-– ^0xFF12B4E632nd level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +5.
-– ^0xFF12B4E640th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +6.
-
-^0xFF12B4E6Disadvantages:^-
-– Hit Die: d4
-– -10% penalty to ^0xFFDBD8B8Pick Pockets^-, ^0xFFDBD8B8Hide in Shadows^- and ^0xFFDBD8B8Move Silently^-.
-– -1 penalty to melee ^0xFF12B4E6THAC0^- modifier.
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~*/
-  SAY ~ILLUSIONIST/ARTIFICER:^- This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
+LAF ADD_KIT_EX
+  INT_VAR
+    // Mage	= 1
+	// Fighter = 2
+	// Cleric = 3
+	// Thief = 4
+	// Bard = 5
+	// Paladin = 6
+	// Fighter/Mage = 7
+	// Fighter/Cleric = 8
+	// Fighter/Thief = 9
+	// Fighter/Mage/Thief = 10
+	// Druid = 11
+	// Ranger = 12
+	// Mage/Thief = 13
+	// Cleric/Mage = 14
+	// Cleric/Thief = 15
+	// Fighter/Druid = 16
+	// Fighter/Mage/Cleric = 17
+	// Cleric/Ranger = 18
+	// Sorcerer = 19
+	// Monk = 20
+	// Shaman = 21
+    kit_class     = 13
+	
+    mixed         = RESOLVE_STR_REF(~Illusionist / Artificer~)
+	
+    lower         = RESOLVE_STR_REF(~illusionist / artificer~)
+	
+    help          = RESOLVE_STR_REF(~ILLUSIONIST/ARTIFICER: This character can use the abilities of a Mage and an Artificer, though Mage spells cannot be cast while wearing armor.
   
 Gnomes can choose this multi-class, but become Illusionist/Artificers by default. Gnomes are the only race that can combine a specialist Mage class in a multi-class.
   
@@ -286,7 +261,11 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.
+The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+  SLASHING: Increases critical hit rate with slashing weapons by 1.
+  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
+  MISSILES: Additional +1 bonus to damage with ranged weapons.
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -294,6 +273,10 @@ INFUSION: The artificer infuses their allies' weapons. All party members' weapon
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
 
 – 10th level: Gains an additional use of Craft Rune.
+– 12th level: May use Elemental Infusions.
+
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
 – 20th level: Gains an additional use of Craft Rune.
@@ -306,23 +289,93 @@ Disadvantages:
 – Base THAC0 progresses as a Mage of the same level.
 – -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
 – No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.~
-
-LAF fl#add_kit_ee
+– May only distribute 20 skill points per level among thieving skills.~)
+	
+	// fallen = 0
+	
   STR_VAR
-		kit_name = C0AURA
-		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-		clswpbon = ~0 0 3~
-		thiefskl = ~40 20~
-		hpclass = ~HPMT~
-END
-LAF qd_multiclass
-	STR_VAR
-		kit_name = c0aura
-		kit_clab = c0auracl
-		base_class = ~T~
-		mc_dir = ~%MOD_FOLDER%/2da/mage~
+    kit_name      = ~C0AURA~
+	
+    unusable      = ~0x00004000~
+    // clasweap      = ~1 1 1 1 1 1 1 1~
+	//                                       T   S           F   Q             S S
+	//                                       W   C           L   U             W I
+	//                               B L S   O   I   W       A   A             O N
+	//                               A O H   H   M   A       I   R C   S       R G
+	//               L S           M S N O   A   I   R     H L   T R L H     2 D L 2
+	//               _ _       S   I T G R   N K T D H     A M   E O O O     H A E W
+	//               S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E
+	//               W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A
+	//               O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P
+	//               R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O
+	//               D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N
+    weapprof      = ~1 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1~
+	
+    abclasrq      = ~0 9 0 15 0 0~
+	
+    // abclsmod      = ~0 0 0 0 0 0~
+	
+    // abdcdsrq      = ~0 0 0 = 0 =~
+	
+    // abdcscrq      = ~15 0 0 0 0 0~
+	
+	//               L L L N N N C C C
+	//               G N E G N E G N E
+    // alignmnt      = ~0 1 1 0 1 1 0 1 1~
+	
+    // dualclas      = ~1 1 1 0 0 0~
+	
+    luabbr        = ~C0AURA~
+	
+    // stweap        = ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08~
+	
+    // clab_path     = 
+	
+    kittable      = ~~
+	
+	// base_class = 
+	
+	// clab_base_f = 
+	
+	// clab_base_p = 
+	
+	// clab_base_d = 
+	
+	// clab_base_r = 
+	
+	// clab_base_m = 
+	
+	clab_base_t = C0AURACL
+	
+    // clsrcreq      = ~1 1 1 1 1 1 1~
+	
+    // clswpbon      = ~0 0 5~
+	
+    // hpclass       = ~HPWIZ~
+	
+    numwslot      = ~3~
+	
+    // clascolr = ~27 136 119 21 187~
+	
+	// clasiskl = ~0 0 0 0 0 0 0~
+	
+	// clasthac = ~0~
+	
+	// thiefscl = ~100 100 100 100 100 100 0 0~
+	
+	backstab = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	thiefskl = ~40 20~
+	
+	// traplimt = ~6~
+	
+    // bdstweap      = ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+  RET
+    kit_id
 END
 
 COPY_EXISTING ~c0aukt1.spl~ ~override~
@@ -330,110 +383,39 @@ COPY_EXISTING ~c0aukt1.spl~ ~override~
       PRINT ~Installed Aura as an Illusionist / Artificer~
       END
       ACTION_IF ("auraclass" = 3) THEN BEGIN	
+COPY ~%MOD_FOLDER%/ToF/Aura_BG1-cleric.ini~ ~weidu_external/data/dw_shared/dw_talents_3p/Aura_BG1.ini~
 COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
-ADD_KIT ~C0AURA~
- // appended to CLASWEAP.2da
- ~C0AURA		1           1           1           1           1           1           1           1~
- // appended column-wise to WEAPPROF.2da
-//11                                T   S           F   Q             S S
-//10                                W   C           L   U             W I
-//9                         B L S   O   I   W       A   A             O N
-//8                         A O H   H   M   A       I   R C   S       R G
-//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
-//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
-//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
-//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
-//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
-//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
-//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
- ~C0AURA	0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
- // appended to ABCLASRQ.2da
- ~C0AURA				0      9	0	15	0	0~
- // appended to ABCLSMOD.2da
- ~C0AURA				0	0	0	0	0	0~
- // appended to ABDCDSRQ.2da
- ~C0AURA                		0       0       0       0       0       0~
- // appended to ABDCSCRQ.2da
- ~C0AURA                 	0       0       0       0       0	0~
- // appended to ALIGNMNT.2da
- ~C0AURA                  	1       1       0       1      1	1       0       0       0~
- // appended to DUALCLAS.2da
- ~C0AURA                  	0       0       0       0       0       0~
- // path to your CLAB-style 2da file 
- ~%MOD_FOLDER%/2da/blankclab.2da~
- // PC races and classes allowed to use this kit, from KITTABLE.2da
- ~~
- // usability flags, added to the end of the KITLIST.2da entry
- ~0x00020000     15~
- // HLA table to use; see LUABBR.2da
- ~C0AURA~
- // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
- ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
-  SAY ~priestess / artificer~
-  SAY ~Priestess / Artificer~
-/*  SAY ~^0xFF12B4E6PRIESTESS/ARTIFICER:^- This character can use the abilities of a ^0xFF12B4E6Priestess^- and an ^0xFF12B4E6Artificer^-, though weapons are restricted to only those allowed by the ^0xFF12B4E6Priestess's^- ethos. Thieving skills cannot be used while wearing more than studded leather armor.
-  
-^0xFF12B4E6ARTIFICER:^- Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
-^0xFF12B4E6Advantages:^-
-– +20 bonus to ^0xFFDBD8B8Lore^-.
-– +5 additional ^0xFFDBD8B8Lore^- per level gained.
-– +10% bonus to ^0xFFDBD8B8Find Traps^-, ^0xFFDBD8B8Open Locks^- and ^0xFFDBD8B8Set Traps^-.
-– May use the ^0xFF12B4E6Set Alchemical Snare^- ability once per day in addition to the normal Thief's ^0xFF12B4E6Set Snare^-. Gains one use at level 1 and an additional use every 5 levels thereafter.
-
-^0xFF12B4E6Set Alchemical Snare:^- Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. ^0xFF12B4E6Alchemical Snares^- can only be set off by enemies, but affect all within its area of effect.
-
-  ^0xFF12B4E6ALCHEMIST'S FIRE:^- Trap damage increases to d6 and sets targets ^0xFFDBD8B8Aflame^-, dealing an additional 1d4 fire damage per round.
-  ^0xFF12B4E6RAPID FREEZE:^- Targets become ^0xFFDBD8B8Slowed^-, suffering a -4 penalty to ^0xFFDBD8B8THAC0^- and ^0xFFDBD8B8Armor Class^-.
-  ^0xFF12B4E6ACIDIC COMPOUND:^- Targets are afflicted with ^0xFFDBD8B8Corrosion^-, suffering a -25% penalty to ^0xFFDBD8B8Physical Resistance^- and ^0xFFDBD8B8Damage^-.
-  ^0xFF12B4E6ELECTRIC CHARGE:^- Targets become ^0xFFDBD8B8Shocked^-, suffering a 10% chance every round to become ^0xFFDBD8B8Paralyzed^- for 1 round.
-
-– May use the ^0xFF12B4E6Craft Rune^- ability once per day.
-
-^0xFF12B4E6CRAFT RUNE:^- Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the ^0xFF12B4E6Craft Rune^- ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
-
-– May use the ^0xFF12B4E6Advanced Alchemy^- ability at will.
-
-^0xFF12B4E6ADVANCED ALCHEMY:^- Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
-
-– ^0xFF12B4E68th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
-– ^0xFF12B4E69th level:^- May use the ^0xFF12B4E6Craft Automaton^- ability once per day.
-
-^0xFF12B4E6CRAFT AUTOMATON:^- The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
-
-– ^0xFF12B4E613th level:^- Gains an additional use of ^0xFF12B4E6Craft Rune^-.
-– ^0xFF12B4E615th level:^- May use the ^0xFF12B4E6Infusion^- ability once per day.
-
-^0xFF12B4E6INFUSION:^- The artificer infuses their allies' weapons. All party members' weapons are treated as having a +3 enchantment for the purposes of determining what they can hit for 8 hours.
-
-– ^0xFF12B4E618th level:^- ^0xFF12B4E6Soul of Artifice^-: +1 bonus to ^0xFFDBD8B8Saving Throws^-. This bonus increases to +3 while under the effects of ^0xFF12B4E6Infusion^-.
-– ^0xFF12B4E624th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +4.
-– ^0xFF12B4E632nd level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +5.
-– ^0xFF12B4E640th level:^- Enchantment bonus from ^0xFF12B4E6Infusion^- increased to +6.
-
-^0xFF12B4E6Disadvantages:^-
-– Hit Die: d4
-– -10% penalty to ^0xFFDBD8B8Pick Pockets^-, ^0xFFDBD8B8Hide in Shadows^- and ^0xFFDBD8B8Move Silently^-.
-– -1 penalty to melee ^0xFF12B4E6THAC0^- modifier.
-– No backstab multiplier.
-– May only distribute 20 skill points per level among thieving skills.
-
-^0xFF12B4E6PRIESTESS:^- Priestesses of the Way, a Kozakuran faith, are believers in harmony and seek to understand how to manipulate the forces that keep the world in balance, gaining powers similar to that of divine magic in the process. Many dedicate themselves to wandering the land for knowledge, tending to sacred shrines, or becoming philosophers.
-
-^0xFF12B4E6Advantages:^-
-– May use the ^0xFF12B4E6Spiritual Blessing^- innate ability once per day.
-
-^0xFF12B4E6SPIRITUAL BLESSING:^- The priestess invokes a prayer to heavenly spirits, bestowing a random blessing upon the target. There is a 25% chance of gaining +2 THAC0 and +10% increased damage, a 25% chance of gaining +2 to Luck and Saving Throws, and a 25% chance of gaining +2 to Armor Class and +10% resistance to all damage. Regardless of the blessing, the target is also healed for ten hit points and cured of all diseases and poisons. However, the fickle nature of spirits means there is a 25% chance that no blessing is granted at all. From 12th level onwards, Spiritual Blessing is cast in a 15-ft. radius around the priestess, affecting all allies.
-
-– May cast ^0xFF12B4E6Protection from Evil 10' Radius^- once per day. Gains one use at level 1 and an additional use every 10 levels thereafter.
-– ^0xFF12B4E66th Level:^- may cast ^0xFF12B4E6True Seeing^- as an innate ability once per day.
-
-^0xFF12B4E6Disadvantages:^-
-– May only be proficient in clubs, quarterstaves, short bows and slings.
-– May not wear armor heavier than studded leather.
-– May not be chaotic or evil-aligned.~*/
-  SAY ~PRIESTESS/ARTIFICER: This character can use the abilities of a Priestess and an Artificer, though weapons are restricted to only those allowed by the Priestess's ethos. Thieving skills cannot be used while wearing more than studded leather armor.
+LAF ADD_KIT_EX
+  INT_VAR
+    // Mage	= 1
+	// Fighter = 2
+	// Cleric = 3
+	// Thief = 4
+	// Bard = 5
+	// Paladin = 6
+	// Fighter/Mage = 7
+	// Fighter/Cleric = 8
+	// Fighter/Thief = 9
+	// Fighter/Mage/Thief = 10
+	// Druid = 11
+	// Ranger = 12
+	// Mage/Thief = 13
+	// Cleric/Mage = 14
+	// Cleric/Thief = 15
+	// Fighter/Druid = 16
+	// Fighter/Mage/Cleric = 17
+	// Cleric/Ranger = 18
+	// Sorcerer = 19
+	// Monk = 20
+	// Shaman = 21
+    kit_class     = 15
+	
+    mixed         = RESOLVE_STR_REF(~Priestess / Artificer~)
+	
+    lower         = RESOLVE_STR_REF(~priestess / artificer~)
+	
+    help          = RESOLVE_STR_REF(~PRIESTESS/ARTIFICER: This character can use the abilities of a Priestess and an Artificer, though weapons are restricted to only those allowed by the Priestess's ethos. Thieving skills cannot be used while wearing more than studded leather armor.
   
 ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
 
@@ -464,7 +446,11 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. This ability can only be used outside of combat.													  
+The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+  SLASHING: Increases critical hit rate with slashing weapons by 1.
+  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
+  MISSILES: Additional +1 bonus to damage with ranged weapons.
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -472,6 +458,10 @@ INFUSION: The artificer infuses their allies' weapons. All party members' weapon
 CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
 
 – 10th level: Gains an additional use of Craft Rune.
+– 12th level: May use Elemental Infusions.
+
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
 – 20th level: Gains an additional use of Craft Rune.
@@ -499,30 +489,93 @@ SPIRITUAL BLESSING: The priestess invokes a prayer to heavenly spirits, bestowin
 Disadvantages:
 – May only be proficient in clubs, quarterstaves, short bows and slings.
 – May not wear armor heavier than studded leather.
-– May not be chaotic or evil-aligned.~
-
-LAF fl#add_kit_ee
+– May not be chaotic or evil-aligned.~)
+	
+	// fallen = 0
+	
   STR_VAR
-		kit_name = C0AURA
-		sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-		crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
-		clswpbon = ~0 0 3~
-		thiefskl = ~40 20~
-		hpclass = ~HPCT~
-END
-LAF qd_multiclass
-	STR_VAR
-		kit_name = c0aura
-		kit_clab = c0auracl
-		base_class = ~T~
-		mc_dir = ~%MOD_FOLDER%/2da~
-END
-LAF qd_multiclass
-	STR_VAR
-		kit_name = c0aura
-		kit_clab = c0aurapr
-		base_class = ~P~
-		mc_dir = ~%MOD_FOLDER%/2da~
+    kit_name      = ~C0AURA~
+	
+    unusable      = ~0x00020000~
+    // clasweap      = ~1 1 1 1 1 1 1 1~
+	//                                       T   S           F   Q             S S
+	//                                       W   C           L   U             W I
+	//                               B L S   O   I   W       A   A             O N
+	//                               A O H   H   M   A       I   R C   S       R G
+	//               L S           M S N O   A   I   R     H L   T R L H     2 D L 2
+	//               _ _       S   I T G R   N K T D H     A M   E O O O     H A E W
+	//               S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E
+	//               W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A
+	//               O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P
+	//               R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O
+	//               D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N
+    weapprof      = ~0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 1 1 1 1 1~
+	
+    abclasrq      = ~0 9 0 15 9 0~
+	
+    // abclsmod      = ~0 0 0 0 0 0~
+	
+    // abdcdsrq      = ~0 0 0 = 0 =~
+	
+    // abdcscrq      = ~15 0 0 0 0 0~
+	
+	//               L L L N N N C C C
+	//               G N E G N E G N E
+    // alignmnt      = ~0 1 1 0 1 1 0 1 1~
+	
+    // dualclas      = ~1 1 1 0 0 0~
+	
+    luabbr        = ~C0AURA~
+	
+    // stweap        = ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08~
+	
+    // clab_path     = 
+	
+    kittable      = ~~
+	
+	// base_class = 
+	
+	// clab_base_f = 
+	
+	clab_base_p = C0AURAPR
+	
+	// clab_base_d = 
+	
+	// clab_base_r = 
+	
+	// clab_base_m = 
+	
+	clab_base_t = C0AURACL
+	
+    // clsrcreq      = ~1 1 1 1 1 1 1~
+	
+    // clswpbon      = ~0 0 5~
+	
+    // hpclass       = ~HPWIZ~
+	
+    numwslot      = ~3~
+	
+    // clascolr = ~27 136 119 21 187~
+	
+	// clasiskl = ~0 0 0 0 0 0 0~
+	
+	// clasthac = ~0~
+	
+	// thiefscl = ~100 100 100 100 100 100 0 0~
+	
+	backstab = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	thiefskl = ~40 20~
+	
+	// traplimt = ~6~
+	
+    // bdstweap      = ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+  RET
+    kit_id
 END
 
 COPY_EXISTING ~c0aucl1.spl~ OVERRIDE
@@ -1776,12 +1829,8 @@ SAY NAME2 ~Alchemy~
   WRITE_ASCII 0x2cc ~c0aualch~ #8   //pre-joining dialogue file
   WRITE_ASCII 0x268 ~c0aualch~ #8   //default
    WRITE_ASCII 0X34 ~c0aualch~ #8   //small portrait
-  COMPILE ~%MOD_FOLDER%/dialogue/c0aualch.d~
-  COMPILE ~%MOD_FOLDER%/scripts/c0aualch.baf~
-  
-COPY_EXISTING ~c0aualc1.spl~ ~override~
-COPY_EXISTING ~c0aualc2.spl~ ~override~
-COPY_EXISTING ~c0aualc3.spl~ ~override~
+  COMPILE ~%MOD_FOLDER%/artificer/dialogue/c0aualch.d~
+  COMPILE ~%MOD_FOLDER%/artificer/scripts/c0aualch.baf~
   
 COPY_EXISTING ~c0autinv.sto~ ~override~
 SAY 0xc ~Clockwork Servant Automaton~
@@ -2032,12 +2081,88 @@ SAY NAME2 ~Activate: Self-Destruct~
 SAY UNIDENTIFIED_DESC ~Self-Destruct
 With this ability, the automation activates an internal device which causes it to explode after one turn of channelling, dealing 24d6 damage (half fire, half electrical) and knocking all creatures unconscious and away from the automaton. This devastating explosion immediately destroys the automaton.~
 
+COPY_EXISTING ~c0auinh.spl~ ~override~
+LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Healed~) END
+
 COPY_EXISTING ~c0auin7.spl~ ~override~
 SAY NAME1 ~Infusion~
 SAY UNIDENTIFIED_DESC ~Infusion
-The artificer infuses their allies' weapons. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours. Enchantment bonus increases to +2 at 8th level, +3 at 16th level, +4 at 24th level, +5 at 32nd level and +6 at 40th level.
+The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+  SLASHING: Increases critical hit rate with slashing weapons by 1.
+  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
+  MISSILES: Additional +1 bonus to damage with ranged weapons.
+
+From 12th level onwards, the artificer may instead use Elemental Infusions, which do not empower weapons but instead a particular type of elemental damage.
+
+ELEMENTAL INFUSIONS
+The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
 
 This ability can only be used outside of combat.~
+
+COPY_EXISTING ~c0auin7a.spl~ ~override~
+SAY NAME1 ~Infusion: Blades~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7ai
+END
+
+COPY_EXISTING ~c0auin7b.spl~ ~override~
+SAY NAME1 ~Infusion: Bludgeon~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7bi
+END
+
+COPY_EXISTING ~c0auin7c.spl~ ~override~
+SAY NAME1 ~Infusion: Piercer~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7ci
+END
+
+COPY_EXISTING ~c0auin7d.spl~ ~override~
+SAY NAME1 ~Infusion: Missiles~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7di
+END
+
+COPY_EXISTING ~c0auin7e.spl~ ~override~
+SAY NAME1 ~Infusion: Flames~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7ei
+END
+
+COPY_EXISTING ~c0auin7f.spl~ ~override~
+SAY NAME1 ~Infusion: Frost~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7fi
+END
+
+COPY_EXISTING ~c0auin7g.spl~ ~override~
+SAY NAME1 ~Infusion: Acid~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7gi
+END
+
+COPY_EXISTING ~c0auin7h.spl~ ~override~
+SAY NAME1 ~Infusion: Lightning~
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0ain7hi
+END
 
 COPY_EXISTING ~c0auin4.spl~ ~override~
 SAY NAME1 ~Craft Wand~
@@ -2132,11 +2257,11 @@ Weight: 1~
 WRITE_LONG 0x34 375
 
 COPY_EXISTING ~c0apot04.spl~ ~override~
-SAY NAME1 ~Potion of Health~
-SAY NAME2 ~Potion of Health~
+SAY NAME1 ~Potion of Stamina~
+SAY NAME2 ~Potion of Stamina~
 COPY_EXISTING ~c0apot04.itm~ ~override~
-SAY NAME1 ~Lantanese Elixir of Health~
-SAY NAME2 ~Lantanese Elixir of Health~
+SAY NAME1 ~Lantanese Elixir of Stamina~
+SAY NAME2 ~Lantanese Elixir of Stamina~
 SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day... among other uses.
 
 Maximum Hit Points: +10%
@@ -2503,7 +2628,7 @@ SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills
 WRITE_LONG 0x34 20000
 
 COPY_EXISTING ~c0agre1a.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren1 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Alchemist's Fire I~
 SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
@@ -2515,7 +2640,7 @@ Special: All creatures in a 10-ft. radius take 1d6 fire damage and must Save vs.
 Weight: 0~
 
 COPY_EXISTING ~c0agre1b.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren1 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Alchemist's Fire II~
 SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
@@ -2527,7 +2652,7 @@ Special: All creatures in a 10-ft. radius take 1d8 fire damage and must Save vs.
 Weight: 0~
 
 COPY_EXISTING ~c0agre1c.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren1 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Alchemist's Fire III~
 SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
@@ -2539,7 +2664,7 @@ Special: All creatures in a 10-ft. radius take 1d10 fire damage and must Save vs
 Weight: 0~
 
 COPY_EXISTING ~c0agre1d.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren1 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Alchemist's Fire IV~
 SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
@@ -2551,7 +2676,7 @@ Special: All creatures in a 10-ft. radius take 2d8 fire damage and must Save vs.
 Weight: 0~
 
 COPY_EXISTING ~c0agre1e.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren1 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Alchemist's Fire V~
 SAY DESC ~Alchemist's fire is a viscous liquid that stuck to most everything it touched. Upon contact with air, it burst into flames and burned until it is consumed or put out. Because of this, alchemist's fire is frequently stored in breakable flasks and used as a thrown weapon and in traps.
@@ -2563,7 +2688,7 @@ Special: All creatures in a 10-ft. radius take 2d12 fire damage and must Save vs
 Weight: 0~
 
 COPY_EXISTING ~c0agre2a.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren2 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Acid Flask I~
 SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
@@ -2575,7 +2700,7 @@ Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and e
 Weight: 0~
 
 COPY_EXISTING ~c0agre2b.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren2 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Acid Flask II~
 SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
@@ -2587,7 +2712,7 @@ Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and e
 Weight: 0~
 
 COPY_EXISTING ~c0agre2c.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren2 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Acid Flask III~
 SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
@@ -2599,7 +2724,7 @@ Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and e
 Weight: 0~
 
 COPY_EXISTING ~c0agre2d.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren2 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Acid Flask IV~
 SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
@@ -2611,7 +2736,7 @@ Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and e
 Weight: 0~
 
 COPY_EXISTING ~c0agre2e.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren2 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Acid Flask V~
 SAY DESC ~This glass flask holds a highly corrosive acid. If thrown, the glass shatters, spraying acid on all unfortunate victims in range of the blast.
@@ -2623,7 +2748,7 @@ Special: All creatures in a 10-ft. radius take 1d3 acid damage immediately and e
 Weight: 0~
 
 COPY_EXISTING ~c0agre3a.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren3 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Choking Powder I~
 SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
@@ -2635,7 +2760,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be daze
 Weight: 0~
 
 COPY_EXISTING ~c0agre3b.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren3 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Choking Powder II~
 SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
@@ -2647,7 +2772,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be daze
 Weight: 0~
 
 COPY_EXISTING ~c0agre3c.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren3 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Choking Powder III~
 SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
@@ -2659,7 +2784,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre3d.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren3 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Choking Powder IV~
 SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
@@ -2671,7 +2796,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre3e.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren3 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Choking Powder V~
 SAY DESC ~Choking powder is made from various herbs and causes uncontrollable coughing fits. When thrown, the pack of choking powder creates a brief cloud which disorients all creatures who breathe it in.
@@ -2683,7 +2808,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre4a.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren4 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Sleeping Gas I~
 SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
@@ -2695,7 +2820,7 @@ Special: All creatures in a 10-ft. radius of 4 HD or lower must make a Save vs. 
 Weight: 0~
 
 COPY_EXISTING ~c0agre4b.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren4 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Sleeping Gas II~
 SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
@@ -2707,7 +2832,7 @@ Special: All creatures in a 10-ft. radius of 7 HD or lower must make a Save vs. 
 Weight: 0~
 
 COPY_EXISTING ~c0agre4c.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren4 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Sleeping Gas III~
 SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
@@ -2719,7 +2844,7 @@ Special: All creatures in a 10-ft. radius of 10 HD or lower must make a Save vs.
 Weight: 0~
 
 COPY_EXISTING ~c0agre4d.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren4 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Sleeping Gas IV~
 SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
@@ -2731,7 +2856,7 @@ Special: All creatures in a 10-ft. radius of 13 HD or lower must make a Save vs.
 Weight: 0~
 
 COPY_EXISTING ~c0agre4e.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren4 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Sleeping Gas V~
 SAY DESC ~This heavy canister contains a thick gas filled various alchemical components which induces a narcoleptic effect. When thrown, the impact creates a small opening on the canister releasing the gas, which knocks out those who breathe it in.
@@ -2743,7 +2868,7 @@ Special: All creatures in a 10-ft. radius of 16 HD or lower must make a Save vs.
 Weight: 0~
 
 COPY_EXISTING ~c0agre5a.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren5 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Tanglefoot Bag I~
 SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
@@ -2755,7 +2880,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be enta
 Weight: 0~
 
 COPY_EXISTING ~c0agre5b.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren5 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Tanglefoot Bag II~
 SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
@@ -2767,7 +2892,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre5c.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren5 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Tanglefoot Bag III~
 SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
@@ -2779,7 +2904,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre5d.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren5 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Tanglefoot Bag IV~
 SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
@@ -2791,7 +2916,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre5e.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren5 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Tanglefoot Bag V~
 SAY DESC ~Tanglefoot bags are small pouches filled with tar, resin and various other sticky substances. When thrown, the bag bursts open violently causing the contents to spread across the area in thick strands which harden in exposure to air like a glue.
@@ -2803,7 +2928,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -3 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre6a.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren6 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Thunderstone I~
 SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
@@ -2815,7 +2940,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath or be deaf
 Weight: 0~
 
 COPY_EXISTING ~c0agre6b.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren6 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Thunderstone II~
 SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
@@ -2827,7 +2952,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -1 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre6c.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren6 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Thunderstone III~
 SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
@@ -2839,7 +2964,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -2 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre6d.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren6 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Thunderstone IV~
 SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
@@ -2851,7 +2976,7 @@ Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -3 or b
 Weight: 0~
 
 COPY_EXISTING ~c0agre6e.itm~ ~override~
-  LPF ALTER_ITEM_HEADER INT_VAR projectile = 0 END
+  LPF ALTER_ITEM_HEADER INT_VAR projectile = c0agren6 END
 SAY NAME1 ~Grenade~
 SAY NAME2 ~Thunderstone V~
 SAY DESC ~When striking a hard surface, a thunderstone creates a deafening bang, which temporarily impedes the hearing of those too close to the blast radius.
@@ -2861,19 +2986,6 @@ STATISTICS:
 Special: All creatures in a 10-ft. radius must make a Save vs. Breath at -4 or be deafened for 5 rounds, suffering a 50% penalty to spell failure.
 
 Weight: 0~
-
-COPY_EXISTING ~c0agren1.spl~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren1 END
-COPY_EXISTING ~c0agren2.spl~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren2 END
-COPY_EXISTING ~c0agren3.spl~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren3 END
-COPY_EXISTING ~c0agren4.spl~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren4 END
-COPY_EXISTING ~c0agren5.spl~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren5 END
-COPY_EXISTING ~c0agren6.spl~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile = c0agren6 END
 
 COPY_EXISTING ~c0abomb1.spl~ ~override~
 READ_LONG 0x64 "abil_off"

@@ -183,6 +183,15 @@ LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (5
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (25%)~) STR_VAR bam_file = c0aicr01 RET c0aicr44 = icon END
 LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Imbued: Red Meteor (Helpless)~) STR_VAR bam_file = c0aicr01 RET c0aicr45 = icon END
 
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Blades~) STR_VAR bam_file = c0ain7ai RET c0ain7ai = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Bludgeon~) STR_VAR bam_file = c0ain7bi RET c0ain7bi = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Piercer~) STR_VAR bam_file = c0ain7ci RET c0ain7ci = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Missiles~) STR_VAR bam_file = c0ain7di RET c0ain7di = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Flames~) STR_VAR bam_file = c0ain7ei RET c0ain7ei = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Frost~) STR_VAR bam_file = c0ain7fi RET c0ain7fi = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Acid~) STR_VAR bam_file = c0ain7gi RET c0ain7gi = icon END
+LAF cd_new_portrait_icon INT_VAR string = RESOLVE_STR_REF(~Infusion: Lightning~) STR_VAR bam_file = c0ain7hi RET c0ain7hi = icon END
+
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// PROJECTILES ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////

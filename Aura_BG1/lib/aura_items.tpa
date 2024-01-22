@@ -1,5 +1,16 @@
 // ITEMS
 
+COPY_EXISTING ~c0audye.itm~ ~override~
+SAY NAME1 ~SeLandra's Permanent Leather Dye and Remover<TM>~
+SAY NAME2 ~SeLandra's Permanent Leather Dye and Remover<TM>~
+SAY DESC ~This bottle of pink-colored leather dye is a Lantanese brand, produced by SeLandra Tanners and Dyers.
+
+STATISTICS:
+
+Special: Use in Quick Slot to permanently dye your leathers pink. Use dye remover to reverse the effect.
+
+Weight: 1~
+
 COPY_EXISTING ~c0aule01.itm~ ~override~
 SAY NAME1 ~Cherry-tinted Leather Armor~
 SAY NAME2 ~Cherry-tinted Leather Armor~

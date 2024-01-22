@@ -31,7 +31,7 @@ COPY ~%MOD_FOLDER%/creatures/C0Aura.cre~ ~override/C0Aura.cre~
   WRITE_ASCII 0x2cc ~C0Aura~ #8   //pre-joining dialogue file
   WRITE_ASCII 0X34 ~AuraM~ #8   //small portrait
   WRITE_ASCII 0x3c ~AuraL~ #8   //medium portrait
-  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-idea curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
+  SAY BIO ~When asked about her past, AURA tells you a long and convoluted tale of her life from her childhood to her life spent in faraway Kozakura. Born from the prestigious Glimmershine family in the "enlightened" island nation of Lantan, known for their skills in invention and artifice. Aura's talent for artifice and creation at a young age coupled with a wide-eyed curiosity of the world beyond her home led her to travel to distant lands looking to advance her knowledge of cultures and exchange knowledge to other, less advanced societies. 
   
 While few Lantanese venture far from the western side of Faerun, Aura is unusually well travelled, having ventured to the most distant parts of and even beyond Faerun. Among such places, she claims to have taken a temporary residence in faraway Kozakura, a nation in the eastern land of Kara-Tur. Aura's talents in creation gave her a place among the locals of the village in which she made her new home for three years, after which a certain course of events led her to leave on a journey towards the Sword Coast.~
   SAY MORALE ~Run away! Run away!~ [C0AU001]
@@ -548,6 +548,27 @@ SAY DESC ~This crystal initially appears to be a normal shard of ice, though it 
 STATISTICS:
 
 Weight: 0~
+
+COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl1.itm~
+SAY NAME1 ~Strange Letter~
+SAY NAME2 ~Strange Letter~
+SAY UNIDENTIFIED_DESC ~This letter was left behind on the bodies of one of the elite ninja sent to capture Aura.
+
+"Our quarry has entered into our domain. Seek her out and kill all who try to stand in your way. Capture her alive if possible, but if she chooses to resist, do not hesitate to eliminate her. When the task is complete, raise the signal at the city's bridge during the midnight hour and await my arrival.
+
+Remember the oaths you have sworn and know that your success will free us from the curse of which we have been bound. Do not fail me."~
+
+COPY_EXISTING ~scrl2j.itm~ ~override/c0ascrl2.itm~
+SAY NAME1 ~Note~
+SAY NAME2 ~Note~
+SAY UNIDENTIFIED_DESC ~This hastily-scribbled note was left behind by Aura.
+
+"Thank you for everything we've done together, but I can't ask you to fight this battle for my sake. Hopefully I'll make it back, but if I don't... please don't miss me."~
+
+COPY_EXISTING ~misc1c.itm~ ~override/c0ascrl3.itm~
+SAY NAME1 ~Scroll~
+SAY NAME2 ~Fubuki's Records~
+SAY UNIDENTIFIED_DESC ~This heavy scroll's contents are written entirely in Kara-Turan. According to Aura, they contain several years' worth of Fubuki's gathered records and information on past events involving Tadahashi Saito's war against the holy temples of Kozakura.~
 
 COPY_EXISTING ~dezkie.cre~ ~override/dezkie.cre~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
