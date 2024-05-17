@@ -14,7 +14,6 @@ INCLUDE ~%MOD_FOLDER%/LIB/ANALYZE.TPA~
 END
 
       ACTION_IF ("auraclass" = 1) THEN BEGIN
-COPY ~%MOD_FOLDER%/ToF/Aura_BG1.ini~ ~weidu_external/data/dw_shared/dw_talents_3p/Aura_BG1.ini~
 COPY_EXISTING ~%MOD_FOLDER%/artificer/2da~ ~override~
 LAF ADD_KIT_EX
   INT_VAR
@@ -40,6 +39,8 @@ LAF ADD_KIT_EX
 	// Monk = 20
 	// Shaman = 21
     kit_class     = 4
+	
+	visible = 0
 	
     mixed         = RESOLVE_STR_REF(~Artificer~)
 	
@@ -74,11 +75,11 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
-  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
-  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
-  MISSILES: Additional +1 bonus to damage with ranged weapons.
+  CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
+  MISSILES: Additional +1 bonus to hit and damage with ranged weapons.
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -196,7 +197,6 @@ END
       PRINT ~Installed Aura as an Artificer~
       END
       ACTION_IF ("auraclass" = 2) THEN BEGIN
-COPY ~%MOD_FOLDER%/ToF/Aura_BG1.ini~ ~weidu_external/data/dw_shared/dw_talents_3p/Aura_BG1.ini~
 COPY ~%MOD_FOLDER%/2da/mage~ ~override~
 
 LAF ADD_KIT_EX
@@ -223,6 +223,8 @@ LAF ADD_KIT_EX
 	// Monk = 20
 	// Shaman = 21
     kit_class     = 13
+	
+	visible = 0
 	
     mixed         = RESOLVE_STR_REF(~Illusionist / Artificer~)
 	
@@ -261,11 +263,11 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
-  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
-  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
-  MISSILES: Additional +1 bonus to damage with ranged weapons.
+  CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
+  MISSILES: Additional +1 bonus to hit and damage with ranged weapons.
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -383,7 +385,6 @@ COPY_EXISTING ~c0aukt1.spl~ ~override~
       PRINT ~Installed Aura as an Illusionist / Artificer~
       END
       ACTION_IF ("auraclass" = 3) THEN BEGIN	
-COPY ~%MOD_FOLDER%/ToF/Aura_BG1-cleric.ini~ ~weidu_external/data/dw_shared/dw_talents_3p/Aura_BG1.ini~
 COPY ~%MOD_FOLDER%/2da/cleric~ ~override~
 
 LAF ADD_KIT_EX
@@ -410,6 +411,8 @@ LAF ADD_KIT_EX
 	// Monk = 20
 	// Shaman = 21
     kit_class     = 15
+	
+	visible = 0
 	
     mixed         = RESOLVE_STR_REF(~Priestess / Artificer~)
 	
@@ -446,11 +449,11 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
-  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
-  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
-  MISSILES: Additional +1 bonus to damage with ranged weapons.
+  CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
+  MISSILES: Additional +1 bonus to hit and damage with ranged weapons.
 
 – 8th level: Infusion's enchantment bonus increases to +2.
 – 9th level: May use the Craft Automaton ability once per day.
@@ -677,6 +680,272 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
 BUT_ONLY_IF_IT_CHANGES
 
       PRINT ~Installed Aura as a Priestess / Artificer~
+      END
+	      ACTION_IF ("auraclass" = 4) THEN BEGIN	
+COPY ~%MOD_FOLDER%/artificer/eeex~ ~override~
+
+LAF ADD_KIT_EX
+  INT_VAR
+    // Mage	= 1
+	// Fighter = 2
+	// Cleric = 3
+	// Thief = 4
+	// Bard = 5
+	// Paladin = 6
+	// Fighter/Mage = 7
+	// Fighter/Cleric = 8
+	// Fighter/Thief = 9
+	// Fighter/Mage/Thief = 10
+	// Druid = 11
+	// Ranger = 12
+	// Mage/Thief = 13
+	// Cleric/Mage = 14
+	// Cleric/Thief = 15
+	// Fighter/Druid = 16
+	// Fighter/Mage/Cleric = 17
+	// Cleric/Ranger = 18
+	// Sorcerer = 19
+	// Monk = 20
+	// Shaman = 21
+    kit_class     = 5
+	
+	visible = 0
+	
+    mixed         = RESOLVE_STR_REF(~Artificer~)
+	
+    lower         = RESOLVE_STR_REF(~artificer~)
+	
+    help          = RESOLVE_STR_REF(~ARTIFICER: The artificer is a trained inventor and scholar, most prominent in the distant island nation of Lantan. Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge in use of arcane runes, deadly alchemical traps and metal automatons.
+	
+CLASS FEATURES:
+
+– May not wear armor heavier than chain mail. (Spells cannot be cast while wearing armor.)
+– May not equip shields larger than bucklers.
+– May only become Proficient (one slot) in any weapon class.
+– May only become Proficient (one slot) in any fighting style.
+– Thieving Skills: Open Locks, Find Traps, Detect Illusion, Set Traps.
+– Increased Lore score.
+– May cast arcane spells starting at 3rd level. Spells are cast as though a mage of 2 levels lower.
+– May use the Set Snare ability once per day. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+SET SNARE: Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the Artificer's level and can only be triggered by enemies.
+  1st level: Deals 2d8+5 missile damage.
+  11th level: Deals 2d8+5 missile damage and additionally deals 2d6 poison damage per round for the next 3 rounds.
+  16th level: Deals 3d8+5 missile damage and 4d8+2 fire damage.
+  21st level: Deals 3d8+5 missile damage and 20 poison damage with no save; slays target if a Save vs. Death with a +4 bonus is failed.
+  
+– May use the Set Alchemical Snare ability once per day in addition to the normal Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+SET ALCHEMICAL SNARE: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
+  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
+  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
+  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
+
+– May use the Craft Rune ability once per day.
+
+CRAFT RUNE: Artificers that have knowledge of magic are capable of creating and using runes charged with arcane energy. When the Craft Rune ability is used, a rune may be chosen from a selection that may be expended immediately or imbued on a target to discharge under specific triggers to cast a powerful arcane spell.
+
+– May use the Advanced Alchemy ability at will.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– May use Analyze at will.
+
+ANALYZE: With this ability, the user carefully observes the target and identifies their strengths and weaknesses, revealing their Hit Die, THAC0, Saving Throws, Magic Resistance, Damage Resistance and vulnerability to Poison and Backstabs. This ability may be used an unlimited number of times.
+
+– 3rd level: May use the Infusion ability once per day.
+
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+  SLASHING: Increases critical hit rate with slashing weapons by 1.
+  CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
+  MISSILES: Additional +1 bonus to hit and damage with ranged weapons.
+
+– 5th level: Sapientia: Gains an additional +10 bonus to Lore. The artificer gains an additional +1 bonus to Saving Throws vs. Spells for every 50 Lore.
+– 8th level: Infusion's enchantment bonus increases to +2.
+– 9th level: May use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– 10th level: Gains an additional use of Craft Rune.
+– 12th level: May use Elemental Infusions.
+
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+
+– 16th level: Infusion's enchantment bonus increases to +3.
+– 20th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
+– 20th level: Gains an additional use of Craft Rune.
+– 24th level: Infusion's enchantment bonus increases to +4.
+– 32nd level: Infusion's enchantment bonus increases to +5.
+– 40th level: Infusion's enchantment bonus increases to +6.
+
+– Hit Die: d4~)
+	
+	// fallen = 0
+	
+  STR_VAR
+    kit_name      = ~C0AURA~
+	
+    unusable      = ~0x00004000~
+    // clasweap      = ~1 1 1 1 1 1 1 1~
+	//                                       T   S           F   Q             S S
+	//                                       W   C           L   U             W I
+	//                               B L S   O   I   W       A   A             O N
+	//                               A O H   H   M   A       I   R C   S       R G
+	//               L S           M S N O   A   I   R     H L   T R L H     2 D L 2
+	//               _ _       S   I T G R   N K T D H     A M   E O O O     H A E W
+	//               S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E
+	//               W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A
+	//               O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P
+	//               R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O
+	//               D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N
+    weapprof      = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+	
+    abclasrq      = ~0 9 0 16 0 0~
+	
+    // abclsmod      = ~0 0 0 0 0 0~
+	
+    // abdcdsrq      = ~0 0 0 = 0 =~
+	
+    // abdcscrq      = ~15 0 0 0 0 0~
+	
+	//               L L L N N N C C C
+	//               G N E G N E G N E
+    // alignmnt      = ~0 1 1 0 1 1 0 1 1~
+	
+    // dualclas      = ~1 1 1 0 0 0~
+	
+    luabbr        = ~C0AURA~
+	
+    // stweap        = ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08~
+	
+    clab_path     = ~override/C0AURACL.2da~
+	
+    kittable      = ~~
+	
+	// base_class = 
+	
+	// clab_base_f = 
+	
+	// clab_base_p = 
+	
+	// clab_base_d = 
+	
+	// clab_base_r = 
+	
+	// clab_base_m = 
+	
+	// clab_base_t =
+	
+    // clsrcreq      = ~1 1 1 1 1 1 1~
+	
+    // clswpbon      = ~0 0 5~
+	
+    hpclass       = ~HPWIZ~
+	
+    numwslot      = ~2~
+	
+    // clascolr = ~27 136 119 21 187~
+	
+	clasiskl = ~0 0 0 0 0 0 0~
+	
+	// clasthac = ~0~
+	
+	thiefscl = ~0 100 100 0 0 100 100 0~
+	
+	// backstab = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	// sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+    // crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	
+	// thiefskl = ~40 20~
+	
+	traplimt = ~6~
+	
+    // bdstweap      = ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+  RET
+    kit_id
+END
+
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
+    READ_BYTE    0x1E bard //reads the byte containing the bard usability flag
+    READ_BYTE    0x20 thief //reads the byte containing the thief usability flag
+    PATCH_IF ((thief BAND 0b01000000) = 0b00000000) BEGIN // if it is usable by thieves
+        WRITE_BYTE    0x1E (bard BAND 0b10111111)  // makes usable by bards
+      END
+    END
+BUT_ONLY
+
+OUTER_SET artificer_ids = IDS_OF_SYMBOL (~kit~ ~C0AURA~)
+  
+COPY ~%MOD_FOLDER%/artificer/eeex/lua/m_c0aucl.lua~      ~override~ // Lua file read by EEex, provided by Bubbs and further edited by myself
+///////////////////////////////////////////////////////////////////////////
+// Update lua file                                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~0x4000~~~~~
+    string = EVAL ~~~~~%artificer_ids%~~~~~ //"
+  END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~C0AURACL.2DA~ BEGIN
+COPY_EXISTING ~C0AURACL.2DA~ OVERRIDE
+  REPLACE_TEXTUALLY ~AP_C0AUKT3~ ~****      ~
+  // Borrowed from Rogue Rebalancing
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_MaxLevel = 20 STR_VAR f_Entry = AP_C0AUKT4 END // SPELL SLOT MODIFIER
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 3 f_MaxLevel = 20 STR_VAR f_Entry = AP_C0AUKT4 END // SPELL SLOT MODIFIER
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 5 f_MaxLevel = 20 STR_VAR f_Entry = AP_C0AUKT5 END // SPELL LEVEL MODIFIER
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_Increment = 1 STR_VAR f_Entry = AP_C0AUKT6 END // THIEVING PROGRESSION
+  PRETTY_PRINT_2DA
+BUT_ONLY
+
+
+// LORE CHECK
+APPEND ~splprot.2da~ ~C0AULORE%TAB%25%TAB%-1%TAB%4~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~C0AULORE~ BEGIN
+	    SET C0AULORE = %row%
+	  END
+	END
+	
+COPY_EXISTING ~c0aukt5a.spl~ ~override~
+LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = C0AULORE END
+
+COPY_EXISTING ~c0auhl1.spl~ ~override~
+SAY NAME1 ~Elemental Mastery~
+SAY UNIDENTIFIED_DESC ~The artificer has mastered the use of elemental energies in their craft, permanently gaining 30% resistance to and increased damage dealt with acid, cold, electricity, fire and magical damage.~
+
+COPY_EXISTING ~c0auhl2.spl~ ~override~
+SAY NAME1 ~Ontological Inertia~
+SAY UNIDENTIFIED_DESC ~Through use of thaumaturgical mechanisms, the artificer prolongs the effects of magic beyond their usual expiration date, permanently increasing the duration of all arcane spells by 50%.~
+
+COPY_EXISTING ~c0auhl3.spl~ ~override~
+SAY NAME1 ~Thaumaturgical Matrix~
+SAY UNIDENTIFIED_DESC ~This ability allows the artificer to store spells in a magical ability (accessed via the Special Ability button) that is created by the spell. This item, the matrix, can store three spells of the maximum spell level the artificer may cast to be released simultaneously. A wizard can only possess one thaumaturgical matrix at a time, and the matrix may not be given to other characters. Once the thaumaturgical matrix is used, the icon will disappear from the Special Ability button.~
+
+OUTER_SET thaumaturgical_matrix_tip = RESOLVE_STR_REF (~Thaumaturgical Matrix is much like Spell Sequencer in that it allows the caster to store several spells in a trigger item that can be released upon any target, including the caster. The spells stored in the matrix are cast as any other spell and can be accessed through the Special Abilities button on the main screen. It is important to note that when you choose the spells to be stored in the matrix, they will disappear from the ones you have memorized. However, the matrix will last until used, so the caster may rest and gain those spells back. The main use for this spell would be to allow the caster to release multiple spells upon a target very quickly in combat without the possibility of being interrupted.~)
+
+OUTER_SET thaumaturgical_matrix_title = RESOLVE_STR_REF (~Thaumaturgical Matrix~)
+
+OUTER_SET thaumaturgical_matrix_label = RESOLVE_STR_REF (~Add spells to your matrix~)
+
+APPEND	~BGEE.LUA~	~mageBookStrings['C0AUHL3'] = {tip = %thaumaturgical_matrix_tip%, title = 'C0AURA_SEQUENCER_TITLE', action = "C0AURA_SEQUENCER_LABEL"}~
+APPEND	~L_en_US.LUA~	~uiStrings['C0AURA_SEQUENCER_TITLE'] = "Thaumaturgical Matrix"
+uiStrings['C0AURA_SEQUENCER_LABEL'] = "Add spells to your matrix"~
+
+      PRINT ~Installed Aura as an Artificer (EEex Version)~
+      END
       END
 	
 ///////////////////////////////////////////////////////////////////////////////
@@ -2089,9 +2358,9 @@ SAY NAME1 ~Infusion~
 SAY UNIDENTIFIED_DESC ~Infusion
 The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
-  CRUSHING: Attacks with crushing weapons reduce target's armor class vs. crushing weapons by 1 for two rounds.
-  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 3% for two rounds. 
-  MISSILES: Additional +1 bonus to damage with ranged weapons.
+  CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
+  PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
+  MISSILES: Additional +1 bonus to hit and damage with ranged weapons.
 
 From 12th level onwards, the artificer may instead use Elemental Infusions, which do not empower weapons but instead a particular type of elemental damage.
 

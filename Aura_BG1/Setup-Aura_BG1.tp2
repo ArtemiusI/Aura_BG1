@@ -7,6 +7,7 @@ ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/a7#add_kit_ex.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/au_sequencer_menu.TPA~
+  INCLUDE ~%MOD_FOLDER%/lib/replace_multiline.tpa~
 END
 
 AUTO_TRA ~Aura_BG1/tra/%s~ //~%~
@@ -77,6 +78,13 @@ FORCED_SUBCOMPONENT ~Choose a class for Aura:~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
   REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
 OUTER_SET auraclass = 3
+
+BEGIN ~Artificer (Bard, EEex required)~
+FORCED_SUBCOMPONENT ~Choose a class for Aura:~
+  REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~EEex_Actionbar.lua~ ~This component requires EEEx.~ //EEX required!
+  REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
+OUTER_SET auraclass = 4
 
 ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
 OUTER_SPRINT "bg1_eet_symbol" AR

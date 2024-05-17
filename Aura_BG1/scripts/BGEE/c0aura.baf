@@ -11,6 +11,7 @@ IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
   !Class(Myself,MAGE_ALL)
+  !Class(Myself,BARD_ALL)
   XPGT(Player1,31999)
   XPLT(Myself,32000)
 THEN
@@ -25,7 +26,9 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  OR(2)
   Class(Myself,MAGE_ALL)
+  Class(Myself,BARD_ALL)
   XPGT(Player1,31999)
   XPLT(Myself,32000)
 THEN
@@ -43,6 +46,7 @@ IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
   !Class(Myself,MAGE_ALL)
+  !Class(Myself,BARD_ALL)
   XPGT(Player1,15999)
   XPLT(Myself,16000)
 THEN
@@ -57,7 +61,9 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
+  OR(2)
   Class(Myself,MAGE_ALL)
+  Class(Myself,BARD_ALL)
   XPGT(Player1,15999)
   XPLT(Myself,16000)
 THEN
@@ -116,7 +122,7 @@ END
 IF
   Global("BD_JOINXP","LOCALS",0)
   InParty(Myself)
-  XPLT(Player1,500)
+  XPLT(Player1,2000)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
