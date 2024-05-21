@@ -1,0 +1,25 @@
+IF
+    Global("BDAI_INIT_SKILL","LOCALS",0)
+    Global("BDAI_SKILL_MODE","LOCALS",0)
+        Class(Myself,BARD_ALL)
+        Kit(Myself,C0AURA)
+THEN
+    RESPONSE #100
+        SetGlobal("BDAI_INIT_SKILL","LOCALS",1)
+        SetGlobal("BDAI_SKILL_MODE","LOCALS",1)
+        Continue()
+END
+
+IF
+    Global("BDAI_SKILL_MODE","LOCALS",1)
+    ActionListEmpty()
+    InParty(Myself)
+    !See([EVILCUTOFF])
+    !ModalState(DETECTTRAPS)
+    !ModalState(STEALTH)
+        Class(Myself,BARD_ALL)
+        Kit(Myself,C0AURA)
+THEN
+    RESPONSE #100
+        FindTraps()
+END

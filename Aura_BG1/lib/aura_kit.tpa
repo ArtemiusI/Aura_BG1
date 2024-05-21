@@ -870,6 +870,10 @@ ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an el
     kit_id
 END
 
+ACTION_IF FILE_EXISTS_IN_GAME ~BDDEFAI.bcs~ THEN BEGIN
+EXTEND_TOP ~BDDEFAI.bcs~ ~%MOD_FOLDER%/artificer/eeex/scripts/bddefai-extend.baf~
+END
+
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
     READ_BYTE    0x1E bard //reads the byte containing the bard usability flag
