@@ -79,6 +79,26 @@ FORCED_SUBCOMPONENT ~Choose a class for Aura:~
   REQUIRE_PREDICATE (GAME_IS ~bgee eet~) ~This component must be installed on BG:EE or EET.~
 OUTER_SET auraclass = 3
 
+ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" AR
+END
+
+ACTION_IF GAME_IS ~EET~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" BG
+END
+INCLUDE ~%MOD_FOLDER%/lib/aura_resources.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/aura_kit.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/aura_items.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/Aura_BG1.tpa~
+ACTION_IF GAME_INCLUDES ~sod~
+
+THEN BEGIN
+  PRINT ~Installing content for Siege of Dragonspear...~
+INCLUDE ~%MOD_FOLDER%/lib/aura_sod.tpa~
+END
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 BEGIN ~Artificer (Bard, EEex required)~
 FORCED_SUBCOMPONENT ~Choose a class for Aura:~
   REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~The main component must be installed.~
