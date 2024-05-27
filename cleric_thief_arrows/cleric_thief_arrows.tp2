@@ -1,0 +1,18 @@
+BACKUP ~cleric_thief_arrows/backup~
+AUTHOR ~The Artisan~
+
+BEGIN ~Aura NPC: Cleric/Thief Arrows Usability Fix~ 
+  REQUIRE_COMPONENT ~Setup-Aura_BG1.tp2~ ~0~ ~Aura-BG1 must be installed as a Priestess / Artificer~
+
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
+    READ_BYTE    0x20 thief //reads the byte containing the thief usability flag
+    PATCH_IF ((thief BAND 0b01000000) = 0b00000000) BEGIN // if it is usable by thieves
+      READ_BYTE    0x1F cthief //reads the byte containing cleric/thieves usability flag
+      READ_SHORT    0x1C type //reads the byte containing item type
+      PATCH_IF (type = 5) BEGIN // if it is arrows
+        WRITE_BYTE    0x1F (thief BAND 0b11111101)  // makes usable by cleric/thieves
+      END
+    END
+  END
+BUT_ONLY_IF_IT_CHANGES
