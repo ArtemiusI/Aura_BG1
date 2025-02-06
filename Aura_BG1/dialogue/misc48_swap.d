@@ -1,0 +1,2 @@
+REPLACE_TRIGGER_TEXT_REGEXP ~.+~ ~!PartyHasItem("MISC48")~ ~!PartyHasItem("MISC48") !PartyHasItem("C0AUIM04")~      UNLESS ~C0AUIM04~
+REPLACE_TRIGGER_TEXT_REGEXP ~.+~ ~\bPartyHasItem("MISC48")~ ~OR(2) PartyHasItem("MISC48") PartyHasItem("C0AUIM04")~ UNLESS ~C0AUIM04~
