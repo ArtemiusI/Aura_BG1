@@ -75,7 +75,7 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
   CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
   PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
@@ -89,7 +89,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 – 10th level: Gains an additional use of Craft Rune.
 – 12th level: May use Elemental Infusions.
 
-ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with and resistance to that element from all sources with an additional +1% additional per level, capping at 50% at 40th level.
 
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
@@ -263,7 +263,7 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
   CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
   PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
@@ -277,7 +277,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 – 10th level: Gains an additional use of Craft Rune.
 – 12th level: May use Elemental Infusions.
 
-ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with and resistance to that element from all sources with an additional +1% additional per level, capping at 50% at 40th level.
 
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
@@ -449,7 +449,7 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
   CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
   PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
@@ -463,7 +463,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 – 10th level: Gains an additional use of Craft Rune.
 – 12th level: May use Elemental Infusions.
 
-ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with and resistance to that element from all sources with an additional +1% additional per level, capping at 50% at 40th level.
 
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 18th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
@@ -757,7 +757,7 @@ ANALYZE: With this ability, the user carefully observes the target and identifie
 
 – 3rd level: May use the Infusion ability once per day.
 
-INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+INFUSION: The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
   CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
   PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
@@ -772,7 +772,7 @@ CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automa
 – 10th level: Gains an additional use of Craft Rune.
 – 12th level: May use Elemental Infusions.
 
-ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+ELEMENTAL INFUSIONS: The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with and resistance to that element from all sources with an additional +1% additional per level, capping at 50% at 40th level.
 
 – 16th level: Infusion's enchantment bonus increases to +3.
 – 20th level: Soul of Artifice: +1 bonus to Saving Throws. This bonus increases to +3 while under the effects of Infusion.
@@ -901,12 +901,11 @@ COPY ~%MOD_FOLDER%/artificer/eeex/lua/m_c0aucl.lua~      ~override~ // Lua file 
 
 ACTION_IF FILE_EXISTS_IN_GAME ~C0AURACL.2DA~ BEGIN
 COPY_EXISTING ~C0AURACL.2DA~ OVERRIDE
-  REPLACE_TEXTUALLY ~AP_C0AUKT3~ ~****      ~
+  REPLACE_TEXTUALLY ~AP_C0AUKT3~ ~AP_C0AUKT6~
   // Borrowed from Rogue Rebalancing
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_MaxLevel = 20 STR_VAR f_Entry = AP_C0AUKT4 END // SPELL SLOT MODIFIER
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 3 f_MaxLevel = 20 STR_VAR f_Entry = AP_C0AUKT4 END // SPELL SLOT MODIFIER
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 5 f_MaxLevel = 20 STR_VAR f_Entry = AP_C0AUKT5 END // SPELL LEVEL MODIFIER
-  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_Increment = 1 STR_VAR f_Entry = AP_C0AUKT6 END // THIEVING PROGRESSION
   PRETTY_PRINT_2DA
 BUT_ONLY
 
@@ -936,7 +935,15 @@ SAY UNIDENTIFIED_DESC ~Through use of thaumaturgical mechanisms, the artificer p
 
 COPY_EXISTING ~c0auhl3.spl~ ~override~
 SAY NAME1 ~Thaumaturgical Matrix~
-SAY UNIDENTIFIED_DESC ~This ability allows the artificer to store spells in a magical ability (accessed via the Special Ability button) that is created by the spell. This item, the matrix, can store three spells of the maximum spell level the artificer may cast to be released simultaneously. A wizard can only possess one thaumaturgical matrix at a time, and the matrix may not be given to other characters. Once the thaumaturgical matrix is used, the icon will disappear from the Special Ability button.~
+SAY UNIDENTIFIED_DESC ~This ability allows the artificer to store spells in a magical ability (accessed via the Special Ability button) that is created by the spell. This item, the matrix, can store three spells of the maximum spell level the artificer may cast to be released simultaneously at the maximum spell power and a doubled duration modifier. An artificer can only possess one thaumaturgical matrix at a time, and the matrix may not be given to other characters. Once the thaumaturgical matrix is used, the icon will disappear from the Special Ability button.~
+
+COPY_EXISTING ~c0auhl3d.spl~ ~override~
+SAY NAME1 ~Thaumaturgical Matrix~
+SAY UNIDENTIFIED_DESC ~This ability allows the artificer to store spells in a magical ability (accessed via the Special Ability button) that is created by the spell. This item, the matrix, can store three spells of the maximum spell level the artificer may cast to be released simultaneously at the maximum spell power and a doubled duration modifier. An artificer can only possess one thaumaturgical matrix at a time, and the matrix may not be given to other characters. Once the thaumaturgical matrix is used, the icon will disappear from the Special Ability button.~
+
+COPY_EXISTING ~c0auhl3p.spl~ ~override~
+SAY NAME1 ~Thaumaturgical Matrix~
+SAY UNIDENTIFIED_DESC ~This ability allows the artificer to store spells in a magical ability (accessed via the Special Ability button) that is created by the spell. This item, the matrix, can store three spells of the maximum spell level the artificer may cast to be released simultaneously at the maximum spell power and a doubled duration modifier. An artificer can only possess one thaumaturgical matrix at a time, and the matrix may not be given to other characters. Once the thaumaturgical matrix is used, the icon will disappear from the Special Ability button.~
 
 OUTER_SET thaumaturgical_matrix_tip = RESOLVE_STR_REF (~Thaumaturgical Matrix is much like Spell Sequencer in that it allows the caster to store several spells in a trigger item that can be released upon any target, including the caster. The spells stored in the matrix are cast as any other spell and can be accessed through the Special Abilities button on the main screen. It is important to note that when you choose the spells to be stored in the matrix, they will disappear from the ones you have memorized. However, the matrix will last until used, so the caster may rest and gain those spells back. The main use for this spell would be to allow the caster to release multiple spells upon a target very quickly in combat without the possibility of being interrupted.~)
 
@@ -1452,7 +1459,7 @@ Casting Time: 1
 Area of Effect: 15-ft. radius
 Saving Throw: None
 
-The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-ft. radius are healed for 50% of their maximum hit points and are cured of diseases, poisons, blindness, feeblemind, deafness and intoxication.~
+The Mederi Rune allows the user to cast Panacea Circle. All allies within a 15-ft. radius are healed for 20% of their maximum hit points and are cured of diseases, poisons, blindness, feeblemind, deafness and intoxication. ~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune8c END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune8 END
 	WRITE_ASCII 0x3a ~c0rune8c~
@@ -2360,7 +2367,7 @@ LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Heale
 COPY_EXISTING ~c0auin7.spl~ ~override~
 SAY NAME1 ~Infusion~
 SAY UNIDENTIFIED_DESC ~Infusion
-The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
   CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
   PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
@@ -2369,9 +2376,237 @@ The artificer infuses their allies' weapons with empowering elements, increasing
 From 12th level onwards, the artificer may instead use Elemental Infusions, which do not empower weapons but instead a particular type of elemental damage.
 
 ELEMENTAL INFUSIONS
-The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with that element from all sources +1% additional damage per level, capping at 50% at 40th level.
+The artificer may now use Infusion to instead empower an elemental type (fire, cold, acid, electrical), granting a 10% bonus to damage with and resistance to that element from all sources with an additional +1% additional per level, capping at 50% at 40th level.
 
 This ability can only be used outside of combat.~
+
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7002.eff~
+WRITE_BYTE 0x64 25
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7003.eff~
+WRITE_BYTE 0x64 30
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7004.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7002.eff~ ~override/c0au7005.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7003.eff~ ~override/c0au7006.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7007.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7002.eff~ ~override/c0au7008.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7003.eff~ ~override/c0au7009.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7010.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7002.eff~ ~override/c0au7011.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7003.eff~ ~override/c0au7012.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7013.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7002.eff~ ~override/c0au7014.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7003.eff~ ~override/c0au7015.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7016.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7002.eff~ ~override/c0au7017.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7003.eff~ ~override/c0au7018.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7100.eff~
+WRITE_BYTE 0x64 17
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7101.eff~
+WRITE_BYTE 0x64 21
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7102.eff~
+WRITE_BYTE 0x64 22
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7103.eff~
+WRITE_BYTE 0x64 23
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7104.eff~
+WRITE_BYTE 0x64 26
+COPY_EXISTING ~c0au7101.eff~ ~override/c0au7105.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7102.eff~ ~override/c0au7106.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7103.eff~ ~override/c0au7107.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7104.eff~ ~override/c0au7108.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7105.eff~ ~override/c0au7109.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7101.eff~ ~override/c0au7110.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7102.eff~ ~override/c0au7111.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7103.eff~ ~override/c0au7112.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7104.eff~ ~override/c0au7113.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7105.eff~ ~override/c0au7114.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7101.eff~ ~override/c0au7115.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7102.eff~ ~override/c0au7116.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7103.eff~ ~override/c0au7117.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7104.eff~ ~override/c0au7118.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7105.eff~ ~override/c0au7119.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7101.eff~ ~override/c0au7120.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7102.eff~ ~override/c0au7121.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7103.eff~ ~override/c0au7122.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7104.eff~ ~override/c0au7123.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7105.eff~ ~override/c0au7124.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7101.eff~ ~override/c0au7125.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7102.eff~ ~override/c0au7126.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7103.eff~ ~override/c0au7127.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7104.eff~ ~override/c0au7128.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7105.eff~ ~override/c0au7129.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7200.eff~
+WRITE_BYTE 0x64 16
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7201.eff~
+WRITE_BYTE 0x64 19
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7202.eff~
+WRITE_BYTE 0x64 29
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7203.eff~
+WRITE_BYTE 0x64 30
+COPY_EXISTING ~c0au7200.eff~ ~override/c0au7204.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7201.eff~ ~override/c0au7205.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7202.eff~ ~override/c0au7206.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7203.eff~ ~override/c0au7207.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7200.eff~ ~override/c0au7208.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7201.eff~ ~override/c0au7209.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7202.eff~ ~override/c0au7210.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7203.eff~ ~override/c0au7211.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7200.eff~ ~override/c0au7212.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7201.eff~ ~override/c0au7213.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7202.eff~ ~override/c0au7214.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7203.eff~ ~override/c0au7215.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7200.eff~ ~override/c0au7216.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7201.eff~ ~override/c0au7217.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7202.eff~ ~override/c0au7218.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7203.eff~ ~override/c0au7219.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7200.eff~ ~override/c0au7220.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7201.eff~ ~override/c0au7221.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7202.eff~ ~override/c0au7222.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7203.eff~ ~override/c0au7223.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7300.eff~
+WRITE_BYTE 0x64 5
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7301.eff~
+WRITE_BYTE 0x64 15
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7302.eff~
+WRITE_BYTE 0x64 18
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7303.eff~
+WRITE_BYTE 0x64 24
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7304.eff~
+WRITE_BYTE 0x64 27
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7305.eff~
+WRITE_BYTE 0x64 31
+COPY_EXISTING ~c0au7001.eff~ ~override/c0au7306.eff~
+WRITE_BYTE 0x64 14
+COPY_EXISTING ~c0au7300.eff~ ~override/c0au7307.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7301.eff~ ~override/c0au7308.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7302.eff~ ~override/c0au7309.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7303.eff~ ~override/c0au7310.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7304.eff~ ~override/c0au7311.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7305.eff~ ~override/c0au7312.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7306.eff~ ~override/c0au7313.eff~
+WRITE_BYTE 0x1c 2
+COPY_EXISTING ~c0au7300.eff~ ~override/c0au7314.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7301.eff~ ~override/c0au7315.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7302.eff~ ~override/c0au7316.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7303.eff~ ~override/c0au7317.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7304.eff~ ~override/c0au7318.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7305.eff~ ~override/c0au7319.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7306.eff~ ~override/c0au7320.eff~
+WRITE_BYTE 0x1c 3
+COPY_EXISTING ~c0au7300.eff~ ~override/c0au7321.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7301.eff~ ~override/c0au7322.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7302.eff~ ~override/c0au7323.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7303.eff~ ~override/c0au7324.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7304.eff~ ~override/c0au7325.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7305.eff~ ~override/c0au7326.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7306.eff~ ~override/c0au7327.eff~
+WRITE_BYTE 0x1c 4
+COPY_EXISTING ~c0au7300.eff~ ~override/c0au7328.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7301.eff~ ~override/c0au7329.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7302.eff~ ~override/c0au7330.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7303.eff~ ~override/c0au7331.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7304.eff~ ~override/c0au7332.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7305.eff~ ~override/c0au7333.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7306.eff~ ~override/c0au7334.eff~
+WRITE_BYTE 0x1c 5
+COPY_EXISTING ~c0au7300.eff~ ~override/c0au7335.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7301.eff~ ~override/c0au7336.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7302.eff~ ~override/c0au7337.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7303.eff~ ~override/c0au7338.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7304.eff~ ~override/c0au7339.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7305.eff~ ~override/c0au7340.eff~
+WRITE_BYTE 0x1c 6
+COPY_EXISTING ~c0au7306.eff~ ~override/c0au7341.eff~
+WRITE_BYTE 0x1c 6
+
 
 COPY_EXISTING ~c0auin7a.spl~ ~override~
 SAY NAME1 ~Infusion: Blades~
@@ -2879,6 +3114,12 @@ WRITE_LONG 0x34 2500
 COPY_EXISTING ~c0apoth5.spl~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
+      match_opcode = 177
+	  match_parameter2 = 9
+	  parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0AURA~)
+  END
+  LPF ALTER_EFFECT
+    INT_VAR
       check_globals = 1
       check_headers = 1
       match_opcode = 139 // display string
@@ -2893,7 +3134,7 @@ SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills
    - Fighters, Rangers and Paladins gain +2 to Strength.
    - Thieves and Monks gain +2 to Dexterity.
    - Shamans gain +2 to Constitution.
-   - Mages gain +2 to Intelligence.
+   - Mages and Artificers gain +2 to Intelligence.
    - Clerics and Druids gain +2 to Wisdom.
    - Sorcerers and Bards gain +2 to Charisma.
    - Spellcasting classes take precedence over warrior classes.

@@ -16,7 +16,7 @@ SAY NAME1 ~Cherry-tinted Leather Armor~
 SAY NAME2 ~Cherry-tinted Leather Armor~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
 
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors.
+Aura's custom-made leather armor is dyed a bright pinkish red colour that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors.
 
 STATISTICS:
 
@@ -34,7 +34,7 @@ SAY NAME1 ~Cherry-tinted Leather Armor +3~
 SAY NAME2 ~Cherry-tinted Leather Armor +3~
 SAY DESC ~This basic armor is made of thick wax or water-hardened leather. It is sturdy protection, not supple like boots or a cloak. Soft garment leathers like that would offer no more protection than common clothing. Magical enchantments have improved the protective abilities of this particular suit.
 
-Aura's custom-made leather armor is dyed a bright pinkish red color that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors, as well as protect from the hazards of her experiments, such as extreme heat or cold, electrical shocks, and chemical burns.
+Aura's custom-made leather armor is dyed a bright pinkish red colour that is, according to Aura, reminiscent of Kara-Turan cherry blossoms, designed to repel stains and unpleasant odors, as well as protect from the hazards of her experiments, such as extreme heat or cold, electrical shocks, and chemical burns.
 
 STATISTICS:
 
@@ -56,12 +56,32 @@ SAY DESC ~This brass insignia is small enough to fit inside of your palm. Engrav
 COPY_EXISTING ~c0amaga1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
       opcode = 180
 	  target = 1
 	  timing = 2
 	  parameter1 = RESOLVE_STR_REF (~Aura refuses to equip this weapon.~)
 	STR_VAR
 	  resource = c0ausw01
+END
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 180
+	  target = 1
+	  timing = 2
+	  parameter1 = RESOLVE_STR_REF (~Aura shakes her head. "Eugh... no thanks, <CHARNAME>. I don't eat meat.~)
+	STR_VAR
+	  resource = ISHF001
 END
       LPF ALTER_EFFECT
       INT_VAR
@@ -208,24 +228,6 @@ SAY 0xc ~Aura's Rune Book~
 
 COPY_EXISTING ~c0aubow.spl~ ~override~
 SAY NAME1 ~Create Sunshooter Arrows~
-
-OUTER_SET bow_strref = RESOLVE_STR_REF (~Aura hugs her bow close while shaking her head slightly. "Mmm... sorry, but I don't think I'd feel right without my Sunshooter."~ [GAM_47])
-APPEND item_use.2da ~c0aubo1a Aura %bow_strref% 3
-c0aubo1b Aura %bow_strref% 3
-c0aubo2a Aura %bow_strref% 3
-c0aubo2b Aura %bow_strref% 3
-c0aubo2c Aura %bow_strref% 3
-c0aubo3a Aura %bow_strref% 3
-c0aubo3b Aura %bow_strref% 3
-c0aubo3c Aura %bow_strref% 3
-c0aubo4a Aura %bow_strref% 3
-c0aubo4b Aura %bow_strref% 3
-c0aubo4c Aura %bow_strref% 3
-c0aubo5a Aura %bow_strref% 3
-c0aubo5b Aura %bow_strref% 3
-c0aubo5c Aura %bow_strref% 3
-c0aubo6  Aura %bow_strref% 3
-c0aubo7  Aura %bow_strref% 3~
 
 COPY_EXISTING ~c0auar1a.spl~ ~override/c0auar1b.spl~
   LPF ALTER_SPELL_HEADER
@@ -494,6 +496,24 @@ COPY_EXISTING ~c0auar6a.spl~ ~override/c0auar6b.spl~
       parameter1 = 5
 END
 
+OUTER_SET bow_strref = RESOLVE_STR_REF (~Aura hugs her bow close while shaking her head slightly. "Mmm... sorry, but I don't think I'd feel right without my Sunshooter."~ [GAM_47])
+APPEND item_use.2da ~c0aubo1a Aura %bow_strref% 3
+c0aubo1b Aura %bow_strref% 3
+c0aubo2a Aura %bow_strref% 3
+c0aubo2b Aura %bow_strref% 3
+c0aubo2c Aura %bow_strref% 3
+c0aubo3a Aura %bow_strref% 3
+c0aubo3b Aura %bow_strref% 3
+c0aubo3c Aura %bow_strref% 3
+c0aubo4a Aura %bow_strref% 3
+c0aubo4b Aura %bow_strref% 3
+c0aubo4c Aura %bow_strref% 3
+c0aubo5a Aura %bow_strref% 3
+c0aubo5b Aura %bow_strref% 3
+c0aubo5c Aura %bow_strref% 3
+c0aubo6  Aura %bow_strref% 3
+c0aubo7  Aura %bow_strref% 3~
+
 OUTER_SET sunshooter = RESOLVE_STR_REF (~Configure~)
 APPEND ~ITEMDIAL.2da~ ~C0AUBO1A    %sunshooter%    C0AUBOW
 C0AUBO1B    %sunshooter%    C0AUBOW
@@ -513,6 +533,17 @@ C0AUBO5C    %sunshooter%    C0AUBOW~
 
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/C0AUBOW.d~
 COPY_EXISTING ~c0aubo1a.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter I (Rapid)~
 SAY NAME2 ~Sunshooter I (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -542,6 +573,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo1b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter I (Precise)~
 SAY NAME2 ~Sunshooter I (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -571,6 +613,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo2a.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter II (Rapid)~
 SAY NAME2 ~Sunshooter II (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -600,6 +653,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo2b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter II (Precise)~
 SAY NAME2 ~Sunshooter II (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -629,6 +693,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo2c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter II (Power)~
 SAY NAME2 ~Sunshooter II (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -659,6 +734,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo3a.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter III (Rapid)~
 SAY NAME2 ~Sunshooter III (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -689,6 +775,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo3b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter III (Precise)~
 SAY NAME2 ~Sunshooter III (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -719,6 +816,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo3c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter III (Power)~
 SAY NAME2 ~Sunshooter III (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -750,6 +858,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo4a.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter IV (Rapid)~
 SAY NAME2 ~Sunshooter IV (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -784,6 +903,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo4b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter IV (Precise)~
 SAY NAME2 ~Sunshooter IV (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -818,6 +948,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo4c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter IV (Power)~
 SAY NAME2 ~Sunshooter IV (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -852,6 +993,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo5a.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter V (Rapid)~
 SAY NAME2 ~Sunshooter V (Rapid)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -886,6 +1038,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo5b.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter V (Precise)~
 SAY NAME2 ~Sunshooter V (Precise)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -920,6 +1083,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo5c.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter V (Power)~
 SAY NAME2 ~Sunshooter V (Power)~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it.
@@ -954,6 +1128,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo6.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Perfect Sunshooter~
 SAY NAME2 ~Perfect Sunshooter~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it. The Perfect Sunshooter is the product of a master artificer's craft, combining all the strengths of the bow's various configurations.
@@ -1002,6 +1187,17 @@ Requires:
 Weight: 0~
 
 COPY_EXISTING ~c0aubo7.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Aura~)
+	STR_VAR
+	  resource = C0Aura
+END
 SAY NAME1 ~Sunshooter Opus~
 SAY NAME2 ~Sunshooter Opus~
 SAY DESC ~The Sunshooter is Aura's personal weapon, a metallic bow of unusual design that fires arrows with almost inhuman speed and accuracy. Various attachments decorate the arc of the bow, some useful (such as enchantments that alter the effects of nocked arrows) and others purely for accessory. Its complexity is so great that no one besides its creator is likely capable of understanding how to properly wield it. The Sunshooter Opus is the product of a master artificer's craft, combining all the strengths of the bow's various configurations.
@@ -1142,8 +1338,7 @@ SAY DESC ~This unusual arrow, designed and crafted by Aura, deals no damage to i
 STATISTICS:
 
 Combat abilities:
-– Target is healed for 2 hit points (+ half of Aura's level), then regenerates the same amount every 2 seconds following for 6 seconds (non-cumulative)
-– From 20th level onwards, the arrow bursts into a shower of energy, granting the healing effects to allies near the target
+– Target is healed for 4 hit points and regenerates 1 additional hit point for a number of seconds equal to the user's level (non-cumulative)
 – This arrow does not apply Magnetism
 
 Damage: None
@@ -1451,8 +1646,6 @@ Charge abilities:
   Duration: 10 turns
  
 Weight: 1~
-
-COPY_EXISTING ~c0bandol.sto~ ~override~
 
 COPY_EXISTING ~c0bandol.itm~ ~override~
 SAY NAME1 ~Aura's Potion Bag~

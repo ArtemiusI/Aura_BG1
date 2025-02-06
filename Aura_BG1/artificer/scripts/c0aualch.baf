@@ -666,6 +666,17 @@ THEN
 END
 
 IF
+	Global("C0ABOOK5","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("C0ABOOK5","GLOBAL",2)
+    ChangeStoreMarkup("C0AUPOT1",75,0)
+    ChangeStoreMarkup("C0AUPOTH",75,0)
+    ChangeStoreMarkup("C0AUBOM1",75,0)
+	  Continue()
+END
+
+IF
   Detect(Lastsummonerof(Myself))
   !Global("C0ArtificerAlchemy","LOCALS",1)
 THEN
