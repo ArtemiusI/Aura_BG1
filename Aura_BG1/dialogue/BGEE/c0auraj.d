@@ -511,7 +511,7 @@ END
 CHAIN C0AURAJ t7.8
 ~Oh.... good, that's good. I was afraid it wouldn't be enough to make you happy. I can understand a machine from inside to outside, but people... I don't know the first thing about people, really.~
 = ~I guess it's my own fault in a way. Back when I was just a Lantanese inventor, people only came to me to have their questions answered and their requests fulfilled. Aside from my family, there were very few people I could talk to just for the sake of it...~
-= ~Back then, it just seemed to unimportant to me. Everything aside from my work was. I was taught my whole life to trust in the sciences. Hard facts. But after all I've been through, all the places I've seen... the faith of Kozakura, and the magic here in the Sword Coast... it's hard for me to think solely as a Lantanese anymore.~
+= ~Back then, it just seemed so unimportant to me. Everything aside from my work was. I was taught my whole life to trust in the sciences. Hard facts. But after all I've been through, all the places I've seen... the faith of Kozakura, and the magic here in the Sword Coast... it's hard for me to think solely as a Lantanese anymore.~
 = ~If I were to go back in time one day, I don't know if the past me would even recognize me now. Hehe... I'm not sure if I'd even recognize the past me.~
 = ~Is that wrong, <CHARNAME>? Is it a bad thing, all this change that's happened to me? Oh, forget it. I don't think you can answer that, if even I don't know myself anymore. I'm sorry for babbling to you.~
 END
@@ -1168,12 +1168,12 @@ I_C_T VOLO 0 C0AuraVOLO0
 END
 
 I_C_T XAN 0 C0AuraXAN0
-== C0AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Wow. I'm not certain if the atmosphere has affected this sourpuss's mood, of if he's the one making the atmosphere.~
+== C0AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Wow. I'm not certain if the atmosphere has affected this sourpuss's mood, or if he's the one making the atmosphere.~
 == XAN ~*sigh*~
 END
 
 I_C_T XAN 1 C0AuraXAN0
-== C0AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Wow. I'm not certain if the atmosphere has affected this sourpuss's mood, of if he's the one making the atmosphere.~
+== C0AURAJ IF ~InParty("C0Aura") InMyArea("C0Aura") !StateCheck("C0Aura",CD_STATE_NOTVALID)~ THEN ~Wow. I'm not certain if the atmosphere has affected this sourpuss's mood, or if he's the one making the atmosphere.~
 == XAN ~*sigh*~
 END
 

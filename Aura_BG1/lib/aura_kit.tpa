@@ -1211,7 +1211,8 @@ END
       END
 COPY_EXISTING ~c0auin1a.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Alchemist's Fire~
-SAY NAME2 ~Set Alchemical Trap: Alchemist's Fire~
+SAY UNIDENTIFIED_DESC ~Set Alchemical Trap: Alchemist's Fire
+Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.~
 
 COPY_EXISTING ~c0atrap2.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -1244,7 +1245,8 @@ END
       END
 COPY_EXISTING ~c0auin1b.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Rapid Freezing Reagent~
-SAY NAME2 ~Set Alchemical Trap: Rapid Freezing Reagent~
+SAY UNIDENTIFIED_DESC ~Set Alchemical Trap: Rapid Freezing Reagent
+Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.~
 
 COPY_EXISTING ~c0atrap3.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -1277,7 +1279,8 @@ END
       END
 COPY_EXISTING ~c0auin1c.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Corrosive Acidic Compound~
-SAY NAME2 ~Set Alchemical Trap: Corrosive Acidic Compound~
+SAY UNIDENTIFIED_DESC ~Set Alchemical Trap: Corrosive Acidic Compound
+Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.~
 
 COPY_EXISTING ~c0atrap4.spl~ ~override~
 READ_LONG 0x64 "abil_off"
@@ -1321,7 +1324,8 @@ COPY_EXISTING ~c0aparal.spl~ ~override~
       END
 COPY_EXISTING ~c0auin1d.spl~ ~override~
 SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
-SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
+SAY UNIDENTIFIED_DESC ~Set Alchemical Trap: Conductive Fluid
+Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.~
 
 OUTER_SET runecast = RESOLVE_STR_REF (~Cast Rune~)
 OUTER_SET runeimbue = RESOLVE_STR_REF (~Imbue Rune~)
@@ -1360,7 +1364,7 @@ Casting Time: 1
 Area of Effect: 1 creature
 Saving Throw: None
 
-The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy is launched towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
+The Cryon Rune allows the user to cast Cryoshock. Cryoshock launches a freezing jet of energy towards a target creature, dealing 1d4 cold damage per level of the user. Due to the disruptive nature of the chilling ray, targets are afflicted with a 90% chance to miscast spells for one round. A successful Saving Throw vs. Spells halves the damage dealt.~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = c0rune2c END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 122 STR_VAR resource = c0arune2 END
 	WRITE_ASCII 0x3a ~c0rune2c~
