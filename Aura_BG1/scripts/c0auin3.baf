@@ -30,6 +30,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("C0ACIRC1","LOCALS",1)
+		ChangeStat(Myself,THAC0,-4,ADD)
 		ChangeStat(Myself,DAMAGEBONUS,4,ADD)
 		ChangeStat(Myself,ARMORCLASS,4,ADD)
 		ChangeStat(Myself,SAVEVSDEATH,4,ADD)
@@ -46,7 +47,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("C0ACIRC1","LOCALS",0)
-		ChangeStat(Myself,THAC0,-4,ADD)
+		ChangeStat(Myself,THAC0,4,ADD)
 		ChangeStat(Myself,DAMAGEBONUS,-4,ADD)
 		ChangeStat(Myself,ARMORCLASS,-4,ADD)
 		ChangeStat(Myself,SAVEVSDEATH,-4,ADD)
@@ -279,7 +280,7 @@ IF
   Global("Teleportation","LOCALS",0)
 THEN
   RESPONSE #100
-	ApplySpellRES("c0auto7a",Myself)
+	AddSpecialAbility("c0auto7a")
 	SetGlobal("Teleportation","LOCALS",1)
 	Continue()
 END
@@ -289,7 +290,7 @@ IF
   Global("GolemSlow","LOCALS",0)
 THEN
   RESPONSE #100
-	ApplySpellRES("c0auto8a",Myself)
+	AddSpecialAbility("c0auto8a")
 	SetGlobal("GolemSlow","LOCALS",1)
 	Continue()
 END
@@ -299,7 +300,7 @@ IF
   Global("GolemHaste","LOCALS",0)
 THEN
   RESPONSE #100
-	ApplySpellRES("c0auto9a",Myself)
+	AddSpecialAbility("c0auto9a")
 	SetGlobal("GolemHaste","LOCALS",1)
 	Continue()
 END
@@ -309,7 +310,7 @@ IF
   Global("GasCloud","LOCALS",0)
 THEN
   RESPONSE #100
-	ApplySpellRES("c0auto0a",Myself)
+	AddSpecialAbility("c0auto0a")
 	SetGlobal("GasCloud","LOCALS",1)
 	Continue()
 END
@@ -433,6 +434,7 @@ THEN
 END
 
 IF
+  Global("C0AuraBG2AutomatonControl","GLOBAL",0)
   !InParty("C0Aura")
   !Allegiance("C0Aura",ENEMY)
   !Allegiance(Myself,NEUTRAL)
@@ -445,6 +447,8 @@ THEN
 END
 
 IF
+  OR(2)
+  Global("C0AuraBG2AutomatonControl","GLOBAL",1)
   InParty("C0Aura")
   Global("Standby","LOCALS",1)
   !Allegiance(Myself,GOODBUTBLUE)
@@ -458,6 +462,8 @@ THEN
 END
 
 IF
+  OR(2)
+  Global("C0AuraBG2AutomatonControl","GLOBAL",1)
   InParty("C0Aura")
   !Allegiance(Myself,CONTROLLED)
   !Global("Standby","LOCALS",1)
@@ -583,37 +589,1061 @@ END
 IF
 	CombatCounter(0)
 	!Global("Standby","LOCALS",1)
-	ClassLevelGT("C0Aura",ROGUE,11)
-    !LevelGT(Myself,11)
+	ClassLevel("C0Aura",ROGUE,9)
+    LevelLT(Myself,9)
 THEN
 RESPONSE #100
 	SetGlobal("Upgrade","LOCALS",1)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ChangeAnimationNoEffect("C0AUIN3B")
+	ChangeStat(Myself,LEVEL,9,SET)
+	ChangeStat(Myself,THAC0,11,SET)
+	ChangeStat(Myself,MAXHITPOINTS,90,SET)
+	ReallyForceSpellRES("c0repair",Myself)
 END
 
 IF
 	CombatCounter(0)
 	!Global("Standby","LOCALS",1)
-	ClassLevelGT("C0Aura",ROGUE,15)
-    !LevelGT(Myself,15)
+	ClassLevel("C0Aura",ROGUE,10)
+    LevelLT(Myself,10)
 THEN
 RESPONSE #100
-	SetGlobal("Upgrade","LOCALS",2)
+	SetGlobal("Upgrade","LOCALS",1)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ChangeAnimationNoEffect("C0AUIN3c")
+	ChangeStat(Myself,LEVEL,10,SET)
+	ChangeStat(Myself,THAC0,10,SET)
+	ChangeStat(Myself,ARMORCLASS,3,SET)
+	ChangeStat(Myself,SAVEVSDEATH,7,SET)
+	ChangeStat(Myself,SAVEVSWANDS,9,SET)
+	ChangeStat(Myself,SAVEVSPOLY,8,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,8,SET)
+	ChangeStat(Myself,SAVEVSSPELL,10,SET)
+	ChangeStat(Myself,MAXHITPOINTS,93,SET)
+	ReallyForceSpellRES("c0repair",Myself)
 END
 
 IF
 	CombatCounter(0)
 	!Global("Standby","LOCALS",1)
-	ClassLevelGT("C0Aura",ROGUE,19)
-    !LevelGT(Myself,19)
+	ClassLevel("C0Aura",ROGUE,11)
+    LevelLT(Myself,11)
 THEN
 RESPONSE #100
-	SetGlobal("Upgrade","LOCALS",3)
+	SetGlobal("Upgrade","LOCALS",1)
 	CreateVisualEffectObject("spcrtwpn",Myself)
-	ChangeAnimationNoEffect("C0AUIN3d")
+	ChangeStat(Myself,LEVEL,11,SET)
+	ChangeStat(Myself,THAC0,9,SET)
+	ChangeStat(Myself,ARMORCLASS,3,SET)
+	ChangeStat(Myself,SAVEVSDEATH,7,SET)
+	ChangeStat(Myself,SAVEVSWANDS,9,SET)
+	ChangeStat(Myself,SAVEVSPOLY,8,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,8,SET)
+	ChangeStat(Myself,SAVEVSSPELL,10,SET)
+	ChangeStat(Myself,MAXHITPOINTS,96,SET)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,12)
+    LevelLT(Myself,12)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,12,SET)
+	ChangeStat(Myself,THAC0,8,SET)
+	ChangeStat(Myself,ARMORCLASS,2,SET)
+	ChangeStat(Myself,SAVEVSDEATH,6,SET)
+	ChangeStat(Myself,SAVEVSWANDS,8,SET)
+	ChangeStat(Myself,SAVEVSPOLY,7,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,7,SET)
+	ChangeStat(Myself,SAVEVSSPELL,9,SET)
+	ChangeStat(Myself,MAXHITPOINTS,99,SET)
+	AddSpecialAbility("C0AUTOS4")
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,13)
+    LevelLT(Myself,13)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,13,SET)
+	ChangeStat(Myself,THAC0,7,SET)
+	ChangeStat(Myself,ARMORCLASS,2,SET)
+	ChangeStat(Myself,SAVEVSDEATH,6,SET)
+	ChangeStat(Myself,SAVEVSWANDS,8,SET)
+	ChangeStat(Myself,SAVEVSPOLY,7,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,7,SET)
+	ChangeStat(Myself,SAVEVSSPELL,9,SET)
+	ChangeStat(Myself,MAXHITPOINTS,102,SET)
+	AddSpecialAbility("C0AUTOS4")
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,14)
+    LevelLT(Myself,14)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,14,SET)
+	ChangeStat(Myself,THAC0,6,SET)
+	ChangeStat(Myself,ARMORCLASS,1,SET)
+	ChangeStat(Myself,SAVEVSDEATH,5,SET)
+	ChangeStat(Myself,SAVEVSWANDS,7,SET)
+	ChangeStat(Myself,SAVEVSPOLY,6,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,6,SET)
+	ChangeStat(Myself,SAVEVSSPELL,8,SET)
+	ChangeStat(Myself,MAXHITPOINTS,105,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,15)
+    LevelLT(Myself,15)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,15,SET)
+	ChangeStat(Myself,THAC0,5,SET)
+	ChangeStat(Myself,ARMORCLASS,1,SET)
+	ChangeStat(Myself,SAVEVSDEATH,5,SET)
+	ChangeStat(Myself,SAVEVSWANDS,7,SET)
+	ChangeStat(Myself,SAVEVSPOLY,6,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,6,SET)
+	ChangeStat(Myself,SAVEVSSPELL,8,SET)
+	ChangeStat(Myself,MAXHITPOINTS,108,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,16)
+    LevelLT(Myself,16)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,16,SET)
+	ChangeStat(Myself,THAC0,4,SET)
+	ChangeStat(Myself,ARMORCLASS,0,SET)
+	ChangeStat(Myself,SAVEVSDEATH,4,SET)
+	ChangeStat(Myself,SAVEVSWANDS,6,SET)
+	ChangeStat(Myself,SAVEVSPOLY,5,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,5,SET)
+	ChangeStat(Myself,SAVEVSSPELL,7,SET)
+	ChangeStat(Myself,MAXHITPOINTS,111,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,17)
+    LevelLT(Myself,17)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,17,SET)
+	ChangeStat(Myself,THAC0,3,SET)
+	ChangeStat(Myself,ARMORCLASS,0,SET)
+	ChangeStat(Myself,SAVEVSDEATH,4,SET)
+	ChangeStat(Myself,SAVEVSWANDS,6,SET)
+	ChangeStat(Myself,SAVEVSPOLY,5,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,5,SET)
+	ChangeStat(Myself,SAVEVSSPELL,7,SET)
+	ChangeStat(Myself,MAXHITPOINTS,114,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,18)
+    LevelLT(Myself,18)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,18,SET)
+	ChangeStat(Myself,THAC0,2,SET)
+	ChangeStat(Myself,ARMORCLASS,-1,SET)
+	ChangeStat(Myself,SAVEVSDEATH,3,SET)
+	ChangeStat(Myself,SAVEVSWANDS,5,SET)
+	ChangeStat(Myself,SAVEVSPOLY,4,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,4,SET)
+	ChangeStat(Myself,SAVEVSSPELL,6,SET)
+	ChangeStat(Myself,MAXHITPOINTS,117,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,19)
+    LevelLT(Myself,19)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,19,SET)
+	ChangeStat(Myself,THAC0,1,SET)
+	ChangeStat(Myself,ARMORCLASS,-1,SET)
+	ChangeStat(Myself,SAVEVSDEATH,3,SET)
+	ChangeStat(Myself,SAVEVSWANDS,5,SET)
+	ChangeStat(Myself,SAVEVSPOLY,4,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,4,SET)
+	ChangeStat(Myself,SAVEVSSPELL,6,SET)
+	ChangeStat(Myself,MAXHITPOINTS,120,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,20)
+    LevelLT(Myself,20)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,20,SET)
+	ChangeStat(Myself,THAC0,0,SET)
+	ChangeStat(Myself,ARMORCLASS,-2,SET)
+	ChangeStat(Myself,SAVEVSDEATH,2,SET)
+	ChangeStat(Myself,SAVEVSWANDS,4,SET)
+	ChangeStat(Myself,SAVEVSPOLY,3,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,3,SET)
+	ChangeStat(Myself,SAVEVSSPELL,5,SET)
+	ChangeStat(Myself,MAXHITPOINTS,123,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,21)
+    LevelLT(Myself,21)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,21,SET)
+	ChangeStat(Myself,THAC0,-1,SET)
+	ChangeStat(Myself,ARMORCLASS,-2,SET)
+	ChangeStat(Myself,SAVEVSDEATH,2,SET)
+	ChangeStat(Myself,SAVEVSWANDS,4,SET)
+	ChangeStat(Myself,SAVEVSPOLY,3,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,3,SET)
+	ChangeStat(Myself,SAVEVSSPELL,5,SET)
+	ChangeStat(Myself,MAXHITPOINTS,126,SET)
+	AddSpecialAbility("C0AUTOS4")
+	AddSpecialAbility("C0AUTOS8")
+	SetName(~Jade Automaton~)
+	Polymorph(%jade_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,22)
+    LevelLT(Myself,22)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,22,SET)
+	ChangeStat(Myself,THAC0,-2,SET)
+	ChangeStat(Myself,ARMORCLASS,-3,SET)
+	ChangeStat(Myself,SAVEVSDEATH,1,SET)
+	ChangeStat(Myself,SAVEVSWANDS,3,SET)
+	ChangeStat(Myself,SAVEVSPOLY,2,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,2,SET)
+	ChangeStat(Myself,SAVEVSSPELL,4,SET)
+	ChangeStat(Myself,MAXHITPOINTS,129,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,23)
+    LevelLT(Myself,23)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,23,SET)
+	ChangeStat(Myself,THAC0,-3,SET)
+	ChangeStat(Myself,ARMORCLASS,-3,SET)
+	ChangeStat(Myself,SAVEVSDEATH,1,SET)
+	ChangeStat(Myself,SAVEVSWANDS,3,SET)
+	ChangeStat(Myself,SAVEVSPOLY,2,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,2,SET)
+	ChangeStat(Myself,SAVEVSSPELL,4,SET)
+	ChangeStat(Myself,MAXHITPOINTS,132,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,24)
+    LevelLT(Myself,24)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,24,SET)
+	ChangeStat(Myself,THAC0,-4,SET)
+	ChangeStat(Myself,ARMORCLASS,-4,SET)
+	ChangeStat(Myself,SAVEVSDEATH,0,SET)
+	ChangeStat(Myself,SAVEVSWANDS,2,SET)
+	ChangeStat(Myself,SAVEVSPOLY,1,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,1,SET)
+	ChangeStat(Myself,SAVEVSSPELL,3,SET)
+	ChangeStat(Myself,MAXHITPOINTS,135,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,25)
+    LevelLT(Myself,25)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,25,SET)
+	ChangeStat(Myself,THAC0,-5,SET)
+	ChangeStat(Myself,ARMORCLASS,-4,SET)
+	ChangeStat(Myself,SAVEVSDEATH,0,SET)
+	ChangeStat(Myself,SAVEVSWANDS,2,SET)
+	ChangeStat(Myself,SAVEVSPOLY,1,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,1,SET)
+	ChangeStat(Myself,SAVEVSSPELL,3,SET)
+	ChangeStat(Myself,MAXHITPOINTS,138,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,26)
+    LevelLT(Myself,26)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,26,SET)
+	ChangeStat(Myself,THAC0,-6,SET)
+	ChangeStat(Myself,ARMORCLASS,-5,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-1,SET)
+	ChangeStat(Myself,SAVEVSWANDS,1,SET)
+	ChangeStat(Myself,SAVEVSPOLY,0,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,0,SET)
+	ChangeStat(Myself,SAVEVSSPELL,2,SET)
+	ChangeStat(Myself,MAXHITPOINTS,141,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,27)
+    LevelLT(Myself,27)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,27,SET)
+	ChangeStat(Myself,THAC0,-7,SET)
+	ChangeStat(Myself,ARMORCLASS,-5,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-1,SET)
+	ChangeStat(Myself,SAVEVSWANDS,1,SET)
+	ChangeStat(Myself,SAVEVSPOLY,0,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,0,SET)
+	ChangeStat(Myself,SAVEVSSPELL,2,SET)
+	ChangeStat(Myself,MAXHITPOINTS,144,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,28)
+    LevelLT(Myself,28)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,28,SET)
+	ChangeStat(Myself,THAC0,-8,SET)
+	ChangeStat(Myself,ARMORCLASS,-6,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-2,SET)
+	ChangeStat(Myself,SAVEVSWANDS,0,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-1,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-1,SET)
+	ChangeStat(Myself,SAVEVSSPELL,1,SET)
+	ChangeStat(Myself,MAXHITPOINTS,147,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,29)
+    LevelLT(Myself,29)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,29,SET)
+	ChangeStat(Myself,THAC0,-9,SET)
+	ChangeStat(Myself,ARMORCLASS,-6,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-2,SET)
+	ChangeStat(Myself,SAVEVSWANDS,0,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-1,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-1,SET)
+	ChangeStat(Myself,SAVEVSSPELL,1,SET)
+	ChangeStat(Myself,MAXHITPOINTS,150,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,30)
+    LevelLT(Myself,30)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,30,SET)
+	ChangeStat(Myself,THAC0,-10,SET)
+	ChangeStat(Myself,ARMORCLASS,-7,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-3,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-1,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-2,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-2,SET)
+	ChangeStat(Myself,SAVEVSSPELL,0,SET)
+	ChangeStat(Myself,MAXHITPOINTS,153,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,31)
+    LevelLT(Myself,31)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,31,SET)
+	ChangeStat(Myself,THAC0,-11,SET)
+	ChangeStat(Myself,ARMORCLASS,-7,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-3,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-1,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-2,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-2,SET)
+	ChangeStat(Myself,SAVEVSSPELL,0,SET)
+	ChangeStat(Myself,MAXHITPOINTS,156,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,32)
+    LevelLT(Myself,32)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,32,SET)
+	ChangeStat(Myself,THAC0,-12,SET)
+	ChangeStat(Myself,ARMORCLASS,-8,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-4,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-2,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-3,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-3,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-1,SET)
+	ChangeStat(Myself,MAXHITPOINTS,159,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,33)
+    LevelLT(Myself,33)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,33,SET)
+	ChangeStat(Myself,THAC0,-13,SET)
+	ChangeStat(Myself,ARMORCLASS,-8,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-4,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-2,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-3,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-3,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-1,SET)
+	ChangeStat(Myself,MAXHITPOINTS,162,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,34)
+    LevelLT(Myself,34)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,34,SET)
+	ChangeStat(Myself,THAC0,-14,SET)
+	ChangeStat(Myself,ARMORCLASS,-9,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-5,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-3,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-4,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-4,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-2,SET)
+	ChangeStat(Myself,MAXHITPOINTS,165,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,35)
+    LevelLT(Myself,35)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,35,SET)
+	ChangeStat(Myself,THAC0,-15,SET)
+	ChangeStat(Myself,ARMORCLASS,-9,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-5,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-3,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-4,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-4,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-2,SET)
+	ChangeStat(Myself,MAXHITPOINTS,168,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,36)
+    LevelLT(Myself,36)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,36,SET)
+	ChangeStat(Myself,THAC0,-16,SET)
+	ChangeStat(Myself,ARMORCLASS,-10,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-6,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-4,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-5,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-5,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-3,SET)
+	ChangeStat(Myself,MAXHITPOINTS,171,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,37)
+    LevelLT(Myself,37)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,37,SET)
+	ChangeStat(Myself,THAC0,-17,SET)
+	ChangeStat(Myself,ARMORCLASS,-10,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-6,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-4,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-5,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-5,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-3,SET)
+	ChangeStat(Myself,MAXHITPOINTS,174,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,38)
+    LevelLT(Myself,38)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,38,SET)
+	ChangeStat(Myself,THAC0,-18,SET)
+	ChangeStat(Myself,ARMORCLASS,-11,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-7,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-5,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-6,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-6,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-4,SET)
+	ChangeStat(Myself,MAXHITPOINTS,177,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,39)
+    LevelLT(Myself,39)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,39,SET)
+	ChangeStat(Myself,THAC0,-19,SET)
+	ChangeStat(Myself,ARMORCLASS,-11,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-7,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-5,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-6,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-6,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-4,SET)
+	ChangeStat(Myself,MAXHITPOINTS,180,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,40)
+    LevelLT(Myself,40)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,40,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-12,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-8,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-6,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-7,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-7,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-5,SET)
+	ChangeStat(Myself,MAXHITPOINTS,183,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,41)
+    LevelLT(Myself,41)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,41,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-12,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-8,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-6,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-7,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-7,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-5,SET)
+	ChangeStat(Myself,MAXHITPOINTS,186,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,42)
+    LevelLT(Myself,42)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,42,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-13,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-9,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-7,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-8,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-8,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-6,SET)
+	ChangeStat(Myself,MAXHITPOINTS,186,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,43)
+    LevelLT(Myself,43)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,43,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-13,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-9,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-7,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-8,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-8,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-6,SET)
+	ChangeStat(Myself,MAXHITPOINTS,189,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,44)
+    LevelLT(Myself,44)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,44,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-13,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-9,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-7,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-8,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-8,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-6,SET)
+	ChangeStat(Myself,MAXHITPOINTS,189,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,45)
+    LevelLT(Myself,45)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,45,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-13,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-9,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-7,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-8,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-8,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-6,SET)
+	ChangeStat(Myself,MAXHITPOINTS,192,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,46)
+    LevelLT(Myself,46)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,46,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-14,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-10,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-8,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-9,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-9,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-7,SET)
+	ChangeStat(Myself,MAXHITPOINTS,195,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,47)
+    LevelLT(Myself,47)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,47,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-14,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-10,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-8,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-9,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-9,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-7,SET)
+	ChangeStat(Myself,MAXHITPOINTS,198,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,48)
+    LevelLT(Myself,48)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,48,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-15,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-11,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-9,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-10,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-10,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-8,SET)
+	ChangeStat(Myself,MAXHITPOINTS,201,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,49)
+    LevelLT(Myself,49)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,49,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-15,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-11,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-9,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-10,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-10,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-8,SET)
+	ChangeStat(Myself,MAXHITPOINTS,204,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ApplySpellRES("c0autor",Myself)
+	ApplySpellRES("c0autor",Myself)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+	CombatCounter(0)
+	!Global("Standby","LOCALS",1)
+	ClassLevel("C0Aura",ROGUE,50)
+    LevelLT(Myself,50)
+THEN
+RESPONSE #100
+	SetGlobal("Upgrade","LOCALS",1)
+	CreateVisualEffectObject("spcrtwpn",Myself)
+	ChangeStat(Myself,LEVEL,50,SET)
+	ChangeStat(Myself,THAC0,-20,SET)
+	ChangeStat(Myself,ARMORCLASS,-16,SET)
+	ChangeStat(Myself,SAVEVSDEATH,-12,SET)
+	ChangeStat(Myself,SAVEVSWANDS,-10,SET)
+	ChangeStat(Myself,SAVEVSPOLY,-11,ADD)
+	ChangeStat(Myself,SAVEVSBREATH,-11,SET)
+	ChangeStat(Myself,SAVEVSSPELL,-9,SET)
+	ChangeStat(Myself,MAXHITPOINTS,207,SET)
+	SetName(~Black Automaton~)
+	Polymorph(%black_automaton%)
+	ReallyForceSpellRES("c0repair",Myself)
+END
+
+IF
+  Global("Ability1","LOCALS",0)
+  LevelGT(Myself,11)
+THEN
+  RESPONSE #100
+  SetGlobal("Ability1","LOCALS",1)
+  AddSpecialAbility("C0AUTOS4")
+END
+
+IF
+  Global("Ability2","LOCALS",0)
+  LevelGT(Myself,13)
+THEN
+  RESPONSE #100
+  SetGlobal("Ability2","LOCALS",1)
+  AddSpecialAbility("C0AUTOS8")
+END
+
+IF
+  Global("Ability3","LOCALS",0)
+  LevelGT(Myself,21)
+THEN
+  RESPONSE #100
+  SetGlobal("Ability3","LOCALS",1)
+  AddSpecialAbility("C0AUTOSA")
 END
 
 IF
@@ -637,6 +1667,7 @@ THEN
 END
 
 IF
+  InParty("C0Aura")
   !Global("Recharge","LOCALS",1)
   !Global("Standby","LOCALS",1)
   !Global("Disabled","LOCALS",1)
@@ -648,7 +1679,6 @@ IF
     !StateCheck("C0Aura",STATE_BERSERK)
     !StateCheck("C0Aura",STATE_CONFUSED)
 	CombatCounter(0)
-	Delay(6)
 	OR(2)
 	Global("FollowAura","LOCALS",1)
 	!Range("C0Aura",20)
@@ -656,4 +1686,26 @@ THEN
 	RESPONSE #100
 		SetGlobal("FollowAura","LOCALS",0)
 		MoveToObjectFollow("C0Aura")
+END
+
+IF
+  !InParty("C0Aura")
+  !Global("Recharge","LOCALS",1)
+  !Global("Standby","LOCALS",1)
+  !Global("Disabled","LOCALS",1)
+	!Global("Berserk","LOCALS",1)
+	ActionListEmpty()
+	!See(Nearestenemyof(Myself))
+    !StateCheck("C0Aura",STATE_IMMOBILE)
+    !StateCheck("C0Aura",STATE_PANIC)
+    !StateCheck("C0Aura",STATE_BERSERK)
+    !StateCheck("C0Aura",STATE_CONFUSED)
+	CombatCounter(0)
+	OR(2)
+	Global("FollowAura","LOCALS",1)
+	!Range(Player1,20)
+THEN
+	RESPONSE #100
+		SetGlobal("FollowAura","LOCALS",0)
+		MoveToObjectFollow(Player1)
 END

@@ -2177,37 +2177,10 @@ WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
   SAY DYING ~~ [C0AUTO9]
   SAY HURT ~~ [C0AUTOH]
 
-COPY_EXISTING ~c0auin3b.cre~ ~override~
+COPY_EXISTING ~c0auin3a.cre~ ~override/c0auin3b.cre~
   WRITE_ASCII 0X34 ~ABronzL~ #8   //small portrait
 SAY NAME1 ~Bronze Automaton~
 SAY NAME2 ~Bronze Automaton~
-WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
-  WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON~))
-  SAY BATTLE_CRY1 ~~ [C0AUTOA]
-  SAY BATTLE_CRY2 ~~ [C0AUTOB]
-  SAY BATTLE_CRY3 ~~ [C0AUTO4]
-  SAY BATTLE_CRY4 ~~ [C0AUTO6]
-  SAY BATTLE_CRY5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON1 ~~ [C0AUTO1]
-  SAY SELECT_COMMON2 ~~ [C0AUTO2]
-  SAY SELECT_COMMON3 ~~ [C0AUTOD]
-  SAY SELECT_COMMON4 ~~ [C0AUTOE]
-  SAY SELECT_COMMON5 ~~ [C0AUTOF]
-  SAY SELECT_COMMON6 ~~ [C0AUTOI]
-  SAY SELECT_ACTION1 ~~ [C0AUTO5]
-  SAY SELECT_ACTION2 ~~ [C0AUTO7]
-  SAY SELECT_ACTION3 ~~ [C0AUTOC]
-  SAY SELECT_ACTION4 ~~ [C0AUTO8]
-  SAY SELECT_ACTION5 ~~ [C0AUTOG]
-  SAY DAMAGE ~~ [C0AUTO3]
-  SAY DYING ~~ [C0AUTO9]
-  SAY HURT ~~ [C0AUTOH]
-
-COPY_EXISTING ~c0auin3c.cre~ ~override~
-  WRITE_ASCII 0X34 ~AJadeL~ #8   //small portrait
-SAY NAME1 ~Jade Automaton~
-SAY NAME2 ~Jade Automaton~
 WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
   WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
     WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_JADE~))
@@ -2231,10 +2204,11 @@ WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
   SAY DYING ~~ [C0AUTO9]
   SAY HURT ~~ [C0AUTOH]
 
-COPY_EXISTING ~c0auin3d.cre~ ~override~
-  WRITE_ASCII 0X34 ~ABlackL~ #8   //small portrait
-SAY NAME1 ~Black Automaton~
-SAY NAME2 ~Black Automaton~
+COPY_EXISTING ~c0auin3a.cre~ ~override/c0auin3c.cre~
+  WRITE_ASCII 0X34 ~AJadeL~ #8   //small portrait
+SAY NAME1 ~Jade Automaton~
+SAY NAME2 ~Jade Automaton~
+WRITE_BYTE 0x2e 32
 WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
   WRITE_ASCII 0x280 ~c0auin3~ #32  //DV
     WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AURA_AUTOMATON_BLACK~))
@@ -2257,43 +2231,81 @@ WRITE_ASCII 0x2cc ~c0auin3~  #8  // dialogue
   SAY DAMAGE ~~ [C0AUTO3]
   SAY DYING ~~ [C0AUTO9]
   SAY HURT ~~ [C0AUTOH]
+
+COPY_EXISTING ~C0I1SP.EFF~ ~override~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I1SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I2SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_HUGE~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I2SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I3SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_UNARMED~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I3SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I4SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_UNARMED_HUGE~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I4SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I5SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_JADE~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I5SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I6SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_HUGE_JADE~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I6SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I7SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_UNARMED_JADE~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I7SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I8SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_UNARMED_HUGE_JADE~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I8SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I9SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_BLACK~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I9SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0I0SP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_HUGE_BLACK~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0I0SP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0IASP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_UNARMED_BLACK~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0IASP~
+COPY_EXISTING ~C0I1SP.EFF~ ~override/C0IBSP.EFF~
+WRITE_SHORT 0x1c IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_UNARMED_HUGE_BLACK~)
+WRITE_BYTE 0x54 0
+WRITE_BYTE 0x90 1
+WRITE_ASCII 0x94 ~C0IBSP~
+
+COPY_EXISTING ~c0auto2.itm~ ~override~
+SAY NAME2 ~Sword Stance~
+SAY DESC ~While in this stance, the automaton uses its sword to attack at one base attack per round, dealing 1d10 slashing damage per hit. There is a 20% chance on each hit to deal 3d6 additional slashing damage on eacch hit.~
 COPY_EXISTING ~c0auto3.itm~ ~override~
+SAY NAME2 ~Unarmed Stance~
+SAY DESC ~While in this stance, the automaton uses its fists to attack at two base attacks per round, dealing 1d6 crushing damage per hit.~
+COPY_EXISTING ~c0auto31.spl~ ~override~
   LPF ALTER_EFFECT
     INT_VAR
       check_globals = 1
       check_headers = 1
       match_opcode = 139 // display string
  parameter1 = RESOLVE_STR_REF (~Stunned~)
-END
-COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3a.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      savebonus = (0 - 3)
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 45 // display string
-	  probability1 = 30
-END
-COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3b.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      savebonus = (0 - 4)
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 45 // display string
-	  probability1 = 35
-END
-COPY_EXISTING ~c0auto3.itm~ ~override/c0auto3c.itm~
-  LPF ALTER_EFFECT
-    INT_VAR
-      savebonus = (0 - 5)
-END
-  LPF ALTER_EFFECT
-    INT_VAR
-      match_opcode = 45 // display string
-	  probability1 = 40
 END
 COPY_EXISTING ~c0auto6a.itm~ ~override/c0auto6b.itm~
   LPF ALTER_EFFECT
@@ -2371,7 +2383,7 @@ LPF ALTER_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF (~Heale
 COPY_EXISTING ~c0auin7.spl~ ~override~
 SAY NAME1 ~Infusion~
 SAY UNIDENTIFIED_DESC ~Infusion
-The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a +1 enchantment for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
+The artificer infuses their allies' weapons with empowering elements, increasing their effectiveness. When using the ability, an artificer may enhance a particular type of physical damage, refreshing once per 8 hours. All party members' weapons of the corresponding type are treated as having a higher enchantment (based on the artificer's level) for the purposes of determining what they can hit for 8 hours and gain a 10% bonus to damage with the selected damage type +1% additional damage per two levels, capping at 30% at 40th level, with an additional effect:
   SLASHING: Increases critical hit rate with slashing weapons by 1.
   CRUSHING: Attacks with crushing weapons reduce target's THAC0 by 2 points for 2 rounds (non-cumulative).
   PIERCING: Attacks with piercing weapons reduce target's piercing resistance by 25% for 2 rounds (non-cumulative).
@@ -3905,5 +3917,10 @@ WRITE_LONG 0x34 9000
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0areset.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0ausumm.baf~
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin2.baf~
-  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin3.baf~
+
+OUTER_SET jade_automaton = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_JADE~)
+OUTER_SET black_automaton = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_BLACK~)
+
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin3.baf~ EVAL
+
   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0auin4.baf~

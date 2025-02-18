@@ -9,6 +9,20 @@ COPY ~%MOD_FOLDER%/spells~ ~override~
 //////////////////////////////// ANIMATIONS ///////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_0xxx BEGIN
+    ~lightning_bolt~ => ~C0_LIGHTNING_BOLT~
+  END
+  ACTION_PHP_EACH aura_anims_0xxx AS folder => symbol BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x0000 RET slot END
+    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+    COPY ~%MOD_FOLDER%/animations/%folder%/0xxx.ini~ ~override/%hexNumber%.ini~
+    OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
+    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
+END
+
 ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_7xxx BEGIN
     ~autocannon~ => ~C0_AUTOCANNON~
   END
@@ -25,11 +39,17 @@ END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY aura_anims_Exxx BEGIN
     ~automaton~ => ~C0_AURA_AUTOMATON~
-    ~automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE~
+    ~automaton/automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE~
+    ~automaton/automaton_unarmed~ => ~C0_AURA_AUTOMATON_UNARMED~
+    ~automaton/automaton_unarmed_huge~ => ~C0_AURA_AUTOMATON_UNARMED_HUGE~
     ~automaton_jade~ => ~C0_AURA_AUTOMATON_JADE~
-    ~automaton_jade_huge~ => ~C0_AURA_AUTOMATON_JADE_HUGE~
+    ~automaton_jade/automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE_JADE~
+    ~automaton_jade/automaton_unarmed~ => ~C0_AURA_AUTOMATON_UNARMED_JADE~
+    ~automaton_jade/automaton_unarmed_huge~ => ~C0_AURA_AUTOMATON_UNARMED_HUGE_JADE~
     ~automaton_black~ => ~C0_AURA_AUTOMATON_BLACK~
-    ~automaton_black_huge~ => ~C0_AURA_AUTOMATON_BLACK_HUGE~
+    ~automaton_black/automaton_huge~ => ~C0_AURA_AUTOMATON_HUGE_BLACK~
+    ~automaton_black/automaton_unarmed~ => ~C0_AURA_AUTOMATON_UNARMED_BLACK~
+    ~automaton_black/automaton_unarmed_huge~ => ~C0_AURA_AUTOMATON_UNARMED_HUGE_BLACK~
   END
   ACTION_PHP_EACH aura_anims_Exxx AS folder => symbol BEGIN
     ACTION_BASH_FOR ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bam~ ~%MOD_FOLDER%/animations/%folder%~ ~.+\.bmp~ BEGIN
@@ -217,6 +237,8 @@ ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro1.PRO~ ~C0 Healing Arr
 ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro2.PRO~ ~C0 Lightning Arrow~
 ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auar02.PRO~ ~C0 Lightning Arrow Chain 1~
 ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0lchain.PRO~ ~C0 Lightning Arrow Chain 2~
+COPY_EXISTING ~c0lchain.pro~ ~override~
+WRITE_SHORT 0x134 (IDS_OF_SYMBOL (~ANIMATE~ ~C0_LIGHTNING_BOLT~))
 COPY_EXISTING ~c0auar02.pro~ ~override~
 WRITE_SHORT 0x21A (IDS_OF_SYMBOL (~projectl~ ~c0lchain~)) + 1
 ADD_PROJECTILE ~%MOD_FOLDER%/artificer/projectiles/c0auaro3.PRO~ ~C0 Static Arrow~
