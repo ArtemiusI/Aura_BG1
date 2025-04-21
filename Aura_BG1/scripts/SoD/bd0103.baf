@@ -9,6 +9,7 @@ THEN
     SmallWait(1)
 	ActionOverride("PlayerChest00",TakeCreatureItems("C0Aura",BACKPACK))
     SmallWait(1)
+    ReallyForceSpellDeadRES("C0AUIN7X","C0Aura")
     ActionOverride("C0Aura",LeaveParty())
     SmallWait(1)
     ActionOverride("C0Aura",DestroySelf())

@@ -4,6 +4,7 @@ THEN
   RESPONSE #100
     CutSceneId(Player1)
     SetGlobal("C0Aura_party_epilogue","global",1)
+    ReallyForceSpellDeadRES("C0AUIN7X","C0Aura")
     ActionOverride("C0Aura",LeaveParty())
     ActionOverride("C0Aura",DestroyAllDestructableEquipment())
 END
