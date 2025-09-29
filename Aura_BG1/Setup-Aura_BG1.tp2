@@ -1,6 +1,5 @@
-BACKUP ~Aura_BG1/backup~
+BACKUP ~weidu_external/backup/Aura_BG1~
 AUTHOR ~AionZ~
-VERSION ~3.3~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~

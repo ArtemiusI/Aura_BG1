@@ -2347,9 +2347,6 @@ SAY NAME2 ~Deactivate: Barrier Sphere~
 SAY UNIDENTIFIED_DESC ~Barrier Sphere
 Use this ability to deactivate Barrier Sphere.~
 COPY_EXISTING ~c0autos4.spl~ ~override~
-  LPF ALTER_EFFECT INT_VAR header = 0 match_opcode = 53 parameter1 = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_HUGE~) END
-  LPF ALTER_EFFECT INT_VAR header = 1 match_opcode = 53 parameter1 = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_JADE_HUGE~) END
-  LPF ALTER_EFFECT INT_VAR header = 2 match_opcode = 53 parameter1 = IDS_OF_SYMBOL (~ANIMATE~ ~C0_AURA_AUTOMATON_BLACK_HUGE~) END
 SAY NAME1 ~Activate: Enlarge~
 SAY NAME2 ~Activate: Enlarge~
 SAY UNIDENTIFIED_DESC ~Enlarge
