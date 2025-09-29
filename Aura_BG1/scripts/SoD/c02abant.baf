@@ -1084,19 +1084,19 @@ RESPONSE #30
 RESPONSE #40
 	DisplayStringHead("C0Sirene",~I know you have a gentle soul. Still... I have a history of not being well-liked.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02AuraSirene2","MYAREA",40)
+	SetGlobal("C02AuraSirene2","MYAREA",50)
 RESPONSE #50
 	DisplayStringHead("C0Aura",~I like you.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02AuraSirene2","MYAREA",40)
+	SetGlobal("C02AuraSirene2","MYAREA",60)
 RESPONSE #60
 	DisplayStringHead("C0Sirene",~Truly? But... you know what I am.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
-	SetGlobal("C02AuraSirene2","MYAREA",50)
+	SetGlobal("C02AuraSirene2","MYAREA",70)
 RESPONSE #70
 	DisplayStringHead("C0Aura",~That doesn't matter. I know you're kind. I can see it in your eyes.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
-	SetGlobal("C02AuraSirene2","MYAREA",60)
+	SetGlobal("C02AuraSirene2","MYAREA",80)
 RESPONSE #80
 	DisplayStringHead("C0Sirene",~Thank you, Aura.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
