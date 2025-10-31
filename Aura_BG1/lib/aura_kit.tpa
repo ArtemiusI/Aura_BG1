@@ -9,9 +9,7 @@ COPY_EXISTING ~%MOD_FOLDER%/artificer/items/runes~ ~override~
 //////////////////////////////////// KIT //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~C0A_A01.SPL~ BEGIN
-INCLUDE ~%MOD_FOLDER%/LIB/ANALYZE.TPA~
-END
+INCLUDE ~%MOD_FOLDER%/EFFECTS/ANALYZE.TPA~
 
       ACTION_IF ("auraclass" = 1) THEN BEGIN
 COPY_EXISTING ~%MOD_FOLDER%/artificer/2da~ ~override~
